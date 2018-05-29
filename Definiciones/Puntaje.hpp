@@ -2,7 +2,7 @@
 #define PUNTAJE_HH
 
 #include <iostream>
-#include <string>
+#include <string.h>
 #include <stdlib.h>
 
 using namespace std;
@@ -17,7 +17,8 @@ class Puntaje {
 
 		/* Setters */
 		void setValor(int valor);
-
+        
+        Puntaje();
 		Puntaje(int valor);
 		~Puntaje();
 };

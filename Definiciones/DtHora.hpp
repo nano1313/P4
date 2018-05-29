@@ -2,7 +2,7 @@
 #define DTHORA_HH
 
 #include <iostream>
-#include <string>
+#include <string.h>
 #include <stdlib.h>
 
 using namespace std;
@@ -23,6 +23,7 @@ class DtHora {
 
     DtHora();
     DtHora(int hora, int minutos);
+    ~DtHora();
 
 };
 

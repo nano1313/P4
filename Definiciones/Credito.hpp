@@ -2,7 +2,7 @@
 #define CREDITO_HH
 
 #include <iostream>
-#include <string>
+#include <string.h>
 #include <stdlib.h>
 
 #include "./Tarjeta.hpp"
@@ -23,7 +23,7 @@ class Credito : public Tarjeta {
 		void setFinanciera(string financiera);
         void setDescuento(float descuento);
 
-		Credito(int numero, DtDireccion direccion, string financiera, float descuento);
+		Credito(string financiera, float descuento);
 		~Credito();
 };
 #endif

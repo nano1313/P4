@@ -21,6 +21,7 @@ class DtPago {
 
     DtPago();
     DtPago(unsigned int precio, unsigned int descuento);
+    ~DtPago();
 };
 
 #endif

@@ -2,7 +2,7 @@
 #define DEBITO_HH
 
 #include <iostream>
-#include <string>
+#include <string.h>
 #include <stdlib.h>
 
 #include "./Tarjeta.hpp"
@@ -20,7 +20,7 @@ class Debito : public Tarjeta {
 		/* Setters */
 		void setBanco(string banco);
 
-		Debito(int numero, DtDireccion direccion, string banco);
+		Debito(string banco);
 		~Debito();
 };
 #endif

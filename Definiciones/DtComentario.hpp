@@ -2,6 +2,7 @@
 #define DTCOMENTARIO_HH
 
 #include <iostream>
+#include <string.h>
 #include "DtComentario.hpp"
 
 using namespace std;
@@ -10,7 +11,7 @@ class DtComentario {
   private:
   	string usuario;
     string descripcion;
-	DtComentario respuestas;
+	DtComentario respuestas; //set DtComentario
 
   public:
     /* Getters */
@@ -24,7 +25,8 @@ class DtComentario {
 	void setRespuestas(DtComentario respuestas);
 
     DtComentario();
-    DtComentario(string usuario, string descripcion, DtComentario respuestas);
+    DtComentario(string usuario, string descripcion, DtComentario respuestas/*Tambien es un set*/);
+    ~DtComentario();
 
 };
 
