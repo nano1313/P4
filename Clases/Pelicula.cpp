@@ -54,10 +54,10 @@ void Pelicula::setDuracion(float duracion) {
 
 /* Metodos */
 
-int* Pelicula::seleccionarCine(int id) {
+int* Pelicula::seleccionarCine(int id) {	return NULL;
 	//
 }
 
-int* Pelicula::darListaCine() {
+int* Pelicula::darListaCine() {			return NULL;
 	//
 }

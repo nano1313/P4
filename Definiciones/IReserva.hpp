@@ -5,6 +5,8 @@
 #include <iostream>
 #include <string.h>
 
+#include "./DtPago.hpp";
+
 using namespace std;
 
 

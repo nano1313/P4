@@ -14,18 +14,12 @@ class IPelicula {
 
 	public:
 		virtual int* darListaCines();//Return set(Integer)
-		
         virtual int* seleccionarCine(int id);//set(int)
-        
         virtual string* darListaPeliculas();//set(String)
-        
-        virtual DTPelicula seleccionarPelicula(string titulo);
-                
-        virtual void confirmarEliminar();
-        
+        virtual DtPelicula seleccionarPelicula(string titulo);
+        virtual void confirmarEliminar(); 
         virtual void finalizar();
-        
-
+    
 };
 
 #endif

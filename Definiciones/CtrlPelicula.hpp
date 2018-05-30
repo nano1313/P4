@@ -5,6 +5,7 @@
 #include <string.h>
 #include <stdlib.h>
 
+#include "./IPelicula.hpp";
 #include "./DtPelicula.hpp";
 
 using namespace std;
@@ -25,9 +26,9 @@ class CtrlPelicula : public IPelicula {
         
          string* darListaPeliculas();
         
-         DTPelicula seleccionarPelicula(string titulo);
+         DtPelicula seleccionarPelicula1(string titulo);
         
-         void seleccionarPelicula(string titulo);
+         void seleccionarPelicula2(string titulo);
         
          void confirmarEliminar();
         

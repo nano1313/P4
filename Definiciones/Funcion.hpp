@@ -5,8 +5,8 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include "./DtFecha.hpp";
-#include "./DtHora.hpp";
+#include "./DtFecha.hpp"
+#include "./DtHora.hpp"
 
 using namespace std;
 

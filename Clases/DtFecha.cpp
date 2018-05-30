@@ -35,11 +35,11 @@ void DtFecha::setMes(int m){
 void DtFecha::setAnio(int a){
 	 anio=a;
 }
-
-ostream& operator<<(ostream& cout, DtFecha& f){
+/*
+ostream& DtFecha::operator<<(ostream& cout, DtFecha& f){
 	cout<<f.getDia()<<"/"<<f.getMes()<<"/"<<f.getAnio();
 }
-
+*/
 bool DtFecha::operator<(const DtFecha& r){
 	return (anio<r.anio) || (anio==r.anio && mes<r.mes) || (anio==r.anio && mes==r.mes && dia<r.dia);
 }

@@ -29,6 +29,6 @@ class DtFecha {
     bool operator<(const DtFecha&);
 };
 
-ostream& operator<<(ostream& cout, DtFecha& f);
+//ostream& operator<<(ostream& cout, DtFecha& f);
 
 #endif
