@@ -5,30 +5,33 @@
 #include <string.h>
 #include <stdlib.h>
 
+#include "./DtPelicula.hpp";
+
 using namespace std;
 
 
-class CtrlPelicula:public IPelicula {
+class CtrlPelicula : public IPelicula {
 
     private:
-        CtrlPelicula instancia;
+        static CtrlPelicula* instancia;
         CtrlPelicula();
-	public:
-         CtrlPelicula getInstancia();
-         
-		 darListaCines();//Return set(Integer)
-		
-         seleccionarCine(int id);//set(int)
         
-         darListaPeliculas();//set(String)
+	public:
+         static CtrlPelicula* getInstancia();
+         
+		 int* darListaCines();
+		
+         int* seleccionarCine(int id);
+        
+         string* darListaPeliculas();
         
          DTPelicula seleccionarPelicula(string titulo);
         
-         seleccionarPelicula(string titulo);
+         void seleccionarPelicula(string titulo);
         
-         confirmarEliminar();
+         void confirmarEliminar();
         
-         finalizar();
+         void finalizar();
         
 
 };

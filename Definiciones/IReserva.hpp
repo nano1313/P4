@@ -11,11 +11,11 @@ using namespace std;
 class IReserva {
 
 	public:
-		virtual seleccionarFuncion(int num, int cantAsientos);
-        virtual pagoCredito(string nomFin):DtPago;
-        virtual pagoDebito(string nomBanco):int;
-        virtual crearReserva();
-        virtual finalizarReserva();
+		virtual void seleccionarFuncion(int num, int cantAsientos);
+        virtual DtPago pagoCredito(string nomFin);
+        virtual int pagoDebito(string nomBanco);
+        virtual void crearReserva();
+        virtual void finalizarReserva();
 };
 
 #endif

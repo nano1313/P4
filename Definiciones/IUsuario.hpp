@@ -11,8 +11,8 @@ using namespace std;
 class IUsuario {
 
 	public:
-		virtual ingresarNick(string nick);
-        virtual ingresarContrasenia(string pass):bool;
+		virtual void ingresarNick(string nick);
+        virtual bool ingresarContrasenia(string pass);
 };
 
 #endif

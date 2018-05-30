@@ -20,6 +20,7 @@ DtDireccion Cine::getDireccion() {
 void Cine::setNumero(int numero) {
 	this->numero = numero;
 }
+
 void Cine::setDireccion(DtDireccion direccion) {
 	this->direccion = direccion;
 }

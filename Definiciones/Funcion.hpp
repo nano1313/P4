@@ -30,7 +30,7 @@ class Funcion {
 		void setHora(DtHora hora);
 		void setPrecio(float precio);
         
-        Fucion();
+        Funcion();
 		Funcion (int numero, DtFecha fecha, DtHora hora, float precio);
 		~Funcion();
 };

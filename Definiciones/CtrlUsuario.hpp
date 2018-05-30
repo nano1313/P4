@@ -4,18 +4,19 @@
 #include <iostream>
 #include <string.h>
 #include <stdlib.h>
+#include "./IUsuario.hpp";
 
 using namespace std;
 
 
-class CtrlUsuario:public IUsuario{
+class CtrlUsuario : public IUsuario{
 
     private:
-        CtrlUsuario instancia;
+        static CtrlUsuario* instancia;
         CtrlUsuario();
 	public:
-        CtrlUsuario getInstancia();
-		ingresarNick(string nick);
+        static CtrlUsuario* getInstancia();
+		void ingresarNick(string nick);
         bool ingresarContrasenia(string pass);
 };
 

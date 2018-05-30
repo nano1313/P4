@@ -1,6 +1,6 @@
 #include "../Definiciones/Credito.hpp"
 
-Credito::Credito (int numero, DtDireccion direccion, string financiera, float descuento) : Tarjeta(numero, direccion) { 
+Credito::Credito (string financiera, float descuento) : Tarjeta() { 
 	this->financiera = financiera;
     this->descuento = descuento;
 }

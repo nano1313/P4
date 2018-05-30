@@ -12,7 +12,7 @@ class Pelicula {
 		string titulo;
 		string poster;
 		string sinopsis;
-		//float promPuntaje;
+		float promPuntaje;
 		float duracion;
 
 	public:
@@ -27,7 +27,7 @@ class Pelicula {
 		void setTitulo(string titulo);
 		void setPoster(string poster);
 		void setSinopsis(string sinopsis);
-		//void setPromPuntaje(float promPuntaje);
+		void setPromPuntaje(float promPuntaje);
 		void setDuracion(float duracion);
 
 		/* Metodos */

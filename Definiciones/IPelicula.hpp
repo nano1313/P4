@@ -5,25 +5,25 @@
 #include <string.h>
 #include <stdlib.h>
 
+#include "./DtPelicula.hpp";
+
 using namespace std;
 
 
 class IPelicula {
 
 	public:
-		virtual darListaCines();//Return set(Integer)
+		virtual int* darListaCines();//Return set(Integer)
 		
-        virtual seleccionarCine(int id);//set(int)
+        virtual int* seleccionarCine(int id);//set(int)
         
-        virtual darListaPeliculas();//set(String)
+        virtual string* darListaPeliculas();//set(String)
         
         virtual DTPelicula seleccionarPelicula(string titulo);
+                
+        virtual void confirmarEliminar();
         
-        virtual seleccionarPelicula(string titulo);
-        
-        virtual confirmarEliminar();
-        
-        virtual finalizar();
+        virtual void finalizar();
         
 
 };
