@@ -2,6 +2,7 @@
 #define DTPUNTAJE_HH
 
 #include <iostream>
+#include <string.h>
 
 using namespace std;
 
@@ -12,7 +13,7 @@ class DtPuntaje {
 
   public:
     /* Getters */
-	  string getUsuario();
+	string getUsuario();
     unsigned int getPuntaje();
 
     /* Setters */
@@ -21,6 +22,7 @@ class DtPuntaje {
 
     DtPuntaje();
     DtPuntaje(string usuario, unsigned int puntaje);
+    ~DtPuntaje();
 
 };
 

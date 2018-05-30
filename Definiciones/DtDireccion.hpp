@@ -2,7 +2,7 @@
 #define DTDIRECCION_HH
 
 #include <iostream>
-
+#include <string.h>
 using namespace std;
 
 class DtDireccion {
@@ -21,6 +21,7 @@ class DtDireccion {
 
     DtDireccion();
     DtDireccion(string calle, int numero);
+    ~DtDireccion();
 };
 
 #endif

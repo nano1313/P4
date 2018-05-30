@@ -2,7 +2,7 @@
 #define CINE_HH
 
 #include <iostream>
-#include <string>
+#include <string.h>
 #include <stdlib.h>
 
 #include "DtDireccion.hpp"

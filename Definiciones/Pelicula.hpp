@@ -2,7 +2,7 @@
 #define PELICULA_HH
 
 #include <iostream>
-#include <string>
+#include <string.h>
 #include <stdlib.h>
 
 using namespace std;
@@ -12,7 +12,7 @@ class Pelicula {
 		string titulo;
 		string poster;
 		string sinopsis;
-		float promPuntaje;
+		//float promPuntaje;
 		float duracion;
 
 	public:
@@ -27,7 +27,7 @@ class Pelicula {
 		void setTitulo(string titulo);
 		void setPoster(string poster);
 		void setSinopsis(string sinopsis);
-		void setPromPuntaje(float promPuntaje);
+		//void setPromPuntaje(float promPuntaje);
 		void setDuracion(float duracion);
 
 		/* Metodos */
@@ -35,6 +35,7 @@ class Pelicula {
 		int* seleccionarCine(int id);
 		int* darListaCine();
 
+        Pelicula();
 		Pelicula(string titulo, string poster,string sinopsis, float promPuntaje, float duracion);
 		~Pelicula();
 };

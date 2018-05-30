@@ -2,7 +2,7 @@
 #define RESERVA_HH
 
 #include <iostream>
-#include <string>
+#include <string.h>
 #include <stdlib.h>
 
 using namespace std;
@@ -20,8 +20,8 @@ class Reserva {
 		void setCantAsientos(int cantAsientos);
 		void setCosto(float costo);
 
-
-		Reserva(int cantAsientos, float costo);
+        Reserva();
+		Reserva(int cantAsientos, float costo);   
 		~Reserva();
 };
 #endif

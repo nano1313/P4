@@ -2,7 +2,7 @@
 #define USUARIO_HH
 
 #include <iostream>
-#include <string>
+#include <string.h>
 #include <stdlib.h>
 
 #include "./Reserva.hpp"
@@ -28,6 +28,7 @@ class Usuario {
 		/* Metodos */
 		void eliminarAsociaciones(Reserva r);
 
+        Usuario();
 		Usuario(string nickname, string contrasenia, string imagen);
 		~Usuario();
 };

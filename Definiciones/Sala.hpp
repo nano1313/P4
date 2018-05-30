@@ -2,12 +2,11 @@
 #define SALA_HH
 
 #include <iostream>
-#include <string>
+#include <string.h>
 #include <stdlib.h>
 
 using namespace std;
 
-class Sala;
 
 class Sala {
 	private:
@@ -23,6 +22,7 @@ class Sala {
 		void setNumero(int numero);
 		void setCapacidad(int capacidad);
 
+        Sala();
 		Sala(int numero, int capacidad);
 		~Sala();
 };

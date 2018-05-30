@@ -2,7 +2,7 @@
 #define FUNCION_HH
 
 #include <iostream>
-#include <string>
+#include <string.h>
 #include <stdlib.h>
 
 #include "./DtFecha.hpp";
@@ -29,7 +29,8 @@ class Funcion {
 		void setFecha(DtFecha fecha);
 		void setHora(DtHora hora);
 		void setPrecio(float precio);
-
+        
+        Fucion();
 		Funcion (int numero, DtFecha fecha, DtHora hora, float precio);
 		~Funcion();
 };
