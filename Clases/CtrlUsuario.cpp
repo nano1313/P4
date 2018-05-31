@@ -13,24 +13,24 @@ CtrlUsuario* CtrlUsuario::getInstancia()
 
 void CtrlUsuario::ingresarNick(string nick){
 
-    this->Nickname = nick;
+    this->nickname = nick;
 }
 
 bool CtrlUsuario::ingresarContrasenia(string pass){
 
-    map<string, Pelicula *>::iterator it;
-    it = this->usuarios[this->Nickname];
+    map<string, Usuario *>::iterator it;
+    it = this->usuarios[this->nickname];
     return (it->getContrasenia() == pass);
 }
 
 DtUsuario* CtrlUsuario::getUsuarioLog(){
 
-    if (this->UsuarioLog != NULL){
+    if (this->usuarioLog != NULL){
 
-        string nick = this->UsuarioLog->getNickname();
-        string pass = this->UsuarioLog->getCpntrasenia();
-        string imagen = this->UsuarioLog->getImagen();
-        int nivel = this->UsuarioLog->getNivel();
+        string nick = this->usuarioLog->getNickname();
+        string pass = this->usuarioLog->getCpntrasenia();
+        string imagen = this->usuarioLog->getImagen();
+        int nivel = this->usuarioLog->getNivel();
         DtUsuario *Data = new DtUsuario(nick, pass, imagen, nivel);
         return Data;
     }
