@@ -7,6 +7,7 @@
 
 #include "./DtFecha.hpp"
 #include "./DtHora.hpp"
+#include "./Sala.hpp"
 
 using namespace std;
 
@@ -16,6 +17,7 @@ class Funcion {
 		DtFecha fecha;
 		DtHora hora;
 		float precio;
+		Sala * salas;
 
 	public:
 		/* Getters */
@@ -23,6 +25,8 @@ class Funcion {
 		DtFecha getFecha();
 		DtHora getHora();
 		float getPrecio();
+		float getPrecio();
+		Sala * getSala();
 
 		/* Setters */
 		void setNumero(int numero);

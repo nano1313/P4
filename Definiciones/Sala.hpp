@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string.h>
 #include <stdlib.h>
+#include "./Cine.hpp"
 
 using namespace std;
 
@@ -12,11 +13,13 @@ class Sala {
 	private:
 		int numero;
 		int capacidad;
+		Cine * cine;
 
 	public:
 		/* Getters */
 		int getNumero();
 		int getCapacidad();
+		Cine * getCine();
 
 		/* Setters */
 		void setNumero(int numero);

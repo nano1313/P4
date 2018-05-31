@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string.h>
 #include <stdlib.h>
+#include "Funcion.hpp";
 
 using namespace std;
 
@@ -14,6 +15,7 @@ class Pelicula {
 		string sinopsis;
 		float promPuntaje;
 		float duracion;
+		map<string, Funcion *> * funciones;
 
 	public:
 		/* Getters */
@@ -22,6 +24,7 @@ class Pelicula {
 		string getSinopsis();
 		float getPromPuntaje();
 		float getDuracion();
+		map<string, Funcion *> * getFunciones();
 
 		/* Setters */
 		void setTitulo(string titulo);

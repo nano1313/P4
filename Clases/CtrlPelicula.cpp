@@ -13,8 +13,6 @@ CtrlPelicula* CtrlPelicula::getInstancia()
 
 
 vector<string> CtrlPelicula::darListaPeliculas() {
-
-    int size = this->peliculas.size();
     map<string, Pelicula *>::iterator it = peliculas.begin();
 
     vector<string> nombres;
@@ -41,12 +39,31 @@ DtPelicula CtrlPelicula::seleccionarPelicula1(string titulo) {
     return pelicula;
 }
 
+
 vector<int> CtrlPelicula::darListaCines() {
-    map<string, Cine *>::iterator it = cines.begin();
+    Pelicula * pelicula; // Global en el futuro
     vector<int> cines;
 
-    for (it = this->cines.begin(); it!=this->cines.end(); it++) {
-        cines.push_back(it->second->getNumero());
+    map<string, Funcion *> * funciones = pelicula->getFunciones();
+
+    for (map<string,Funcion *>::iterator it = funciones->begin(); it!=funciones->end(); ++it) {
+        cines.push_back(it->second->getSala()->getCine()->getNumero());
     }
+        
     return cines;
+}
+
+vector<int> CtrlPelicula::seleccionarCine(int id) {
+    Pelicula * pelicula; // Global en el futuro
+    vector<int> cines_funciones;
+
+    map<string, Funcion *> * funciones = pelicula->getFunciones();
+
+    for (map<string,Funcion *>::iterator it = funciones->begin(); it!=funciones->end(); ++it) {
+        if (it->second->getSala()->getCine()->getNumero())
+        {
+            cines_funciones.push_back(it->second->getNumero());
+        }
+    }
+    return cines_funciones;
 }
