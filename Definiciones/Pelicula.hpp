@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string.h>
 #include <stdlib.h>
+#include <map>
 #include "Funcion.hpp";
 
 using namespace std;
