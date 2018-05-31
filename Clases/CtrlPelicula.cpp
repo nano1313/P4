@@ -25,3 +25,19 @@ vector<string> CtrlPelicula::darListaPeliculas() {
 
     return nombres;
 }
+
+DtPelicula CtrlPelicula::seleccionarPelicula1(string titulo) {
+    map<string, Pelicula *>::iterator it = peliculas.begin();
+    DtPelicula pelicula;
+
+    for (it = this->peliculas.begin(); it!=this->peliculas.end(); it++) {
+        
+        if (titulo == it->first)
+        {
+            pelicula = DtPelicula(it->second->getPoster(), it->second->getSinopsis());
+            break;
+        }
+    }
+
+    return pelicula;
+}
