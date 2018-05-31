@@ -18,11 +18,11 @@ class Fabrica {
         Fabrica* instancia;
         Fabrica();
 	public:
-        Fabrica* getInstancia();
-        IReserva getIReserva();
-        IUsuario getIUsuario();
-        IPelicula getIPelicula();
-		
+        static Fabrica* getInstancia();
+        IReserva* getIReserva();
+        IUsuario* getIUsuario();
+        IPelicula* getIPelicula();
+
 };
 
 #endif

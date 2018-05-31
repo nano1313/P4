@@ -14,11 +14,13 @@ class Usuario {
 		string nickname;
 		string contrasenia;
 		string imagen;
+		int nivel;
 	public:
 		/* Getters */
 		string getNickname();
 		string getContrasenia();
 		string getImagen();
+		int getNivel();
 
 		/* Setters */
 		void setNickname(string nickname);
@@ -29,7 +31,7 @@ class Usuario {
 		void eliminarAsociaciones(Reserva r);
 
         Usuario();
-		Usuario(string nickname, string contrasenia, string imagen);
+		Usuario(string nickname, string contrasenia, string imagen, int nivel);
 		~Usuario();
 };
 #endif
