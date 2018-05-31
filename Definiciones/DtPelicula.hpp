@@ -7,20 +7,29 @@ using namespace std;
 
 class DtPelicula {
   private:
-    string poster;
-    string sinopsis;
+    string titulo;
+		string poster;
+		string sinopsis;
+		float promPuntaje;
+		float duracion;
 
   public:
-    /* Getters */
-    string getPoster();
-    string getSinopsis();
+		/* Getters */
+		string getTitulo();
+		string getPoster();
+		string getSinopsis();
+		float getPromPuntaje();
+		float getDuracion();
 
-    /* Setters */
-    void setPoster(string poster);
-    void setSinopsis(string sinopsis);
+		/* Setters */
+		void setTitulo(string titulo);
+		void setPoster(string poster);
+		void setSinopsis(string sinopsis);
+		void setPromPuntaje(float promPuntaje);
+		void setDuracion(float duracion);
 
     DtPelicula();
-    DtPelicula(string poster, string sinopsis);
+    DtPelicula(string titulo, string poster,string sinopsis, float promPuntaje, float duracion);
     ~DtPelicula();
 };
 

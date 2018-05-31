@@ -34,7 +34,7 @@ DtPelicula CtrlPelicula::seleccionarPelicula1(string titulo) {
         
         if (titulo == it->first)
         {
-            pelicula = DtPelicula(it->second->getPoster(), it->second->getSinopsis());
+            pelicula = DtPelicula(it->second->getTitulo(), it->second->getPoster(), it->second->getSinopsis(), it->second->getPromPuntaje(), it->second->getDuracion());
             break;
         }
     }
