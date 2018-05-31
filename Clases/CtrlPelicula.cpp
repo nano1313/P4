@@ -38,6 +38,15 @@ DtPelicula CtrlPelicula::seleccionarPelicula1(string titulo) {
             break;
         }
     }
-
     return pelicula;
+}
+
+vector<int> CtrlPelicula::darListaCines() {
+    map<string, Cine *>::iterator it = cines.begin();
+    vector<int> cines;
+
+    for (it = this->cines.begin(); it!=this->cines.end(); it++) {
+        cines.push_back(it->second->getNumero());
+    }
+    return cines;
 }

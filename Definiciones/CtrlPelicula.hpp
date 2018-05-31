@@ -4,12 +4,11 @@
 #include <iostream>
 #include <string.h>
 #include <stdlib.h>
-#include <map>
-#include <vector>
 
 #include "./IPelicula.hpp";
 #include "./DtPelicula.hpp";
 #include "./Pelicula.hpp";
+#include "./Cine.hpp";
 
 using namespace std;
 
@@ -19,28 +18,27 @@ class CtrlPelicula : public IPelicula {
     private:
         static CtrlPelicula* instancia;
         map<string, Pelicula *> peliculas;
+        map<string, Cine *> cines;
         
-
         CtrlPelicula();
         
 	public:
-         static CtrlPelicula* getInstancia();
-         
-		 int* darListaCines();
-		
-         int* seleccionarCine(int id);
-        
-         vector<string> darListaPeliculas();
-        
-         DtPelicula seleccionarPelicula1(string titulo);
-        
-         void seleccionarPelicula2(string titulo);
-        
-         void confirmarEliminar();
-        
-         void finalizar();
-        
+        static CtrlPelicula* getInstancia();
 
+        vector<int> darListaCines();
+
+        vector<int> seleccionarCine(int id);
+
+        vector<string> darListaPeliculas();
+
+        DtPelicula seleccionarPelicula1(string titulo);
+
+        void seleccionarPelicula2(string titulo);
+
+        void confirmarEliminar();
+
+        void finalizar();
+        
 };
 
 #endif

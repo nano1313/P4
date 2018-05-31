@@ -4,6 +4,8 @@
 #include <iostream>
 #include <string.h>
 #include <stdlib.h>
+#include <map>
+#include <vector>
 
 #include "./DtPelicula.hpp";
 
@@ -13,9 +15,9 @@ using namespace std;
 class IPelicula {
 
 	public:
-		virtual int* darListaCines();//Return set(Integer)
-        virtual int* seleccionarCine(int id);//set(int)
-        virtual vector<string> darListaPeliculas();//set(String)
+		virtual vector<int> darListaCines();
+        virtual vector<int> seleccionarCine(int id);
+        virtual vector<string> darListaPeliculas();
         virtual DtPelicula seleccionarPelicula(string titulo);
         virtual void confirmarEliminar(); 
         virtual void finalizar();
