@@ -5,10 +5,10 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include "./IPelicula.hpp";
-#include "./DtPelicula.hpp";
-#include "./Pelicula.hpp";
-#include "./Cine.hpp";
+#include "./IPelicula.hpp"
+#include "./DtPelicula.hpp"
+#include "./Pelicula.hpp"
+#include "./Cine.hpp"
 
 using namespace std;
 
@@ -22,7 +22,7 @@ class CtrlPelicula : public IPelicula {
         
         CtrlPelicula();
         
-	public:
+        public:
         static CtrlPelicula* getInstancia();
 
         vector<int> darListaCines();

@@ -1,15 +1,13 @@
-#ifndef USUARIO_HH
-#define USUARIO_HH
+#ifndef DTUSUARIO_HH
+#define DTUSUARIO_HH
 
 #include <iostream>
 #include <string.h>
 #include <stdlib.h>
 
-#include "./Reserva.hpp"
-
 using namespace std;
 
-class Usuario {
+class DtUsuario {
 	private:
 		string nickname;
 		string contrasenia;
@@ -29,11 +27,8 @@ class Usuario {
 		void setImagen(string imagen);
 		void setNivel(int nivel);
 
-		/* Metodos */
-		void eliminarAsociaciones(Reserva r);
-
-        Usuario();
-		Usuario(string nickname, string contrasenia, string imagen, int nivel);
-		~Usuario();
+        DtUsuario();
+		DtUsuario(string nickname, string contrasenia, string imagen, int nivel);
+		~DtUsuario();
 };
 #endif
