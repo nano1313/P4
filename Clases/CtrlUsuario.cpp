@@ -16,17 +16,20 @@ void CtrlUsuario::ingresarNick(string nick){
 }
 
 bool CtrlUsuario::ingresarContrasenia(string pass){
-
     map<string, Usuario *>::iterator it;
-    it = this->usuarios[this->nickname];
-    return (it->getContrasenia() == pass);
+    it = this->usuarios.find(this->nickname);
+
+    if (it->second)
+        return (it->second->getContrasenia() == pass);
+    else 
+        return false;
 }
 
 void CtrlUsuario::cerrarSesion() {
   this->usuarioLog = NULL;
 }
 
-DtUsuario* CtrlUsuario::getUsuarioLog(){
+DtUsuario* CtrlUsuario::getUsuarioLog() {
 
     if (this->usuarioLog != NULL){
 
