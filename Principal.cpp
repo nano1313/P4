@@ -36,7 +36,7 @@ void switchAdmin(int resp);
 
 /*Fin Cabezales*/
 
-Fabrica fab;
+Fabrica* fab;
 
 int main(){
 
@@ -51,9 +51,8 @@ int main(){
 		menuDesplegado=menuCabezal + menuUsuarioNoLog;
 		string respStr;
 		int resp;
-		Fabrica* fab;
 		fab=fab->getInstancia();
-		IUsuario iUsr=fab->getIUsuario();
+		IUsuario* iUsr=fab->getIUsuario();
 
     do
 		{
@@ -181,7 +180,7 @@ void switchAdmin (int resp) {
 }
 
 void iniciarSesion(){
-			IUsuario iUser =fab->getIUsuario();
+			IUsuario* iUser =fab->getIUsuario();
 			string aux="";
 			bool flagWhile;
 			do{
@@ -202,7 +201,7 @@ void iniciarSesion(){
 }
 
 void cerrarSesion(){
-	IUsuario iUser=fab->getIUsuario();
+	IUsuario* iUser=fab->getIUsuario();
 	iUser->cerrarSesion();
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

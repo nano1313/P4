@@ -23,6 +23,10 @@ bool CtrlUsuario::ingresarContrasenia(string pass){
     return (it->getContrasenia() == pass);
 }
 
+void cerrarSesion(){
+  this->usuarioLog=NULL;
+}
+
 DtUsuario* CtrlUsuario::getUsuarioLog(){
 
     if (this->usuarioLog != NULL){

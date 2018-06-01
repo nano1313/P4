@@ -25,6 +25,7 @@ class CtrlUsuario : public IUsuario{
                 static CtrlUsuario* getInstancia();
                 void ingresarNick(string nick);
                 bool ingresarContrasenia(string pass);
+                void cerrarSesion();
                 DtUsuario* getUsuarioLog(); //devuelve NULL si no hay Usuario Logueado
 };
 
