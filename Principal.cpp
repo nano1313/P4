@@ -36,19 +36,23 @@ void switchAdmin(int resp);
 
 /*Fin Cabezales*/
 
+Fabrica* fab;
+
 int main(){
 
+		/*Inicializo variables */
 		DtUsuario* usrLogueado=NULL;
     string menuDesplegado;//<//="Bienvenido. Elija la opción.\n1) Registrar socio\n2) Agregar mascota\n3) Ingresar consulta\n4) Ver consulta antes de una fecha\n5) Eliminar socio\n6) Obtener mascotas de un socio\n0) Salir\n";
-		string menuCabezal="******************************************************************************\n*                                                                            *\n*                           MOVIEFING                                        *\n*                                                                            *\n******************************************************************************\nBienvenido. Elija la opción."
+		string menuCabezal="******************************************************************************\n*                                                                            *\n*                           MOVIEFING                                        *\n*                                                                            *\n******************************************************************************\nBienvenido. Elija la opción.";
 
-		string menuUsuarioNoLog="1) Iniciar Sesion\n2) Ver Informacion de Pelicula\n3) Ver Comentarios y Puntaje de Pelicula\n0) Salir\n"
+		string menuUsuarioNoLog="1) Iniciar Sesion\n2) Ver Informacion de Pelicula\n3) Ver Comentarios y Puntaje de Pelicula\n0) Salir\n";
 		string menuUsuarioLog="1) Crear Reserva\n2) Puntuar Pelicula\n3) Comentar Pelicula\n4) Ver Informacion de Pelicula\n5) Ver Comentarios y Puntaje de Pelicula\n6) Ver Reservas\n7)Cerrar Sesion\n0) Cerrar Sesion y Salir\n";
 		string menuUsuarioAdmin="1) Crear Reserva\n2) Puntuar Pelicula\n3) Comentar Pelicula\n4) Ver Informacion de Pelicula\n5) Ver Comentarios y Puntaje de Pelicula\n6) Ver Reservas\n7) Alta Cine\n8) Alta Funcion\n9) Eliminar Pelicula\n10)Cerrar Sesion\n0) Cerrar Sesion y Salir\n";
 		menuDesplegado=menuCabezal + menuUsuarioNoLog;
 		string respStr;
-		Fabrica* fab=Fabrica->getInstancia();
-		IUsuario iUsr=fab->getIUsuario();
+		int resp;
+		fab=fab->getInstancia();
+		IUsuario* iUsr=fab->getIUsuario();
 
     do
 		{
@@ -58,7 +62,7 @@ int main(){
 				cin >> respStr;
 				resp	=	StrToInt(respStr);
 				switchNoLog(resp);
-			}else if(usrLogueado->nivel==1){
+			}else if(usrLogueado->getNivel()==1){
 				cout << menuCabezal +  menuUsuarioLog<<endl;
 				cin >> respStr;
 				resp	=	StrToInt(respStr);
@@ -175,4 +179,29 @@ void switchAdmin (int resp) {
 	}
 }
 
+void iniciarSesion(){
+			IUsuario* iUser =fab->getIUsuario();
+			string aux="";
+			bool flagWhile;
+			do{
+				cout << "Ingresa tu nick: " << '\n';
+				cin >> aux;
+				iUser->ingresarNick(aux);
+				cout << "Ingresa tu password: " << '\n';
+				cin >> aux;
+				flagWhile=iUser->ingresarContrasenia(aux);
+				if(!flagWhile){
+					cout << "Datos incorrectos... \nDesea volver a intentar(S/N):" << '\n';
+					cin >> aux;
+					if(aux=="n" || aux=="N"){
+						flagWhile=true;
+					}
+				}
+			}while(!flagWhile);
+}
+
+void cerrarSesion(){
+	IUsuario* iUser=fab->getIUsuario();
+	iUser->cerrarSesion();
+}
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

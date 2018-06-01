@@ -11,7 +11,7 @@ CtrlUsuario* CtrlUsuario::getInstancia()
     return instancia;
 }
 
-void CtrlUsuario::ingresarNick(string nick) {
+void CtrlUsuario::ingresarNick(string nick){
     this->nickname = nick;
 }
 
@@ -20,6 +20,10 @@ bool CtrlUsuario::ingresarContrasenia(string pass){
     map<string, Usuario *>::iterator it;
     it = this->usuarios[this->nickname];
     return (it->getContrasenia() == pass);
+}
+
+void CtrlUsuario::cerrarSesion() {
+  this->usuarioLog = NULL;
 }
 
 DtUsuario* CtrlUsuario::getUsuarioLog(){

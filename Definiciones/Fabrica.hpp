@@ -5,9 +5,9 @@
 #include <iostream>
 #include <string.h>
 
-#include "./IReserva.hpp";
-#include "./IUsuario.hpp";
-#include "./IPelicula.hpp";
+#include "./IReserva.hpp"
+#include "./IUsuario.hpp"
+#include "./IPelicula.hpp"
 
 using namespace std;
 
