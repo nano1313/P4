@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string.h>
 #include <stdlib.h>
+#include <map>
 
 #include "./Usuario.hpp"
 #include "./DtUsuario.hpp"
@@ -15,9 +16,9 @@ using namespace std;
 class CtrlUsuario : public IUsuario{
 
         private:
-                string Nickname;
-                string Contrasenia;
-                Usuario* UsuarioLog = NULL;
+                string nickname;
+                string contrasenia;
+                Usuario* usuarioLog = NULL;
                 static CtrlUsuario* instancia;
                 map<string, Usuario *> usuarios;
                 CtrlUsuario();
