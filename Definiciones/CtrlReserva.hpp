@@ -5,14 +5,14 @@
 #include <iostream>
 #include <string.h>
 
-#include "./IReserva.hpp";
-#include "./DtPago.hpp";
+#include "./IReserva.hpp"
+#include "./DtPago.hpp"
 
 using namespace std;
 
 
 class CtrlReserva : public IReserva {
-    
+
     private:
         static CtrlReserva* instancia;
         CtrlReserva();

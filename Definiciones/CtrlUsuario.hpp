@@ -7,7 +7,7 @@
 
 #include "./Usuario.hpp"
 #include "./DtUsuario.hpp"
-#include "./IUsuario.hpp";
+#include "./IUsuario.hpp"
 
 using namespace std;
 
