@@ -7,6 +7,18 @@
 
 #include "./IReserva.hpp"
 #include "./DtPago.hpp"
+#include "Pelicula.hpp"
+#include "Funcion.hpp"
+#include "Sala.hpp"
+#include "Cine.hpp"
+#include "Tarjeta.hpp"
+#include "Debito.hpp"
+#include "Credito.hpp"
+#include "Reserva.hpp"
+#include "Usuario.hpp"
+
+
+
 
 using namespace std;
 

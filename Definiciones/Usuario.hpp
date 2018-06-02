@@ -4,8 +4,9 @@
 #include <iostream>
 #include <string.h>
 #include <stdlib.h>
+#include "Reserva.hpp"
+#include <set>
 
-#include "./Reserva.hpp"
 
 using namespace std;
 
@@ -15,7 +16,8 @@ class Usuario {
 		string contrasenia;
 		string imagen;
 		int nivel;
-		
+		set<Reserva *> Reservas;
+
 	public:
 		/* Getters */
 		string getNickname();
@@ -30,7 +32,8 @@ class Usuario {
 		void setNivel(int nivel);
 
 		/* Metodos */
-		void eliminarAsociaciones(Reserva r);
+	    void eliminarAsociaciones(Reserva *r);
+		void aniadirReserva(Reserva *r);
 
         Usuario();
 		Usuario(string nickname, string contrasenia, string imagen, int nivel);

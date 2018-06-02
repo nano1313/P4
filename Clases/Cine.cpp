@@ -11,6 +11,10 @@ int Cine::getNumero() {
 	return this->numero;
 }
 
+int Cine::getPrecio() {
+	return this->precio;
+}
+
 DtDireccion Cine::getDireccion() {
 	return this->direccion;
 }
@@ -24,3 +28,7 @@ void Cine::setNumero(int numero) {
 void Cine::setDireccion(DtDireccion direccion) {
 	this->direccion = direccion;
 }
+void Cine::setPrecio(int p) {
+	this->precio = p;
+}
+

@@ -45,8 +45,12 @@ void Usuario::setNivel(int nivel){
 	this->nivel = nivel;
 }
 
+
 /* Metodos */
 
-void Usuario::eliminarAsociaciones(Reserva reserva) {
-	//
+void Usuario::eliminarAsociaciones(Reserva *r) {
+	 this->Reservas.erase(Reservas.find(r));
+}
+void Usuario::aniadirReserva(Reserva *r){
+	this->Reservas.insert(r);
 }

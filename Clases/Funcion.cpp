@@ -18,11 +18,11 @@ DtFecha Funcion::getFecha() {
 DtHora Funcion::getHora() {
 	return this->hora;
 }
-
+/*
 float Funcion::getPrecio() {
 	return this->precio;
 }
-
+*/
 /* Setters */
 void Funcion::setNumero(int numero) {
 	this->numero = numero;
@@ -35,8 +35,8 @@ void Funcion::setFecha(DtFecha fecha) {
 void Funcion::setHora(DtHora hora) {
 	this->hora = hora;
 }
-
+/*
 void Funcion::setPrecio(float precio) {
 	this->precio = precio;
 }
-
+*/
