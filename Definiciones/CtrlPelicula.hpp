@@ -25,9 +25,9 @@ class CtrlPelicula : public IPelicula {
         public:
         static CtrlPelicula* getInstancia();
 
-        vector<int> darListaCines();
+        vector<int> darListaCines(Pelicula * pelicula);
 
-        vector<int> seleccionarCine(int id);
+        vector<int> seleccionarCine(int id, Pelicula * pelicula);
 
         vector<DtPelicula> darListaPeliculas();
 

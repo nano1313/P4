@@ -25,7 +25,6 @@ class Funcion {
 		DtFecha getFecha();
 		DtHora getHora();
 		float getPrecio();
-		float getPrecio();
 		Sala * getSala();
 
 		/* Setters */

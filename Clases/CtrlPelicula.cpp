@@ -19,7 +19,8 @@ vector<DtPelicula> CtrlPelicula::darListaPeliculas() {
 
     for (it = this->peliculas.begin(); it!=this->peliculas.end(); it++) {
         DtPelicula nuevo = DtPelicula(it->second->getTitulo(), it->second->getPoster(),
-        it->second->getSinopsis(), it->second->getPromPuntaje(), it->second->getDuracion);
+                                      it->second->getSinopsis(),it->second->getPromPuntaje(),
+                                      it->second->getDuracion());
         peliculas.push_back(nuevo);
     }
 
@@ -42,8 +43,7 @@ DtPelicula CtrlPelicula::seleccionarPelicula1(string titulo) {
 }
 
 
-vector<int> CtrlPelicula::darListaCines() {
-    Pelicula * pelicula; // Global en el futuro
+vector<int> CtrlPelicula::darListaCines(Pelicula * pelicula) {
     vector<int> cines;
 
     map<string, Funcion *> * funciones = pelicula->getFunciones();
@@ -55,8 +55,7 @@ vector<int> CtrlPelicula::darListaCines() {
     return cines;
 }
 
-vector<int> CtrlPelicula::seleccionarCine(int id) {
-    Pelicula * pelicula; // Global en el futuro
+vector<int> CtrlPelicula::seleccionarCine(int id, Pelicula * pelicula) {
     vector<int> cines_funciones;
 
     map<string, Funcion *> * funciones = pelicula->getFunciones();
