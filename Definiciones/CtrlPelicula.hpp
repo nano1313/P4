@@ -19,7 +19,7 @@ class CtrlPelicula : public IPelicula {
         static CtrlPelicula* instancia;
         map<string, Pelicula *> peliculas;
         map<string, Cine *> cines;
-        Pelicula * pelicula;
+        Pelicula * pelicula; // Pelicula guardada en memoria. //
         CtrlPelicula();
         
     public:
@@ -38,6 +38,15 @@ class CtrlPelicula : public IPelicula {
         void confirmarEliminar();
 
         void finalizar();
+
+        /* Setters */
+
+        void setPelicula(Pelicula * pelicula);
+
+        
+        /* Getters */
+        
+        Pelicula * getPelicula();
         
 };
 

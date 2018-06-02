@@ -11,6 +11,14 @@ CtrlPelicula* CtrlPelicula::getInstancia()
     return instancia;
 }
 
+void CtrlPelicula::setPelicula(Pelicula * pelicula) {
+    this->pelicula = pelicula;
+}
+
+Pelicula * CtrlPelicula::getPelicula() {
+    return this->pelicula;
+}
+
 
 vector<DtPelicula> CtrlPelicula::darListaPeliculas() {
     map<string, Pelicula *>::iterator it = peliculas.begin();
@@ -42,6 +50,18 @@ DtPelicula CtrlPelicula::seleccionarPelicula1(string titulo) {
     return pelicula;
 }
 
+void CtrlPelicula::seleccionarPelicula2(string titulo) {
+    map<string, Pelicula *>::iterator it = peliculas.begin();
+
+    for (it = this->peliculas.begin(); it!=this->peliculas.end(); it++) {
+        
+        if (titulo == it->first)
+        {
+            this->setPelicula(it->second);
+        }
+    }
+}
+
 
 vector<int> CtrlPelicula::darListaCines(Pelicula * pelicula) {
     vector<int> cines;
@@ -58,7 +78,7 @@ vector<int> CtrlPelicula::darListaCines(Pelicula * pelicula) {
 vector<int> CtrlPelicula::seleccionarCine(int id) {
     vector<int> cines_funciones;
 
-    map<string, Funcion *> * funciones = this->pelicula->getFunciones();
+    map<string, Funcion *> * funciones = this->getPelicula()->getFunciones();
 
     for (map<string,Funcion *>::iterator it = funciones->begin(); it!=funciones->end(); ++it) {
         if (it->second->getSala()->getCine()->getNumero() == id)

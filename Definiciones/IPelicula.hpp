@@ -22,7 +22,9 @@ class IPelicula {
         virtual DtPelicula seleccionarPelicula(string titulo);
         virtual void confirmarEliminar();
         virtual void finalizar();
-
+        virtual void setPelicula(Pelicula * pelicula);
+        virtual Pelicula * getPelicula();
+        
 };
 
 #endif
