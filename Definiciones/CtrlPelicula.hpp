@@ -29,7 +29,7 @@ class CtrlPelicula : public IPelicula {
 
         vector<int> seleccionarCine(int id);
 
-        vector<string> darListaPeliculas();
+        vector<DtPelicula> darListaPeliculas();
 
         DtPelicula seleccionarPelicula1(string titulo);
 

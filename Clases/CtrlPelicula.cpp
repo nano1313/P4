@@ -12,16 +12,18 @@ CtrlPelicula* CtrlPelicula::getInstancia()
 }
 
 
-vector<string> CtrlPelicula::darListaPeliculas() {
+vector<DtPelicula> CtrlPelicula::darListaPeliculas() {
     map<string, Pelicula *>::iterator it = peliculas.begin();
 
-    vector<string> nombres;
+    vector<DtPelicula> peliculas;
 
     for (it = this->peliculas.begin(); it!=this->peliculas.end(); it++) {
-        nombres.push_back(it->second->getTitulo());
+        DtPelicula nuevo = DtPelicula(it->second->getTitulo(), it->second->getPoster(),
+        it->second->getSinopsis(), it->second->getPromPuntaje(), it->second->getDuracion);
+        peliculas.push_back(nuevo);
     }
 
-    return nombres;
+    return peliculas;
 }
 
 DtPelicula CtrlPelicula::seleccionarPelicula1(string titulo) {
