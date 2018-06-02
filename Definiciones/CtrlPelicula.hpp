@@ -22,7 +22,7 @@ class CtrlPelicula : public IPelicula {
         
         CtrlPelicula();
         
-        public:
+    public:
         static CtrlPelicula* getInstancia();
 
         vector<int> darListaCines(Pelicula * pelicula);

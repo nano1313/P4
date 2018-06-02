@@ -61,7 +61,7 @@ vector<int> CtrlPelicula::seleccionarCine(int id, Pelicula * pelicula) {
     map<string, Funcion *> * funciones = pelicula->getFunciones();
 
     for (map<string,Funcion *>::iterator it = funciones->begin(); it!=funciones->end(); ++it) {
-        if (it->second->getSala()->getCine()->getNumero())
+        if (it->second->getSala()->getCine()->getNumero() == id)
         {
             cines_funciones.push_back(it->second->getNumero());
         }
