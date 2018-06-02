@@ -16,23 +16,22 @@ class Funcion {
 		int numero;
 		DtFecha fecha;
 		DtHora hora;
-		float precio;
-		Sala * salas;
+		//float precio;
+		Sala * sala;
 
 	public:
 		/* Getters */
 		int getNumero();
 		DtFecha getFecha();
 		DtHora getHora();
-		float getPrecio();
-		float getPrecio();
+		//float getPrecio();
 		Sala * getSala();
 
 		/* Setters */
 		void setNumero(int numero);
 		void setFecha(DtFecha fecha);
 		void setHora(DtHora hora);
-		void setPrecio(float precio);
+		//void setPrecio(float precio);
         
         Funcion();
 		Funcion (int numero, DtFecha fecha, DtHora hora, float precio);

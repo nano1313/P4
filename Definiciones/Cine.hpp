@@ -14,13 +14,15 @@ class Cine {
 	private:
 		int numero;
 		DtDireccion direccion;
-
+		int precio;
 	public:
 		/* Getters */
 		int getNumero();
 		DtDireccion getDireccion();
+		int getPrecio();
 
 		/* Setters */
+		void setPrecio(int p);
 		void setNumero(int numero);
 		void setDireccion(DtDireccion direccion);
 

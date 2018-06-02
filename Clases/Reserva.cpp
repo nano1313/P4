@@ -1,9 +1,21 @@
 #include "../Definiciones/Reserva.hpp"
 
+
 Reserva::Reserva (int cantAsientos ,float costo) {
 	this->cantAsientos = cantAsientos;
 	this->costo = costo;
 }
+
+Reserva::Reserva (int cantAsientos ,float costo,Tarjeta *t) {  //Ezequiel inicio
+
+	this->cantAsientos = cantAsientos;
+	this->costo = costo;
+	this->t = t;
+//    u->setReserva(this)
+
+}
+// Ezequiel Fin
+
 
 /* Getters */
 
