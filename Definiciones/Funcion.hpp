@@ -17,7 +17,7 @@ class Funcion {
 		DtFecha fecha;
 		DtHora hora;
 		float precio;
-		Sala * salas;
+		Sala * sala;
 
 	public:
 		/* Getters */
