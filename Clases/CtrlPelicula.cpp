@@ -11,17 +11,28 @@ CtrlPelicula* CtrlPelicula::getInstancia()
     return instancia;
 }
 
+void CtrlPelicula::setPelicula(Pelicula * pelicula) {
+    this->pelicula = pelicula;
+}
 
-vector<string> CtrlPelicula::darListaPeliculas() {
+Pelicula * CtrlPelicula::getPelicula() {
+    return this->pelicula;
+}
+
+
+vector<DtPelicula> CtrlPelicula::darListaPeliculas() {
     map<string, Pelicula *>::iterator it = peliculas.begin();
 
-    vector<string> nombres;
+    vector<DtPelicula> peliculas;
 
     for (it = this->peliculas.begin(); it!=this->peliculas.end(); it++) {
-        nombres.push_back(it->second->getTitulo());
+        DtPelicula nuevo = DtPelicula(it->second->getTitulo(), it->second->getPoster(),
+                                      it->second->getSinopsis(),it->second->getPromPuntaje(),
+                                      it->second->getDuracion());
+        peliculas.push_back(nuevo);
     }
 
-    return nombres;
+    return peliculas;
 }
 
 DtPelicula CtrlPelicula::seleccionarPelicula1(string titulo) {
@@ -39,9 +50,20 @@ DtPelicula CtrlPelicula::seleccionarPelicula1(string titulo) {
     return pelicula;
 }
 
+void CtrlPelicula::seleccionarPelicula2(string titulo) {
+    map<string, Pelicula *>::iterator it = peliculas.begin();
 
-vector<int> CtrlPelicula::darListaCines() {
-    Pelicula * pelicula; // Global en el futuro
+    for (it = this->peliculas.begin(); it!=this->peliculas.end(); it++) {
+        
+        if (titulo == it->first)
+        {
+            this->setPelicula(it->second);
+        }
+    }
+}
+
+
+vector<int> CtrlPelicula::darListaCines(Pelicula * pelicula) {
     vector<int> cines;
 
     map<string, Funcion *> * funciones = pelicula->getFunciones();
@@ -54,13 +76,12 @@ vector<int> CtrlPelicula::darListaCines() {
 }
 
 vector<int> CtrlPelicula::seleccionarCine(int id) {
-    Pelicula * pelicula; // Global en el futuro
     vector<int> cines_funciones;
 
-    map<string, Funcion *> * funciones = pelicula->getFunciones();
+    map<string, Funcion *> * funciones = this->getPelicula()->getFunciones();
 
     for (map<string,Funcion *>::iterator it = funciones->begin(); it!=funciones->end(); ++it) {
-        if (it->second->getSala()->getCine()->getNumero())
+        if (it->second->getSala()->getCine()->getNumero() == id)
         {
             cines_funciones.push_back(it->second->getNumero());
         }

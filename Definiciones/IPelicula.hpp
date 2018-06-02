@@ -8,6 +8,7 @@
 #include <vector>
 
 #include "./DtPelicula.hpp"
+#include "./Pelicula.hpp"
 
 using namespace std;
 
@@ -15,13 +16,15 @@ using namespace std;
 class IPelicula {
 
 	public:
-		virtual vector<int> darListaCines();
+		virtual vector<int> darListaCines(Pelicula * pelicula);
         virtual vector<int> seleccionarCine(int id);
-        virtual vector<string> darListaPeliculas();
+        virtual vector<DtPelicula> darListaPeliculas();
         virtual DtPelicula seleccionarPelicula(string titulo);
         virtual void confirmarEliminar();
         virtual void finalizar();
-
+        virtual void setPelicula(Pelicula * pelicula);
+        virtual Pelicula * getPelicula();
+        
 };
 
 #endif

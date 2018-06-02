@@ -15,6 +15,9 @@ int Sala::getCapacidad() {
 	return this->capacidad;
 }
 
+Cine* Sala::getCine() {
+	return this->cine;
+}
 
 /* Setters */
 

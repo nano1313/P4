@@ -181,8 +181,8 @@ void switchAdmin (int resp) {
 
 void iniciarSesion(){
 			IUsuario* iUser =fab->getIUsuario();
-			string aux="";
-			bool flagWhile;
+			string aux="";//Guardara las respuestas del usuario
+			bool flagWhile;//Sera la bandera para seguir iterando
 			do{
 				cout << "Ingresa tu nick: " << '\n';
 				cin >> aux;
@@ -193,9 +193,8 @@ void iniciarSesion(){
 				if(!flagWhile){
 					cout << "Datos incorrectos... \nDesea volver a intentar(S/N):" << '\n';
 					cin >> aux;
-					if(aux=="n" || aux=="N"){
-						flagWhile=true;
-					}
+					flagWhile=(aux=="n" || aux=="N");//Si no desea intentar mas
+
 				}
 			}while(!flagWhile);
 }
@@ -203,5 +202,44 @@ void iniciarSesion(){
 void cerrarSesion(){
 	IUsuario* iUser=fab->getIUsuario();
 	iUser->cerrarSesion();
+}
+
+void altaCine(){
+		DtDireccion direccion;
+
+		IPelicula* iPeli = fab->getIPelicula();
+		string aux=""; //Guardara las respuestas del usuario
+		bool flagWhile=true, seguirAgregandoSalas=true;
+
+		do{
+			cout << "Ingresa la calle del Cine: " << '\n';
+			cin >> aux;
+			direccion.setCalle(aux);
+			cout << "Ingresa la el numero de direccion del Cine: " << '\n';
+			cin >> aux;
+			direccion.setNumero(stoi(aux)); //Convierte a numero el string, Capturar excepcion?
+			iPeli->ingresarDireccion(direccion.getCalle(), direccion.getNumero());
+			int i=1;
+			do{
+				cout << "Ingresa la capacidad de la Sala Nro." + i + ": " << '\n';
+				cin >> aux;
+				iPeli->ingresarCapacidad(stoi(aux));
+				cout << "Desea seguir ingresando salas? (S/N): " << '\n';
+				cin >> aux;
+				seguirAgregandoSalas=(aux!="n" && aux!="N");
+			}while(seguirAgregandoSalas)
+			cout << "Desea confirmar el ingreso del Cine(" + direccion.getCalle() + ", " + direccion.getNumero() + "): " << '\n';
+			cin >> aux;
+			if (aux=="s" || aux=="S"){
+				iPeli->confirmarAltaCine();
+			}else{
+				iPeli->cancelar(); //Esta funcion solo libera la memoria para que no interfiera con el caso de uso siguiente
+			}
+			cout << "Desea ingresar otro Cine? (S/N): " << '\n';
+			cin >> aux;
+			flagWhile=(aux!="n" && aux!="N");
+
+		}while(flagWhile)
+
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

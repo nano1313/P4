@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string.h>
 #include <stdlib.h>
+#include <map>
 
 #include "./Usuario.hpp"
 #include "./DtUsuario.hpp"

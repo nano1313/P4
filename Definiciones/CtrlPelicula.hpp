@@ -19,17 +19,17 @@ class CtrlPelicula : public IPelicula {
         static CtrlPelicula* instancia;
         map<string, Pelicula *> peliculas;
         map<string, Cine *> cines;
-        
+        Pelicula * pelicula; // Pelicula guardada en memoria. //
         CtrlPelicula();
         
-        public:
+    public:
         static CtrlPelicula* getInstancia();
 
-        vector<int> darListaCines();
+        vector<int> darListaCines(Pelicula * pelicula); //Hecha
 
-        vector<int> seleccionarCine(int id);
+        vector<int> seleccionarCine(int id); //Hecha
 
-        vector<string> darListaPeliculas();
+        vector<DtPelicula> darListaPeliculas(); //Hecha
 
         DtPelicula seleccionarPelicula1(string titulo);
 
@@ -38,6 +38,15 @@ class CtrlPelicula : public IPelicula {
         void confirmarEliminar();
 
         void finalizar();
+
+        /* Setters */
+
+        void setPelicula(Pelicula * pelicula);
+
+        
+        /* Getters */
+        
+        Pelicula * getPelicula();
         
 };
 
