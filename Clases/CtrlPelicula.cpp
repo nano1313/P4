@@ -55,10 +55,10 @@ vector<int> CtrlPelicula::darListaCines(Pelicula * pelicula) {
     return cines;
 }
 
-vector<int> CtrlPelicula::seleccionarCine(int id, Pelicula * pelicula) {
+vector<int> CtrlPelicula::seleccionarCine(int id) {
     vector<int> cines_funciones;
 
-    map<string, Funcion *> * funciones = pelicula->getFunciones();
+    map<string, Funcion *> * funciones = this->pelicula->getFunciones();
 
     for (map<string,Funcion *>::iterator it = funciones->begin(); it!=funciones->end(); ++it) {
         if (it->second->getSala()->getCine()->getNumero() == id)

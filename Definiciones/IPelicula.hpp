@@ -17,7 +17,7 @@ class IPelicula {
 
 	public:
 		virtual vector<int> darListaCines(Pelicula * pelicula);
-        virtual vector<int> seleccionarCine(int id, Pelicula * pelicula);
+        virtual vector<int> seleccionarCine(int id);
         virtual vector<DtPelicula> darListaPeliculas();
         virtual DtPelicula seleccionarPelicula(string titulo);
         virtual void confirmarEliminar();
