@@ -16,7 +16,7 @@ using namespace std;
 class IPelicula {
 
 	public:
-		virtual vector<int> darListaCines(Pelicula * pelicula);
+		virtual vector<int> darListaCines();
         virtual vector<int> seleccionarCine(int id);
         virtual vector<DtPelicula> darListaPeliculas();
         virtual DtPelicula seleccionarPelicula(string titulo);
@@ -24,7 +24,7 @@ class IPelicula {
         virtual void finalizar();
         virtual void setPelicula(Pelicula * pelicula);
         virtual Pelicula * getPelicula();
-        
+				virtual vector<string> darListaSalas();
 };
 
 #endif

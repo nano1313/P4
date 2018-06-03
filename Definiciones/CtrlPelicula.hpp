@@ -21,7 +21,7 @@ class CtrlPelicula : public IPelicula {
         map<string, Cine *> cines;
         Pelicula * pelicula; // Pelicula guardada en memoria. //
         CtrlPelicula();
-        
+
     public:
         static CtrlPelicula* getInstancia();
 
@@ -33,6 +33,8 @@ class CtrlPelicula : public IPelicula {
 
         DtPelicula seleccionarPelicula1(string titulo);
 
+        vector<string> darListaSalas();
+
         void seleccionarPelicula2(string titulo);
 
         void confirmarEliminar();
@@ -43,11 +45,11 @@ class CtrlPelicula : public IPelicula {
 
         void setPelicula(Pelicula * pelicula);
 
-        
+
         /* Getters */
-        
+
         Pelicula * getPelicula();
-        
+
 };
 
 #endif

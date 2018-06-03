@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <iostream>
-#include <string>
+#include <string.h>
+#include <vector>
 
 #include "./Definiciones/DtHora.hpp"
 #include "./Definiciones/DtFecha.hpp"
@@ -18,15 +19,15 @@
 
 using namespace std;
 /*Cabezales de funciones a utilizar*/
-void iniciarSesion();
+void iniciarSesion(); //listo sin probar
 void verInfoPelicula();
 void verComentariosPelicula();
 void crearReserva();
 void puntuarPelicula();
 void comentarPelicula();
 void verReservas();
-void cerrarSesion();
-void altaCine();
+void cerrarSesion(); //listo sin probar
+void altaCine(); //listo sin probar
 void altaFuncion();
 void eliminarPelicula();
 
@@ -239,7 +240,44 @@ void altaCine(){
 			cin >> aux;
 			flagWhile=(aux!="n" && aux!="N");
 
-		}while(flagWhile)
+		}while(flagWhile);
+
+}
+
+void altaFuncion(){
+		string aux="";
+		string auxFecha="", auxHora="";
+		IPelicula* iPeli=fab->getIPelicula();
+		vector<DtPelicula> listaPeliculas=iPeli->darListaPeliculas();
+		bool sigueAgregando=true;
+		cout << "Selecciona una Pelicula de la lista: " << '\n';
+		for(vector<DtPelicula>::iterator it=listaPeliculas.begin(); it!=listaPeliculas.end(); ++iterator){
+				cout << (*it).getTitulo() << '\n';
+		}
+		//cin >> aux;
+		cin.ignore();
+		getline(cin,aux, '\n');
+		iPeli->seleccionarPelicula(aux);
+		do{
+			vector<int> listaCines=iPeli->darListaCines();
+			cout << "Selecciona un Cine de la lista: " << '\n';
+			for(vector<int>::iterator it=listaCines.begin(); it!=listaCines.end(); ++iterator){
+					cout << (*it) << '\n';
+			}
+			cin >> aux;
+			iPeli->seleccionarCine(stoi(aux));
+			vector<int> listaSalas=iPeli->darListaSalas();
+			cout << "Selecciona una Sala de la lista: " << '\n';
+			for(vector<int>::iterator it=listaSalas.begin(); it!=listaSalas.end(); ++iterator){
+					cout << (*it) << '\n';
+			}
+			cin >> aux;
+			iPeli->seleccionarSala(stoi(aux));
+			cout << "Ingresa la fecha (dd/mm/yyyy): " << '\n';
+			cin >> auxFecha;
+			cout << "Ingresa la hora (hh:mm): " << '\n';
+			cin >> auxHora;
+		}while(sigueAgregando);
 
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
