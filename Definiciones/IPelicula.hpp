@@ -16,10 +16,11 @@ using namespace std;
 class IPelicula {
 
 	public:
-		virtual vector<int> darListaCines();
-        virtual vector<int> seleccionarCine(int id);
+		    virtual vector<int> darListaCinesDeUnaFuncion();
+        virtual vector<int> seleccionarCineConSusFunciones(int id);
         virtual vector<DtPelicula> darListaPeliculas();
-        virtual DtPelicula seleccionarPelicula(string titulo);
+        virtual DtPelicula seleccionarPelicula1(string titulo);
+        virtual void seleccionarPelicula2(string titulo);
         virtual void confirmarEliminar();
         virtual void finalizar();
         virtual void setPelicula(Pelicula * pelicula);

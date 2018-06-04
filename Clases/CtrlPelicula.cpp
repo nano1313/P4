@@ -11,14 +11,38 @@ CtrlPelicula* CtrlPelicula::getInstancia()
     return instancia;
 }
 
+    // Setters //
+
 void CtrlPelicula::setPelicula(Pelicula * pelicula) {
+    
     this->pelicula = pelicula;
 }
+
+void CtrlPelicula::setSala(Sala *sala){
+
+    this->sala = sala;
+}
+
+void CtrlPelicula::setCine(Cine *cine){
+
+    this->cine = cine;
+}
+
+    // Gettters //
 
 Pelicula * CtrlPelicula::getPelicula() {
     return this->pelicula;
 }
 
+Cine * CtrlPelicula::getCine(){
+
+    return this->cine;
+}
+
+Sala * CtrlPelicula::getSala(){
+
+    return this->sala;
+}
 
 vector<DtPelicula> CtrlPelicula::darListaPeliculas() {
     map<string, Pelicula *>::iterator it = peliculas.begin();
@@ -39,7 +63,7 @@ DtPelicula CtrlPelicula::seleccionarPelicula1(string titulo) {
     map<string, Pelicula *>::iterator it = peliculas.begin();
     DtPelicula pelicula;
 
-    for (it = this->peliculas.begin(); it!=this->peliculas.end(); it++) {
+    for (it = this->peliculas.begin(); it!=this->peliculas.end(); ++it) {
         
         if (titulo == it->first)
         {
@@ -53,7 +77,7 @@ DtPelicula CtrlPelicula::seleccionarPelicula1(string titulo) {
 void CtrlPelicula::seleccionarPelicula2(string titulo) {
     map<string, Pelicula *>::iterator it = peliculas.begin();
 
-    for (it = this->peliculas.begin(); it!=this->peliculas.end(); it++) {
+    for (it = this->peliculas.begin(); it!=this->peliculas.end(); ++it) {
         
         if (titulo == it->first)
         {
@@ -62,8 +86,17 @@ void CtrlPelicula::seleccionarPelicula2(string titulo) {
     }
 }
 
+vector<int> darListaCines(){
 
-vector<int> CtrlPelicula::darListaCines(Pelicula * pelicula) {
+
+} 
+
+void seleccionarCine(int numCine){
+
+
+}
+
+vector<int> CtrlPelicula::darListaCinesDeUnaFuncion(Pelicula * pelicula) {
     vector<int> cines;
 
     map<string, Funcion *> * funciones = pelicula->getFunciones();
@@ -75,7 +108,7 @@ vector<int> CtrlPelicula::darListaCines(Pelicula * pelicula) {
     return cines;
 }
 
-vector<int> CtrlPelicula::seleccionarCine(int id) {
+vector<int> CtrlPelicula::seleccionarCineConSusFunciones(int id) {
     vector<int> cines_funciones;
 
     map<string, Funcion *> * funciones = this->getPelicula()->getFunciones();

@@ -26,7 +26,7 @@ class Cine {
 		void setNumero(int numero);
 		void setDireccion(DtDireccion direccion);
 
-		Cine(int numero, DtDireccion direccion);
+		Cine(int numero, DtDireccion direccion, int precio);
 		~Cine();
 };
 #endif

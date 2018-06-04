@@ -1,8 +1,9 @@
 #include "../Definiciones/Cine.hpp"
 
-Cine::Cine(int numero, DtDireccion direccion) {
+Cine::Cine(int numero, DtDireccion direccion, int precio) {
 	this->numero = numero;
 	this->direccion = direccion;
+	this->precio = precio;
 }
 
 /* Getters */
