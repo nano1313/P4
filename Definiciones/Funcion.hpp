@@ -31,10 +31,11 @@ class Funcion {
 		void setNumero(int numero);
 		void setFecha(DtFecha fecha);
 		void setHora(DtHora hora);
+		void setSala(Sala* sala);
 		//void setPrecio(float precio);
         
         Funcion();
-		Funcion (int numero, DtFecha fecha, DtHora hora, float precio);
+		Funcion (int numero, DtFecha fecha, DtHora hora, Sala * sala  /*float precio*/);
 		~Funcion();
 };
 

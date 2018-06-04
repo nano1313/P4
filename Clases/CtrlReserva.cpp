@@ -46,7 +46,7 @@ void CtrlReserva::crearReserva(){
     int cantasientos = 0;                 //esto lo obtengo en seleccionar funcion
     Reserva r = Reserva(cantasientos,total,tar);
     Usuario *u = NULL;  //este es el usuario que estaria logeado 
-    Reserva *coso = r ;
+    Reserva *coso = &r ;
     u->aniadirReserva(coso);
 }
 

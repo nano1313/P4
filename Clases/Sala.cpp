@@ -28,3 +28,7 @@ void Sala::setNumero(int numero) {
 void Sala::setCapacidad(int capacidad) {
 	this->capacidad = capacidad;
 }
+
+void Sala::setCine(Cine *cine) {
+	this->cine = cine;
+}

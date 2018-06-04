@@ -24,9 +24,11 @@ class Sala {
 		/* Setters */
 		void setNumero(int numero);
 		void setCapacidad(int capacidad);
+		void setCine(Cine *cine);
 
         Sala();
 		Sala(int numero, int capacidad);
+		Sala(int numero, int capacidad, Cine* cine);
 		~Sala();
 };
 
