@@ -28,7 +28,7 @@ void comentarPelicula();
 void verReservas();
 void cerrarSesion(); //listo sin probar
 void altaCine(); //listo sin probar
-void altaFuncion();
+void altaFuncion(); //listo sin probar
 void eliminarPelicula();
 
 void switchNoLog(int resp);
@@ -246,6 +246,8 @@ void altaCine(){
 
 void altaFuncion(){
 		string aux="";
+		DtFecha fecha;
+		DtHora hora;
 		string auxFecha="", auxHora="";
 		IPelicula* iPeli=fab->getIPelicula();
 		vector<DtPelicula> listaPeliculas=iPeli->darListaPeliculas();
@@ -275,9 +277,14 @@ void altaFuncion(){
 			iPeli->seleccionarSala(stoi(aux));
 			cout << "Ingresa la fecha (dd/mm/yyyy): " << '\n';
 			cin >> auxFecha;
+			fecha=auxFecha; //sobre carga operador=
 			cout << "Ingresa la hora (hh:mm): " << '\n';
 			cin >> auxHora;
+			hora=auxHora;
+			cout << "Desea ingresar otra Funcion? (S/N): " << '\n';
+			cin >> aux;
+			sigueAgregando=(aux!="n" && aux!="N");
 		}while(sigueAgregando);
-
+		iPeli->finalizar();
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
