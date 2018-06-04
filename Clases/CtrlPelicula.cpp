@@ -14,7 +14,7 @@ CtrlPelicula* CtrlPelicula::getInstancia()
     // Setters //
 
 void CtrlPelicula::setPelicula(Pelicula * pelicula) {
-    
+
     this->pelicula = pelicula;
 }
 
@@ -67,7 +67,9 @@ DtPelicula CtrlPelicula::seleccionarPelicula1(string titulo) {
         
         if (titulo == it->first)
         {
-            pelicula = DtPelicula(it->second->getTitulo(), it->second->getPoster(), it->second->getSinopsis(), it->second->getPromPuntaje(), it->second->getDuracion());
+            pelicula = DtPelicula(it->second->getTitulo(), it->second->getPoster(), 
+                                  it->second->getSinopsis(), it->second->getPromPuntaje(), 
+                                  it->second->getDuracion());
             break;
         }
     }
@@ -86,26 +88,43 @@ void CtrlPelicula::seleccionarPelicula2(string titulo) {
     }
 }
 
-vector<int> darListaCines(){
+vector<int> CtrlPelicula::darListaCines(){
+    
+    map<int, Cine *>::iterator it = cines.begin();
+    vector<int> vector_cines;
 
+    for (it = this->cines.begin(); it!=this->cines.end(); ++it) {
+        int nuevo = it->second->getNumero();
+        vector_cines.push_back(nuevo);
+    }
+
+    return vector_cines;
 
 } 
 
-void seleccionarCine(int numCine){
+void CtrlPelicula::seleccionarCine(int numCine){
 
+    map<int, Cine *>::iterator it = cines.begin();
 
+    for (it = this->cines.begin(); it!=this->cines.end(); ++it) {
+        
+        if (numCine == it->first)
+        {
+            this->setCine(it->second);
+        }
+    }
 }
 
 vector<int> CtrlPelicula::darListaCinesDeUnaFuncion(Pelicula * pelicula) {
-    vector<int> cines;
+    vector<int> vector_cines;
 
     map<string, Funcion *> * funciones = pelicula->getFunciones();
 
     for (map<string,Funcion *>::iterator it = funciones->begin(); it!=funciones->end(); ++it) {
-        cines.push_back(it->second->getSala()->getCine()->getNumero());
+        vector_cines.push_back(it->second->getSala()->getCine()->getNumero());
     }
         
-    return cines;
+    return vector_cines;
 }
 
 vector<int> CtrlPelicula::seleccionarCineConSusFunciones(int id) {
