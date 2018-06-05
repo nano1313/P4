@@ -170,13 +170,14 @@ void CtrlPelicula::confirmarAltaCine(){
     int cont = 1;           //PARA CONTROLAR EL NUMERO DE LAS SALAS
     int cap;
     map<int, Sala *> nuevasSalas;   //CREO LA COLECCION DE SALAS PARA EL NUEVO CINE
-    for (vector<int>::iterator it = this->capacidades.begin() ; it!=this->capacidades.end() ; ++it){
 
+    for (vector<int>::iterator it = this->capacidades.begin() ; it!=this->capacidades.end() ; ++it) {
         cap = *it;                  //CARGO LA COLECCION CON LAS CAPACIDADES INGRESADAS
         Sala *sala = new Sala(cont, cap, this->cine);
         nuevasSalas[cont] = sala;
         cont++;
     }
+
     Cine *nuevoCine = new Cine(cantCines+1, this->direccionCine, this->precioCine, nuevasSalas);
     this->cines[cantCines+1] = nuevoCine;   //AGREGO EL NUEVO CINE A LA COLECCIOON GRAL DE CINES
 
@@ -189,7 +190,6 @@ void CtrlPelicula::confirmarAltaCine(){
 
 }
 void CtrlPelicula::cancelar(){
-
     this->cine = NULL;      //INICIALIZACION
     this->sala = NULL;
     vector<int>::iterator inicio,fin;

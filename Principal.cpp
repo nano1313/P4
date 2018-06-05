@@ -184,35 +184,36 @@ void iniciarSesion(){
 			IUsuario* iUser =fab->getIUsuario();
 			string aux="";//Guardara las respuestas del usuario
 			bool flagWhile;//Sera la bandera para seguir iterando
-			do{
+
+			do {
 				cout << "Ingresa tu nick: " << '\n';
 				cin >> aux;
 				iUser->ingresarNick(aux);
 				cout << "Ingresa tu password: " << '\n';
 				cin >> aux;
 				flagWhile=iUser->ingresarContrasenia(aux);
-				if(!flagWhile){
+
+				if(!flagWhile) {
 					cout << "Datos incorrectos... \nDesea volver a intentar(S/N):" << '\n';
 					cin >> aux;
 					flagWhile=(aux=="n" || aux=="N");//Si no desea intentar mas
-
 				}
-			}while(!flagWhile);
+			} while(!flagWhile);
 }
 
-void cerrarSesion(){
+void cerrarSesion() {
 	IUsuario* iUser=fab->getIUsuario();
 	iUser->cerrarSesion();
 }
 
-void altaCine(){
+void altaCine() {
 		DtDireccion direccion;
 
 		IPelicula* iPeli = fab->getIPelicula();
 		string aux=""; //Guardara las respuestas del usuario
 		bool flagWhile=true, seguirAgregandoSalas=true;
 
-		do{
+		do {
 			cout << "Ingresa la calle del Cine: " << '\n';
 			cin >> aux;
 			direccion.setCalle(aux);
@@ -228,14 +229,17 @@ void altaCine(){
 				cout << "Desea seguir ingresando salas? (S/N): " << '\n';
 				cin >> aux;
 				seguirAgregandoSalas=(aux!="n" && aux!="N");
-			}while(seguirAgregandoSalas)
+			} while(seguirAgregandoSalas)
+
 			cout << "Desea confirmar el ingreso del Cine(" + direccion.getCalle() + ", " + direccion.getNumero() + "): " << '\n';
 			cin >> aux;
-			if (aux=="s" || aux=="S"){
+
+			if (aux=="s" || aux=="S") {
 				iPeli->confirmarAltaCine();
-			}else{
+			}else {
 				iPeli->cancelar(); //Esta funcion solo libera la memoria para que no interfiera con el caso de uso siguiente
 			}
+
 			cout << "Desea ingresar otro Cine? (S/N): " << '\n';
 			cin >> aux;
 			flagWhile=(aux!="n" && aux!="N");
@@ -244,7 +248,7 @@ void altaCine(){
 
 }
 
-void altaFuncion(){
+void altaFuncion() {
 		string aux="";
 		DtFecha fecha;
 		DtHora hora;
