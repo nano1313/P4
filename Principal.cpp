@@ -20,7 +20,7 @@
 using namespace std;
 /*Cabezales de funciones a utilizar*/
 void iniciarSesion(); //listo sin probar
-void verInfoPelicula();
+void verInfoPelicula();//Listo sin probar
 void verComentariosPelicula();
 void crearReserva();
 void puntuarPelicula();
@@ -29,7 +29,7 @@ void verReservas();
 void cerrarSesion(); //listo sin probar
 void altaCine(); //listo sin probar
 void altaFuncion(); //listo sin probar
-void eliminarPelicula();
+void eliminarPelicula(); //lista sin probar
 
 void switchNoLog(int resp);
 void switchLog(int resp);
@@ -341,5 +341,23 @@ void verInfoPelicula(){
 		cancelar=(aux=="N" || aux=="n");
 	}while(!cancelar);
 	iPeli->finalizar();
+}
+
+void eliminarPelicula(){
+	IPelicula iPeli = fab->getIPelicula();
+	cout << "Selecciona una Pelicula de la lista: " << '\n';
+	for(vector<DtPelicula>::iterator it=listaPeliculas.begin(); it!=listaPeliculas.end(); ++iterator){
+			cout << (*it).getTitulo() << '\n';
+	}
+	cin.ignore();
+	getline(cin,aux, '\n');
+	iPeli->seleccionarPelicula2(aux);
+	cout << "Confirma que desea eliminar la pelicula " + aux +"?(S/N)" << '\n';
+	cin >> aux;
+	if (aux=="S" || aux=="s"){
+		iPeli->confirmarEliminar();
+	}
+	iPeli->finalizar();
+
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
