@@ -23,6 +23,11 @@ class CtrlPelicula : public IPelicula {
         Pelicula * pelicula; // Pelicula guardada en memoria. //
         Cine * cine; // Cine guardado en memoria //
         Sala * sala; // Sala guardada en memoria //
+        DtDireccion direccionCine; // Direccion del Cine a crear //
+        vector<int> capacidades; // Capacidades de las Salas del Cine a crear //
+        int precioCine; // Precio del Cine a agregar //
+        int cantCines; // Para poder controlar el numero de los Cines //
+
         CtrlPelicula();
 
     public:
@@ -34,6 +39,10 @@ class CtrlPelicula : public IPelicula {
         void seleccionarCine(int numCine);//Hecha
         vector<int> darListaCinesDeUnaFuncion(Pelicula * pelicula); //Hecha
         vector<int> seleccionarCineConSusFunciones(int id); //Hecha  
+        void ingresarDireccion(string calle, int num);
+        void ingresarCapacidad(int cap);
+        void confirmarAltaCine();
+        void cancelar();
         vector<string> darListaSalas();
         void confirmarEliminar();
         void finalizar();
@@ -43,6 +52,7 @@ class CtrlPelicula : public IPelicula {
         void setPelicula(Pelicula * pelicula);
         void setCine(Cine *cine);
         void setSala(Sala *sala);
+        void setPrecioCine(int precio);
 
 
         /* Getters */
@@ -50,6 +60,7 @@ class CtrlPelicula : public IPelicula {
         Pelicula * getPelicula();
         Cine * getCine();
         Sala * getSala();
+        int getPrecioCine();
 
 };
 

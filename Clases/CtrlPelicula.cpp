@@ -6,6 +6,10 @@ CtrlPelicula* CtrlPelicula::getInstancia()
     if (instancia == 0)
     {
         instancia = new CtrlPelicula();
+        instancia->pelicula = NULL;
+        instancia->cine = NULL;
+        instancia->sala = NULL;
+        instancia->cantCines = 0;
     }
 
     return instancia;
@@ -28,6 +32,11 @@ void CtrlPelicula::setCine(Cine *cine){
     this->cine = cine;
 }
 
+void CtrlPelicula::setPrecioCine(int precio){
+
+    this->precioCine = precio;
+}
+
     // Gettters //
 
 Pelicula * CtrlPelicula::getPelicula() {
@@ -42,6 +51,11 @@ Cine * CtrlPelicula::getCine(){
 Sala * CtrlPelicula::getSala(){
 
     return this->sala;
+}
+
+int CtrlPelicula::getPrecioCine(){
+
+    return this->precioCine;
 }
 
 vector<DtPelicula> CtrlPelicula::darListaPeliculas() {
@@ -139,4 +153,47 @@ vector<int> CtrlPelicula::seleccionarCineConSusFunciones(int id) {
         }
     }
     return cines_funciones;
+}
+
+void CtrlPelicula::ingresarDireccion(string calle, int num){
+
+    this->direccionCine = DtDireccion(calle, num);
+}
+
+void CtrlPelicula::ingresarCapacidad(int cap){
+
+    this->capacidades.push_back(cap);
+}
+
+void CtrlPelicula::confirmarAltaCine(){
+
+    int cont = 1;           //PARA CONTROLAR EL NUMERO DE LAS SALAS
+    int cap;
+    map<int, Sala *> nuevasSalas;   //CREO LA COLECCION DE SALAS PARA EL NUEVO CINE
+    for (vector<int>::iterator it = this->capacidades.begin() ; it!=this->capacidades.end() ; ++it){
+
+        cap = *it;                  //CARGO LA COLECCION CON LAS CAPACIDADES INGRESADAS
+        Sala *sala = new Sala(cont, cap, this->cine);
+        nuevasSalas[cont] = sala;
+        cont++;
+    }
+    Cine *nuevoCine = new Cine(cantCines+1, this->direccionCine, this->precioCine, nuevasSalas);
+    this->cines[cantCines+1] = nuevoCine;   //AGREGO EL NUEVO CINE A LA COLECCIOON GRAL DE CINES
+
+    this->cine = NULL;      //INICIALIZACION 
+    this->sala = NULL;
+    vector<int>::iterator inicio,fin;
+    inicio = this->capacidades.begin();
+    fin = this->capacidades.end();
+    this->capacidades.erase(inicio,fin);
+
+}
+void CtrlPelicula::cancelar(){
+
+    this->cine = NULL;      //INICIALIZACION
+    this->sala = NULL;
+    vector<int>::iterator inicio,fin;
+    inicio = this->capacidades.begin();
+    fin = this->capacidades.end();
+    this->capacidades.erase(inicio,fin);
 }

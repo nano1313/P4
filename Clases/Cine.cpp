@@ -1,9 +1,17 @@
 #include "../Definiciones/Cine.hpp"
+#include <map>
 
 Cine::Cine(int numero, DtDireccion direccion, int precio) {
 	this->numero = numero;
 	this->direccion = direccion;
 	this->precio = precio;
+}
+
+Cine::Cine(int numero, DtDireccion direccion, int precio, map<int, Sala*> salas) {
+	this->numero = numero;
+	this->direccion = direccion;
+	this->precio = precio;
+	this->salas = salas;
 }
 
 /* Getters */

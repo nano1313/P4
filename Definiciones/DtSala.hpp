@@ -1,5 +1,5 @@
-#ifndef SALA_HH
-#define SALA_HH
+#ifndef DTSALA_HH
+#define DTSALA_HH
 
 #include <iostream>
 #include <string.h>
@@ -8,29 +8,24 @@
 
 using namespace std;
 
-class Cine;
 
-class Sala {
+class DtSala {
 	private:
 		int numero;
 		int capacidad;
-		Cine * cine;
 
 	public:
 		/* Getters */
 		int getNumero();
 		int getCapacidad();
-		Cine * getCine();
 
 		/* Setters */
 		void setNumero(int numero);
 		void setCapacidad(int capacidad);
-		void setCine(Cine *cine);
 
-        Sala();
-		Sala(int numero, int capacidad);
-		Sala(int numero, int capacidad, Cine* cine);
-		~Sala();
+        DtSala();
+		DtSala(int numero, int capacidad);
+        ~DtSala();
 };
 
 #endif
