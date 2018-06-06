@@ -78,11 +78,11 @@ DtPelicula CtrlPelicula::seleccionarPelicula1(string titulo) {
     DtPelicula pelicula;
 
     for (it = this->peliculas.begin(); it!=this->peliculas.end(); ++it) {
-        
+
         if (titulo == it->first)
         {
-            pelicula = DtPelicula(it->second->getTitulo(), it->second->getPoster(), 
-                                  it->second->getSinopsis(), it->second->getPromPuntaje(), 
+            pelicula = DtPelicula(it->second->getTitulo(), it->second->getPoster(),
+                                  it->second->getSinopsis(), it->second->getPromPuntaje(),
                                   it->second->getDuracion());
             break;
         }
@@ -94,7 +94,7 @@ void CtrlPelicula::seleccionarPelicula2(string titulo) {
     map<string, Pelicula *>::iterator it = peliculas.begin();
 
     for (it = this->peliculas.begin(); it!=this->peliculas.end(); ++it) {
-        
+
         if (titulo == it->first)
         {
             this->setPelicula(it->second);
@@ -106,20 +106,20 @@ vector<DtCine> CtrlPelicula::darListaCines() {
     map<int, Cine *>::iterator it = cines.begin();
     vector<DtCine> vector_cines;
 
-    for (it = this->cines.begin(); it!=this->cines.end(); ++it) 
+    for (it = this->cines.begin(); it!=this->cines.end(); ++it)
     {
         vector_cines.push_back(DtCine(it->second->getNumero(), it->second->getDireccion(), it->second->getPrecio()));
     }
 
     return vector_cines;
-} 
+}
 
 void CtrlPelicula::seleccionarCine(int numCine){
 
     map<int, Cine *>::iterator it = cines.begin();
 
     for (it = this->cines.begin(); it!=this->cines.end(); ++it) {
-        
+
         if (numCine == it->first)
         {
             this->setCine(it->second);
@@ -133,18 +133,20 @@ vector<DtCine> CtrlPelicula::darListaCinesDeUnaFuncion() {
     map<string, Funcion *> * funciones = this->pelicula->getFunciones();
 
     for (map<string,Funcion *>::iterator it = funciones->begin(); it!=funciones->end(); ++it) {
-        vector_cines.push_back(DtCine(it->second->getSala()->getCine()->getNumero(), it->second->getSala()->getCine()->getDireccion(), it->second->getSala()->getCine()->getPrecio());
+        vector_cines.push_back(DtCine(it->second->getSala()->getCine()->getNumero(),
+                                      it->second->getSala()->getCine()->getDireccion(),
+                                      it->second->getSala()->getCine()->getPrecio()));
     }
-        
+
     return vector_cines;
 }
 
 vector<DtFuncion> CtrlPelicula::seleccionarCineConSusFunciones(int id) {
-    
+
     vector<DtFuncion> cines_funciones;
     map<string, Funcion *> * funciones = this->getPelicula()->getFunciones();
 
-    for (map<string,Funcion *>::iterator it = funciones->begin(); it!=funciones->end(); ++it) 
+    for (map<string,Funcion *>::iterator it = funciones->begin(); it!=funciones->end(); ++it)
     {
         if (it->second->getSala()->getCine()->getNumero() == id)
         {
@@ -181,7 +183,7 @@ void CtrlPelicula::confirmarAltaCine(){
     Cine *nuevoCine = new Cine(cantCines+1, this->direccionCine, this->precioCine, nuevasSalas);
     this->cines[cantCines+1] = nuevoCine;   //AGREGO EL NUEVO CINE A LA COLECCIOON GRAL DE CINES
 
-    this->cine = NULL;      //INICIALIZACION 
+    this->cine = NULL;      //INICIALIZACION
     this->sala = NULL;
     vector<int>::iterator inicio,fin;
     inicio = this->capacidades.begin();
