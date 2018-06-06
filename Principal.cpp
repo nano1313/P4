@@ -20,7 +20,7 @@
 using namespace std;
 /*Cabezales de funciones a utilizar*/
 void iniciarSesion(); //listo sin probar
-void verInfoPelicula();//Listo sin probar
+void verInfoPelicula();
 void verComentariosPelicula();
 void crearReserva();
 void puntuarPelicula();
@@ -29,7 +29,7 @@ void verReservas();
 void cerrarSesion(); //listo sin probar
 void altaCine(); //listo sin probar
 void altaFuncion(); //listo sin probar
-void eliminarPelicula(); //lista sin probar
+void eliminarPelicula();
 
 void switchNoLog(int resp);
 void switchLog(int resp);
@@ -184,36 +184,35 @@ void iniciarSesion(){
 			IUsuario* iUser =fab->getIUsuario();
 			string aux="";//Guardara las respuestas del usuario
 			bool flagWhile;//Sera la bandera para seguir iterando
-
-			do {
+			do{
 				cout << "Ingresa tu nick: " << '\n';
 				cin >> aux;
 				iUser->ingresarNick(aux);
 				cout << "Ingresa tu password: " << '\n';
 				cin >> aux;
 				flagWhile=iUser->ingresarContrasenia(aux);
-
-				if(!flagWhile) {
+				if(!flagWhile){
 					cout << "Datos incorrectos... \nDesea volver a intentar(S/N):" << '\n';
 					cin >> aux;
 					flagWhile=(aux=="n" || aux=="N");//Si no desea intentar mas
+
 				}
-			} while(!flagWhile);
+			}while(!flagWhile);
 }
 
-void cerrarSesion() {
+void cerrarSesion(){
 	IUsuario* iUser=fab->getIUsuario();
 	iUser->cerrarSesion();
 }
 
-void altaCine() {
+void altaCine(){
 		DtDireccion direccion;
 
 		IPelicula* iPeli = fab->getIPelicula();
 		string aux=""; //Guardara las respuestas del usuario
 		bool flagWhile=true, seguirAgregandoSalas=true;
 
-		do {
+		do{
 			cout << "Ingresa la calle del Cine: " << '\n';
 			cin >> aux;
 			direccion.setCalle(aux);
@@ -229,17 +228,14 @@ void altaCine() {
 				cout << "Desea seguir ingresando salas? (S/N): " << '\n';
 				cin >> aux;
 				seguirAgregandoSalas=(aux!="n" && aux!="N");
-			} while(seguirAgregandoSalas)
-
+			}while(seguirAgregandoSalas)
 			cout << "Desea confirmar el ingreso del Cine(" + direccion.getCalle() + ", " + direccion.getNumero() + "): " << '\n';
 			cin >> aux;
-
-			if (aux=="s" || aux=="S") {
+			if (aux=="s" || aux=="S"){
 				iPeli->confirmarAltaCine();
-			}else {
+			}else{
 				iPeli->cancelar(); //Esta funcion solo libera la memoria para que no interfiera con el caso de uso siguiente
 			}
-
 			cout << "Desea ingresar otro Cine? (S/N): " << '\n';
 			cin >> aux;
 			flagWhile=(aux!="n" && aux!="N");
@@ -248,7 +244,7 @@ void altaCine() {
 
 }
 
-void altaFuncion() {
+void altaFuncion(){
 		string aux="";
 		DtFecha fecha;
 		DtHora hora;
@@ -264,9 +260,8 @@ void altaFuncion() {
 		cin.ignore();
 		getline(cin,aux, '\n');
 		iPeli->seleccionarPelicula(aux);
-		vector<int> listaCines=iPeli->darListaCines();
 		do{
-
+			vector<int> listaCines=iPeli->darListaCines();
 			cout << "Selecciona un Cine de la lista: " << '\n';
 			for(vector<int>::iterator it=listaCines.begin(); it!=listaCines.end(); ++iterator){
 					cout << (*it) << '\n';
@@ -289,79 +284,7 @@ void altaFuncion() {
 			cout << "Desea ingresar otra Funcion? (S/N): " << '\n';
 			cin >> aux;
 			sigueAgregando=(aux!="n" && aux!="N");
-			listaSalas.clear();
-
-
 		}while(sigueAgregando);
 		iPeli->finalizar();
-
-		listaCines.clear();
-
-		listaPeliculas.clear();
-
-}
-
-void verInfoPelicula(){
-	IPelicula iPeli = fab->getIPelicula();
-	bool canelar=true;
-	string aux;
-	DtPelicula datosPelicula;
-	vector<DtPelicula> listaPeliculas = iPeli->darListaPeliculas();
-	vector<int> listaCines;
-	vector<int> listaFunciones;
-	do{
-		cout << "Selecciona una Pelicula de la lista(Cancelar=-1): " << '\n';
-		for(vector<DtPelicula>::iterator it=listaPeliculas.begin(); it!=listaPeliculas.end(); ++iterator){
-				cout << (*it).getTitulo() << '\n';
-		}
-		cin.ignore();
-		getline(cin,aux, '\n');
-		cancelar=(aux=="-1");//si elije cancelar
-		if (!cancelar){
-			datosPelicula=iPeli->seleccionarPelicula1(aux);
-			cout<< "Pelicula seleccionada:\nPoster:" + datosPelicula.getPoster() + "\nSinopsis:" + datosPelicula.getSinopsis()<<'\n';
-			cout<< "Desea ver mas informacion?(S/N):"<<'\n';
-			cin >> aux;
-			cancelar=(aux=="N" || aux=="n");
-			if (!cancelar){
-				listaCines=iPeli->darListaCines();
-				cout << "Selecciona un Cine de la lista(Cancelar=-1): " << '\n';
-				for(vector<int>::iterator it=listaCines.begin(); it!=listaCines.end();++iterator){
-					cout<< (*it) <<'\n';
-				}
-				cin >> aux;
-				cancelar= (aux=="-1");
-				if (!cancelar){
-					listaFunciones=iPeli->seleccionarCine(stoi(aux));
-					for(vector<DtPelicula>::iterator it=listaFunciones.begin(); it!=listaFunciones.end(); ++iterator){
-							cout << (*it) << '\n';
-					}
-				}
-			}
-
-		}
-		cout<< "Desea consultar informacion de otra Pelicula?(S/N):"<<'\n';
-		cin >> aux;
-		cancelar=(aux=="N" || aux=="n");
-	}while(!cancelar);
-	iPeli->finalizar();
-}
-
-void eliminarPelicula(){
-	IPelicula iPeli = fab->getIPelicula();
-	cout << "Selecciona una Pelicula de la lista: " << '\n';
-	for(vector<DtPelicula>::iterator it=listaPeliculas.begin(); it!=listaPeliculas.end(); ++iterator){
-			cout << (*it).getTitulo() << '\n';
-	}
-	cin.ignore();
-	getline(cin,aux, '\n');
-	iPeli->seleccionarPelicula2(aux);
-	cout << "Confirma que desea eliminar la pelicula " + aux +"?(S/N)" << '\n';
-	cin >> aux;
-	if (aux=="S" || aux=="s"){
-		iPeli->confirmarEliminar();
-	}
-	iPeli->finalizar();
-
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

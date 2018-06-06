@@ -12,44 +12,52 @@ CtrlReserva* CtrlReserva::getInstancia()
 }
 
 void CtrlReserva::seleccionarFuncion(int num, int cantAsientos){
-    Pelicula *peli = NULL; //global en un futuro 
-    int cant1 = cantAsientos; //global en un futuro
-    peli->seleccionarFuncion(num,cantAsientos);
+    CtrlPelicula *ctrl = ctrl->getInstancia(); //global en un futuro 
+    Pelicula *peli = ctrl->getPelicula();
+    this->cant = cantAsientos; //global en un futuro
+    this->f = peli->seleccionarFuncion(num);
 }
 
 DtPago CtrlReserva::pagoCredito(string nomFin){
-    Funcion *f = NULL; //global en un futuro
-    Sala *s = f->getSala();
+    Sala *s = this->f->getSala();
     Cine *c = s->getCine();
     int p = c->getPrecio(); 
-    //Mtarjetas t = getInstancia();
-    //Credito *tar = t->tarjetas.find(nomFin)   //GLOBAL A FUTURO
-    //int des = tar->getDescuento(nomFin);
-    //int total = p-((p*des)/100)               GLOBAL A FUTURO
-   // DtPago res = Dtpago(total,des);
-    //return res;    
+    Mtarjeta *t = t->getInstancia();
+    Credito *crd = t->encontrarInstanciaCredito(nomFin);  
+    int des = crd->getDescuento();
+    this->tar= crd;
+    this->total = ((p*this->cant)-(((p*this->cant)*des)/100));  
+    DtPago res = DtPago(this->total,des);
+    return res;    
 }
 
 int CtrlReserva::pagoDebito(string nomBanco){
-    Funcion *f = NULL; //global en un futuro
-    Sala *s = f->getSala();
+    Sala *s = this->f->getSala();
     Cine *c = s->getCine();
-    int total = c->getPrecio();     //GLOBAL A FUTURO
-    //Mtarjetas t = getInstancia();
-    //Debito *tar = t->tarjetas.find(nomBanco) GLOBAL A FUTURO
+    this->total = (c->getPrecio()*this->cant);     //GLOBAL A FUTURO
+    Mtarjeta *t = t->getInstancia();
+    this->tar = t->encontrarInstanciaDebito(nomBanco);
     return total;
 }
 
 void CtrlReserva::crearReserva(){
-    Tarjeta *tar = NULL; //ESTA TARJETA SERIA LA QUE OBTENGO EN pagoDebito o pagoCredito
-    int total = 0;                        //esto tambien
-    int cantasientos = 0;                 //esto lo obtengo en seleccionar funcion
-    Reserva r = Reserva(cantasientos,total,tar);
-    Usuario *u = NULL;  //este es el usuario que estaria logeado 
-    Reserva *coso = &r ;
+    Reserva r = Reserva(this->cant,this->total,this->tar);
+    CtrlUsuario *ctrl = ctrl->getInstancia();  //este es el usuario que estaria logeado 
+    Usuario *u = ctrl->getUserlog();
+    Reserva *coso = &r; 
     u->aniadirReserva(coso);
+    Usuario *pointer = u;
+    r.setUsuario(pointer);
+    this->tar=NULL;
+    this->f=NULL;
+    this->total=-1;
+    this->cant=-1;
 }
 
 void CtrlReserva::finalizarReserva(){
+    this->tar=NULL;
+    this->f=NULL;
+    this->total=-1;
+    this->cant=-1;
     //pongo a null todo lo global
 }

@@ -61,3 +61,11 @@ int* Pelicula::seleccionarCine(int id) {	return NULL;
 int* Pelicula::darListaCine() {			return NULL;
 	//
 }
+Funcion* Pelicula::seleccionarFuncion(int numero){
+	map<int, Funcion *>::iterator it = this->funciones->begin();
+	while(it->first!=numero){
+		it++;
+	}
+	return it->second;
+
+}
