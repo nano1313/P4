@@ -102,18 +102,16 @@ void CtrlPelicula::seleccionarPelicula2(string titulo) {
     }
 }
 
-vector<int> CtrlPelicula::darListaCines(){
-    
+vector<DtCine> CtrlPelicula::darListaCines() {
     map<int, Cine *>::iterator it = cines.begin();
-    vector<int> vector_cines;
+    vector<DtCine> vector_cines;
 
-    for (it = this->cines.begin(); it!=this->cines.end(); ++it) {
-        int nuevo = it->second->getNumero();
-        vector_cines.push_back(nuevo);
+    for (it = this->cines.begin(); it!=this->cines.end(); ++it) 
+    {
+        vector_cines.push_back(DtCine(it->second->getNumero(), it->second->getDireccion(), it->second->getPrecio()));
     }
 
     return vector_cines;
-
 } 
 
 void CtrlPelicula::seleccionarCine(int numCine){
@@ -129,29 +127,31 @@ void CtrlPelicula::seleccionarCine(int numCine){
     }
 }
 
-vector<int> CtrlPelicula::darListaCinesDeUnaFuncion(Pelicula * pelicula) {
-    vector<int> vector_cines;
+vector<DtCine> CtrlPelicula::darListaCinesDeUnaFuncion() {
+    vector<DtCine> vector_cines;
 
-    map<string, Funcion *> * funciones = pelicula->getFunciones();
+    map<string, Funcion *> * funciones = this->pelicula->getFunciones();
 
     for (map<string,Funcion *>::iterator it = funciones->begin(); it!=funciones->end(); ++it) {
-        vector_cines.push_back(it->second->getSala()->getCine()->getNumero());
+        vector_cines.push_back(DtCine(it->second->getSala()->getCine()->getNumero(), it->second->getSala()->getCine()->getDireccion(), it->second->getSala()->getCine()->getPrecio());
     }
         
     return vector_cines;
 }
 
-vector<int> CtrlPelicula::seleccionarCineConSusFunciones(int id) {
-    vector<int> cines_funciones;
-
+vector<DtFuncion> CtrlPelicula::seleccionarCineConSusFunciones(int id) {
+    
+    vector<DtFuncion> cines_funciones;
     map<string, Funcion *> * funciones = this->getPelicula()->getFunciones();
 
-    for (map<string,Funcion *>::iterator it = funciones->begin(); it!=funciones->end(); ++it) {
+    for (map<string,Funcion *>::iterator it = funciones->begin(); it!=funciones->end(); ++it) 
+    {
         if (it->second->getSala()->getCine()->getNumero() == id)
         {
-            cines_funciones.push_back(it->second->getNumero());
+            cines_funciones.push_back(DtFuncion(it->second->getNumero(), it->second->getFecha(), it->second->getHora()));
         }
     }
+
     return cines_funciones;
 }
 
@@ -189,6 +189,7 @@ void CtrlPelicula::confirmarAltaCine(){
     this->capacidades.erase(inicio,fin);
 
 }
+
 void CtrlPelicula::cancelar(){
     this->cine = NULL;      //INICIALIZACION
     this->sala = NULL;

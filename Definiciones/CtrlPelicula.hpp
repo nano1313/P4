@@ -10,6 +10,7 @@
 #include "./Pelicula.hpp"
 #include "./Cine.hpp"
 #include "./Sala.hpp"
+#include "./DtFuncion.hpp"
 
 using namespace std;
 
@@ -35,10 +36,10 @@ class CtrlPelicula : public IPelicula {
         vector<DtPelicula> darListaPeliculas(); //Hecha
         DtPelicula seleccionarPelicula1(string titulo);//Hecha
         void seleccionarPelicula2(string titulo);//Hecha
-        vector<int> darListaCines(); //Hecha
+        vector<DtCine> darListaCines(); //Hecha
         void seleccionarCine(int numCine);//Hecha
-        vector<int> darListaCinesDeUnaFuncion(Pelicula * pelicula); //Hecha
-        vector<int> seleccionarCineConSusFunciones(int id); //Hecha  
+        vector<DtCine> darListaCinesDeUnaFuncion(); //Hecha
+        vector<DtFuncion> seleccionarCineConSusFunciones(int id); //Hecha  
         void ingresarDireccion(string calle, int num); //Hecha
         void ingresarCapacidad(int cap); //Hecha
         void confirmarAltaCine(); //Hecha

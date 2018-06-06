@@ -9,6 +9,8 @@
 
 #include "./DtPelicula.hpp"
 #include "./Pelicula.hpp"
+#include "./DtFuncion.hpp"
+#include "./DtCine.hpp"
 
 using namespace std;
 
@@ -18,9 +20,9 @@ class IPelicula {
 	public:
 
         // CU en gral
-		    virtual vector<DtPelicula> darListaPeliculas(); 
+        virtual vector<DtPelicula> darListaPeliculas(); 
         virtual void seleccionarPelicula2(string titulo);
-        virtual vector<int> darListaCines();
+        virtual vector<DtCine> darListaCines();
         virtual void seleccionarCine(int numCine);
         
         // CU Alta Cine
@@ -34,8 +36,8 @@ class IPelicula {
         
         // CU Ver info Pelicula
         virtual DtPelicula seleccionarPelicula1(string titulo);
-        virtual vector<int> darListaCinesDeUnaFuncion();
-        virtual vector<int> seleccionarCineConSusFunciones(int id);    
+        virtual vector<DtCine> darListaCinesDeUnaFuncion();
+        virtual vector<DtFuncion> seleccionarCineConSusFunciones(int id);    
 
         // CU Eliminar Pelicula
         virtual void confirmarEliminar();
