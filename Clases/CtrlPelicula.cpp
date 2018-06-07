@@ -130,9 +130,9 @@ void CtrlPelicula::seleccionarCine(int numCine){
 vector<DtCine> CtrlPelicula::darListaCinesDeUnaFuncion() {
     vector<DtCine> vector_cines;
 
-    map<string, Funcion *> * funciones = this->pelicula->getFunciones();
+    map<int, Funcion *> * funciones = this->pelicula->getFunciones();
 
-    for (map<string,Funcion *>::iterator it = funciones->begin(); it!=funciones->end(); ++it) {
+    for (map<int,Funcion *>::iterator it = funciones->begin(); it!=funciones->end(); ++it) {
         vector_cines.push_back(DtCine(it->second->getSala()->getCine()->getNumero(),
                                       it->second->getSala()->getCine()->getDireccion(),
                                       it->second->getSala()->getCine()->getPrecio()));
@@ -144,9 +144,9 @@ vector<DtCine> CtrlPelicula::darListaCinesDeUnaFuncion() {
 vector<DtFuncion> CtrlPelicula::seleccionarCineConSusFunciones(int id) {
 
     vector<DtFuncion> cines_funciones;
-    map<string, Funcion *> * funciones = this->getPelicula()->getFunciones();
+    map<int, Funcion *> * funciones = this->getPelicula()->getFunciones();
 
-    for (map<string,Funcion *>::iterator it = funciones->begin(); it!=funciones->end(); ++it)
+    for (map<int,Funcion *>::iterator it = funciones->begin(); it!=funciones->end(); ++it)
     {
         if (it->second->getSala()->getCine()->getNumero() == id)
         {
