@@ -11,15 +11,17 @@ class DtComentario;
 
 class DtComentario {
   private:
+    int id;
   	string usuario;
     string descripcion;
     vector<DtComentario> respuestas; //set DtComentario
 
   public:
     /* Getters */
-	   string getUsuario();
-     string getDescripcion();
-	   vector<DtComentario> getRespuestas();
+    int getId();
+	  string getUsuario();
+    string getDescripcion();
+	  vector<DtComentario> getRespuestas();
 
     /* Setters */
     void setUsuario(string usuario);
@@ -27,7 +29,7 @@ class DtComentario {
   	void setRespuestas(vector<DtComentario> respuestas);
 
     DtComentario();
-    DtComentario(string usuario, string descripcion/*, DtComentario respuestas  Tambien es un set*/);
+    DtComentario(int id, string usuario, string descripcion/*, DtComentario respuestas  Tambien es un set*/);
     ~DtComentario();
 
 };

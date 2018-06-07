@@ -54,9 +54,12 @@ class IPelicula {
 				//CU ComentarPelicula
 				virtual vector<DtComentario> darListaComentarios();
 				virtual void crearComentario(string texto);
-				virtual void seleccionarComentario(string id);
+				virtual void seleccionarComentario(int id);
 				virtual void responderComentario(string texto);
 				virtual void finalizarComentario();
+
+				//CU Ver Comentarios y puntajes de pelicula
+				virtual vector<DtPuntaje> darListaPuntajes();
 
 };
 
