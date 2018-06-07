@@ -43,3 +43,7 @@ DtUsuario* CtrlUsuario::getUsuarioLog() {
     else return NULL;
 
 } //devuelve NULL si no hay Usuario Logueado
+
+Usuario* CtrlUsuario::getUserlog() {
+    return this->usuarioLog;
+}

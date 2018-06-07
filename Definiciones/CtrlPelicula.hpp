@@ -10,7 +10,9 @@
 #include "./Pelicula.hpp"
 #include "./Cine.hpp"
 #include "./Sala.hpp"
+#include "./Usuario.hpp"
 #include "./DtFuncion.hpp"
+#include "./Puntaje.hpp"
 
 using namespace std;
 
@@ -24,6 +26,7 @@ class CtrlPelicula : public IPelicula {
         Pelicula * pelicula; // Pelicula guardada en memoria. //
         Cine * cine; // Cine guardado en memoria //
         Sala * sala; // Sala guardada en memoria //
+        Usuario * usuario;
         DtDireccion direccionCine; // Direccion del Cine a crear //
         vector<int> capacidades; // Capacidades de las Salas del Cine a crear //
         int precioCine; // Precio del Cine a agregar //
@@ -47,6 +50,9 @@ class CtrlPelicula : public IPelicula {
         vector<string> darListaSalas();
         void confirmarEliminar();
         void finalizar();
+        bool yaPuntuo();
+        int mostrarPuntaje();
+        void ingresarPuntaje(int puntaje);
 
         /* Setters */
 

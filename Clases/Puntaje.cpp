@@ -15,3 +15,7 @@ int Puntaje::getValor() {
 void Puntaje::setValor(int valor) {
 	this->valor = valor;
 }
+
+void Puntaje::setUsuario(Usuario * usuario) {
+	this->usuario = usuario;
+}

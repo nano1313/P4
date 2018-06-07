@@ -192,11 +192,64 @@ void CtrlPelicula::confirmarAltaCine(){
 
 }
 
-void CtrlPelicula::cancelar(){
+void CtrlPelicula::cancelar() {
     this->cine = NULL;      //INICIALIZACION
     this->sala = NULL;
     vector<int>::iterator inicio,fin;
     inicio = this->capacidades.begin();
     fin = this->capacidades.end();
     this->capacidades.erase(inicio,fin);
+}
+
+bool CtrlPelicula::yaPuntuo() {
+
+    map<string, Puntaje *> * puntajes = this->pelicula->getPuntajes();
+    string nickname = this->usuario->getNickname();
+
+    for (map<string,Puntaje *>::iterator it = puntajes->begin(); it!=puntajes->end(); ++it)
+    {
+        if (it->second->getUsuario()->getNickname() == nickname)
+        {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+int CtrlPelicula::mostrarPuntaje() {
+    
+    map<string, Puntaje *> * puntajes = this->pelicula->getPuntajes();
+    string nickname = this->usuario->getNickname();
+    
+    for (map<string,Puntaje *>::iterator it = puntajes->begin(); it!=puntajes->end(); ++it)
+    {
+        if (it->first == nickname)
+        {
+            return it->second->getValor();
+        }
+    }
+
+    return 0;
+}
+
+void CtrlPelicula::ingresarPuntaje(int numero) {
+    map<string, Puntaje *> * puntajes = this->pelicula->getPuntajes();
+    string nickname = this->usuario->getNickname();
+    bool agregar = false;
+    
+    for (map<string,Puntaje *>::iterator it = puntajes->begin(); it!=puntajes->end(); ++it)
+    {
+        if (it->first == nickname)
+        {
+            it->second->setValor(numero);
+            agregar = true;
+        }
+    }
+
+    if (!agregar)
+    {
+        Puntaje * puntaje = new Puntaje(numero);
+        puntajes->insert(make_pair(nickname, puntaje));
+    }
 }

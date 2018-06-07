@@ -16,9 +16,10 @@
 #include "Credito.hpp"
 #include "Reserva.hpp"
 #include "Usuario.hpp"
-
-
-
+#include "Mtarjeta.hpp"
+#include "DtPago.hpp"
+#include "CtrlPelicula.hpp"
+#include "CtrlUsuario.hpp"
 
 using namespace std;
 
@@ -28,6 +29,10 @@ class CtrlReserva : public IReserva {
     private:
         static CtrlReserva* instancia;
         CtrlReserva();
+        Funcion *f;
+        int cant;
+        Tarjeta *tar;
+        int total;
 	public:
          static CtrlReserva* getInstancia();
 		 void seleccionarFuncion(int num, int cantAsientos);

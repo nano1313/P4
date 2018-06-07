@@ -43,6 +43,11 @@ class IPelicula {
         virtual void confirmarEliminar();
         virtual void finalizar();
 
+        // CU Puntuar Pelicula
+        virtual bool yaPuntuo();
+        virtual int mostrarPuntaje();
+        virtual void ingresarPuntaje(int puntaje);
+
         virtual void setPelicula(Pelicula * pelicula);
         virtual Pelicula * getPelicula();
 				

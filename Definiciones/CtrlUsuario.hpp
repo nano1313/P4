@@ -27,7 +27,8 @@ class CtrlUsuario : public IUsuario{
                 void ingresarNick(string nick);
                 bool ingresarContrasenia(string pass);
                 void cerrarSesion();
-                DtUsuario* getUsuarioLog(); //devuelve NULL si no hay Usuario Logueado
+                DtUsuario * getUsuarioLog(); //devuelve NULL si no hay Usuario Logueado
+                Usuario * getUserlog(); //devuelve NULL si no hay Usuario Logueado
 };
 
 #endif

@@ -38,3 +38,6 @@ void Reserva::setCosto(float costo) {
 	this->costo = costo;
 }
 
+void Reserva::setUsuario(Usuario *u) {
+	this->u = u;
+}

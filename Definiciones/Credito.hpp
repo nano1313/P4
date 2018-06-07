@@ -12,18 +12,18 @@ using namespace std;
 class Credito : public Tarjeta {
 	private:
 		string financiera;
-        float descuento;
+        int descuento;
 
 	public:
 		/* Getters */
 		string getFinanciera();
-        float getDescuento();
+        int getDescuento();
 
 		/* Setters */
 		void setFinanciera(string financiera);
-        void setDescuento(float descuento);
+        void setDescuento(int descuento);
 
-		Credito(string financiera, float descuento);
+		Credito(string financiera, int descuento);
 		~Credito();
 };
 #endif
