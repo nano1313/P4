@@ -207,8 +207,8 @@ void cerrarSesion() {
 }
 
 void altaCine() {
-		DtDireccion direccion;
 
+		DtDireccion direccion;
 		IPelicula* iPeli = fab->getIPelicula();
 		string aux=""; //Guardara las respuestas del usuario
 		bool flagWhile=true, seguirAgregandoSalas=true;
@@ -362,6 +362,23 @@ void eliminarPelicula(){
 		iPeli->confirmarEliminar();
 	}
 	iPeli->finalizar();
+
+}
+
+void comentarPelicula(){
+	IPelicula iPeli = fab->getIPelicula();
+	bool quiereAgregarCom;
+	cout << "Selecciona una Pelicula de la lista: " << '\n';
+	for(vector<DtPelicula>::iterator it=listaPeliculas.begin(); it!=listaPeliculas.end(); ++iterator){
+			cout << (*it).getTitulo() << '\n';
+	}
+	cin.ignore();
+	getline(cin,aux, '\n');
+	iPeli->seleccionarPelicula2(aux);
+	do{
+		
+	}while(!quiereAgregarCom)
+
 
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

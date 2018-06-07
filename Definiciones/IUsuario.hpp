@@ -14,7 +14,7 @@ class IUsuario {
 
 	public:
 		virtual void ingresarNick(string nick);
-    	virtual bool ingresarContrasenia(string pass);
+    virtual bool ingresarContrasenia(string pass);
 		virtual DtUsuario* getUsuarioLog(); //devuelve NULL si no hay Usuario Logueado
 		virtual void cerrarSesion();
 };
