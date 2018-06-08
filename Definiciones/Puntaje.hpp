@@ -14,11 +14,10 @@ class Puntaje {
 		Usuario * usuario;
 
 	public:
-		Usuario * getUsuario();
-		void setUsuario();
-
+	
 		/* Getters */
 		int getValor();
+		Usuario * getUsuario();
 
 		/* Setters */
 		void setValor(int valor);

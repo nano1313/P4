@@ -7,8 +7,11 @@
 #include <map>
 #include "Funcion.hpp"
 #include "Puntaje.hpp"
+#include "Comentario.hpp"
 
 using namespace std;
+
+class Funcion;
 
 class Pelicula {
 	private:
@@ -19,6 +22,7 @@ class Pelicula {
 		float duracion;
 		map<int, Funcion *> funciones;
 		map<string, Puntaje *> puntajes;
+		map<int, Comentario *> comentarios;
 
 	public:
 		/* Getters */
@@ -29,7 +33,8 @@ class Pelicula {
 		float getDuracion();
 		map<int, Funcion *> getFunciones();
 		map<string, Puntaje *> getPuntajes();
-
+		map<int, Comentario *> getComentarios();
+		
 		/* Setters */
 		void setTitulo(string titulo);
 		void setPoster(string poster);

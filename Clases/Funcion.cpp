@@ -23,11 +23,21 @@ DtHora Funcion::getHora() {
 Sala* Funcion::getSala() {
 	return this->sala;
 }
+
 /*
 float Funcion::getPrecio() {
 	return this->precio;
 }
 */
+
+set<int, Reserva *> Funcion::getReservas(){
+	return this->reservas;
+}
+
+Pelicula* Funcion::getPelicula() {
+	return this->pelicula;
+}
+
 /* Setters */
 void Funcion::setNumero(int numero) {
 	this->numero = numero;

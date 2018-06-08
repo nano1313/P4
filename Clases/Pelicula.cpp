@@ -6,6 +6,7 @@ Pelicula::Pelicula(string titulo, string poster, string sinopsis, float promPunt
 	this->sinopsis = sinopsis;
 	this->promPuntaje = promPuntaje;
 	this->duracion = duracion;
+
 }
 
 /* Getters */
@@ -28,6 +29,18 @@ float Pelicula::getPromPuntaje() {
 
 float Pelicula::getDuracion() {
 	return this->duracion;
+}
+
+map<string, Puntaje *> Pelicula::getPuntajes() {
+	return this->puntajes;
+}
+
+map<int, Funcion *> Pelicula::getFunciones() {
+	return this->funciones;
+}
+
+map<int, Comentario *> Pelicula::getComentarios() {
+	return this->comentarios;
 }
 
 /* Setters */
@@ -62,9 +75,6 @@ int* Pelicula::darListaCine() {			return NULL;
 	//
 }
 
-map<string, Puntaje *> Pelicula::getPuntajes() {
-	return this->puntajes;
-}
 
 Funcion * Pelicula::seleccionarFuncion(int numero) {
 	map<int, Funcion *>::iterator it = this->funciones.begin();

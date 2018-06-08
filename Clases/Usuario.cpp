@@ -26,6 +26,10 @@ int Usuario::getNivel(){
 	return this->nivel;
 }
 
+set<Reserva *> Usuario::getReservas(){
+
+	return this->reservas;
+}
 /* Setters */
 
 void Usuario::setNickname(string nickname) {
@@ -49,8 +53,8 @@ void Usuario::setNivel(int nivel){
 /* Metodos */
 
 void Usuario::eliminarAsociaciones(Reserva *r) {
-	 this->Reservas.erase(Reservas.find(r));
+	 this->reservas.erase(reservas.find(r));
 }
 void Usuario::aniadirReserva(Reserva *r){
-	this->Reservas.insert(r);
+	this->reservas.insert(r);
 }

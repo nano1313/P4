@@ -27,6 +27,10 @@ float Reserva::getCosto() {
 	return this->costo;
 }
 
+Funcion * Reserva::getFuncion(){
+	return this->f;
+}
+
 
 /* Setters */
 

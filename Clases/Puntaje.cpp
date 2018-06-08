@@ -9,6 +9,9 @@ Puntaje::Puntaje (int valor) {
 int Puntaje::getValor() {
 	return this->valor;
 }
+Usuario * Puntaje::getUsuario(){
+	return this->usuario;
+}
 
 /* Setters */
 
