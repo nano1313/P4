@@ -1,4 +1,4 @@
-#include "../Definiciones/Mtarjeta.hpp"
+#include "../Definiciones/MTarjeta.hpp"
 
 Mtarjeta* Mtarjeta::getInstancia(){
     

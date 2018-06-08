@@ -7,6 +7,7 @@
 #include "Reserva.hpp"
 #include <set>
 
+class Reserva;
 
 using namespace std;
 

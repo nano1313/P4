@@ -11,6 +11,9 @@
 #include "./Pelicula.hpp"
 #include "./DtFuncion.hpp"
 #include "./DtCine.hpp"
+#include "./DtPuntaje.hpp"
+#include "./DtComentario.hpp"
+
 
 using namespace std;
 

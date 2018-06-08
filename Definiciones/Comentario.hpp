@@ -10,6 +10,8 @@
 
 using namespace std;
 
+class Usuario;
+
 class Comentario {
 
 	private:

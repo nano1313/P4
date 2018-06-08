@@ -12,6 +12,8 @@
 using namespace std;
 
 class Funcion;
+class Puntaje;
+class Comentario;
 
 class Pelicula {
 	private:

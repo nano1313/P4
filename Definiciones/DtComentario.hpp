@@ -3,6 +3,9 @@
 
 #include <iostream>
 #include <string.h>
+
+#include <vector>
+
 #include "DtComentario.hpp"
 
 using namespace std;

@@ -4,9 +4,11 @@
 #include <iostream>
 #include <string.h>
 #include <stdlib.h>
-#include "Usuario.hpp"
+#include "./Usuario.hpp"
 
 using namespace std;
+
+class Usuario;
 
 class Puntaje {
 	private:
