@@ -23,7 +23,7 @@ void iniciarSesion(); //listo sin probar
 void verInfoPelicula();//Listo sin probar
 void verComentariosPelicula();//Listo sin probar
 void crearReserva();
-void puntuarPelicula();
+void puntuarPelicula();//Listo sin probar
 void comentarPelicula(); //Listo sin probar
 void verReservas();
 void cerrarSesion(); //listo sin probar
@@ -446,5 +446,32 @@ void mostrarComentario(vector<DtComentario> l, int tab){
 	}
 }
 
+void puntuarPelicula(){
+	IPelicula iPeli = fab->getIPelicula();
+	bool quiereAgregarCom;
+	string aux;
+	vector<DtPelicula> listaPeliculas = iPeli->datListaPeliculas();
+	cout << "Selecciona una Pelicula de la lista: " << '\n';
+	for(vector<DtPelicula>::iterator it=listaPeliculas.begin(); it!=listaPeliculas.end(); ++iterator){
+			cout << (*it).getTitulo() + " " + (*it).getPoster() << '\n';
+	}
+	cin.ignore();
+	getline(cin,aux, '\n');
+	iPeli->seleccionarPelicula2(aux);
+	if (iPeli->yaPuntuo()){
+		cout << "Ya puntuaste esta pelicula, con " + iPeli->mostrarPuntaje() + "puntos. Deseas cambiarlo?(S/N)"<< '\n';
+		cin >> aux;
+		if (aux=="S" || aux=="s"){
+			cout << "Cual es el nuevo puntaje? (1 al 10)"<< '\n';
+			cin >> aux;
+			iPeli->ingresarPuntaje(stoi(aux));
+		}
+	}else{
+		cout << "Ccon cuanto deseas puntuar la pelicula? (1 al 10)"<< '\n';
+		cin >> aux;
+		iPeli->ingresarPuntaje(stoi(aux));
+	}
+
+}
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
