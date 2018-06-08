@@ -17,8 +17,8 @@ class Pelicula {
 		string sinopsis;
 		float promPuntaje;
 		float duracion;
-		map<int, Funcion *> * funciones;
-		map<string, Puntaje *> * puntajes;
+		map<int, Funcion *> funciones;
+		map<string, Puntaje *> puntajes;
 
 	public:
 		/* Getters */
@@ -27,8 +27,8 @@ class Pelicula {
 		string getSinopsis();
 		float getPromPuntaje();
 		float getDuracion();
-		map<int, Funcion *> * getFunciones();
-		map<string, Puntaje *> * getPuntajes();
+		map<int, Funcion *> getFunciones();
+		map<string, Puntaje *> getPuntajes();
 
 		/* Setters */
 		void setTitulo(string titulo);

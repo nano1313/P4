@@ -5,6 +5,7 @@
 #include <string.h>
 #include <stdlib.h>
 
+#include <vector>
 
 using namespace std;
 
@@ -24,7 +25,7 @@ class Comentario {
 		/* Setters */
 		void setId(int id);
 		void setDesc(string desc);
-		void getRespuestas(vector<Comentario> l);
+		void setRespuestas(vector<Comentario> respuestas);
 
 		Comentario(int id, string desc);
 		~Comentario();

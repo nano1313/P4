@@ -13,6 +13,8 @@
 #include "./Usuario.hpp"
 #include "./DtFuncion.hpp"
 #include "./Puntaje.hpp"
+#include "./DtPuntaje.hpp"
+#include "./DtComentario.hpp"
 
 using namespace std;
 

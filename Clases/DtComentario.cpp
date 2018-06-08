@@ -1,6 +1,7 @@
 #include "../Definiciones/DtComentario.hpp"
 
-DtComentario::DtComentario(string usuario, string descripcion/*, DtComentario respuestas*/) {
+DtComentario::DtComentario(int id, string usuario, string descripcion/*, DtComentario respuestas*/) {
+	this->id = id;
 	this->usuario = usuario;
 	this->descripcion = descripcion;
 //    this->respuestas = respuestas;

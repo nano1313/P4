@@ -62,12 +62,12 @@ int* Pelicula::darListaCine() {			return NULL;
 	//
 }
 
-map<string, Puntaje *>* Pelicula::getPuntajes() {
-	return NULL;
+map<string, Puntaje *> Pelicula::getPuntajes() {
+	return this->puntajes;
 }
 
 Funcion * Pelicula::seleccionarFuncion(int numero) {
-	map<int, Funcion *>::iterator it = this->funciones->begin();
+	map<int, Funcion *>::iterator it = this->funciones.begin();
 
 	while(it->first!=numero){
 		it++;
