@@ -48,6 +48,8 @@ class Pelicula {
 		Funcion * seleccionarFuncion(int numero);
 		int* seleccionarCine(int id);
 		int* darListaCine();
+		void agregarNuevoComentario(Comentario * comentario);
+		void agregarNuevaRespuesta(Comentario * comentario, int padre); /* Respuesta a comentario, padre es el id del comentario padre */
 
         Pelicula();
 		Pelicula(string titulo, string poster,string sinopsis, float promPuntaje, float duracion);

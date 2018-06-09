@@ -63,7 +63,7 @@ class IPelicula {
 
 				//CU Ver Comentarios y puntajes de pelicula
 				virtual vector<DtPuntaje> darListaPuntajes();
-
+      
 };
 
 #endif

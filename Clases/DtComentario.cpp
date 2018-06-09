@@ -1,10 +1,10 @@
 #include "../Definiciones/DtComentario.hpp"
 
-DtComentario::DtComentario(int id, string usuario, string descripcion/*, DtComentario respuestas*/) {
+DtComentario::DtComentario(int id, string usuario, string descripcion, vector<DtComentario> respuestas) {
 	this->id = id;
 	this->usuario = usuario;
 	this->descripcion = descripcion;
-//    this->respuestas = respuestas;
+    this->respuestas = respuestas;
 }
 
 /* Getters */
@@ -16,12 +16,11 @@ string DtComentario::getUsuario() {
 string DtComentario::getDescripcion() {
 	return this->descripcion;
 }
-/*
-DtComentario DtComentario::getRespuestas() {
+
+vector<DtComentario> DtComentario::getRespuestas() {
 	return this->respuestas;
 }
 
-*/
 /* Setters */
 
 void DtComentario::setUsuario(string usuario) {
@@ -31,8 +30,7 @@ void DtComentario::setUsuario(string usuario) {
 void DtComentario::setDescripcion(string descripcion) {
 	this->descripcion = descripcion;
 }
-/*
+
 void DtComentario::setRespuestas(DtComentario respuestas) {
 	this->respuestas = respuestas;
 }
-*/

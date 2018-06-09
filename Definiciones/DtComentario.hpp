@@ -32,7 +32,7 @@ class DtComentario {
   	void setRespuestas(vector<DtComentario> respuestas);
 
     DtComentario();
-    DtComentario(int id, string usuario, string descripcion/*, DtComentario respuestas  Tambien es un set*/);
+    DtComentario(int id, string usuario, string descripcion, vector<DtComentario> respuestas);
     ~DtComentario();
 
 };
