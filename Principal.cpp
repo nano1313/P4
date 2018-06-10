@@ -509,15 +509,43 @@ void crearReserva(){
 					for(vector<DtPelicula>::iterator it=listaFunciones.begin(); it!=listaFunciones.end(); ++iterator){
 							cout << it->getNumero() + " " + it->getFecha().toString() + " " + it->getHora().toString()<< '\n';
 					}
-					cout << "Selecciona una Funcion: " << '\n';
+					IReserva iRes=fab->getIReserva();
+					string numFuncion="";
+					string cantAsientos="";
+					int descuento=0;
+					DtPago desc;
 
+					cout << "Selecciona una Funcion: " << '\n';
+					cin >> numFuncion;
+					cout << "Selecciona la cantidad de asientos: " << '\n';
+					cin >> cantAsientos;
+					cout << "Que tipo de pago desea? (1-Debito, 2-Credito): " << '\n';
+					cin >> aux;
+					iRes->seleccionarFuncion(stoi(numFuncion), stoi(cantAsientos));
+					cout << "Que tipo de pago desea? (1-Debito, 2-Credito): " << '\n';
+					cin >> aux;
+					if (aux=="1"){//pago debito
+						cout << "Ingrese el nombre del Banco: " << '\n';
+						cin >> aux;
+						descuento=iRes->pagoDebito(aux);
+						cout << "Descuento: " + descuento << '\n';
+
+					}else{//pago credito
+						cout << "Ingrese el nombre de la Financiera: " << '\n';
+						cin >> aux;
+						desc=iRes->pagoCredito(aux);
+						cout << "Descuento: " + desc.getDescuento() << '\n';
+					}
+					cout << "Confirma la reserva? (S/N): " << '\n';
+					cin >> aux;
+					if (aux=="S" || aux=="s"){
+						iRes->crearReserva();
+					}
+					iRes->finalizarReserva();
 				}
 			}
 
 		}
-		cout<< "Desea consultar informacion de otra Pelicula?(S/N):"<<'\n';
-		cin >> aux;
-		cancelar=(aux=="N" || aux=="n");
 	}while(!cancelar);
 	iPeli->finalizar();
 }
