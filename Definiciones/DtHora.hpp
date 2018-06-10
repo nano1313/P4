@@ -21,6 +21,8 @@ class DtHora {
     void setHora(int d);
     void setMinutos(int m);
 
+    string toString();
+
     DtHora();
     DtHora(int hora, int minutos);
     ~DtHora();

@@ -474,4 +474,52 @@ void puntuarPelicula(){
 
 }
 
+void crearReserva(){
+	IPelicula iPeli = fab->getIPelicula();
+	bool canelar=true;
+	string aux;
+	DtPelicula datosPelicula;
+	vector<DtPelicula> listaPeliculas = iPeli->darListaPeliculas();
+	vector<int> listaCines;
+	vector<DtFuncion> listaFunciones;
+	do{
+		cout << "Selecciona una Pelicula de la lista(Cancelar=-1): " << '\n';
+		for(vector<DtPelicula>::iterator it=listaPeliculas.begin(); it!=listaPeliculas.end(); ++iterator){
+				cout << (*it).getTitulo() << '\n';
+		}
+		cin.ignore();
+		getline(cin,aux, '\n');
+		cancelar=(aux=="-1");//si elije cancelar
+		if (!cancelar){
+			datosPelicula=iPeli->seleccionarPelicula1(aux);
+			cout<< "Pelicula seleccionada:\nPoster:" + datosPelicula.getPoster() + "\nSinopsis:" + datosPelicula.getSinopsis()<<'\n';
+			cout<< "Desea ver mas informacion?(S/N):"<<'\n';
+			cin >> aux;
+			cancelar=(aux=="N" || aux=="n");
+			if (!cancelar){
+				listaCines=iPeli->darListaCines();
+				cout << "Selecciona un Cine de la lista(Cancelar=-1): " << '\n';
+				for(vector<int>::iterator it=listaCines.begin(); it!=listaCines.end();++iterator){
+					cout<< (*it) <<'\n';
+				}
+				cin >> aux;
+				cancelar= (aux=="-1");
+				if (!cancelar){
+					listaFunciones=iPeli->seleccionarCineConSusFunciones(stoi(aux));
+					for(vector<DtPelicula>::iterator it=listaFunciones.begin(); it!=listaFunciones.end(); ++iterator){
+							cout << it->getNumero() + " " + it->getFecha().toString() + " " + it->getHora().toString()<< '\n';
+					}
+					cout << "Selecciona una Funcion: " << '\n';
+
+				}
+			}
+
+		}
+		cout<< "Desea consultar informacion de otra Pelicula?(S/N):"<<'\n';
+		cin >> aux;
+		cancelar=(aux=="N" || aux=="n");
+	}while(!cancelar);
+	iPeli->finalizar();
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

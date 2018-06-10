@@ -14,6 +14,10 @@ unsigned int DtHora::getMinutos() {
 	return this->minutos;
 }
 
+string DtHora::toString(){
+	return this->hora + ":" + this->minutos;
+}
+
 /* Setters */
 void DtHora::setHora(int hora) {
 	this->hora = hora;
@@ -22,4 +26,3 @@ void DtHora::setHora(int hora) {
 void DtHora::setMinutos(int minutos) {
 	this->minutos = minutos;
 }
-

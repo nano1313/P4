@@ -22,10 +22,12 @@ class DtFecha {
     void setMes(int m);
     void setAnio(int a);
 
+    string toString();
+
     DtFecha();
     DtFecha(int dia, int mes, int anio);
     ~DtFecha();
-    
+
     bool operator<(const DtFecha&);
 };
 
