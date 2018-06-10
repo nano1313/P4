@@ -21,10 +21,10 @@ using namespace std;
 /*Cabezales de funciones a utilizar*/
 void iniciarSesion(); //listo sin probar
 void verInfoPelicula();//Listo sin probar
-void verComentariosPelicula();//Listo sin probar
+void verComentariosPelicula();
 void crearReserva();
-void puntuarPelicula();//Listo sin probar
-void comentarPelicula(); //Listo sin probar
+void puntuarPelicula();
+void comentarPelicula();
 void verReservas();
 void cerrarSesion(); //listo sin probar
 void altaCine(); //listo sin probar
@@ -207,8 +207,8 @@ void cerrarSesion() {
 }
 
 void altaCine() {
-
 		DtDireccion direccion;
+
 		IPelicula* iPeli = fab->getIPelicula();
 		string aux=""; //Guardara las respuestas del usuario
 		bool flagWhile=true, seguirAgregandoSalas=true;
@@ -349,7 +349,6 @@ void verInfoPelicula(){
 
 void eliminarPelicula(){
 	IPelicula iPeli = fab->getIPelicula();
-	vector<DtPelicula> listaPeliculas=iPeli->darListaPeliculas();
 	cout << "Selecciona una Pelicula de la lista: " << '\n';
 	for(vector<DtPelicula>::iterator it=listaPeliculas.begin(); it!=listaPeliculas.end(); ++iterator){
 			cout << (*it).getTitulo() << '\n';
@@ -363,115 +362,6 @@ void eliminarPelicula(){
 		iPeli->confirmarEliminar();
 	}
 	iPeli->finalizar();
-	listaPeliculas.clear();
 
 }
-
-void comentarPelicula(){
-	IPelicula iPeli = fab->getIPelicula();
-	bool quiereAgregarCom;
-	string aux;
-	vector<DtComentario> listaComentarios;
-	vector<DtPelicula> listaPeliculas = iPeli->datListaPeliculas();
-	cout << "Selecciona una Pelicula de la lista: " << '\n';
-	for(vector<DtPelicula>::iterator it=listaPeliculas.begin(); it!=listaPeliculas.end(); ++iterator){
-			cout << (*it).getTitulo() << '\n';
-	}
-	cin.ignore();
-	getline(cin,aux, '\n');
-	iPeli->seleccionarPelicula2(aux);
-	do{
-		listaComentarios=iPeli->darListaComentarios()
-		mostrarComentario(listaComentarios, 0);
-		cout << "Que desea hacer: \n1-Nuevo comentario a Pelicula.\n2-Responder Comentario.  " << '\n';
-		cin >> aux;
-		if (aux=="1"){
-			cout << "Escribi el nuevo comentario: " << '\n';
-			cin.ignore();
-			getline(cin,aux, '\n');
-			iPeli->crearComentario(aux);
-		}else{
-			cout << "Selecciona el codigo por su id: " << '\n';
-			cin >> aux;
-			iPeli->seleccionarComentario(stoi(aux));
-			cout << "Escribi el nuevo comentario: " << '\n';
-			cin.ignore();
-			getline(cin,aux, '\n');
-			iPeli->responderComentario(aux);
-		}
-		cout << "Desea seguir comentando esta Pelicula? (S/N)" << '\n';
-		cin >> aux;
-		quiereAgregarCom=(aux=="S" || aux=="s");
-		listaComentarios.clear();
-	}while(quiereAgregarCom)
-	listaPeliculas.clear();
-
-
-}
-
-void verComentariosPelicula(){
-	IPelicula iPeli = fab->getIPelicula();
-	bool quiereAgregarCom;
-	string aux;
-	vector<DtPelicula> listaPeliculas = iPeli->datListaPeliculas();
-	cout << "Selecciona una Pelicula de la lista: " << '\n';
-	for(vector<DtPelicula>::iterator it=listaPeliculas.begin(); it!=listaPeliculas.end(); ++iterator){
-			cout << (*it).getTitulo() + " " + (*it).getPoster() << '\n';
-	}
-	cin.ignore();
-	getline(cin,aux, '\n');
-	iPeli->seleccionarPelicula2(aux);
-	vector<DtComentario> listaComentarios=iPeli->darListaComentarios()
-	mostrarComentario(listaComentarios, 0);
-	vector<DtPuntaje> listaPuntaje=iPeli->darListaComentarios()
-	for(vector<DtPuntaje>::iterator it=listaPuntaje.begin(); it!=listaPuntaje.end(); ++iterator){
-			cout << (*it).getUsuario() + ": " + (*it).getPuntaje()<< '\n';
-	}
-
-	listaPeliculas.clear();
-	listaComentarios.clear();
-	listaPuntaje.clear();
-
-}
-
-//Funcion auxiliar
-void mostrarComentario(vector<DtComentario> l, int tab){
-	string altura="";
-	for(int i=1; i<=tab; i++){
-		altura=altura + "| ";
-	}
-	for(vector<DtComentario>::iterator it=l.begin(); it!=l.end(); ++iterator){
-			cout << altura + (*it).getId() + "-" + (*it).getUsuario() + ": " + (*it).getDesc() << '\n';
-			mostrarComentario((*it).getRespuestas(), tab+1);
-	}
-}
-
-void puntuarPelicula(){
-	IPelicula iPeli = fab->getIPelicula();
-	bool quiereAgregarCom;
-	string aux;
-	vector<DtPelicula> listaPeliculas = iPeli->datListaPeliculas();
-	cout << "Selecciona una Pelicula de la lista: " << '\n';
-	for(vector<DtPelicula>::iterator it=listaPeliculas.begin(); it!=listaPeliculas.end(); ++iterator){
-			cout << (*it).getTitulo() + " " + (*it).getPoster() << '\n';
-	}
-	cin.ignore();
-	getline(cin,aux, '\n');
-	iPeli->seleccionarPelicula2(aux);
-	if (iPeli->yaPuntuo()){
-		cout << "Ya puntuaste esta pelicula, con " + iPeli->mostrarPuntaje() + "puntos. Deseas cambiarlo?(S/N)"<< '\n';
-		cin >> aux;
-		if (aux=="S" || aux=="s"){
-			cout << "Cual es el nuevo puntaje? (1 al 10)"<< '\n';
-			cin >> aux;
-			iPeli->ingresarPuntaje(stoi(aux));
-		}
-	}else{
-		cout << "Ccon cuanto deseas puntuar la pelicula? (1 al 10)"<< '\n';
-		cin >> aux;
-		iPeli->ingresarPuntaje(stoi(aux));
-	}
-
-}
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

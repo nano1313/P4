@@ -13,8 +13,6 @@
 #include "./Usuario.hpp"
 #include "./DtFuncion.hpp"
 #include "./Puntaje.hpp"
-#include "./DtPuntaje.hpp"
-#include "./DtComentario.hpp"
 
 using namespace std;
 
@@ -37,14 +35,14 @@ class CtrlPelicula : public IPelicula {
         CtrlPelicula();
 
     public:
-        static CtrlPelicula* getInstancia();//Hecha
+        static CtrlPelicula* getInstancia();//Hecha 
         vector<DtPelicula> darListaPeliculas(); //Hecha
         DtPelicula seleccionarPelicula1(string titulo);//Hecha
         void seleccionarPelicula2(string titulo);//Hecha
         vector<DtCine> darListaCines(); //Hecha
         void seleccionarCine(int numCine);//Hecha
         vector<DtCine> darListaCinesDeUnaFuncion(); //Hecha
-        vector<DtFuncion> seleccionarCineConSusFunciones(int id); //Hecha
+        vector<DtFuncion> seleccionarCineConSusFunciones(int id); //Hecha  
         void ingresarDireccion(string calle, int num); //Hecha
         void ingresarCapacidad(int cap); //Hecha
         void confirmarAltaCine(); //Hecha
@@ -56,16 +54,6 @@ class CtrlPelicula : public IPelicula {
         int mostrarPuntaje();
         void ingresarPuntaje(int puntaje);
 
-        //CU Comentar pelicula
-        virtual vector<DtComentario> darListaComentarios();
-/*      virtual void crearComentario(string texto);
-        virtual void seleccionarComentario(int id);
-        virtual void responderComentario(string texto);
-        virtual void finalizarComentario();
-
-        //CU Ver Comentarios y puntajes de pelicula
-        virtual vector<DtPuntaje> darListaPuntajes();
-*/
         /* Setters */
 
         void setPelicula(Pelicula * pelicula);

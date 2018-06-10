@@ -6,7 +6,6 @@ Pelicula::Pelicula(string titulo, string poster, string sinopsis, float promPunt
 	this->sinopsis = sinopsis;
 	this->promPuntaje = promPuntaje;
 	this->duracion = duracion;
-
 }
 
 /* Getters */
@@ -29,18 +28,6 @@ float Pelicula::getPromPuntaje() {
 
 float Pelicula::getDuracion() {
 	return this->duracion;
-}
-
-map<string, Puntaje *> Pelicula::getPuntajes() {
-	return this->puntajes;
-}
-
-map<int, Funcion *> Pelicula::getFunciones() {
-	return this->funciones;
-}
-
-map<int, Comentario *> Pelicula::getComentarios() {
-	return this->comentarios;
 }
 
 /* Setters */
@@ -75,9 +62,12 @@ int* Pelicula::darListaCine() {			return NULL;
 	//
 }
 
+map<string, Puntaje *>* Pelicula::getPuntajes() {
+	return NULL;
+}
 
 Funcion * Pelicula::seleccionarFuncion(int numero) {
-	map<int, Funcion *>::iterator it = this->funciones.begin();
+	map<int, Funcion *>::iterator it = this->funciones->begin();
 
 	while(it->first!=numero){
 		it++;
@@ -85,12 +75,22 @@ Funcion * Pelicula::seleccionarFuncion(int numero) {
 
 	return it->second;
 }
+void Pelicula::destroy(){
+	map<string, Puntaje *>::iterator it1 = this->puntajes->begin();
+ 	//map<int, Cine *>::iterator it = cines.begin();
 
-void Pelicula::agregarNuevoComentario(Comentario * comentario) {
-	this->comentarios[comentario->getId()] = comentario;
-}
-
-void Pelicula::agregarNuevaRespuesta(Comentario * comentario, int padre) {
-	vector<Comentario*> respuestas = this->comentarios[padre]->getRespuestas();
-	respuestas.push_back(comentario);
+	for (it1 = this->puntajes->begin(); it1 !=this->puntajes->end(); ++it1)
+    {
+		this->puntajes->erase(it1->first);
+		delete(it1->second);
+    }
+	map<int, Funcion *>::iterator it2;
+ 	for (it2 = this->funciones->begin(); it2 !=this->funciones->end(); ++it2)
+    {
+		this->funciones->erase(it2->first);
+		it2->second->destroy();
+		delete(it2->second);
+		
+	}
+	
 }

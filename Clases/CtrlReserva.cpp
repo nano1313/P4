@@ -41,11 +41,12 @@ int CtrlReserva::pagoDebito(string nomBanco){
 }
 
 void CtrlReserva::crearReserva(){
-    Reserva r = Reserva(this->cant,this->total,this->tar);
+    Reserva r = Reserva(this->cant,this->total,this->tar,this->f);
+    Reserva *ptr = &r;
+    this->f->aniadirReserva(ptr);
     CtrlUsuario *ctrl = ctrl->getInstancia();  //este es el usuario que estaria logeado 
     Usuario *u = ctrl->getUserlog();
-    Reserva *coso = &r; 
-    u->aniadirReserva(coso);
+    u->aniadirReserva(ptr);
     Usuario *pointer = u;
     r.setUsuario(pointer);
     this->tar=NULL;

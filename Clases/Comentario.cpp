@@ -15,15 +15,6 @@ string Comentario::getDesc() {
 	return this->desc;
 }
 
-vector<Comentario *> Comentario::getRespuestas(){
-
-	return this->respuestas;
-}
-
-Usuario * Comentario::getUsuario(){
-	return this->usuario;
-}
-
 /* Setters */
 
 void Comentario::setId(int id) {
@@ -31,13 +22,4 @@ void Comentario::setId(int id) {
 }
 void Comentario::setDesc(string desc) {
 	this->desc = desc;
-}
-
-void Comentario::setRespuestas(vector<Comentario *> respuestas){
-
-	this->respuestas = respuestas;
-}
-
-void Comentario::setUsuario(Usuario * usuario) {
-	this->usuario = usuario;
 }

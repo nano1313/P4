@@ -7,7 +7,6 @@
 #include "Reserva.hpp"
 #include <set>
 
-class Reserva;
 
 using namespace std;
 
@@ -17,7 +16,7 @@ class Usuario {
 		string contrasenia;
 		string imagen;
 		int nivel;
-		set<Reserva *> reservas;
+		set<Reserva *> Reservas;
 
 	public:
 		/* Getters */
@@ -25,7 +24,6 @@ class Usuario {
 		string getContrasenia();
 		string getImagen();
 		int getNivel();
-		set<Reserva *> getReservas();
 
 		/* Setters */
 		void setNickname(string nickname);

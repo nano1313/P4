@@ -23,21 +23,11 @@ DtHora Funcion::getHora() {
 Sala* Funcion::getSala() {
 	return this->sala;
 }
-
 /*
 float Funcion::getPrecio() {
 	return this->precio;
 }
 */
-
-set<int, Reserva *> Funcion::getReservas(){
-	return this->reservas;
-}
-
-Pelicula* Funcion::getPelicula() {
-	return this->pelicula;
-}
-
 /* Setters */
 void Funcion::setNumero(int numero) {
 	this->numero = numero;
@@ -54,6 +44,24 @@ void Funcion::setHora(DtHora hora) {
 void Funcion::setSala(Sala *sala) {
 	this->sala = sala;
 }
+void Funcion::destroy(){
+	set<Reserva *>::iterator it;
+ 	for (it = this->reservas.begin(); it!=this->reservas.end(); ++it)
+    {
+		this->reservas.erase(it);
+		Reserva *r = *it;
+		Usuario *u = r->getUsuario();
+		u->eliminarAsociaciones(r);
+		r->destroy();
+		delete(r);	
+		
+	}
+
+}
+void Funcion::aniadirReserva(Reserva *r){
+	this->reservas.insert(r);
+}
+
 /*
 void Funcion::setPrecio(float precio) {
 	this->precio = precio;

@@ -4,11 +4,9 @@
 #include <iostream>
 #include <string.h>
 #include <stdlib.h>
-#include "./Usuario.hpp"
+#include "Usuario.hpp"
 
 using namespace std;
-
-class Usuario;
 
 class Puntaje {
 	private:
@@ -16,10 +14,11 @@ class Puntaje {
 		Usuario * usuario;
 
 	public:
-	
+		Usuario * getUsuario();
+		void setUsuario();
+
 		/* Getters */
 		int getValor();
-		Usuario * getUsuario();
 
 		/* Setters */
 		void setValor(int valor);

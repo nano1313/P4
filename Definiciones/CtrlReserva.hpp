@@ -16,7 +16,7 @@
 #include "Credito.hpp"
 #include "Reserva.hpp"
 #include "Usuario.hpp"
-#include "MTarjeta.hpp"
+#include "Mtarjeta.hpp"
 #include "DtPago.hpp"
 #include "CtrlPelicula.hpp"
 #include "CtrlUsuario.hpp"
