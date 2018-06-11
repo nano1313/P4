@@ -13,7 +13,7 @@ DtFecha::DtFecha(int _dia, int _mes, int _anio){
 }
 
 string DtFecha::toString(){
-		return dia + "/" + mes + "/" anio;
+		return dia + "/" + mes + "/" anio ;
 }
 
 unsigned int DtFecha::getDia(){

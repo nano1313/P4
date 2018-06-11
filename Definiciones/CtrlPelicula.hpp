@@ -57,7 +57,7 @@ class CtrlPelicula : public IPelicula {
         void ingresarPuntaje(int puntaje);
 
         //CU Comentar pelicula
-        virtual vector<DtComentario> darListaComentarios();
+        vector<DtComentario> darListaComentarios();
 /*      virtual void crearComentario(string texto);
         virtual void seleccionarComentario(int id);
         virtual void responderComentario(string texto);
