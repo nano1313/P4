@@ -212,7 +212,8 @@ void altaCine() {
 		DtDireccion direccion;
 		IPelicula* iPeli = fab->getIPelicula();
 		string aux=""; //Guardara las respuestas del usuario
-		bool flagWhile=true, seguirAgregandoSalas=true;
+		bool flagWhile=true;
+		bool seguirAgregandoSalas=true;
 
 		do {
 			cout << "Ingresa la calle del Cine: " << '\n';
@@ -224,15 +225,15 @@ void altaCine() {
 			iPeli->ingresarDireccion(direccion.getCalle(), direccion.getNumero());
 			int i=1;
 			do{
-				cout << "Ingresa la capacidad de la Sala Nro." + i + ": " << '\n';
+				cout << "Ingresa la capacidad de la Sala Nro." + to_string(i) + ": " << '\n';
 				cin >> aux;
 				iPeli->ingresarCapacidad(stoi(aux));
 				cout << "Desea seguir ingresando salas? (S/N): " << '\n';
 				cin >> aux;
 				seguirAgregandoSalas=(aux!="n" && aux!="N");
-			} while(seguirAgregandoSalas)
+			} while(seguirAgregandoSalas);
 
-			cout << "Desea confirmar el ingreso del Cine(" + direccion.getCalle() + ", " + direccion.getNumero() + "): " << '\n';
+			cout << "Desea confirmar el ingreso del Cine(" + direccion.getCalle() + ", " + to_string(direccion.getNumero()) + "): " << '\n';
 			cin >> aux;
 
 			if (aux=="s" || aux=="S") {
@@ -270,7 +271,7 @@ void altaFuncion() {
 
 			cout << "Selecciona un Cine de la lista: " << '\n';
 			for(vector<DtCine>::iterator it=listaCines.begin(); it!=listaCines.end(); ++it){
-					cout << (*it) << '\n';
+					cout << (*it).getNumero() << '\n';
 			}
 			cin >> aux;
 			iPeli->seleccionarCine(stoi(aux));
@@ -461,7 +462,7 @@ void puntuarPelicula(){
 	getline(cin,aux, '\n');
 	iPeli->seleccionarPelicula2(aux);
 	if (iPeli->yaPuntuo()){
-		string puntaje = IntToStr(iPeli->mostrarPuntaje());
+		string puntaje = to_string(iPeli->mostrarPuntaje());
 		cout << "Ya puntuaste esta pelicula, con " + puntaje + "puntos. Deseas cambiarlo?(S/N)"<< '\n';
 		cin >> aux;
 		if (aux=="S" || aux=="s"){

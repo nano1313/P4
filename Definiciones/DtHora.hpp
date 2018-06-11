@@ -23,7 +23,10 @@ class DtHora {
 
     string toString();
 
+	void operator=(const string&);	
+
     DtHora();
+
     DtHora(int hora, int minutos);
     ~DtHora();
 
