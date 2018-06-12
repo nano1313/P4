@@ -11,6 +11,7 @@ CtrlUsuario* CtrlUsuario::getInstancia()
     return instancia;
 }
 
+
 void CtrlUsuario::ingresarNick(string nick){
     this->nickname = nick;
 }
@@ -21,7 +22,7 @@ bool CtrlUsuario::ingresarContrasenia(string pass){
 
     if (it->second)
         return (it->second->getContrasenia() == pass);
-    else 
+    else
         return false;
 }
 
@@ -46,4 +47,13 @@ DtUsuario* CtrlUsuario::getUsuarioLog() {
 
 Usuario* CtrlUsuario::getUserlog() {
     return this->usuarioLog;
+}
+
+
+
+void CtrlUsuario::crearUsuario(string nick, string pass, string imagen, int nivel){
+
+  Usuario* usr= new Usuario(nick, pass, imagen, nivel);
+  usuarios.insert(std::pair<string, Usuario*>(nick,usr));
+
 }

@@ -425,8 +425,11 @@ void verComentariosPelicula(){
 	getline(cin,aux, '\n');
 	iPeli->seleccionarPelicula2(aux);
 	vector<DtComentario> listaComentarios=iPeli->darListaComentarios();
+	cout << aux << '\n';
+
 	mostrarComentario(listaComentarios, 0);
 	vector<DtPuntaje> listaPuntaje=iPeli->darListaPuntajes();
+	cout << "Puntajes" << '\n';
 	for(vector<DtPuntaje>::iterator it=listaPuntaje.begin(); it!=listaPuntaje.end(); ++it){
 			cout << (*it).getUsuario() + ": " + to_string((*it).getPuntaje())<< '\n';
 	}
@@ -441,10 +444,10 @@ void verComentariosPelicula(){
 void mostrarComentario(vector<DtComentario> l, int tab){
 	string altura="";
 	for(int i=1; i<=tab; i++){
-		altura=altura + "| ";
+			altura=altura + "		";
 	}
 	for(vector<DtComentario>::iterator it=l.begin(); it!=l.end(); ++it){
-			cout << altura + to_string((*it).getId()) + "-" + (*it).getUsuario() + ": " + (*it).getDescripcion() << '\n';
+			cout << altura + "<" + (*it).getUsuario() + ">:<" + (*it).getDescripcion() + ">" << '\n';
 			mostrarComentario((*it).getRespuestas(), tab+1);
 	}
 }

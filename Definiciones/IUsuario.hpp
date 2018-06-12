@@ -17,6 +17,7 @@ class IUsuario {
     virtual bool ingresarContrasenia(string pass);
 		virtual DtUsuario* getUsuarioLog(); //devuelve NULL si no hay Usuario Logueado
 		virtual void cerrarSesion();
+		virtual void crearUsuario(string nick, string pass, string imagen, int nivel);
 };
 
 #endif
