@@ -12,6 +12,9 @@
 #include "./Pelicula.hpp"
 
 #include <set>
+#include "Reserva.hpp"
+#include "Usuario.hpp"
+
 
 using namespace std;
 
@@ -25,7 +28,7 @@ class Funcion {
 		DtHora hora;
 		//float precio;
 		Sala * sala;
-		set<int, Reserva *> reservas;
+		set<Reserva *> reservas;
 		Pelicula * pelicula;
 
 	public:
@@ -35,7 +38,7 @@ class Funcion {
 		DtHora getHora();
 		//float getPrecio();
 		Sala * getSala();
-		set<int, Reserva *> getReservas();
+		set<Reserva *> getReservas();
 		Pelicula * getPelicula();
 
 		/* Setters */
@@ -44,6 +47,9 @@ class Funcion {
 		void setHora(DtHora hora);
 		void setSala(Sala* sala);
 		//void setPrecio(float precio);
+		
+		void destroy();
+		void aniadirReserva(Reserva *r);
         
         Funcion();
 		Funcion (int numero, DtFecha fecha, DtHora hora, Sala * sala  /*float precio*/);
