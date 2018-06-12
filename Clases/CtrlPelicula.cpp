@@ -277,3 +277,9 @@ vector<DtComentario> CtrlPelicula::darListaComentarios() {
 
     return comentario_devolver;
 }
+void CtrlPelicula::confirmarEliminar(){
+    map<string, Pelicula *>::iterator it;
+    this->peliculas.erase(this->pelicula->getTitulo());
+    this->pelicula->destroy();
+    this->pelicula=NULL;
+} 
