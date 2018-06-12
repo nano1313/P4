@@ -10,7 +10,7 @@ Reserva::Reserva (int cantAsientos ,float costo,Tarjeta *t) {  //Ezequiel inicio
 
 	this->cantAsientos = cantAsientos;
 	this->costo = costo;
-	this->t = t;
+	this->tarjeta = t;
 //    u->setReserva(this)
 
 }
@@ -27,10 +27,13 @@ float Reserva::getCosto() {
 	return this->costo;
 }
 
-Funcion * Reserva::getFuncion(){
-	return this->f;
+Funcion * Reserva::getFuncion() {
+	return this->funcion;
 }
 
+Tarjeta * Reserva::getTarjeta() {
+	return this->tarjeta;
+}
 
 /* Setters */
 
@@ -43,5 +46,5 @@ void Reserva::setCosto(float costo) {
 }
 
 void Reserva::setUsuario(Usuario *u) {
-	this->u = u;
+	this->usuario = u;
 }

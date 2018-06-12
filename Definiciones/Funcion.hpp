@@ -23,7 +23,6 @@ class Funcion {
 		int numero;
 		DtFecha fecha;
 		DtHora hora;
-		//float precio;
 		Sala * sala;
 		set<int, Reserva *> reservas;
 		Pelicula * pelicula;
@@ -33,7 +32,6 @@ class Funcion {
 		int getNumero();
 		DtFecha getFecha();
 		DtHora getHora();
-		//float getPrecio();
 		Sala * getSala();
 		set<int, Reserva *> getReservas();
 		Pelicula * getPelicula();
@@ -43,10 +41,9 @@ class Funcion {
 		void setFecha(DtFecha fecha);
 		void setHora(DtHora hora);
 		void setSala(Sala* sala);
-		//void setPrecio(float precio);
         
         Funcion();
-		Funcion (int numero, DtFecha fecha, DtHora hora, Sala * sala  /*float precio*/);
+		Funcion (int numero, DtFecha fecha, DtHora hora, Sala * sala);
 		~Funcion();
 };
 
