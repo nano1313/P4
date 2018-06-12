@@ -94,3 +94,22 @@ void Pelicula::agregarNuevaRespuesta(Comentario * comentario, int padre) {
 	vector<Comentario*> respuestas = this->comentarios[padre]->getRespuestas();
 	respuestas.push_back(comentario);
 }
+void Pelicula::destroy(){
+	map<string, Puntaje *>::iterator it1 = this->puntajes.begin();
+ 	//map<int, Cine *>::iterator it = cines.begin();
+
+	for (it1 = this->puntajes.begin(); it1 !=this->puntajes.end(); ++it1)
+    {
+		this->puntajes.erase(it1->first);
+		delete(it1->second);
+    }
+	map<int, Funcion *>::iterator it2;
+ 	for (it2 = this->funciones.begin(); it2 !=this->funciones.end(); ++it2)
+    {
+		this->funciones.erase(it2->first);
+		it2->second->destroy();
+		delete(it2->second);
+		
+	}
+	
+}
