@@ -31,6 +31,7 @@ class IPelicula {
         // CU Alta Cine
         virtual void ingresarDireccion(string calle, int num);
         virtual void ingresarCapacidad(int cap);
+				virtual void ingresarPrecioCine(int precio);
         virtual void confirmarAltaCine();
         virtual void cancelar();
 
@@ -63,7 +64,7 @@ class IPelicula {
 
 				//CU Ver Comentarios y puntajes de pelicula
 				virtual vector<DtPuntaje> darListaPuntajes();
-      
+
 };
 
 #endif

@@ -166,7 +166,9 @@ void CtrlPelicula::ingresarCapacidad(int cap){
 
     this->capacidades.push_back(cap);
 }
-
+void ingresarPrecioCine(int precio){
+  this->precioCine=precio;
+}
 void CtrlPelicula::confirmarAltaCine(){
 
     int cont = 1;           //PARA CONTROLAR EL NUMERO DE LAS SALAS
@@ -189,6 +191,9 @@ void CtrlPelicula::confirmarAltaCine(){
     inicio = this->capacidades.begin();
     fin = this->capacidades.end();
     this->capacidades.erase(inicio,fin);
+    this->precioCine=0;
+    this->direccionCine.setCalle("");
+    this->direccionCine.setNumero(0);
 
 }
 
@@ -218,10 +223,10 @@ bool CtrlPelicula::yaPuntuo() {
 }
 
 int CtrlPelicula::mostrarPuntaje() {
-    
+
     map<string, Puntaje *> puntajes = this->pelicula->getPuntajes();
     string nickname = this->usuario->getNickname();
-    
+
     for (map<string,Puntaje *>::iterator it = puntajes.begin(); it!=puntajes.end(); ++it)
     {
         if (it->first == nickname)
@@ -237,7 +242,7 @@ void CtrlPelicula::ingresarPuntaje(int numero) {
     map<string, Puntaje *> puntajes = this->pelicula->getPuntajes();
     string nickname = this->usuario->getNickname();
     bool agregar = false;
-    
+
     for (map<string,Puntaje *>::iterator it = puntajes.begin(); it!=puntajes.end(); ++it)
     {
         if (it->first == nickname)
@@ -264,7 +269,7 @@ vector<DtComentario> CtrlPelicula::darListaComentarios() {
     for (map<int, Comentario *>::iterator it = comentarios.begin(); it!=comentarios.end(); ++it) /* Para cada comentario de la pelicula */
     {
         vector<Comentario *> pibot = it->second->getRespuestas(); /* Agarro las respuestas */
-        
+
         for (Comentario * c : pibot) /* Para cada respuesta creo un DtComentario */
         {
             vector<DtComentario> respuesta; /* <-- Vacio */
@@ -282,4 +287,4 @@ void CtrlPelicula::confirmarEliminar(){
     this->peliculas.erase(this->pelicula->getTitulo());
     this->pelicula->destroy();
     this->pelicula=NULL;
-} 
+}

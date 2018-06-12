@@ -22,7 +22,7 @@ using namespace std;
 void iniciarSesion(); //listo sin probar
 void verInfoPelicula();//Listo sin probar
 void verComentariosPelicula();//Listo sin probar
-void crearReserva();
+void crearReserva();//Listo sin probar
 void puntuarPelicula();//Listo sin probar
 void comentarPelicula(); //Listo sin probar
 void verReservas();
@@ -30,6 +30,8 @@ void cerrarSesion(); //listo sin probar
 void altaCine(); //listo sin probar
 void altaFuncion(); //listo sin probar
 void eliminarPelicula(); //lista sin probar
+void cargarDatos();
+
 
 void switchNoLog(int resp);
 void switchLog(int resp);
@@ -232,6 +234,10 @@ void altaCine() {
 				cin >> aux;
 				seguirAgregandoSalas=(aux!="n" && aux!="N");
 			} while(seguirAgregandoSalas);
+
+			cout << "Ingresa el precio del cine:"  << '\n';
+			cin >> aux;
+			iPeli->ingresarPrecioCine(stoi(aux));
 
 			cout << "Desea confirmar el ingreso del Cine(" + direccion.getCalle() + ", " + to_string(direccion.getNumero()) + "): " << '\n';
 			cin >> aux;
@@ -557,4 +563,33 @@ void crearReserva(){
 	iPeli->finalizar();
 }
 
+void cargarDatos(){
+
+	//CINE 21 DE SEPTIEMBRE
+	DtDireccion direccion;
+	IPelicula* iPeli = fab->getIPelicula();
+	direccion.setCalle("21 de Septiembre");
+	direccion.setNumero(6658); //Convierte a numero el string, Capturar excepcion?
+	iPeli->ingresarDireccion(direccion.getCalle(), direccion.getNumero());
+	iPeli->ingresarPrecioCine(300);
+	iPeli->ingresarCapacidad(20);
+	iPeli->ingresarCapacidad(60);
+	iPeli->ingresarCapacidad(30);
+	iPeli->confirmarAltaCine();
+
+	//CINE MIGUEL BARREIRO 4588
+	direccion.setCalle("Miguel Barreiro");
+	direccion.setNumero(4588); //Convierte a numero el string, Capturar excepcion?
+	iPeli->ingresarDireccion(direccion.getCalle(), direccion.getNumero());
+	iPeli->ingresarPrecioCine(250);
+	iPeli->ingresarCapacidad(200);
+	iPeli->ingresarCapacidad(60);
+	iPeli->confirmarAltaCine();
+
+
+
+
+
+
+}
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
