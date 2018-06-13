@@ -54,6 +54,8 @@ class Pelicula {
 		void agregarNuevoComentario(Comentario * comentario);
 		void agregarNuevaRespuesta(Comentario * comentario, int padre); /* Respuesta a comentario, padre es el id del comentario padre */
 
+		void destroy();        	
+
         Pelicula();
 		Pelicula(string titulo, string poster,string sinopsis, float promPuntaje, float duracion);
 		~Pelicula();

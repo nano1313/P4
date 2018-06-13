@@ -24,17 +24,21 @@ class Reserva {
 		/* Getters */
 		int getCantAsientos();
 		float getCosto();
-		Funcion * getFuncion();
-		Tarjeta * getTarjeta();
+		Funcion* getFuncion();
+		Usuario* getUsuario(); 
 
 		/* Setters */
 		void setCantAsientos(int cantAsientos);
 		void setCosto(float costo);
 		void setUsuario(Usuario *u);
+		void setFuncion(Funcion *f); 
+
+
+		void destroy();
 
         Reserva();
 		Reserva(int cantAsientos, float costo);   
-		Reserva(int cantAsientos ,float costo,Tarjeta *t);
+		Reserva(int cantAsientos ,float costo,Tarjeta *t,Funcion *f);
 		~Reserva();
 };
 #endif

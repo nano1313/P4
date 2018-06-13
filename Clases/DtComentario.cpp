@@ -31,6 +31,6 @@ void DtComentario::setDescripcion(string descripcion) {
 	this->descripcion = descripcion;
 }
 
-void DtComentario::setRespuestas(DtComentario respuestas) {
+void DtComentario::setRespuestas(vector<DtComentario> respuestas) {
 	this->respuestas = respuestas;
 }

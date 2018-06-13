@@ -29,6 +29,7 @@ class CtrlUsuario : public IUsuario{
                 void cerrarSesion();
                 DtUsuario * getUsuarioLog(); //devuelve NULL si no hay Usuario Logueado
                 Usuario * getUserlog(); //devuelve NULL si no hay Usuario Logueado
+                void crearUsuario(string nick, string pass, string imagen, int nivel);
 };
 
 #endif

@@ -13,7 +13,12 @@ DtFecha::DtFecha(int _dia, int _mes, int _anio){
 }
 
 string DtFecha::toString(){
-		return dia + "/" + mes + "/" anio;
+
+		string dia_s, mes_s, anio_s;
+		dia_s = to_string(dia);
+		anio_s = to_string(anio);
+		mes_s = to_string(mes);
+		return (dia_s + "/" + mes_s + "/" + anio_s) ;
 }
 
 unsigned int DtFecha::getDia(){
@@ -44,6 +49,12 @@ ostream& DtFecha::operator<<(ostream& cout, DtFecha& f){
 	cout<<f.getDia()<<"/"<<f.getMes()<<"/"<<f.getAnio();
 }
 */
+
+void DtFecha::operator=(const string& s){
+	dia=stoi(s.substr(0,2));
+	mes=stoi(s.substr(3,2));
+	anio=stoi(s.substr(6,2));
+}
 bool DtFecha::operator<(const DtFecha& r){
 	return (anio<r.anio) || (anio==r.anio && mes<r.mes) || (anio==r.anio && mes==r.mes && dia<r.dia);
 }

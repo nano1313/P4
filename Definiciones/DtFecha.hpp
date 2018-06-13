@@ -2,6 +2,8 @@
 #define DTFECHA_HH
 
 #include <iostream>
+#include <string>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -29,6 +31,8 @@ class DtFecha {
     ~DtFecha();
 
     bool operator<(const DtFecha&);
+
+    void operator=(const string&);
 };
 
 //ostream& operator<<(ostream& cout, DtFecha& f);

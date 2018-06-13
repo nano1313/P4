@@ -48,6 +48,7 @@ class CtrlPelicula : public IPelicula {
         vector<DtFuncion> seleccionarCineConSusFunciones(int id); //Hecha
         void ingresarDireccion(string calle, int num); //Hecha
         void ingresarCapacidad(int cap); //Hecha
+        void ingresarPrecioCine(int precio);
         void confirmarAltaCine(); //Hecha
         void cancelar(); //Hecha
         vector<string> darListaSalas();

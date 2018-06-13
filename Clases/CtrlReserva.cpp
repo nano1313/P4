@@ -40,12 +40,13 @@ int CtrlReserva::pagoDebito(string nomBanco){
     return total;
 }
 
-void CtrlReserva::crearReserva() {
-    Reserva r = Reserva(this->cant,this->total,this->tar);
+void CtrlReserva::crearReserva(){
+    Reserva r = Reserva(this->cant,this->total,this->tar,this->f);
+    Reserva *ptr = &r;
+    this->f->aniadirReserva(ptr);
     CtrlUsuario *ctrl = ctrl->getInstancia();  //este es el usuario que estaria logeado 
-    Usuario *u = ctrl->getUserlog();
-    Reserva *coso = &r; 
-    u->aniadirReserva(coso);
+    Usuario *u = ctrl->getUserlog(); 
+    u->aniadirReserva(ptr);
     Usuario *pointer = u;
     r.setUsuario(pointer);
     this->tar=NULL;
@@ -70,7 +71,7 @@ vector<DtReserva> CtrlReserva::mostrarReserva() {
     vector<DtReserva> devolver;
 
     for (Reserva * r : reservas) {
-        Tarjeta * tarjeta = r->getTarjeta();
+        //Tarjeta * tarjeta = r->getTarjeta();
 
         
         //const Debito * d = dynamic_cast<Debito*>(*tarjeta);
