@@ -25,12 +25,12 @@ void verComentariosPelicula();//Listo sin probar
 void crearReserva();//Listo sin probar
 void puntuarPelicula();//Listo sin probar
 void comentarPelicula(); //Listo sin probar
-void verReservas();//prueba git
+void verReservas();
 void cerrarSesion(); //listo sin probar
 void altaCine(); //listo sin probar
 void altaFuncion(); //listo sin probar
 void eliminarPelicula(); //lista sin probar
-void cargarDatos();
+void cargarDatos();//Listo sin probar
 
 
 void switchNoLog(int resp);
@@ -49,9 +49,9 @@ int main(){
     string menuDesplegado;//<//="Bienvenido. Elija la opción.\n1) Registrar socio\n2) Agregar mascota\n3) Ingresar consulta\n4) Ver consulta antes de una fecha\n5) Eliminar socio\n6) Obtener mascotas de un socio\n0) Salir\n";
 		string menuCabezal="******************************************************************************\n*                                                                            *\n*                           MOVIEFING                                        *\n*                                                                            *\n******************************************************************************\nBienvenido. Elija la opción.";
 
-		string menuUsuarioNoLog="1) Iniciar Sesion\n2) Ver Informacion de Pelicula\n3) Ver Comentarios y Puntaje de Pelicula\n0) Salir\n";
-		string menuUsuarioLog="1) Crear Reserva\n2) Puntuar Pelicula\n3) Comentar Pelicula\n4) Ver Informacion de Pelicula\n5) Ver Comentarios y Puntaje de Pelicula\n6) Ver Reservas\n7)Cerrar Sesion\n0) Cerrar Sesion y Salir\n";
-		string menuUsuarioAdmin="1) Crear Reserva\n2) Puntuar Pelicula\n3) Comentar Pelicula\n4) Ver Informacion de Pelicula\n5) Ver Comentarios y Puntaje de Pelicula\n6) Ver Reservas\n7) Alta Cine\n8) Alta Funcion\n9) Eliminar Pelicula\n10)Cerrar Sesion\n0) Cerrar Sesion y Salir\n";
+		string menuUsuarioNoLog="1) Iniciar Sesion\n2) Ver Informacion de Pelicula\n3) Ver Comentarios y Puntaje de Pelicula\n4) Cargar Datos\n0) Salir\n";
+		string menuUsuarioLog="1) Crear Reserva\n2) Puntuar Pelicula\n3) Comentar Pelicula\n4) Ver Informacion de Pelicula\n5) Ver Comentarios y Puntaje de Pelicula\n6) Ver Reservas\n7) Cargar Datos\n8)Cerrar Sesion\n0) Cerrar Sesion y Salir\n";
+		string menuUsuarioAdmin="1) Crear Reserva\n2) Puntuar Pelicula\n3) Comentar Pelicula\n4) Ver Informacion de Pelicula\n5) Ver Comentarios y Puntaje de Pelicula\n6) Ver Reservas\n7) Alta Cine\n8) Alta Funcion\n9) Eliminar Pelicula\n10) Cargar Datos\n11)Cerrar Sesion\n0) Cerrar Sesion y Salir\n";
 		menuDesplegado=menuCabezal + menuUsuarioNoLog;
 		string respStr;
 		int resp;
@@ -84,34 +84,16 @@ int main(){
 void switchNoLog (int resp) {
 	switch (resp){
 		case 1:
-				iniciarSesion();
+			iniciarSesion();
 		break;
 		case 2:
 		  	verInfoPelicula();
 		break;
 		case 3:
-			/*	cout << "Ingresa el dia(dd):"<<endl;
-				cin >> dia;
-				cout << "Ingrese el mes(mm):"<<endl;
-				cin >> mes;
-				cout << "Ingrese el año(yyyy):"<<endl;
-				cin >> anio;
-				fechaAux.setDia(dia);
-				fechaAux.setMes(mes);
-				fechaAux.setAnio(anio);
-				cout << "Ingresa la CI del socio:"<<endl;
-				cin >> ciSocio;
-				cout << "Cual es el motivo de la consulta?:"<<endl;
-				//cin >> motivoConsulta;
-				cin.ignore();
-				getline(cin,motivoConsulta, '\n');
-				try{
-				ingresarConsulta(motivoConsulta,ciSocio,fechaAux);
-				}catch(invalid_argument a)
-				{
-					cout << a.what() << '\n';
-				}*/
-				verComentariosPelicula();
+			verComentariosPelicula();
+		break;
+		case 4:
+			cargarDatos();
 		break;
 	}
 }
@@ -119,7 +101,7 @@ void switchNoLog (int resp) {
 void switchLog (int resp) {
 	switch (resp){
 		case 1:
-				crearReserva();
+			crearReserva();
 		break;
 		case 2:
 		  	puntuarPelicula();
@@ -131,14 +113,18 @@ void switchLog (int resp) {
 		  	verInfoPelicula();
 		break;
 		case 5:
-				verComentariosPelicula();
+			verComentariosPelicula();
 		break;
 		case 6:
 			verReservas();
 		break;
 		case 7:
+			cargarDatos();
+		break;
+		case 8:
 			cerrarSesion();
 		break;
+
 		case 0:
 			cerrarSesion();
 		break;
@@ -148,7 +134,7 @@ void switchLog (int resp) {
 void switchAdmin (int resp) {
 	switch (resp){
 		case 1:
-				crearReserva();
+			crearReserva();
 		break;
 		case 2:
 		  	puntuarPelicula();
@@ -160,7 +146,7 @@ void switchAdmin (int resp) {
 		  	verInfoPelicula();
 		break;
 		case 5:
-				verComentariosPelicula();
+			verComentariosPelicula();
 		break;
 		case 6:
 			verReservas();
@@ -175,6 +161,9 @@ void switchAdmin (int resp) {
 			eliminarPelicula();
 		break;
 		case 10:
+			cargarDatos();
+		break;
+		case 11:
 			cerrarSesion();
 		break;
 		case 0:
@@ -294,6 +283,7 @@ void altaFuncion() {
 			cout << "Ingresa la hora (hh:mm): " << '\n';
 			cin >> auxHora;
 			hora=auxHora;
+			iPeli->altaFuncion(fecha, hora);		
 			cout << "Desea ingresar otra Funcion? (S/N): " << '\n';
 			cin >> aux;
 			sigueAgregando=(aux!="n" && aux!="N");
@@ -561,6 +551,9 @@ void crearReserva(){
 		}
 	}while(!cancelar);
 	iPeli->finalizar();
+	listaPeliculas.clear();
+	listaCines.clear();
+	listaFunciones.clear();
 }
 
 void cargarDatos(){
@@ -568,6 +561,7 @@ void cargarDatos(){
 	//CINE 21 DE SEPTIEMBRE
 	DtDireccion direccion;
 	IPelicula* iPeli = fab->getIPelicula();
+	IUsuario* iUser = fab->getIUsuario();
 	direccion.setCalle("21 de Septiembre");
 	direccion.setNumero(6658); //Convierte a numero el string, Capturar excepcion?
 	iPeli->ingresarDireccion(direccion.getCalle(), direccion.getNumero());
@@ -586,9 +580,128 @@ void cargarDatos(){
 	iPeli->ingresarCapacidad(60);
 	iPeli->confirmarAltaCine();
 
+	//PELICULAS
+	iPeli->altaPelicula("The Vindicators 3", "Tercera entrega de la saga de superheroes.", "/home/accion/posters/vindicators.png", 180);
+	iPeli->altaPelicula("Sangre de campeones", "Documental", "/home/accion/posters/scampeones.png", 180);
+	iPeli->altaPelicula("El insulto", "Drama libanes.", "/home/accion/posters/elinsulto.png", 180);
+	iPeli->altaPelicula("La noche que no se repite", "Drama libanes.", "/home/accion/posters/elinsulto.png", 180);
+
+	//Funciones
+	DtFecha fecha;
+	DtHora hora;
+	//F1
+	iPeli->seleccionarPelicula2("The Vindicators 3");
+	iPeli->seleccionarCine(1);
+	iPeli->seleccionarSala(1);
+	fecha="15/06/2018"; //sobre carga operador=
+	hora="14:00";
+	iPeli->altaFuncion(fecha, hora);
+	iPeli->finalizar();
+
+	//F2
+	iPeli->seleccionarPelicula2("Sangre de campeones");
+	iPeli->seleccionarCine(1);
+	iPeli->seleccionarSala(1);
+	fecha="15/06/2018"; //sobre carga operador=
+	hora="16:30";
+	iPeli->altaFuncion(fecha, hora);
+	iPeli->finalizar();
+
+	//F3
+	iPeli->seleccionarPelicula2("The Vindicators 3");
+	iPeli->seleccionarCine(2);
+	iPeli->seleccionarSala(1);
+	fecha="15/06/2018"; //sobre carga operador=
+	hora="14:00";
+	iPeli->altaFuncion(fecha, hora);
+	iPeli->finalizar();
+	
+	//F4
+	iPeli->seleccionarPelicula2("El insulto");
+	iPeli->seleccionarCine(1);
+	iPeli->seleccionarSala(3);
+	fecha="15/06/2018"; //sobre carga operador=
+	hora="22:00";
+	iPeli->altaFuncion(fecha, hora);
+	iPeli->finalizar();
+
+	//Usuarios
+	iUser->crearUsuario("cachoElNumberOne", "jorgeP4", "/users/registered/cachoElNumberOne.png",1);
+	iUser->crearUsuario("carmeBeiro2010", "carmela5688", "/users/registered/carmeBeiro2010.png",1);
+	iUser->crearUsuario("ale_ulises", "p4eslomejor21", "/users/registered/ale_ulises.png",9);
+
+	//Financieras se cargan en el objeto mismo
+	bool auxiliarBool;
+	//Comentarios
+	
+	iUser->ingresarNick("cachoElNumberOne");
+	auxiliarBool=iUser->ingresarContrasenia("jorgeP4");
+	iPeli->seleccionarPelicula2("The Vindicators 3");
+	iPeli->crearComentario("Es tremenda pelicula. La mejor parte es cuando aparecen Rick y Morty.");//Nuevo Comentario
+	iUser->cerrarSesion();
+	
+	iUser->ingresarNick("carmeBeiro2010");
+	auxiliarBool=iUser->ingresarContrasenia("carmela5688");
+	iPeli->seleccionarComentario(1);
+	iPeli->responderComentario("Esta muy buena pero la mejor parte es cuando explota el planeta con los malos.");
+	iUser->cerrarSesion();
+
+	iUser->ingresarNick("cachoElNumberOne");
+	auxiliarBool=iUser->ingresarContrasenia("jorgeP4");
+	iPeli->seleccionarComentario(2);
+	iPeli->responderComentario("Callateee no cuentes el final!!");
+	iUser->cerrarSesion();
+	
+	//Puntajes
+	iUser->ingresarNick("cachoElNumberOne");
+	auxiliarBool=iUser->ingresarContrasenia("jorgeP4");
+	iPeli->seleccionarPelicula2("The Vindicators 3");
+	iPeli->ingresarPuntaje(9);
+	iUser->cerrarSesion();
+
+	iUser->ingresarNick("carmeBeiro2010");
+	auxiliarBool=iUser->ingresarContrasenia("carmela5688");
+	iPeli->seleccionarPelicula2("El insulto");
+	iPeli->ingresarPuntaje(6);
+	iUser->cerrarSesion();
+
+	//Reservas
+
+	IReserva* iRes=fab->getIReserva();
+	DtPelicula datosPelicula;
+	vector<DtPelicula> listaPeliculas = iPeli->darListaPeliculas();
+	vector<DtFuncion> listaFunciones;
+	int descuento; 
+	DtPago desc;
+	//R1
+	iUser->ingresarNick("cachoElNumberOne");
+	auxiliarBool=iUser->ingresarContrasenia("jorgeP4");
+	datosPelicula=iPeli->seleccionarPelicula1("The Vindicators 3");
+	listaFunciones=iPeli->seleccionarCineConSusFunciones(1);
+	iRes->seleccionarFuncion(1, 7);
+	descuento=iRes->pagoDebito("BROU");
+	iRes->crearReserva();	
+	iRes->finalizarReserva();
+	listaFunciones.clear();
+	listaPeliculas.clear();
+	iPeli->finalizar();
+	iUser->cerrarSesion();
 
 
-
+	
+	//R2
+	iUser->ingresarNick("carmeBeiro2010");
+	auxiliarBool=iUser->ingresarContrasenia("carmela5688");
+	datosPelicula=iPeli->seleccionarPelicula1("The Vindicators 3");
+	listaFunciones=iPeli->seleccionarCineConSusFunciones(1);
+	iRes->seleccionarFuncion(1, 8);
+	desc=iRes->pagoCredito("OCA");
+	iRes->crearReserva();	
+	iRes->finalizarReserva();
+	listaFunciones.clear();
+	listaPeliculas.clear();
+	iPeli->finalizar();
+	iUser->cerrarSesion();
 
 
 }

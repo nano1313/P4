@@ -26,6 +26,8 @@ int StrToInt(string s){
     return  9;
   else if(s=="10")
     return  10;
+  else if (s=="11")
+    return 11;
   else if(s=="0")
     return 0;
   else
