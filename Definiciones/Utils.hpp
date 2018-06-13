@@ -56,9 +56,9 @@ string IntToStr(int s){
     return  "9";
   else if(s==10)
     return  "10";
-  else if(s=="0")
-    return 0;
+  else if(s==0)
+    return "0";
   else
-    return -1;
+    return "-1";
 }
 #endif
