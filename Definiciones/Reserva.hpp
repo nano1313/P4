@@ -16,9 +16,9 @@ class Reserva {
 	private:
 		int cantAsientos;
 		float costo;
-		Tarjeta * tarjeta;
-		Usuario* usuario;
-		Funcion* funcion;
+		Tarjeta * t;
+		Usuario* u;
+		Funcion* f;
 
 	public:
 		/* Getters */
@@ -26,6 +26,7 @@ class Reserva {
 		float getCosto();
 		Funcion* getFuncion();
 		Usuario* getUsuario(); 
+		Tarjeta* getTarjeta(); 
 
 		/* Setters */
 		void setCantAsientos(int cantAsientos);
