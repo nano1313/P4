@@ -1,10 +1,9 @@
 #include "../Definiciones/Pelicula.hpp"
 
-Pelicula::Pelicula(string titulo, string poster, string sinopsis, float promPuntaje, float duracion) {
+Pelicula::Pelicula(string titulo, string poster, string sinopsis, float duracion) {
 	this->titulo = titulo;
 	this->poster = poster;
 	this->sinopsis = sinopsis;
-	this->promPuntaje = promPuntaje;
 	this->duracion = duracion;
 	this->cantidadComentarios = 0;
 
@@ -71,7 +70,7 @@ void Pelicula::masUnoComentario() {
 }
 
 /* Metodos */
-
+/*
 int* Pelicula::seleccionarCine(int id) {	return NULL;
 	//
 }
@@ -79,7 +78,7 @@ int* Pelicula::seleccionarCine(int id) {	return NULL;
 int* Pelicula::darListaCine() {			return NULL;
 	//
 }
-
+*/
 
 Funcion * Pelicula::seleccionarFuncion(int numero) {
 	map<int, Funcion *>::iterator it = this->funciones.begin();

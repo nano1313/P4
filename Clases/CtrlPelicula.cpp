@@ -206,6 +206,17 @@ void CtrlPelicula::cancelar() {
     this->capacidades.erase(inicio,fin);
 }
 
+
+vector<DtSala> CtrlPelicula::darListaSalas(){
+
+    return this->cine->getSalas();
+}
+
+void CtrlPelicula::seleccionarSala(int num){
+
+   this->sala = this->cine->getSala(num);
+}
+
 bool CtrlPelicula::yaPuntuo() {
 
     map<string, Puntaje *> puntajes = this->pelicula->getPuntajes();
@@ -267,7 +278,7 @@ void CtrlPelicula::crearComentario(string text) {
     this->pelicula->masUnoComentario();
 }
 
-void CtrlPelicula::responderComentario(string texto, int padre) {
+void CtrlPelicula::responderComentario(string texto) {
     int cantidad = this->comentario->getRespuestas().size();
     Comentario * nuevo = new Comentario(cantidad + 1, texto);
 
@@ -311,9 +322,6 @@ vector<DtPuntaje> CtrlPelicula::darListaPuntajes() {
     return vpuntajes;
 }
 
-
-
-
 void CtrlPelicula::seleccionarComentario(int id) {
     this->comentario = this->pelicula->getComentarios()[id];
 }
@@ -330,6 +338,9 @@ void CtrlPelicula::confirmarEliminar() {
 }
 
 void CtrlPelicula::altaPelicula(string titulo, string sinopsis, string portada, float duracion) {
-    /// FALTA IMPLEMENTAR
+    
+    Pelicula *nuevaPeli = new Pelicula(titulo, portada, sinopsis, duracion);
+    this->peliculas[titulo] = nuevaPeli;
+
 }
 

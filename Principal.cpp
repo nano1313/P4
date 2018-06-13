@@ -281,10 +281,10 @@ void altaFuncion() {
 			}
 			cin >> aux;
 			iPeli->seleccionarCine(stoi(aux));
-			vector<string> listaSalas=iPeli->darListaSalas();
+			vector<DtSala> listaSalas=iPeli->darListaSalas();
 			cout << "Selecciona una Sala de la lista: " << '\n';
-			for(vector<string>::iterator it=listaSalas.begin(); it!=listaSalas.end(); ++it){
-					cout << (*it) << '\n';
+			for(vector<DtSala>::iterator it=listaSalas.begin(); it!=listaSalas.end(); ++it){
+					cout << (*it).getNumero() << '\n';
 			}
 			cin >> aux;
 			iPeli->seleccionarSala(stoi(aux));
