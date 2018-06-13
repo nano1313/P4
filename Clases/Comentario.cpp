@@ -47,3 +47,7 @@ void Comentario::setUsuario(Usuario * usuario) {
 void Comentario::masUnaRespuesta() {
 	this->masUnaRespuesta++;
 }
+
+void Comentario::agregarRespuesta(Comentario * comentario) {
+	this->respuestas.push_back(comentario);
+}
