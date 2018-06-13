@@ -2,7 +2,7 @@
 #define DTHORA_HH
 
 #include <iostream>
-#include <string.h>
+#include <string>
 #include <stdlib.h>
 
 using namespace std;
@@ -23,7 +23,7 @@ class DtHora {
 
     string toString();
 
-	void operator=(const string&);	
+	  void operator=(const string&);	
 
     DtHora();
 

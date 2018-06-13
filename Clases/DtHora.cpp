@@ -28,7 +28,7 @@ void DtHora::setMinutos(int minutos) {
 }
 
 void DtHora::operator=(const string& s){
-	this->hora=stoi(s.substr(0,2);
-	this->minutos=stoi(s.substr(3,2);
+	this->hora=stoi(s.substr(0,2));
+	this->minutos=stoi(s.substr(3,2));
 }
 

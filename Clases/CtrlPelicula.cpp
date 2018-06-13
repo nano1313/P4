@@ -166,8 +166,8 @@ void CtrlPelicula::ingresarCapacidad(int cap){
 
     this->capacidades.push_back(cap);
 }
-void ingresarPrecioCine(int precio){
-  this->precioCine=precio;
+void CtrlPelicula::ingresarPrecioCine(int precio){
+    this->precioCine = precio;
 }
 void CtrlPelicula::confirmarAltaCine(){
 
