@@ -19,7 +19,7 @@ class Debito : public Tarjeta {
 
 		/* Setters */
 		void setBanco(string banco);
-
+		
 		Debito(string banco);
 		~Debito();
 };
