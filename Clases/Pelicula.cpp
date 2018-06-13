@@ -6,6 +6,7 @@ Pelicula::Pelicula(string titulo, string poster, string sinopsis, float promPunt
 	this->sinopsis = sinopsis;
 	this->promPuntaje = promPuntaje;
 	this->duracion = duracion;
+	this->cantidadComentarios = 0;
 
 }
 
@@ -63,6 +64,10 @@ void Pelicula::setPromPuntaje(float promPuntaje) {
 
 void Pelicula::setDuracion(float duracion) {
 	this->duracion = duracion;
+}
+
+void Pelicula::masUnoComentario() {
+	this->cantidadComentarios++;
 }
 
 /* Metodos */

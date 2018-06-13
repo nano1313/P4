@@ -28,9 +28,14 @@ float Reserva::getCosto() {
 	return this->costo;
 }
 
-Funcion * Reserva::getFuncion(){
+Funcion * Reserva::getFuncion() {
 	return this->f;
 }
+
+Tarjeta * Reserva::getTarjeta() {
+	return this->t;
+}
+
 Usuario * Reserva::getUsuario(){
 	return this->u;
 }

@@ -11,14 +11,14 @@ CtrlReserva* CtrlReserva::getInstancia()
     return instancia;
 }
 
-void CtrlReserva::seleccionarFuncion(int num, int cantAsientos){
+void CtrlReserva::seleccionarFuncion(int num, int cantAsientos) {
     CtrlPelicula *ctrl = ctrl->getInstancia(); //global en un futuro 
     Pelicula *peli = ctrl->getPelicula();
     this->cant = cantAsientos; //global en un futuro
     this->f = peli->seleccionarFuncion(num);
 }
 
-DtPago CtrlReserva::pagoCredito(string nomFin){
+DtPago CtrlReserva::pagoCredito(string nomFin) {
     Sala *s = this->f->getSala();
     Cine *c = s->getCine();
     int p = c->getPrecio(); 
@@ -55,10 +55,34 @@ void CtrlReserva::crearReserva(){
     this->cant=-1;
 }
 
-void CtrlReserva::finalizarReserva(){
+void CtrlReserva::finalizarReserva() {
     this->tar=NULL;
     this->f=NULL;
     this->total=-1;
     this->cant=-1;
     //pongo a null todo lo global
+}
+
+vector<DtReserva> CtrlReserva::mostrarReserva() {
+    Usuario * usuario;
+
+    set<Reserva *> reservas = usuario->getReservas();
+    
+    vector<DtReserva> devolver;
+
+    for (Reserva * r : reservas) {
+        //Tarjeta * tarjeta = r->getTarjeta();
+
+        
+        //const Debito * d = dynamic_cast<Debito*>(*tarjeta);
+        
+        DtReserva agregar = DtReserva(r->getFuncion()->getPelicula()->getTitulo(),
+                                        r->getFuncion()->getFecha(), r->getFuncion()->getHora(),
+                                        r->getCosto(), r->getCantAsientos(), r->getFuncion()->getSala()->getCine()->getNumero()
+                                     );
+        
+        devolver.push_back(agregar);
+    } 
+
+    return devolver;
 }

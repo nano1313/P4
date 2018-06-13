@@ -41,3 +41,7 @@ void Comentario::setRespuestas(vector<Comentario *> respuestas){
 void Comentario::setUsuario(Usuario * usuario) {
 	this->usuario = usuario;
 }
+
+void Comentario::masUnaRespuesta() {
+	this->masUnaRespuesta++;
+}

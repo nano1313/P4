@@ -259,6 +259,21 @@ void CtrlPelicula::ingresarPuntaje(int numero) {
     }
 }
 
+void CtrlPelicula::crearComentario(string text) {
+    int cantidad = this->pelicula->getComentarios().size();
+    Comentario * nuevo = new Comentario(cantidad + 1, text);
+    this->pelicula->agregarNuevoComentario(nuevo);
+    this->pelicula->masUnoComentario();
+}
+
+void CtrlPelicula::responderComentario(string texto, int padre) {
+    map<int, Comentario*> comentarios = this->pelicula->getComentarios();
+    int cantidad = comentarios[padre]->getRespuestas().size();
+    comentarios[padre]->masUnaRespuesta();
+    
+    Comentario * nuevo = new Comentario(cantidad + 1, texto);
+    this->pelicula->agregarNuevaRespuesta(nuevo, padre);
+}
 
 vector<DtComentario> CtrlPelicula::darListaComentarios() {
 
@@ -295,6 +310,15 @@ vector<DtPuntaje> CtrlPelicula::darListaPuntajes(){
 }
 
 
+
+
+void CtrlPelicula::seleccionarComentario(int id) {
+    this->comentario = this->pelicula->getComentarios()[id];
+}
+
+void CtrlPelicula::finalizarComentario() {
+    this->comentario = NULL;
+}
 void CtrlPelicula::confirmarEliminar(){
     map<string, Pelicula *>::iterator it;
     this->peliculas.erase(this->pelicula->getTitulo());
