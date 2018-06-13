@@ -22,6 +22,7 @@ class Pelicula {
 		string sinopsis;
 		float promPuntaje;
 		float duracion;
+		int cantidadComentarios;
 		map<int, Funcion *> funciones;
 		map<string, Puntaje *> puntajes;
 		map<int, Comentario *> comentarios;
@@ -33,6 +34,7 @@ class Pelicula {
 		string getSinopsis();
 		float getPromPuntaje();
 		float getDuracion();
+		int getCantidadComentarios();
 		map<int, Funcion *> getFunciones();
 		map<string, Puntaje *> getPuntajes();
 		map<int, Comentario *> getComentarios();
@@ -43,6 +45,7 @@ class Pelicula {
 		void setSinopsis(string sinopsis);
 		void setPromPuntaje(float promPuntaje);
 		void setDuracion(float duracion);
+		void masUnoComentario();
 
 		/* Metodos */
 		Funcion * seleccionarFuncion(int numero);
