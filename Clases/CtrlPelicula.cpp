@@ -282,9 +282,26 @@ vector<DtComentario> CtrlPelicula::darListaComentarios() {
 
     return comentario_devolver;
 }
+vector<DtPuntaje> CtrlPelicula::darListaPuntajes(){
+    vector<DtPuntaje> vpuntajes;
+
+    map<string, Puntaje *> puntajes = this->pelicula->getPuntajes();
+
+    for (map<string,Puntaje *>::iterator it = puntajes.begin(); it!=puntajes.end(); ++it) {
+        vpuntajes.push_back(DtPuntaje(it->first,it->second->getValor()));
+    }
+
+    return vpuntajes;
+}
+
+
 void CtrlPelicula::confirmarEliminar(){
     map<string, Pelicula *>::iterator it;
     this->peliculas.erase(this->pelicula->getTitulo());
     this->pelicula->destroy();
     this->pelicula=NULL;
 }
+void CtrlPelicula::altaPelicula(string titulo, string sinopsis, string portada, float duracion){
+    /// FALTA IMPLEMENTAR
+}
+

@@ -56,6 +56,8 @@ class CtrlPelicula : public IPelicula {
         bool yaPuntuo();
         int mostrarPuntaje();
         void ingresarPuntaje(int puntaje);
+        void altaPelicula(string titulo, string sinopsis, string portada, float duracion);
+
 
         //CU Comentar pelicula
         vector<DtComentario> darListaComentarios();
@@ -65,8 +67,11 @@ class CtrlPelicula : public IPelicula {
         virtual void finalizarComentario();
 
         //CU Ver Comentarios y puntajes de pelicula
-        virtual vector<DtPuntaje> darListaPuntajes();
+        vector<DtPuntaje> darListaPuntajes();
 */
+
+        vector<DtPuntaje> darListaPuntajes();
+
         /* Setters */
 
         void setPelicula(Pelicula * pelicula);
