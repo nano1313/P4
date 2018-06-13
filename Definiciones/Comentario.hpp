@@ -34,6 +34,7 @@ class Comentario {
 		void setRespuestas(vector<Comentario *> respuestas);
 		void setUsuario(Usuario * usuario);
 
+		void agregarRespuesta(Comentario * comentario);
 		void masUnaRespuesta();
 
 		Comentario(int id, string desc);
