@@ -262,6 +262,7 @@ void CtrlPelicula::ingresarPuntaje(int numero) {
 void CtrlPelicula::crearComentario(string text) {
     int cantidad = this->pelicula->getComentarios().size();
     Comentario * nuevo = new Comentario(cantidad + 1, text);
+    nuevo->setUsuario(this->usuario);
     this->pelicula->agregarNuevoComentario(nuevo);
     this->pelicula->masUnoComentario();
 }
@@ -272,6 +273,7 @@ void CtrlPelicula::responderComentario(string texto, int padre) {
     comentarios[padre]->masUnaRespuesta();
     
     Comentario * nuevo = new Comentario(cantidad + 1, texto);
+    nuevo->setUsuario(this->usuario);
     this->pelicula->agregarNuevaRespuesta(nuevo, padre);
 }
 

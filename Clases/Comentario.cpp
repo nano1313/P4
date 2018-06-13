@@ -3,6 +3,8 @@
 Comentario::Comentario(int id, string desc) {
 	this->id = id;
 	this->desc = desc;
+	vector<Comentario *> respuestas;
+	this->respuestas = respuestas;
 }
 
 /* Getters */
