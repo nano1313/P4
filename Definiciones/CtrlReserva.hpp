@@ -18,6 +18,7 @@
 #include "Usuario.hpp"
 #include "MTarjeta.hpp"
 #include "DtPago.hpp"
+#include "DtReserva.hpp"
 #include "CtrlPelicula.hpp"
 #include "CtrlUsuario.hpp"
 
@@ -40,6 +41,7 @@ class CtrlReserva : public IReserva {
          int pagoDebito(string nomBanco);
          void crearReserva();
          void finalizarReserva();
+         vector<DtReserva> mostrarReserva();
 };
 
 #endif

@@ -29,6 +29,7 @@ class CtrlPelicula : public IPelicula {
         Cine * cine; // Cine guardado en memoria //
         Sala * sala; // Sala guardada en memoria //
         Usuario * usuario;
+        Comentario * comentario;
         DtDireccion direccionCine; // Direccion del Cine a crear //
         vector<int> capacidades; // Capacidades de las Salas del Cine a crear //
         int precioCine; // Precio del Cine a agregar //
@@ -56,17 +57,22 @@ class CtrlPelicula : public IPelicula {
         bool yaPuntuo();
         int mostrarPuntaje();
         void ingresarPuntaje(int puntaje);
+        void altaPelicula(string titulo, string sinopsis, string portada, float duracion);
+
 
         //CU Comentar pelicula
         vector<DtComentario> darListaComentarios();
-/*      virtual void crearComentario(string texto);
+        virtual void crearComentario(string texto);
+        virtual void responderComentario(string texto, int padre);
         virtual void seleccionarComentario(int id);
-        virtual void responderComentario(string texto);
         virtual void finalizarComentario();
 
         //CU Ver Comentarios y puntajes de pelicula
-        virtual vector<DtPuntaje> darListaPuntajes();
-*/
+       // vector<DtPuntaje> darListaPuntajes();
+
+
+        vector<DtPuntaje> darListaPuntajes();
+
         /* Setters */
 
         void setPelicula(Pelicula * pelicula);

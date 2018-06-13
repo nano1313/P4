@@ -55,15 +55,19 @@ class IPelicula {
         virtual void setPelicula(Pelicula * pelicula);
         virtual Pelicula * getPelicula();
 
+
+    
 				//CU ComentarPelicula
 				virtual vector<DtComentario> darListaComentarios();
 				virtual void crearComentario(string texto);
 				virtual void seleccionarComentario(int id);
-				virtual void responderComentario(string texto);
+				virtual void responderComentario(string texto, int padre);
 				virtual void finalizarComentario();
 
 				//CU Ver Comentarios y puntajes de pelicula
 				virtual vector<DtPuntaje> darListaPuntajes();
+
+        virtual void altaPelicula(string titulo, string sinopsis, string portada, float duracion);
 
 };
 

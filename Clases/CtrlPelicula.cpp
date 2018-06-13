@@ -259,6 +259,21 @@ void CtrlPelicula::ingresarPuntaje(int numero) {
     }
 }
 
+void CtrlPelicula::crearComentario(string text) {
+    int cantidad = this->pelicula->getComentarios().size();
+    Comentario * nuevo = new Comentario(cantidad + 1, text);
+    this->pelicula->agregarNuevoComentario(nuevo);
+    this->pelicula->masUnoComentario();
+}
+
+void CtrlPelicula::responderComentario(string texto, int padre) {
+    map<int, Comentario*> comentarios = this->pelicula->getComentarios();
+    int cantidad = comentarios[padre]->getRespuestas().size();
+    comentarios[padre]->masUnaRespuesta();
+    
+    Comentario * nuevo = new Comentario(cantidad + 1, texto);
+    this->pelicula->agregarNuevaRespuesta(nuevo, padre);
+}
 
 vector<DtComentario> CtrlPelicula::darListaComentarios() {
 
@@ -282,9 +297,35 @@ vector<DtComentario> CtrlPelicula::darListaComentarios() {
 
     return comentario_devolver;
 }
+vector<DtPuntaje> CtrlPelicula::darListaPuntajes(){
+    vector<DtPuntaje> vpuntajes;
+
+    map<string, Puntaje *> puntajes = this->pelicula->getPuntajes();
+
+    for (map<string,Puntaje *>::iterator it = puntajes.begin(); it!=puntajes.end(); ++it) {
+        vpuntajes.push_back(DtPuntaje(it->first,it->second->getValor()));
+    }
+
+    return vpuntajes;
+}
+
+
+
+
+void CtrlPelicula::seleccionarComentario(int id) {
+    this->comentario = this->pelicula->getComentarios()[id];
+}
+
+void CtrlPelicula::finalizarComentario() {
+    this->comentario = NULL;
+}
 void CtrlPelicula::confirmarEliminar(){
     map<string, Pelicula *>::iterator it;
     this->peliculas.erase(this->pelicula->getTitulo());
     this->pelicula->destroy();
     this->pelicula=NULL;
 }
+void CtrlPelicula::altaPelicula(string titulo, string sinopsis, string portada, float duracion){
+    /// FALTA IMPLEMENTAR
+}
+
