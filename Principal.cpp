@@ -25,7 +25,7 @@ void verComentariosPelicula();//Listo sin probar
 void crearReserva();//Listo sin probar
 void puntuarPelicula();//Listo sin probar
 void comentarPelicula(); //Listo sin probar
-void verReservas();
+void verReservas();//prueba git
 void cerrarSesion(); //listo sin probar
 void altaCine(); //listo sin probar
 void altaFuncion(); //listo sin probar
