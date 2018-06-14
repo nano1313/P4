@@ -51,3 +51,12 @@ void Comentario::masUnaRespuesta() {
 void Comentario::agregarRespuesta(Comentario * comentario) {
 	this->respuestas.push_back(comentario);
 }
+void Comentario::destroy(){
+	vector <Comentario *> :: iterator it;
+	this->usuario=NULL;
+	for (it = this->respuestas.begin(); it !=this->respuestas.end(); ++it)
+    {
+		this->respuestas.erase(it);
+		delete(*it);
+	}
+}

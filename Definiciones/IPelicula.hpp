@@ -13,6 +13,7 @@
 #include "./DtCine.hpp"
 #include "./DtPuntaje.hpp"
 #include "./DtComentario.hpp"
+#include "./DtFecha.hpp"
 
 
 using namespace std;
@@ -38,7 +39,8 @@ class IPelicula {
         // CU Alta Funcion
         virtual vector<DtSala> darListaSalas();
         virtual void seleccionarSala(int num);
-
+        virtual void altaFuncion(DtFecha fecha,DtHora hora);
+        
         // CU Ver info Pelicula
         virtual DtPelicula seleccionarPelicula1(string titulo);
         virtual vector<DtCine> darListaCinesDeUnaFuncion();

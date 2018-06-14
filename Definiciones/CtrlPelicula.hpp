@@ -15,6 +15,9 @@
 #include "./Puntaje.hpp"
 #include "./DtPuntaje.hpp"
 #include "./DtComentario.hpp"
+#include "./DtHora.hpp"
+#include "./DtFecha.hpp"
+
 
 using namespace std;
 
@@ -34,6 +37,7 @@ class CtrlPelicula : public IPelicula {
         vector<int> capacidades; // Capacidades de las Salas del Cine a crear //
         int precioCine; // Precio del Cine a agregar //
         int cantCines; // Para poder controlar el numero de los Cines //
+        int numfuncion = 0; // Autogenerado para numerar las funciones  //
 
         CtrlPelicula();
 
@@ -59,6 +63,7 @@ class CtrlPelicula : public IPelicula {
         int mostrarPuntaje(); //Hecha
         void ingresarPuntaje(int puntaje); //Hecha
         void altaPelicula(string titulo, string sinopsis, string portada, float duracion); //Hecha
+        void altaFuncion(DtFecha fecha,DtHora hora);
 
 
         //CU Comentar pelicula

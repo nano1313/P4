@@ -53,7 +53,7 @@ class Pelicula {
 		//int* darListaCine();
 		void agregarNuevoComentario(Comentario * comentario);
 		void agregarNuevaRespuesta(Comentario * comentario, int padre); /* Respuesta a comentario, padre es el id del comentario padre */
-
+		void agregarFuncion(Funcion *f);
 		void destroy();        	
 
         Pelicula();

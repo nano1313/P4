@@ -36,6 +36,7 @@ class Comentario {
 
 		void agregarRespuesta(Comentario * comentario);
 		void masUnaRespuesta();
+		void destroy();
 
 		Comentario(int id, string desc);
 		~Comentario();
