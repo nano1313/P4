@@ -611,7 +611,7 @@ void crearReserva(){
 }
 
 void cargarDatos(){
-cout<<"1"<<'\n';
+//cout<<"1"<<'\n';
 	//CINE 21 DE SEPTIEMBRE
 	DtDireccion direccion;
 	IPelicula* iPeli = fab->getIPelicula();
@@ -624,7 +624,7 @@ cout<<"1"<<'\n';
 	iPeli->ingresarCapacidad(60);
 	iPeli->ingresarCapacidad(30);
 	iPeli->confirmarAltaCine();
-cout<<"2"<<'\n';
+//cout<<"2"<<'\n';
 	//CINE MIGUEL BARREIRO 4588
 	direccion.setCalle("Miguel Barreiro");
 	direccion.setNumero(4588); //Convierte a numero el string, Capturar excepcion?
@@ -633,17 +633,17 @@ cout<<"2"<<'\n';
 	iPeli->ingresarCapacidad(200);
 	iPeli->ingresarCapacidad(60);
 	iPeli->confirmarAltaCine();
-cout<<"3"<<'\n';
+//cout<<"3"<<'\n';
 	//PELICULAS
 	iPeli->altaPelicula("The Vindicators 3", "Tercera entrega de la saga de superheroes.", "/home/accion/posters/vindicators.png", 180);
 	iPeli->altaPelicula("Sangre de campeones", "Documental", "/home/accion/posters/scampeones.png", 180);
 	iPeli->altaPelicula("El insulto", "Drama libanes.", "/home/accion/posters/elinsulto.png", 180);
 	iPeli->altaPelicula("La noche que no se repite", "Drama libanes.", "/home/accion/posters/elinsulto.png", 180);
-cout<<"4"<<'\n';
+//cout<<"4"<<'\n';
 	//Funciones
 	DtFecha fecha;
 	DtHora hora;
-cout<<"5"<<'\n';
+//cout<<"5"<<'\n';
 	//F1
 	iPeli->seleccionarPelicula2("The Vindicators 3");
 	iPeli->seleccionarCine(1);
@@ -652,7 +652,7 @@ cout<<"5"<<'\n';
 	hora="14:00";
 	iPeli->altaFuncion(fecha, hora);
 	iPeli->finalizar();
-cout<<"6"<<'\n';
+//cout<<"6"<<'\n';
 	//F2
 	iPeli->seleccionarPelicula2("Sangre de campeones");
 	iPeli->seleccionarCine(1);
@@ -661,7 +661,7 @@ cout<<"6"<<'\n';
 	hora="16:30";
 	iPeli->altaFuncion(fecha, hora);
 	iPeli->finalizar();
-cout<<"7"<<'\n';
+//cout<<"7"<<'\n';
 	//F3
 	iPeli->seleccionarPelicula2("The Vindicators 3");
 	iPeli->seleccionarCine(2);
@@ -670,7 +670,7 @@ cout<<"7"<<'\n';
 	hora="14:00";
 	iPeli->altaFuncion(fecha, hora);
 	iPeli->finalizar();
-cout<<"8"<<'\n';
+//cout<<"8"<<'\n';
 	//F4
 	iPeli->seleccionarPelicula2("El insulto");
 	iPeli->seleccionarCine(1);
@@ -679,46 +679,46 @@ cout<<"8"<<'\n';
 	hora="22:00";
 	iPeli->altaFuncion(fecha, hora);
 	iPeli->finalizar();
-cout<<"9"<<'\n';
+//cout<<"9"<<'\n';
 	//Usuarios
 	iUser->crearUsuario("chachoElNumberOne", "jorgeP4", "/users/registered/cachoElNumberOne.png",1);
 	iUser->crearUsuario("carmeBeiro2010", "carmela5688", "/users/registered/carmeBeiro2010.png",1);
 	iUser->crearUsuario("ale_ulises", "p4eslomejor21", "/users/registered/ale_ulises.png",9);
-cout<<"10"<<'\n';
+//cout<<"10"<<'\n';
 	//Financieras se cargan en el objeto mismo
 	bool auxiliarBool=false;
 	//Comentarios
-cout<<"11"<<'\n';	
+//cout<<"11"<<'\n';	
 	iUser->ingresarNick("chachoElNumberOne");
 	auxiliarBool=iUser->ingresarContrasenia("jorgeP4");
 	iPeli->seleccionarPelicula2("The Vindicators 3");
 	iPeli->crearComentario("Es tremenda pelicula. La mejor parte es cuando aparecen Rick y Morty.");//Nuevo Comentario
 	iUser->cerrarSesion();
-	cout<<"12"<<'\n';
+//cout<<"12"<<'\n';
 	iUser->ingresarNick("carmeBeiro2010");
 	auxiliarBool=iUser->ingresarContrasenia("carmela5688");
 	iPeli->seleccionarComentario(1);
 	iPeli->responderComentario("Esta muy buena pero la mejor parte es cuando explota el planeta con los malos.");
 	iUser->cerrarSesion();
-/*
-cout<<"13"<<'\n';
+
+//cout<<"13"<<'\n';
 	iUser->ingresarNick("chachoElNumberOne");
-cout<<"13a"<<'\n';
+//cout<<"13a"<<'\n';
 	auxiliarBool=iUser->ingresarContrasenia("jorgeP4");
-cout<<"13b"<<'\n';
+//cout<<"13b"<<'\n';
 	iPeli->seleccionarComentario(2);
-cout<<"13c"<<'\n';
+//cout<<"13c"<<'\n';
 	iPeli->responderComentario("Callateee no cuentes el final!!");
-cout<<"13d"<<'\n';
+//cout<<"13d"<<'\n';
 	iUser->cerrarSesion();
-cout<<"14"<<'\n';
+//cout<<"14"<<'\n';
 	//Puntajes
 	iUser->ingresarNick("chachoElNumberOne");
 	auxiliarBool=iUser->ingresarContrasenia("jorgeP4");
 	iPeli->seleccionarPelicula2("The Vindicators 3");
 	iPeli->ingresarPuntaje(9);
 	iUser->cerrarSesion();
-cout<<"15"<<'\n';
+//cout<<"15"<<'\n';
 	iUser->ingresarNick("carmeBeiro2010");
 	auxiliarBool=iUser->ingresarContrasenia("carmela5688");
 	iPeli->seleccionarPelicula2("El insulto");
@@ -726,14 +726,14 @@ cout<<"15"<<'\n';
 	iUser->cerrarSesion();
 
 	//Reservas
-cout<<"16"<<'\n';
+//cout<<"16"<<'\n';
 	IReserva* iRes=fab->getIReserva();
 	DtPelicula datosPelicula;
 	vector<DtPelicula> listaPeliculas = iPeli->darListaPeliculas();
 	vector<DtFuncion> listaFunciones;
 	int descuento; 
 	DtPago desc;
-cout<<"17"<<'\n';
+//cout<<"17"<<'\n';
 	//R1
 	iUser->ingresarNick("chachoElNumberOne");
 	auxiliarBool=iUser->ingresarContrasenia("jorgeP4");
@@ -748,7 +748,7 @@ cout<<"17"<<'\n';
 	iPeli->finalizar();
 	iUser->cerrarSesion();
 
-cout<<"18"<<'\n';
+//cout<<"18"<<'\n';
 	
 	//R2
 	iUser->ingresarNick("carmeBeiro2010");
@@ -763,7 +763,7 @@ cout<<"18"<<'\n';
 	listaPeliculas.clear();
 	iPeli->finalizar();
 	iUser->cerrarSesion();
-*/
+
 
 }
 
