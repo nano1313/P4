@@ -21,19 +21,19 @@ class DtComentario {
 
   public:
     /* Getters */
-    int getId(); //HECHA
-	  string getUsuario(); //HECHA
-    string getDescripcion(); //HECHA
-	  vector<DtComentario> getRespuestas(); //HECHA
+    int getId();
+	  string getUsuario();
+    string getDescripcion();
+	  vector<DtComentario> getRespuestas();
 
     /* Setters */
-    void setUsuario(string usuario); //HECHA
-    void setDescripcion(string descripcion); //HECHA
-  	void setRespuestas(vector<DtComentario> respuestas); //HECHA
+    void setUsuario(string usuario);
+    void setDescripcion(string descripcion);
+  	void setRespuestas(vector<DtComentario> respuestas);
 
-    DtComentario(); //FALTA
-    DtComentario(int id, string usuario, string descripcion, vector<DtComentario> respuestas); //HECHA
-    ~DtComentario(); //FALTA
+    DtComentario();
+    DtComentario(int id, string usuario, string descripcion, vector<DtComentario> respuestas);
+    ~DtComentario();
 
 };
 

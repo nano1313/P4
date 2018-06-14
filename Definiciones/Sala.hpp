@@ -18,17 +18,17 @@ class Sala {
 
 	public:
 		/* Getters */
-		int getNumero();//HECHA
-		int getCapacidad();//HECHA
-		Cine * getCine();//HECHA
+		int getNumero();
+		int getCapacidad();
+		Cine * getCine();
 
 		/* Setters */
-		void setNumero(int numero);//HECHA
-		void setCapacidad(int capacidad);//HECHA
-		void setCine(Cine *cine);//HECHA
+		void setNumero(int numero);
+		void setCapacidad(int capacidad);
+		void setCine(Cine *cine);
 
         Sala();
-		Sala(int numero, int capacidad);//HECHA
+		Sala(int numero, int capacidad);
 		Sala(int numero, int capacidad, Cine* cine);
 		~Sala();
 };

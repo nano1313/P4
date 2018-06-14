@@ -14,21 +14,21 @@ class DtHora {
 
   public:
     /* Getters */
-    unsigned int getHora(); //HECHA
-    unsigned int getMinutos(); //HECHA
+    unsigned int getHora();
+    unsigned int getMinutos();
 
     /* Setters */
-    void setHora(int d); //HECHA
-    void setMinutos(int m); //HECHA
+    void setHora(int d);
+    void setMinutos(int m);
 
-    string toString(); //FALTA
+    string toString();
 
-	  void operator=(const string&);	 //HECHA
+	  void operator=(const string&);	
 
-    DtHora(); //FALTA
+    DtHora();
 
-    DtHora(int hora, int minutos); //HECHA
-    ~DtHora(); //FALTA
+    DtHora(int hora, int minutos);
+    ~DtHora();
 
 };
 

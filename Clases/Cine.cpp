@@ -1,4 +1,5 @@
 #include "../Definiciones/Cine.hpp"
+#include <map>
 
 Cine::Cine(int numero, DtDireccion direccion, int precio) {
 	this->numero = numero;
@@ -66,6 +67,3 @@ void Cine::setPrecio(int p) {
 	this->precio = p;
 }
 
-void Cine::setSalas(map<int, Sala*> salas) {
-	this->salas = salas;
-}

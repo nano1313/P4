@@ -18,15 +18,15 @@ class Puntaje {
 	public:
 	
 		/* Getters */
-		int getValor();//HECHA
-		Usuario * getUsuario();//HECHA
+		int getValor();
+		Usuario * getUsuario();
 
 		/* Setters */
-		void setValor(int valor);//HECHA
-		void setUsuario(Usuario * usuario);//HECHA
+		void setValor(int valor);
+		void setUsuario(Usuario * usuario);
         
         Puntaje();
-		Puntaje(int valor);//HECHA
+		Puntaje(int valor);
 		~Puntaje();
 };
 #endif

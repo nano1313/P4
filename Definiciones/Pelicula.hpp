@@ -29,35 +29,35 @@ class Pelicula {
 
 	public:
 		/* Getters */
-		string getTitulo();//HECHA
-		string getPoster();//HECHA
-		string getSinopsis();//HECHA
-		float getPromPuntaje();//HECHA
-		float getDuracion();//HECHA
-		int getCantidadComentarios();//HECHA
-		map<int, Funcion *> getFunciones();//HECHA
-		map<string, Puntaje *> getPuntajes();//HECHA
-		map<int, Comentario *> getComentarios();//HECHA
+		string getTitulo();
+		string getPoster();
+		string getSinopsis();
+		float getPromPuntaje();
+		float getDuracion();
+		int getCantidadComentarios();
+		map<int, Funcion *> getFunciones();
+		map<string, Puntaje *> getPuntajes();
+		map<int, Comentario *> getComentarios();
 		
 		/* Setters */
-		void setTitulo(string titulo);//HECHA
-		void setPoster(string poster);//HECHA
-		void setSinopsis(string sinopsis);//HECHA
-		void setPromPuntaje(float promPuntaje);//HECHA
-		void setDuracion(float duracion);//HECHA
-		void masUnoComentario();//HECHA
+		void setTitulo(string titulo);
+		void setPoster(string poster);
+		void setSinopsis(string sinopsis);
+		void setPromPuntaje(float promPuntaje);
+		void setDuracion(float duracion);
+		void masUnoComentario();
 
 		/* Metodos */
 		Funcion * seleccionarFuncion(int numero);
 		//int* seleccionarCine(int id);
 		//int* darListaCine();
-		void agregarNuevoComentario(Comentario * comentario); //HECHA
-		void agregarNuevaRespuesta(Comentario * comentario, int padre); /* Respuesta a comentario, padre es el id del comentario padre */ //HECHA
+		void agregarNuevoComentario(Comentario * comentario);
+		void agregarNuevaRespuesta(Comentario * comentario, int padre); /* Respuesta a comentario, padre es el id del comentario padre */
 
-		void destroy(); //HECHA       	
+		void destroy();        	
 
         Pelicula();
-		Pelicula(string titulo, string poster,string sinopsis, float duracion);//HECHA
+		Pelicula(string titulo, string poster,string sinopsis, float duracion);
 		~Pelicula();
 };
 

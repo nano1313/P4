@@ -12,16 +12,16 @@ class DtPago {
 
   public:
     /* Getters */
-    unsigned int getPrecio();  //HECHA
-    unsigned int getDescuento(); //HECHA
+    unsigned int getPrecio();
+    unsigned int getDescuento();
 
     /* Setters */
-    void setPrecio(unsigned int precio); //HECHA
-    void setDescuento(unsigned int descuento); //HECHA
+    void setPrecio(unsigned int precio);
+    void setDescuento(unsigned int descuento);
 
-    DtPago(); //FALTA
-    DtPago(unsigned int precio, unsigned int descuento); //HECHA
-    ~DtPago(); //FALTA
+    DtPago();
+    DtPago(unsigned int precio, unsigned int descuento);
+    ~DtPago();
 };
 
 #endif
