@@ -30,7 +30,8 @@ class Cine {
 		int getNumero();
 		DtDireccion getDireccion();
 		int getPrecio();
-		vector<DtSala> getSalas;
+		Sala * getSala(int num);
+		vector<DtSala> getSalas();
 
 		/* Setters */
 		void setPrecio(int p);

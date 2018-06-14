@@ -64,7 +64,10 @@ void CtrlReserva::finalizarReserva() {
 }
 
 vector<DtReserva> CtrlReserva::mostrarReserva() {
-    Usuario * usuario;
+
+    CtrlUsuario * ctrl;
+    ctrl = ctrl->getInstancia();
+    Usuario * usuario = ctrl->getUserlog();
 
     set<Reserva *> reservas = usuario->getReservas();
     

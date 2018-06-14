@@ -36,7 +36,8 @@ class IPelicula {
         virtual void cancelar();
 
         // CU Alta Funcion
-        virtual vector<string> darListaSalas();
+        virtual vector<DtSala> darListaSalas();
+        virtual void seleccionarSala(int num);
 
         // CU Ver info Pelicula
         virtual DtPelicula seleccionarPelicula1(string titulo);
@@ -61,7 +62,7 @@ class IPelicula {
 				virtual vector<DtComentario> darListaComentarios();
 				virtual void crearComentario(string texto);
 				virtual void seleccionarComentario(int id);
-				virtual void responderComentario(string texto, int padre);
+				virtual void responderComentario(string texto);
 				virtual void finalizarComentario();
 
 				//CU Ver Comentarios y puntajes de pelicula

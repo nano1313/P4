@@ -48,30 +48,28 @@ class CtrlPelicula : public IPelicula {
         vector<DtFuncion> seleccionarCineConSusFunciones(int id); //Hecha
         void ingresarDireccion(string calle, int num); //Hecha
         void ingresarCapacidad(int cap); //Hecha
-        void ingresarPrecioCine(int precio);
+        void ingresarPrecioCine(int precio); //Hecha
         void confirmarAltaCine(); //Hecha
         void cancelar(); //Hecha
-        vector<string> darListaSalas();
-        void confirmarEliminar();
-        void finalizar();
-        bool yaPuntuo();
-        int mostrarPuntaje();
-        void ingresarPuntaje(int puntaje);
-        void altaPelicula(string titulo, string sinopsis, string portada, float duracion);
+        vector<DtSala> darListaSalas(); //Hecha
+        void seleccionarSala(int num); //Hecha
+        void confirmarEliminar(); //Hecha
+        void finalizar(); //Hecha
+        bool yaPuntuo(); //Hecha
+        int mostrarPuntaje(); //Hecha
+        void ingresarPuntaje(int puntaje); //Hecha
+        void altaPelicula(string titulo, string sinopsis, string portada, float duracion); //Hecha
 
 
         //CU Comentar pelicula
-        vector<DtComentario> darListaComentarios();
-        virtual void crearComentario(string texto);
-        virtual void responderComentario(string texto, int padre);
-        virtual void seleccionarComentario(int id);
-        virtual void finalizarComentario();
+        vector<DtComentario> darListaComentarios(); //Hecha
+        void crearComentario(string texto); //Hecha
+        void responderComentario(string texto); //Hecha
+        void seleccionarComentario(int id); //Hecha
+        void finalizarComentario(); //Hecha
 
         //CU Ver Comentarios y puntajes de pelicula
-       // vector<DtPuntaje> darListaPuntajes();
-
-
-        vector<DtPuntaje> darListaPuntajes();
+        vector<DtPuntaje> darListaPuntajes(); //Hecha
 
         /* Setters */
 

@@ -28,6 +28,32 @@ DtDireccion Cine::getDireccion() {
 	return this->direccion;
 }
 
+vector<DtSala> Cine::getSalas(){
+
+	vector<DtSala> vsalas;
+	for (map<int,Sala *>::iterator it = this->salas.begin(); it!=this->salas.end(); ++it) {
+        vsalas.push_back(DtSala(it->first,it->second->getCapacidad()));
+    }
+
+    return vsalas;
+}
+
+Sala * Cine::getSala(int num){
+
+	map<int, Sala *>::iterator it = this->salas.begin();
+
+    for (it = this->salas.begin(); it!=this->salas.end(); ++it) {
+
+        if (num == it->first)
+        {
+            return it->second;
+			break;
+        }
+    }
+
+	return NULL;
+}
+
 /* Setters */
 
 void Cine::setNumero(int numero) {

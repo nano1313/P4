@@ -3,6 +3,8 @@
 Comentario::Comentario(int id, string desc) {
 	this->id = id;
 	this->desc = desc;
+	//vector<Comentario *> respuestas;
+	this->cantRespuestas = 0;
 }
 
 /* Getters */
@@ -43,5 +45,9 @@ void Comentario::setUsuario(Usuario * usuario) {
 }
 
 void Comentario::masUnaRespuesta() {
-	this->masUnaRespuesta++;
+	this->cantRespuestas++;
+}
+
+void Comentario::agregarRespuesta(Comentario * comentario) {
+	this->respuestas.push_back(comentario);
 }
