@@ -18,18 +18,18 @@ class DtFuncion {
 
 	public:
 		/* Getters */
-		int getNumero();
-		DtFecha getFecha();
-		DtHora getHora();
+		int getNumero(); //HECHA
+		DtFecha getFecha(); //HECHA
+		DtHora getHora(); //HECHA
 
 		/* Setters */
-		void setNumero(int numero);
-		void setFecha(DtFecha fecha);
-		void setHora(DtHora hora);
+		void setNumero(int numero); //HECHA
+		void setFecha(DtFecha fecha); //HECHA
+		void setHora(DtHora hora); //HECHA
 
-        DtFuncion();
-        DtFuncion(int numero, DtFecha fecha, DtHora hora);
-        ~DtFuncion();
+        DtFuncion(); //FALTA
+        DtFuncion(int numero, DtFecha fecha, DtHora hora); //HECHA
+        ~DtFuncion(); //FALTA
 };
 
 #endif

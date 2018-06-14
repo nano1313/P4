@@ -13,16 +13,16 @@ class DtPuntaje {
 
   public:
     /* Getters */
-	string getUsuario();
-    unsigned int getPuntaje();
+	  string getUsuario(); //HECHA
+    unsigned int getPuntaje(); //HECHA
 
     /* Setters */
-    void setUsuario(string usuario);
-    void setPuntaje(unsigned int puntaje);
+    void setUsuario(string usuario); //HECHA
+    void setPuntaje(unsigned int puntaje); //HECHA
 
-    DtPuntaje();
-    DtPuntaje(string usuario, unsigned int puntaje);
-    ~DtPuntaje();
+    DtPuntaje(); //FALTA
+    DtPuntaje(string usuario, unsigned int puntaje); //HECHA
+    ~DtPuntaje(); //FALTA
 
 };
 

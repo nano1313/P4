@@ -18,17 +18,17 @@ class DtCine {
 
 	public:
 		/* Getters */
-		int getNumero();
-		DtDireccion getDireccion();
-		int getPrecio();
+		int getNumero(); //HECHA
+		DtDireccion getDireccion(); //HECHA
+		int getPrecio(); //HECHA
 
 		/* Setters */
-		void setPrecio(int p);
-		void setNumero(int numero);
-		void setDireccion(DtDireccion direccion);
+		void setPrecio(int p); //HECHA
+		void setNumero(int numero); //HECHA 
+		void setDireccion(DtDireccion direccion); //HECHA
 
-		DtCine(int numero, DtDireccion direccion, int precio);
-		~DtCine();
+		DtCine(int numero, DtDireccion direccion, int precio); //HECHA
+		~DtCine(); //FALTA
 };
 
 #endif

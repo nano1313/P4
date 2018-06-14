@@ -12,16 +12,16 @@ class DtDireccion {
 
   public:
     /* Getters */
-    string getCalle();
-    int getNumero();
+    string getCalle(); //HECHA
+    int getNumero(); //HECHA
 
     /* Setters */
-    void setCalle(string calle);
-    void setNumero(int numero);
+    void setCalle(string calle); //HECHA 
+    void setNumero(int numero); //HECHA
 
-    DtDireccion();
-    DtDireccion(string calle, int numero);
-    ~DtDireccion();
+    DtDireccion(); //FALTA
+    DtDireccion(string calle, int numero); //HECHA
+    ~DtDireccion(); //FALTA
 };
 
 #endif

@@ -43,6 +43,10 @@ map<int, Comentario *> Pelicula::getComentarios() {
 	return this->comentarios;
 }
 
+int Pelicula::getCantidadComentarios() {
+	return this->cantidadComentarios;
+}
+
 /* Setters */
 
 void Pelicula::setTitulo(string nombre) {
@@ -99,7 +103,7 @@ void Pelicula::agregarNuevaRespuesta(Comentario * comentario, int padre) {
 	respuestas.push_back(comentario);
 }
 
-void Pelicula::destroy(){
+void Pelicula::destroy() {
 	map<string, Puntaje *>::iterator it1 = this->puntajes.begin();
  	//map<int, Cine *>::iterator it = cines.begin();
 

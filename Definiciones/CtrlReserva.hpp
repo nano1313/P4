@@ -28,20 +28,20 @@ using namespace std;
 class CtrlReserva : public IReserva {
 
     private:
-        static CtrlReserva* instancia;
+        static CtrlReserva* instancia; 
         CtrlReserva();
         Funcion *f;
         int cant;
         Tarjeta *tar;
         int total;
 	public:
-         static CtrlReserva* getInstancia();
-		 void seleccionarFuncion(int num, int cantAsientos);
-         DtPago pagoCredito(string nomFin);
-         int pagoDebito(string nomBanco);
-         void crearReserva();
-         void finalizarReserva();
-         vector<DtReserva> mostrarReserva();
+         static CtrlReserva* getInstancia(); //Hecha
+		 void seleccionarFuncion(int num, int cantAsientos); //Hecha
+         DtPago pagoCredito(string nomFin); //Hecha
+         int pagoDebito(string nomBanco); //Hecha
+         void crearReserva(); //Hecha
+         void finalizarReserva(); //Hecha
+         vector<DtReserva> mostrarReserva(); //FALTAA
 };
 
 #endif

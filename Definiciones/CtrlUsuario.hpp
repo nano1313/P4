@@ -23,13 +23,13 @@ class CtrlUsuario : public IUsuario{
                 map<string, Usuario *> usuarios;
                 CtrlUsuario();
 	public:
-                static CtrlUsuario* getInstancia();
-                void ingresarNick(string nick);
-                bool ingresarContrasenia(string pass);
-                void cerrarSesion();
-                DtUsuario * getUsuarioLog(); //devuelve NULL si no hay Usuario Logueado
-                Usuario * getUserlog(); //devuelve NULL si no hay Usuario Logueado
-                void crearUsuario(string nick, string pass, string imagen, int nivel);
+                static CtrlUsuario* getInstancia(); //HECHA
+                void ingresarNick(string nick); //HECHA
+                bool ingresarContrasenia(string pass); //HECHA
+                void cerrarSesion(); //HECHA
+                DtUsuario * getUsuarioLog(); //devuelve NULL si no hay Usuario Logueado //HECHA
+                Usuario * getUserlog(); //devuelve NULL si no hay Usuario Logueado //HECHA
+                void crearUsuario(string nick, string pass, string imagen, int nivel); //HECHA
 };
 
 #endif

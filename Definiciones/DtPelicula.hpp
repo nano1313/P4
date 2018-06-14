@@ -15,22 +15,22 @@ class DtPelicula {
 
   public:
 		/* Getters */
-		string getTitulo();
-		string getPoster();
-		string getSinopsis();
-		float getPromPuntaje();
-		float getDuracion();
+		string getTitulo(); //HECHA
+		string getPoster(); //HECHA
+		string getSinopsis(); //HECHA
+		float getPromPuntaje(); //HECHA
+		float getDuracion(); //HECHA
 
 		/* Setters */
-		void setTitulo(string titulo);
-		void setPoster(string poster);
-		void setSinopsis(string sinopsis);
-		void setPromPuntaje(float promPuntaje);
-		void setDuracion(float duracion);
+		void setTitulo(string titulo); //HECHA
+		void setPoster(string poster); //HECHA
+		void setSinopsis(string sinopsis); //HECHA
+		void setPromPuntaje(float promPuntaje); //HECHA
+		void setDuracion(float duracion); //HECHA
 
-    DtPelicula();
-    DtPelicula(string titulo, string poster,string sinopsis, float promPuntaje, float duracion);
-    ~DtPelicula();
+    DtPelicula(); //FALTA
+    DtPelicula(string titulo, string poster,string sinopsis, float promPuntaje, float duracion); //HECHA
+    ~DtPelicula(); //FALTA
 };
 
 #endif

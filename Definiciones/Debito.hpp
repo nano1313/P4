@@ -15,12 +15,12 @@ class Debito : public Tarjeta {
 
 	public:
 		/* Getters */
-		string getBanco();
+		string getBanco(); //HECHA
 
 		/* Setters */
-		void setBanco(string banco);
+		void setBanco(string banco); //HECHA
 		
-		Debito(string banco);
-		~Debito();
+		Debito(string banco); //HECHA
+		~Debito(); //FALTA
 };
 #endif
