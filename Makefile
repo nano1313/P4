@@ -11,7 +11,7 @@ HDIR    = Definiciones
 CPPDIR  = Clases
 ODIR    = obj
 
-MODULOS = Cine Comentario Credito CtrlPelicula CtrlReserva CtrlUsuario Debito DtCine DtComentario DtDireccion DtFecha DtFuncion DtHora DtPago DtPelicula DtPuntaje DtSala DtUsuario Funcion MTarjeta Pelicula Puntaje Reserva Sala Tarjeta Usuario
+MODULOS = Cine Comentario Credito CtrlPelicula CtrlReserva CtrlUsuario Debito DtCine DtComentario DtDireccion DtFecha DtFuncion DtHora DtPago DtPelicula DtPuntaje DtSala DtUsuario Fabrica Funcion MTarjeta Pelicula Puntaje Reserva Sala Tarjeta Usuario
 
 # cadena de archivos, con directorio y extensión
 HS   = $(MODULOS:%=$(HDIR)/%.hpp)
@@ -24,7 +24,7 @@ EJECUTABLE=Principal
 # compilador
 CC = g++
 # opciones de compilación
-CCFLAGS = -Wall -Werror -I$(HDIR) -g
+CCFLAGS = -Werror -I$(HDIR) -g
 # -DNDEBUG
 # se agrega esta opción para que las llamadas a assert no hagan nada.
 

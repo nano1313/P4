@@ -1,4 +1,5 @@
 #include "../Definiciones/DtReserva.hpp"
+
 DtReserva::DtReserva (string titulo, DtFecha fecha, DtHora hora, float precio, int asientos, int cine) {
     this->tituloPelicula = titulo;
     this->fecha = fecha;
