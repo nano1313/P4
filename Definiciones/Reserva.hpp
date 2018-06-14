@@ -22,24 +22,24 @@ class Reserva {
 
 	public:
 		/* Getters */
-		int getCantAsientos();
-		float getCosto();
-		Funcion* getFuncion();
-		Usuario* getUsuario(); 
-		Tarjeta* getTarjeta(); 
+		int getCantAsientos();//HECHA
+		float getCosto();//HECHA
+		Funcion* getFuncion();//HECHA
+		Usuario* getUsuario(); //HECHA
+		Tarjeta* getTarjeta(); //HECHA
 
 		/* Setters */
-		void setCantAsientos(int cantAsientos);
-		void setCosto(float costo);
-		void setUsuario(Usuario *u);
-		void setFuncion(Funcion *f); 
+		void setCantAsientos(int cantAsientos); //HECHA
+		void setCosto(float costo);//HECHA
+		void setUsuario(Usuario *u);//HECHA
+		void setFuncion(Funcion *f); //HECHA
 
 
-		void destroy();
+		void destroy();//HECHA
 
         Reserva();
-		Reserva(int cantAsientos, float costo);   
-		Reserva(int cantAsientos ,float costo,Tarjeta *t,Funcion *f);
+		Reserva(int cantAsientos, float costo);   //HECHA
+		Reserva(int cantAsientos ,float costo,Tarjeta *t,Funcion *f);//HECHA
 		~Reserva();
 };
 #endif

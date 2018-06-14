@@ -21,24 +21,24 @@ class Usuario {
 
 	public:
 		/* Getters */
-		string getNickname();
-		string getContrasenia();
-		string getImagen();
-		int getNivel();
-		set<Reserva *> getReservas();
+		string getNickname();//HECHA
+		string getContrasenia();//HECHA
+		string getImagen();//HECHA
+		int getNivel();//HECHA
+		set<Reserva *> getReservas();//HECHA
 
 		/* Setters */
-		void setNickname(string nickname);
-		void setContrasenia(string contrasenia);
-		void setImagen(string imagen);
-		void setNivel(int nivel);
+		void setNickname(string nickname);//HECHA
+		void setContrasenia(string contrasenia);//HECHA
+		void setImagen(string imagen);//HECHA
+		void setNivel(int nivel);//HECHA
 
 		/* Metodos */
-	    void eliminarAsociaciones(Reserva *r);
-		void aniadirReserva(Reserva *r);
+	    void eliminarAsociaciones(Reserva *r);//HECHA
+		void aniadirReserva(Reserva *r);//HECHA
 
         Usuario();
-		Usuario(string nickname, string contrasenia, string imagen, int nivel);
+		Usuario(string nickname, string contrasenia, string imagen, int nivel);//HECHA
 		~Usuario();
 };
 #endif
