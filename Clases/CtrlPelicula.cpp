@@ -337,6 +337,10 @@ void CtrlPelicula::confirmarEliminar() {
     this->pelicula=NULL;
 }
 
+void CtrlPelicula::altaFuncion(DtFecha fecha, DtHora hora){
+
+}
+
 void CtrlPelicula::altaPelicula(string titulo, string sinopsis, string portada, float duracion) {
     
     Pelicula *nuevaPeli = new Pelicula(titulo, portada, sinopsis, duracion);
