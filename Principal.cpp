@@ -101,11 +101,11 @@ int main(){
 		/*Inicializo variables */
 		DtUsuario* usrLogueado=NULL;
     string menuDesplegado;//<//="Bienvenido. Elija la opción.\n1) Registrar socio\n2) Agregar mascota\n3) Ingresar consulta\n4) Ver consulta antes de una fecha\n5) Eliminar socio\n6) Obtener mascotas de un socio\n0) Salir\n";
-		string menuCabezal="******************************************************************************\n*                                                                            *\n*                           MOVIEFING                                        *\n*                                                                            *\n******************************************************************************\nBienvenido. Elija la opción.";
+		string menuCabezal="******************************************************************************\n*                                                                            *\n*                           MOVIEFING                                        *\n*                                                                            *\n******************************************************************************\nBienvenido. Elija la opción.\n";
 
 		string menuUsuarioNoLog="1) Iniciar Sesion\n2) Ver Informacion de Pelicula\n3) Ver Comentarios y Puntaje de Pelicula\n4) Cargar Datos\n0) Salir\n";
-		string menuUsuarioLog="1) Crear Reserva\n2) Puntuar Pelicula\n3) Comentar Pelicula\n4) Ver Informacion de Pelicula\n5) Ver Comentarios y Puntaje de Pelicula\n6) Ver Reservas\n7) Cargar Datos\n8)Cerrar Sesion\n0) Cerrar Sesion y Salir\n";
-		string menuUsuarioAdmin="1) Crear Reserva\n2) Puntuar Pelicula\n3) Comentar Pelicula\n4) Ver Informacion de Pelicula\n5) Ver Comentarios y Puntaje de Pelicula\n6) Ver Reservas\n7) Alta Cine\n8) Alta Funcion\n9) Eliminar Pelicula\n10) Cargar Datos\n11)Cerrar Sesion\n0) Cerrar Sesion y Salir\n";
+		string menuUsuarioLog="1) Crear Reserva\n2) Puntuar Pelicula\n3) Comentar Pelicula\n4) Ver Informacion de Pelicula\n5) Ver Comentarios y Puntaje de Pelicula\n6) Ver Reservas\n7) Cargar Datos\n8) Cerrar Sesion\n0) Cerrar Sesion y Salir\n";
+		string menuUsuarioAdmin="1) Crear Reserva\n2) Puntuar Pelicula\n3) Comentar Pelicula\n4) Ver Informacion de Pelicula\n5) Ver Comentarios y Puntaje de Pelicula\n6) Ver Reservas\n7) Alta Cine\n8)  Alta Funcion\n9) Eliminar Pelicula\n10) Cargar Datos\n11)Cerrar Sesion\n0) Cerrar Sesion y Salir\n";
 		menuDesplegado=menuCabezal + menuUsuarioNoLog;
 		string respStr;
 		int resp;
@@ -118,20 +118,20 @@ int main(){
 			if (usrLogueado==NULL){
 				cout << menuCabezal +  menuUsuarioNoLog<<endl;
 				cin >> respStr;
-				resp	=	StrToInt(respStr);
-				switchNoLog(resp);
+				//resp	=	StrToInt(respStr);
+				switchNoLog(stoi(respStr));
 			}else if(usrLogueado->getNivel()==1){
 				cout << menuCabezal +  menuUsuarioLog<<endl;
 				cin >> respStr;
-				resp	=	StrToInt(respStr);
-				switchLog(resp);
+				//resp	=	StrToInt(respStr);
+				switchLog(stoi(respStr));
 			}else{
 				cout << menuCabezal +  menuUsuarioAdmin<<endl;
 				cin >> respStr;
-				resp	=	StrToInt(respStr);
+				//resp	=	StrToInt(stoi(respStr));
 				switchAdmin(resp);
 			}
-    }while(resp!=0);
+    }while(respStr!="0");
 
 }
 
@@ -611,7 +611,7 @@ void crearReserva(){
 }
 
 void cargarDatos(){
-
+cout<<"1"<<'\n';
 	//CINE 21 DE SEPTIEMBRE
 	DtDireccion direccion;
 	IPelicula* iPeli = fab->getIPelicula();
@@ -624,7 +624,7 @@ void cargarDatos(){
 	iPeli->ingresarCapacidad(60);
 	iPeli->ingresarCapacidad(30);
 	iPeli->confirmarAltaCine();
-
+cout<<"2"<<'\n';
 	//CINE MIGUEL BARREIRO 4588
 	direccion.setCalle("Miguel Barreiro");
 	direccion.setNumero(4588); //Convierte a numero el string, Capturar excepcion?
@@ -633,16 +633,17 @@ void cargarDatos(){
 	iPeli->ingresarCapacidad(200);
 	iPeli->ingresarCapacidad(60);
 	iPeli->confirmarAltaCine();
-
+cout<<"3"<<'\n';
 	//PELICULAS
 	iPeli->altaPelicula("The Vindicators 3", "Tercera entrega de la saga de superheroes.", "/home/accion/posters/vindicators.png", 180);
 	iPeli->altaPelicula("Sangre de campeones", "Documental", "/home/accion/posters/scampeones.png", 180);
 	iPeli->altaPelicula("El insulto", "Drama libanes.", "/home/accion/posters/elinsulto.png", 180);
 	iPeli->altaPelicula("La noche que no se repite", "Drama libanes.", "/home/accion/posters/elinsulto.png", 180);
-
+cout<<"4"<<'\n';
 	//Funciones
 	DtFecha fecha;
 	DtHora hora;
+cout<<"5"<<'\n';
 	//F1
 	iPeli->seleccionarPelicula2("The Vindicators 3");
 	iPeli->seleccionarCine(1);
@@ -651,7 +652,7 @@ void cargarDatos(){
 	hora="14:00";
 	iPeli->altaFuncion(fecha, hora);
 	iPeli->finalizar();
-
+cout<<"6"<<'\n';
 	//F2
 	iPeli->seleccionarPelicula2("Sangre de campeones");
 	iPeli->seleccionarCine(1);
@@ -660,7 +661,7 @@ void cargarDatos(){
 	hora="16:30";
 	iPeli->altaFuncion(fecha, hora);
 	iPeli->finalizar();
-
+cout<<"7"<<'\n';
 	//F3
 	iPeli->seleccionarPelicula2("The Vindicators 3");
 	iPeli->seleccionarCine(2);
@@ -669,7 +670,7 @@ void cargarDatos(){
 	hora="14:00";
 	iPeli->altaFuncion(fecha, hora);
 	iPeli->finalizar();
-	
+cout<<"8"<<'\n';
 	//F4
 	iPeli->seleccionarPelicula2("El insulto");
 	iPeli->seleccionarCine(1);
@@ -678,41 +679,46 @@ void cargarDatos(){
 	hora="22:00";
 	iPeli->altaFuncion(fecha, hora);
 	iPeli->finalizar();
-
+cout<<"9"<<'\n';
 	//Usuarios
-	iUser->crearUsuario("cachoElNumberOne", "jorgeP4", "/users/registered/cachoElNumberOne.png",1);
+	iUser->crearUsuario("chachoElNumberOne", "jorgeP4", "/users/registered/cachoElNumberOne.png",1);
 	iUser->crearUsuario("carmeBeiro2010", "carmela5688", "/users/registered/carmeBeiro2010.png",1);
 	iUser->crearUsuario("ale_ulises", "p4eslomejor21", "/users/registered/ale_ulises.png",9);
-
+cout<<"10"<<'\n';
 	//Financieras se cargan en el objeto mismo
 	bool auxiliarBool=false;
 	//Comentarios
-	
-	iUser->ingresarNick("cachoElNumberOne");
+cout<<"11"<<'\n';	
+	iUser->ingresarNick("chachoElNumberOne");
 	auxiliarBool=iUser->ingresarContrasenia("jorgeP4");
 	iPeli->seleccionarPelicula2("The Vindicators 3");
 	iPeli->crearComentario("Es tremenda pelicula. La mejor parte es cuando aparecen Rick y Morty.");//Nuevo Comentario
 	iUser->cerrarSesion();
-	
+	cout<<"12"<<'\n';
 	iUser->ingresarNick("carmeBeiro2010");
 	auxiliarBool=iUser->ingresarContrasenia("carmela5688");
 	iPeli->seleccionarComentario(1);
 	iPeli->responderComentario("Esta muy buena pero la mejor parte es cuando explota el planeta con los malos.");
 	iUser->cerrarSesion();
-
-	iUser->ingresarNick("cachoElNumberOne");
+/*
+cout<<"13"<<'\n';
+	iUser->ingresarNick("chachoElNumberOne");
+cout<<"13a"<<'\n';
 	auxiliarBool=iUser->ingresarContrasenia("jorgeP4");
+cout<<"13b"<<'\n';
 	iPeli->seleccionarComentario(2);
+cout<<"13c"<<'\n';
 	iPeli->responderComentario("Callateee no cuentes el final!!");
+cout<<"13d"<<'\n';
 	iUser->cerrarSesion();
-	
+cout<<"14"<<'\n';
 	//Puntajes
-	iUser->ingresarNick("cachoElNumberOne");
+	iUser->ingresarNick("chachoElNumberOne");
 	auxiliarBool=iUser->ingresarContrasenia("jorgeP4");
 	iPeli->seleccionarPelicula2("The Vindicators 3");
 	iPeli->ingresarPuntaje(9);
 	iUser->cerrarSesion();
-
+cout<<"15"<<'\n';
 	iUser->ingresarNick("carmeBeiro2010");
 	auxiliarBool=iUser->ingresarContrasenia("carmela5688");
 	iPeli->seleccionarPelicula2("El insulto");
@@ -720,15 +726,16 @@ void cargarDatos(){
 	iUser->cerrarSesion();
 
 	//Reservas
-
+cout<<"16"<<'\n';
 	IReserva* iRes=fab->getIReserva();
 	DtPelicula datosPelicula;
 	vector<DtPelicula> listaPeliculas = iPeli->darListaPeliculas();
 	vector<DtFuncion> listaFunciones;
 	int descuento; 
 	DtPago desc;
+cout<<"17"<<'\n';
 	//R1
-	iUser->ingresarNick("cachoElNumberOne");
+	iUser->ingresarNick("chachoElNumberOne");
 	auxiliarBool=iUser->ingresarContrasenia("jorgeP4");
 	datosPelicula=iPeli->seleccionarPelicula1("The Vindicators 3");
 	listaFunciones=iPeli->seleccionarCineConSusFunciones(1);
@@ -741,7 +748,7 @@ void cargarDatos(){
 	iPeli->finalizar();
 	iUser->cerrarSesion();
 
-
+cout<<"18"<<'\n';
 	
 	//R2
 	iUser->ingresarNick("carmeBeiro2010");
@@ -756,7 +763,7 @@ void cargarDatos(){
 	listaPeliculas.clear();
 	iPeli->finalizar();
 	iUser->cerrarSesion();
-
+*/
 
 }
 

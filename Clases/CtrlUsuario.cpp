@@ -23,10 +23,13 @@ bool CtrlUsuario::ingresarContrasenia(string pass){
     map<string, Usuario *>::iterator it;
     it = this->usuarios.find(this->nickname);
 
-    if (it->second)
+    if (it!=this->usuarios.end()){
+	this->usuarioLog=it->second;
         return (it->second->getContrasenia() == pass);
-    else
+	}
+    else{
         return false;
+	}
 }
 
 void CtrlUsuario::cerrarSesion() {
@@ -57,6 +60,7 @@ Usuario* CtrlUsuario::getUserlog() {
 void CtrlUsuario::crearUsuario(string nick, string pass, string imagen, int nivel){
 
   Usuario* usr= new Usuario(nick, pass, imagen, nivel);
-  usuarios.insert(std::pair<string, Usuario*>(nick,usr));
+  usuarios[nick]=usr;
+  //usuarios.insert(std::pair<string, Usuario*>(nick,usr));
 
 }
