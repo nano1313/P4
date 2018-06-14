@@ -16,7 +16,7 @@ class Mtarjeta {
         static Mtarjeta* instancia;
         map<string, Credito *> Creditos;
         map<string, Debito *> Debitos;
-        Mtarjeta();
+        //Mtarjeta();
 	public:
         static Mtarjeta* getInstancia();
         Debito* encontrarInstanciaDebito(string nombre);

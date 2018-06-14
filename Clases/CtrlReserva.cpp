@@ -1,5 +1,8 @@
+#include "../Definiciones/IUsuario.hpp"
 #include "../Definiciones/CtrlReserva.hpp"
 
+
+CtrlReserva* CtrlReserva::instancia=NULL;
 
 CtrlReserva* CtrlReserva::getInstancia()
 {

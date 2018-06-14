@@ -11,7 +11,7 @@ using namespace std;
 class Tarjeta {
 
 	public:
-		Tarjeta();
-		~Tarjeta();
+		//Tarjeta();
+		//~Tarjeta();
 };
 #endif

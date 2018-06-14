@@ -24,6 +24,6 @@ class Credito : public Tarjeta {
         void setDescuento(int descuento);
 
 		Credito(string financiera, int descuento);
-		~Credito();
+		//~Credito();
 };
 #endif

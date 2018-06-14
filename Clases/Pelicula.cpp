@@ -1,4 +1,6 @@
 #include "../Definiciones/Pelicula.hpp"
+#include "../Definiciones/Puntaje.hpp"
+#include "../Definiciones/Funcion.hpp"
 
 Pelicula::Pelicula(string titulo, string poster, string sinopsis, float duracion) {
 	this->titulo = titulo;

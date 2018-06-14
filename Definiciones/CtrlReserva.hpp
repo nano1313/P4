@@ -29,14 +29,14 @@ class CtrlReserva : public IReserva {
 
     private:
         static CtrlReserva* instancia;
-        CtrlReserva();
+        //CtrlReserva();
         Funcion *f;
         int cant;
         Tarjeta *tar;
         int total;
 	public:
          static CtrlReserva* getInstancia();
-		 void seleccionarFuncion(int num, int cantAsientos);
+	 void seleccionarFuncion(int num, int cantAsientos);
          DtPago pagoCredito(string nomFin);
          int pagoDebito(string nomBanco);
          void crearReserva();

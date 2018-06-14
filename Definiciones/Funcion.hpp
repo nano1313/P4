@@ -51,7 +51,7 @@ class Funcion {
         
         Funcion();
 		Funcion (int numero, DtFecha fecha, DtHora hora, Sala * sala);
-		~Funcion();
+		//~Funcion();
 };
 
 

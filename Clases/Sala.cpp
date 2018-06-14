@@ -5,6 +5,12 @@ Sala::Sala (int numero, int capacidad) {
 	this->capacidad	= capacidad;
 }
 
+Sala::Sala(int numero, int capacidad, Cine* cine){
+	this->numero = numero;
+	this->capacidad	= capacidad;
+	this->cine=cine;
+}
+
 /* Getters */
 
 int Sala::getNumero() {

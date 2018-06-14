@@ -1,4 +1,5 @@
 #include "../Definiciones/Debito.hpp"
+#include "../Definiciones/Tarjeta.hpp"
 
 Debito::Debito(string banco) : Tarjeta() { 
 	this->banco = banco;

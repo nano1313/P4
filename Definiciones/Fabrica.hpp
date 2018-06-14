@@ -16,7 +16,7 @@ class Fabrica {
 
     private:
         static Fabrica* instancia;
-        Fabrica();
+        //Fabrica();
 	public:
         static Fabrica* getInstancia();
         IReserva* getIReserva();

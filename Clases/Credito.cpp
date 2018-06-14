@@ -1,4 +1,5 @@
 #include "../Definiciones/Credito.hpp"
+#include "../Definiciones/Tarjeta.hpp"
 
 Credito::Credito (string financiera, int descuento) : Tarjeta() { 
 	this->financiera = financiera;

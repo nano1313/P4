@@ -40,6 +40,6 @@ class Reserva {
         Reserva();
 		Reserva(int cantAsientos, float costo);   
 		Reserva(int cantAsientos ,float costo,Tarjeta *t,Funcion *f);
-		~Reserva();
+		//~Reserva();
 };
 #endif

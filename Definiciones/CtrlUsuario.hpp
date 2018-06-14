@@ -21,7 +21,7 @@ class CtrlUsuario : public IUsuario{
                 Usuario* usuarioLog = NULL;
                 static CtrlUsuario* instancia;
                 map<string, Usuario *> usuarios;
-                CtrlUsuario();
+                //CtrlUsuario();
 	public:
                 static CtrlUsuario* getInstancia();
                 void ingresarNick(string nick);

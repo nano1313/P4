@@ -22,57 +22,56 @@ using namespace std;
 class IPelicula {
 
 	public:
-
         // CU en gral
-        virtual vector<DtPelicula> darListaPeliculas();
-        virtual void seleccionarPelicula2(string titulo);
-        virtual vector<DtCine> darListaCines();
-        virtual void seleccionarCine(int numCine);
+        virtual vector<DtPelicula> darListaPeliculas()=0;
+        virtual void seleccionarPelicula2(string titulo)=0;
+        virtual vector<DtCine> darListaCines()=0;
+        virtual void seleccionarCine(int numCine)=0;
 
         // CU Alta Cine
-        virtual void ingresarDireccion(string calle, int num);
-        virtual void ingresarCapacidad(int cap);
-				virtual void ingresarPrecioCine(int precio);
-        virtual void confirmarAltaCine();
-        virtual void cancelar();
+        virtual void ingresarDireccion(string calle, int num)=0;
+        virtual void ingresarCapacidad(int cap)=0;
+				virtual void ingresarPrecioCine(int precio)=0;
+        virtual void confirmarAltaCine()=0;
+        virtual void cancelar()=0;
 
         // CU Alta Funcion
-        virtual vector<DtSala> darListaSalas();
-        virtual void seleccionarSala(int num);
+        virtual vector<DtSala> darListaSalas()=0;
+        virtual void seleccionarSala(int num)=0;
 
-	virtual void altaFuncion(DtFecha fecha, DtHora hora);
+	virtual void altaFuncion(DtFecha fecha, DtHora hora)=0;
 
 
         // CU Ver info Pelicula
-        virtual DtPelicula seleccionarPelicula1(string titulo);
-        virtual vector<DtCine> darListaCinesDeUnaFuncion();
-        virtual vector<DtFuncion> seleccionarCineConSusFunciones(int id);
+        virtual DtPelicula seleccionarPelicula1(string titulo)=0;
+        virtual vector<DtCine> darListaCinesDeUnaFuncion()=0;
+        virtual vector<DtFuncion> seleccionarCineConSusFunciones(int id)=0;
 
         // CU Eliminar Pelicula
-        virtual void confirmarEliminar();
-        virtual void finalizar();
+        virtual void confirmarEliminar()=0;
+        virtual void finalizar()=0;
 
         // CU Puntuar Pelicula
-        virtual bool yaPuntuo();
-        virtual int mostrarPuntaje();
-        virtual void ingresarPuntaje(int puntaje);
+        virtual bool yaPuntuo()=0;
+        virtual int mostrarPuntaje()=0;
+        virtual void ingresarPuntaje(int puntaje)=0;
 
-        virtual void setPelicula(Pelicula * pelicula);
-        virtual Pelicula * getPelicula();
+        virtual void setPelicula(Pelicula * pelicula)=0;
+        virtual Pelicula * getPelicula()=0;
 
 
     
 				//CU ComentarPelicula
-				virtual vector<DtComentario> darListaComentarios();
-				virtual void crearComentario(string texto);
-				virtual void seleccionarComentario(int id);
-				virtual void responderComentario(string texto);
-				virtual void finalizarComentario();
+				virtual vector<DtComentario> darListaComentarios()=0;
+				virtual void crearComentario(string texto)=0;
+				virtual void seleccionarComentario(int id)=0;
+				virtual void responderComentario(string texto)=0;
+				virtual void finalizarComentario()=0;
 
 				//CU Ver Comentarios y puntajes de pelicula
-				virtual vector<DtPuntaje> darListaPuntajes();
+				virtual vector<DtPuntaje> darListaPuntajes()=0;
 
-        virtual void altaPelicula(string titulo, string sinopsis, string portada, float duracion);
+        virtual void altaPelicula(string titulo, string sinopsis, string portada, float duracion)=0;
 
 };
 

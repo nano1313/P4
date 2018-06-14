@@ -39,6 +39,6 @@ class Comentario {
 		void destroy();
 
 		Comentario(int id, string desc);
-		~Comentario();
+		//~Comentario();
 };
 #endif

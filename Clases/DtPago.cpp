@@ -6,6 +6,11 @@ DtPago::DtPago(unsigned int precio, unsigned int descuento) {
 	this->descuento = descuento;
 }
 
+DtPago::DtPago() {
+	this->precio = 0;
+	this->descuento = 0;
+}
+
 /* Getters */
 
 unsigned int DtPago::getPrecio() {

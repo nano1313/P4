@@ -1,5 +1,8 @@
+#include "./IUsuario.hpp"
 #include "../Definiciones/CtrlUsuario.hpp"
 
+
+CtrlUsuario* CtrlUsuario::instancia=NULL;
 
 CtrlUsuario* CtrlUsuario::getInstancia()
 {

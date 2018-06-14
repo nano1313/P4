@@ -8,6 +8,14 @@ DtPelicula::DtPelicula(string titulo, string poster, string sinopsis, float prom
 	this->duracion = duracion;
 }
 
+DtPelicula::DtPelicula() {
+	this->titulo = "";
+	this->poster = "";
+	this->sinopsis = "";
+	this->promPuntaje = 0;
+	this->duracion = 0;
+}
+
 /* Getters */
 
 string DtPelicula::getTitulo() {

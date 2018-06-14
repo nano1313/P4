@@ -21,6 +21,6 @@ class Debito : public Tarjeta {
 		void setBanco(string banco);
 		
 		Debito(string banco);
-		~Debito();
+		//~Debito();
 };
 #endif

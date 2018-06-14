@@ -5,6 +5,11 @@ DtHora::DtHora(int hora, int minutos) {
 	this->minutos = minutos;
 }
 
+DtHora::DtHora() {
+	this->hora = 0;
+	this->minutos = 0;
+}
+
 /* Getters */
 unsigned int DtHora::getHora() {
 	return this->hora;

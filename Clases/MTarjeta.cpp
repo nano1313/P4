@@ -1,5 +1,7 @@
 #include "../Definiciones/MTarjeta.hpp"
 
+Mtarjeta* Mtarjeta::instancia=NULL;
+
 Mtarjeta* Mtarjeta::getInstancia(){
     
     if (instancia == 0)

@@ -1,6 +1,8 @@
 #include "../Definiciones/CtrlPelicula.hpp"
 
 
+CtrlPelicula* CtrlPelicula::instancia=NULL;
+
 CtrlPelicula* CtrlPelicula::getInstancia()
 {
     if (instancia == NULL)
@@ -328,6 +330,12 @@ void CtrlPelicula::seleccionarComentario(int id) {
 
 void CtrlPelicula::finalizarComentario() {
     this->comentario = NULL;
+}
+
+void CtrlPelicula::finalizar(){
+	
+	this->pelicula=NULL;
+	
 }
 
 void CtrlPelicula::confirmarEliminar() {

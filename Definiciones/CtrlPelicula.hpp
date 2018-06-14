@@ -39,9 +39,10 @@ class CtrlPelicula : public IPelicula {
         int cantCines; // Para poder controlar el numero de los Cines //
         int numfuncion = 0; // Autogenerado para numerar las funciones  //
 
-        CtrlPelicula();
+        //CtrlPelicula();
 
     public:
+	
         static CtrlPelicula* getInstancia();//Hecha
         vector<DtPelicula> darListaPeliculas(); //Hecha
         DtPelicula seleccionarPelicula1(string titulo);//Hecha
