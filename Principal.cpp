@@ -464,7 +464,7 @@ void comentarPelicula(){
 
 void verComentariosPelicula(){
 	IPelicula* iPeli = fab->getIPelicula();
-	bool quiereAgregarCom;
+	
 	string aux;
 	vector<DtPelicula> listaPeliculas = iPeli->darListaPeliculas();
 	cout << "Selecciona una Pelicula de la lista: " << '\n';
@@ -504,7 +504,7 @@ void mostrarComentario(vector<DtComentario> l, int tab){
 
 void puntuarPelicula(){
 	IPelicula* iPeli = fab->getIPelicula();
-	bool quiereAgregarCom;
+	
 	string aux;
 	vector<DtPelicula> listaPeliculas = iPeli->darListaPeliculas();
 	cout << "Selecciona una Pelicula de la lista: " << '\n';
@@ -685,7 +685,7 @@ void cargarDatos(){
 	iUser->crearUsuario("ale_ulises", "p4eslomejor21", "/users/registered/ale_ulises.png",9);
 
 	//Financieras se cargan en el objeto mismo
-	bool auxiliarBool;
+	bool auxiliarBool=false;
 	//Comentarios
 	
 	iUser->ingresarNick("cachoElNumberOne");

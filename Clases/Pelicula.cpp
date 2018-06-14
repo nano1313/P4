@@ -116,5 +116,17 @@ void Pelicula::destroy(){
 		delete(it2->second);
 		
 	}
+	map<int, Comentario*>::iterator it3;
+ 	for (it3 = this->comentarios.begin(); it3 !=this->comentarios.end(); ++it3)
+    {
+		this->comentarios.erase(it3->first);
+		it3->second->destroy();
+		delete(it3->second);
+		
+	}
 	
+}
+
+void Pelicula::agregarFuncion(Funcion *f){
+	this->funciones[f->getNumero()] = f;
 }
