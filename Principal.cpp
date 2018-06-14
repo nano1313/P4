@@ -17,10 +17,9 @@
 #include "./Definiciones/Utils.hpp"
 #include "./Definiciones/DtCine.hpp"
 #include "./Definiciones/DtPelicula.hpp"
+#include "./Definiciones/DtReserva.hpp"
 #include "./Definiciones/DtSala.hpp"
 #include "./Definiciones/DtUsuario.hpp"
-
-/*para quitar*/
 #include "./Definiciones/Cine.hpp"
 #include "./Definiciones/Comentario.hpp"
 #include "./Definiciones/Credito.hpp"
@@ -29,6 +28,7 @@
 #include "./Definiciones/CtrlUsuario.hpp"
 #include "./Definiciones/Debito.hpp"
 #include "./Definiciones/Funcion.hpp"
+#include "./Definiciones/Fabrica.hpp"
 #include "./Definiciones/MTarjeta.hpp"
 #include "./Definiciones/Pelicula.hpp"
 #include "./Definiciones/Puntaje.hpp"
@@ -37,7 +37,7 @@
 #include "./Definiciones/Tarjeta.hpp"
 #include "./Definiciones/Usuario.hpp"
 
-
+/*
 #include "./Clases/Cine.cpp"
 #include "./Clases/Comentario.cpp"
 #include "./Clases/Credito.cpp"
@@ -67,7 +67,7 @@
 #include "./Clases/DtPuntaje.cpp"
 #include "./Clases/DtComentario.cpp"
 #include "./Clases/Fabrica.cpp"
-
+*/
 
 
 
