@@ -9,10 +9,6 @@
 #include "./IUsuario.hpp"
 #include "./IPelicula.hpp"
 
-#include "./CtrlReserva.hpp"
-#include "./CtrlUsuario.hpp"
-#include "./CtrlPelicula.hpp"
-
 using namespace std;
 
 
@@ -20,7 +16,7 @@ class Fabrica {
 
     private:
         static Fabrica* instancia;
-        //Fabrica();
+        Fabrica();
 	public:
         static Fabrica* getInstancia();
         IReserva* getIReserva();

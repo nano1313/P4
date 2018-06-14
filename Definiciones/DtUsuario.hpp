@@ -16,25 +16,19 @@ class DtUsuario {
 		
 	public:
 		/* Getters */
-		string getNickname(); //HECHA
-		string getContrasenia(); //HECHA
-		string getImagen(); //HECHA
-		int getNivel(); //HECHA
+		string getNickname();
+		string getContrasenia();
+		string getImagen();
+		int getNivel();
 
 		/* Setters */
-		void setNickname(string nickname); //HECHA
-		void setContrasenia(string contrasenia); //HECHA
-		void setImagen(string imagen); //HECHA
-		void setNivel(int nivel); //HECHA
+		void setNickname(string nickname);
+		void setContrasenia(string contrasenia);
+		void setImagen(string imagen);
+		void setNivel(int nivel);
 
-<<<<<<< HEAD
         DtUsuario();
 		DtUsuario(string nickname, string contrasenia, string imagen, int nivel);
 		//~DtUsuario();
-=======
-        DtUsuario(); //FALTA
-		DtUsuario(string nickname, string contrasenia, string imagen, int nivel); //HECHA
-		~DtUsuario(); //FALTA
->>>>>>> 54d5416700228b13609f0b09266ba4e9eb88b3b0
 };
 #endif

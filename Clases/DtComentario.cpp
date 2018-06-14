@@ -9,10 +9,6 @@ DtComentario::DtComentario(int id, string usuario, string descripcion, vector<Dt
 
 /* Getters */
 
-int DtComentario::getId() {
-	return this->id;
-}
-
 string DtComentario::getUsuario() {
 	return this->usuario;
 }

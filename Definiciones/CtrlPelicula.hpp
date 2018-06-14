@@ -59,9 +59,9 @@ class CtrlPelicula : public IPelicula {
         int mostrarPuntaje(); //Hecha
         void ingresarPuntaje(int puntaje); //Hecha
         void altaPelicula(string titulo, string sinopsis, string portada, float duracion); //Hecha
-
-	void altaFuncion(DtFecha fecha, DtHora hora);
 	
+	void altaFuncion(DtFecha fecha, DtHora hora);
+
         //CU Comentar pelicula
         vector<DtComentario> darListaComentarios(); //Hecha
         void crearComentario(string texto); //Hecha

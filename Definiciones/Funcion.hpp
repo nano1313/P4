@@ -32,24 +32,26 @@ class Funcion {
 
 	public:
 		/* Getters */
-		int getNumero(); //HECHA
-		DtFecha getFecha(); //HECHA
-		DtHora getHora(); //HECHA
-		Sala * getSala(); //HECHA
-		set<Reserva *> getReservas(); //HECHA
-		Pelicula * getPelicula(); //HECHA
+		int getNumero();
+		DtFecha getFecha();
+		DtHora getHora();
+		Sala * getSala();
+		set<Reserva *> getReservas();
+		Pelicula * getPelicula();
 
 		/* Setters */
-		void setNumero(int numero); //HECHA
-		void setFecha(DtFecha fecha);//HECHA
-		void setHora(DtHora hora);//HECHA
-		void setSala(Sala* sala);		//HECHA
-		void destroy();//HECHA
-		void aniadirReserva(Reserva *r);//HECHA
+		void setNumero(int numero);
+		void setFecha(DtFecha fecha);
+		void setHora(DtHora hora);
+		void setSala(Sala* sala);
+		//void setPrecio(float precio);
+		
+		void destroy();
+		void aniadirReserva(Reserva *r);
         
-        Funcion(); //FALTA
-		Funcion (int numero, DtFecha fecha, DtHora hora, Sala * sala);//HECHA
-		~Funcion(); //FALTA
+        Funcion();
+		Funcion (int numero, DtFecha fecha, DtHora hora, Sala * sala);
+		~Funcion();
 };
 
 

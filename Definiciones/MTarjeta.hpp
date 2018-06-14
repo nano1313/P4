@@ -16,11 +16,10 @@ class Mtarjeta {
         static Mtarjeta* instancia;
         map<string, Credito *> Creditos;
         map<string, Debito *> Debitos;
-        Mtarjeta(); //FALTA
-
+        Mtarjeta();
 	public:
-        static Mtarjeta* getInstancia(); //HECHA
-        Debito* encontrarInstanciaDebito(string nombre); //HECHA
-        Credito* encontrarInstanciaCredito(string nombre); //HECHA
+        static Mtarjeta* getInstancia();
+        Debito* encontrarInstanciaDebito(string nombre);
+        Credito* encontrarInstanciaCredito(string nombre);
 };
 #endif

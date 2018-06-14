@@ -16,22 +16,16 @@ class DtSala {
 
 	public:
 		/* Getters */
-		int getNumero(); //HECHA
-		int getCapacidad(); //HECHA
+		int getNumero();
+		int getCapacidad();
 
 		/* Setters */
-		void setNumero(int numero); //HECHA
-		void setCapacidad(int capacidad); //HECHA
+		void setNumero(int numero);
+		void setCapacidad(int capacidad);
 
-<<<<<<< HEAD
         DtSala();
 		DtSala(int numero, int capacidad);
         //~DtSala();
-=======
-        DtSala(); //FALTA
-		DtSala(int numero, int capacidad); //HECHA
-        ~DtSala(); //FALTA
->>>>>>> 54d5416700228b13609f0b09266ba4e9eb88b3b0
 };
 
 #endif

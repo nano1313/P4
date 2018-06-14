@@ -41,6 +41,6 @@ class Cine {
 
 		Cine(int numero, DtDireccion direccion, int precio);
 		Cine(int numero, DtDireccion direccion, int precio, map<int, Sala*> salas);
-		~Cine();
+		//~Cine();
 };
 #endif

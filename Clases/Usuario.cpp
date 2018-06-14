@@ -27,6 +27,7 @@ int Usuario::getNivel(){
 }
 
 set<Reserva *> Usuario::getReservas(){
+
 	return this->reservas;
 }
 /* Setters */
