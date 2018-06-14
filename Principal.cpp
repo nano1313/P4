@@ -3,18 +3,72 @@
 #include <string.h>
 #include <vector>
 
+/*Hpp originales*/
 #include "./Definiciones/DtHora.hpp"
 #include "./Definiciones/DtFecha.hpp"
 #include "./Definiciones/DtDireccion.hpp"
 #include "./Definiciones/DtPago.hpp"
 #include "./Definiciones/DtPuntaje.hpp"
 #include "./Definiciones/DtComentario.hpp"
-#include "./Definiciones/DtPuntaje.hpp"
 #include "./Definiciones/Fabrica.hpp"
 #include "./Definiciones/IUsuario.hpp"
 #include "./Definiciones/IReserva.hpp"
 #include "./Definiciones/IPelicula.hpp"
 #include "./Definiciones/Utils.hpp"
+#include "./Definiciones/DtCine.hpp"
+#include "./Definiciones/DtPelicula.hpp"
+#include "./Definiciones/DtSala.hpp"
+#include "./Definiciones/DtUsuario.hpp"
+
+/*para quitar*/
+#include "./Definiciones/Cine.hpp"
+#include "./Definiciones/Comentario.hpp"
+#include "./Definiciones/Credito.hpp"
+#include "./Definiciones/CtrlPelicula.hpp"
+#include "./Definiciones/CtrlReserva.hpp"
+#include "./Definiciones/CtrlUsuario.hpp"
+#include "./Definiciones/Debito.hpp"
+#include "./Definiciones/Funcion.hpp"
+#include "./Definiciones/MTarjeta.hpp"
+#include "./Definiciones/Pelicula.hpp"
+#include "./Definiciones/Puntaje.hpp"
+#include "./Definiciones/Reserva.hpp"
+#include "./Definiciones/Sala.hpp"
+#include "./Definiciones/Tarjeta.hpp"
+#include "./Definiciones/Usuario.hpp"
+
+
+#include "./Clases/Cine.cpp"
+#include "./Clases/Comentario.cpp"
+#include "./Clases/Credito.cpp"
+#include "./Clases/CtrlPelicula.cpp"
+#include "./Clases/CtrlReserva.cpp"
+#include "./Clases/CtrlUsuario.cpp"
+#include "./Clases/Debito.cpp"
+#include "./Clases/Funcion.cpp"
+#include "./Clases/MTarjeta.cpp"
+#include "./Clases/Pelicula.cpp"
+#include "./Clases/Puntaje.cpp"
+#include "./Clases/Reserva.cpp"
+#include "./Clases/Sala.cpp"
+#include "./Clases/Tarjeta.cpp"
+#include "./Clases/Usuario.cpp"
+
+
+
+#include "./Clases/DtUsuario.cpp"
+#include "./Clases/DtSala.cpp"
+#include "./Clases/DtPelicula.cpp"
+#include "./Clases/DtCine.cpp"
+#include "./Clases/DtHora.cpp"
+#include "./Clases/DtFecha.cpp"
+#include "./Clases/DtDireccion.cpp"
+#include "./Clases/DtPago.cpp"
+#include "./Clases/DtPuntaje.cpp"
+#include "./Clases/DtComentario.cpp"
+#include "./Clases/Fabrica.cpp"
+
+
 
 
 using namespace std;
@@ -55,7 +109,7 @@ int main(){
 		menuDesplegado=menuCabezal + menuUsuarioNoLog;
 		string respStr;
 		int resp;
-		fab=fab->getInstancia();
+		fab=Fabrica::getInstancia();
 		IUsuario* iUsr=fab->getIUsuario();
 
     do

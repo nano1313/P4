@@ -28,7 +28,7 @@ class DtCine {
 		void setDireccion(DtDireccion direccion);
 
 		DtCine(int numero, DtDireccion direccion, int precio);
-		~DtCine();
+		//~DtCine();
 };
 
 #endif

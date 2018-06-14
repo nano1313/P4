@@ -5,6 +5,11 @@ DtDireccion::DtDireccion(string calle, int numero) {
 	this->numero = numero;
 }
 
+DtDireccion::DtDireccion() {
+	this->calle = "";
+	this->numero = 0;
+}
+
 /* Getters */
 
 string DtDireccion::getCalle() {

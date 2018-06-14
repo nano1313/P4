@@ -9,14 +9,18 @@
 #include "./IUsuario.hpp"
 #include "./IPelicula.hpp"
 
+#include "./CtrlReserva.hpp"
+#include "./CtrlUsuario.hpp"
+#include "./CtrlPelicula.hpp"
+
 using namespace std;
 
 
 class Fabrica {
 
     private:
-        Fabrica* instancia;
-        Fabrica();
+        static Fabrica* instancia;
+        //Fabrica();
 	public:
         static Fabrica* getInstancia();
         IReserva* getIReserva();

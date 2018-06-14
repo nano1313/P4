@@ -9,20 +9,20 @@ using namespace std;
 class DtPuntaje {
   private:
   	string usuario;
-    unsigned int puntaje;
+    	int puntaje;
 
   public:
     /* Getters */
 	string getUsuario();
-    unsigned int getPuntaje();
+    	int getPuntaje();
 
     /* Setters */
     void setUsuario(string usuario);
-    void setPuntaje(unsigned int puntaje);
+    void setPuntaje(int puntaje);
 
     DtPuntaje();
-    DtPuntaje(string usuario, unsigned int puntaje);
-    ~DtPuntaje();
+    DtPuntaje(string usuario, int puntaje);
+    //~DtPuntaje();
 
 };
 

@@ -30,7 +30,7 @@ class Sala {
         Sala();
 		Sala(int numero, int capacidad);
 		Sala(int numero, int capacidad, Cine* cine);
-		~Sala();
+		//~Sala();
 };
 
 #endif

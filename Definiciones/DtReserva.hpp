@@ -38,7 +38,7 @@ class DtReserva {
         void setNumeroCine(int cine);
 
 		DtReserva(string titulo, DtFecha fecha, DtHora hora, float precio, int asientos, int cine);
-		~DtReserva();
+		//~DtReserva();
 };
 
 #endif

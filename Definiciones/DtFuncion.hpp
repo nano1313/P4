@@ -29,7 +29,7 @@ class DtFuncion {
 
         DtFuncion();
         DtFuncion(int numero, DtFecha fecha, DtHora hora);
-        ~DtFuncion();
+        //~DtFuncion();
 };
 
 #endif

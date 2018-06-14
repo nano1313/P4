@@ -29,6 +29,6 @@ class DtUsuario {
 
         DtUsuario();
 		DtUsuario(string nickname, string contrasenia, string imagen, int nivel);
-		~DtUsuario();
+		//~DtUsuario();
 };
 #endif

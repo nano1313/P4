@@ -30,7 +30,7 @@ class DtPelicula {
 
     DtPelicula();
     DtPelicula(string titulo, string poster,string sinopsis, float promPuntaje, float duracion);
-    ~DtPelicula();
+    //~DtPelicula();
 };
 
 #endif

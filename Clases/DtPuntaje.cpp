@@ -1,7 +1,7 @@
 #include "../Definiciones/DtPuntaje.hpp"
 
 
-DtPuntaje::DtPuntaje(string usuario, unsigned int puntaje) {
+DtPuntaje::DtPuntaje(string usuario, int puntaje) {
 	this->usuario = usuario;
 	this->puntaje = puntaje;
 }
@@ -12,7 +12,7 @@ string DtPuntaje::getUsuario() {
 	return this->usuario;
 }
 
-unsigned int DtPuntaje::getPuntaje() {
+int DtPuntaje::getPuntaje() {
 	return this->puntaje;
 }
 
@@ -22,6 +22,6 @@ void DtPuntaje::setUsuario(string usuario) {
 	this->usuario = usuario;
 }
 
-void DtPuntaje::setPuntaje(unsigned int puntaje) {
+void DtPuntaje::setPuntaje(int puntaje) {
 	this->puntaje = puntaje;
 }

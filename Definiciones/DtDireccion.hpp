@@ -21,7 +21,7 @@ class DtDireccion {
 
     DtDireccion();
     DtDireccion(string calle, int numero);
-    ~DtDireccion();
+    //~DtDireccion();
 };
 
 #endif

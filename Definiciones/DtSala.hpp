@@ -25,7 +25,7 @@ class DtSala {
 
         DtSala();
 		DtSala(int numero, int capacidad);
-        ~DtSala();
+        //~DtSala();
 };
 
 #endif

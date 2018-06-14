@@ -12,6 +12,6 @@ class Tarjeta {
 
 	public:
 		Tarjeta();
-		~Tarjeta();
+		//~Tarjeta();
 };
 #endif

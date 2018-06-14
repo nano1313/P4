@@ -5,6 +5,11 @@ DtSala::DtSala (int numero, int capacidad) {
 	this->capacidad	= capacidad;
 }
 
+DtSala::DtSala () {
+	this->numero = 0;
+	this->capacidad	= 0;
+}
+
 /* Getters */
 
 int DtSala::getNumero() {

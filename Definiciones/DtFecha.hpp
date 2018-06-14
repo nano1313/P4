@@ -28,7 +28,7 @@ class DtFecha {
 
     DtFecha();
     DtFecha(int dia, int mes, int anio);
-    ~DtFecha();
+    //~DtFecha();
 
     bool operator<(const DtFecha&);
 

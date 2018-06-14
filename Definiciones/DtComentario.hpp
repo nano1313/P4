@@ -33,7 +33,7 @@ class DtComentario {
 
     DtComentario();
     DtComentario(int id, string usuario, string descripcion, vector<DtComentario> respuestas);
-    ~DtComentario();
+    //~DtComentario();
 
 };
 

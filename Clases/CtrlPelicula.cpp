@@ -3,7 +3,7 @@
 
 CtrlPelicula* CtrlPelicula::getInstancia()
 {
-    if (instancia == 0)
+    if (instancia == NULL)
     {
         instancia = new CtrlPelicula();
         instancia->pelicula = NULL;
