@@ -101,7 +101,7 @@ int main(){
 		/*Inicializo variables */
 		DtUsuario* usrLogueado=NULL;
     string menuDesplegado;//<//="Bienvenido. Elija la opción.\n1) Registrar socio\n2) Agregar mascota\n3) Ingresar consulta\n4) Ver consulta antes de una fecha\n5) Eliminar socio\n6) Obtener mascotas de un socio\n0) Salir\n";
-		string menuCabezal="******************************************************************************\n*                                                                            *\n*                           MOVIEFING                                        *\n*                                                                            *\n******************************************************************************\nBienvenido. Elija la opción.\n";
+		string menuCabezal="******************************************************************************\n*                                                                            *\n*                               MOVIEFING                                    *\n*                                                                            *\n******************************************************************************\nBienvenido. Elija la opción.\n";
 
 		string menuUsuarioNoLog="1) Iniciar Sesion\n2) Ver Informacion de Pelicula\n3) Ver Comentarios y Puntaje de Pelicula\n4) Cargar Datos\n0) Salir\n";
 		string menuUsuarioLog="1) Crear Reserva\n2) Puntuar Pelicula\n3) Comentar Pelicula\n4) Ver Informacion de Pelicula\n5) Ver Comentarios y Puntaje de Pelicula\n6) Ver Reservas\n7) Cargar Datos\n8) Cerrar Sesion\n0) Cerrar Sesion y Salir\n";
@@ -689,30 +689,32 @@ void cargarDatos(){
 /*	
 	bool auxiliarBool=false;
 	//Comentarios
-//cout<<"11"<<'\n';	
+/*cout<<"11"<<'\n';	
 	iUser->ingresarNick("chachoElNumberOne");
 	auxiliarBool=iUser->ingresarContrasenia("jorgeP4");
 	iPeli->seleccionarPelicula2("The Vindicators 3");
 	iPeli->crearComentario("Es tremenda pelicula. La mejor parte es cuando aparecen Rick y Morty.");//Nuevo Comentario
 	iUser->cerrarSesion();
-//cout<<"12"<<'\n';
+cout<<"12"<<'\n';
 	iUser->ingresarNick("carmeBeiro2010");
 	auxiliarBool=iUser->ingresarContrasenia("carmela5688");
 	iPeli->seleccionarComentario(1);
 	iPeli->responderComentario("Esta muy buena pero la mejor parte es cuando explota el planeta con los malos.");
+	iPeli->finalizarComentario();
 	iUser->cerrarSesion();
 
-//cout<<"13"<<'\n';
+cout<<"13"<<'\n';
 	iUser->ingresarNick("chachoElNumberOne");
-//cout<<"13a"<<'\n';
+cout<<"13a"<<'\n';
 	auxiliarBool=iUser->ingresarContrasenia("jorgeP4");
-//cout<<"13b"<<'\n';
+cout<<"13b"<<'\n';
 	iPeli->seleccionarComentario(2);
-//cout<<"13c"<<'\n';
+cout<<"13c"<<'\n';
 	iPeli->responderComentario("Callateee no cuentes el final!!");
-//cout<<"13d"<<'\n';
+	iPeli->finalizarComentario();
+cout<<"13d"<<'\n';
 	iUser->cerrarSesion();
-//cout<<"14"<<'\n';
+cout<<"14"<<'\n';*/
 	//Puntajes
 	iUser->ingresarNick("chachoElNumberOne");
 	auxiliarBool=iUser->ingresarContrasenia("jorgeP4");
@@ -737,16 +739,27 @@ void cargarDatos(){
 //cout<<"17"<<'\n';
 	//R1
 	iUser->ingresarNick("chachoElNumberOne");
+//cout<<"17a"<<'\n';
 	auxiliarBool=iUser->ingresarContrasenia("jorgeP4");
+//cout<<"17b"<<'\n';	
 	datosPelicula=iPeli->seleccionarPelicula1("The Vindicators 3");
+//cout<<"17c"<<'\n';	
 	listaFunciones=iPeli->seleccionarCineConSusFunciones(1);
+//cout<<"17d"<<'\n';	
 	iRes->seleccionarFuncion(1, 7);
+//cout<<"17e"<<'\n';	
 	descuento=iRes->pagoDebito("BROU");
+//cout<<"17f"<<'\n';	
 	iRes->crearReserva();	
+//cout<<"17g"<<'\n';	
 	iRes->finalizarReserva();
+//cout<<"17h"<<'\n';	
 	listaFunciones.clear();
+//cout<<"17i"<<'\n';	
 	listaPeliculas.clear();
+//cout<<"17j"<<'\n';	
 	iPeli->finalizar();
+//cout<<"17k"<<'\n';	
 	iUser->cerrarSesion();
 
 //cout<<"18"<<'\n';

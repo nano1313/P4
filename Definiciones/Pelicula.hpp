@@ -38,6 +38,7 @@ class Pelicula {
 		map<int, Funcion *> getFunciones();
 		map<string, Puntaje *> getPuntajes();
 		map<int, Comentario *> getComentarios();
+		Comentario * getComentario(int num);
 		
 		/* Setters */
 		void setTitulo(string titulo);

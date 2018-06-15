@@ -45,6 +45,22 @@ map<int, Comentario *> Pelicula::getComentarios() {
 	return this->comentarios;
 }
 
+Comentario * Pelicula::getComentario(int num){
+
+	map<int, Comentario *>::iterator it = this->comentarios.begin();
+
+    for (it = this->comentarios.begin(); it!=this->comentarios.end(); ++it) {
+
+        if (num == it->first)
+        {
+            return it->second;
+			break;
+        }
+    }
+
+	return NULL;
+}
+
 /* Setters */
 
 void Pelicula::setTitulo(string nombre) {
