@@ -37,6 +37,7 @@ map<string, Puntaje *> Pelicula::getPuntajes() {
 	return this->puntajes;
 }
 
+
 void Pelicula::addPuntaje(string usr, int puntos){
 	map<string, Puntaje * >::iterator it;	
 	it = this->puntajes.find(usr);
@@ -60,16 +61,46 @@ Comentario * Pelicula::getComentario(int num){
 	map<int, Comentario *>::iterator it = this->comentarios.begin();
 
     for (it = this->comentarios.begin(); it!=this->comentarios.end(); ++it) {
-
-        if (num == it->first)
+		if (num == it->second->getIdGral())
         {
-            return it->second;
+    		return it->second;
 			break;
         }
-    }
-
+		if(!it->second->getRespuestas().empty()){
+			Comentario *p = getComentario2(it->second,num);
+			if(p!=NULL){
+				return p;
+				break;
+			}
+		}
+	}
 	return NULL;
 }
+Comentario * Pelicula::getComentario2(Comentario *c,int id){
+	if(!c->getRespuestas().empty()){
+		vector<Comentario *>::iterator it;
+		Comentario *aux;
+		for (it = c->getRespuestas().begin(); it!=c->getRespuestas().end(); ++it) {
+			aux=*it;
+			if (id == aux->getIdGral()){
+    			return aux;
+				break;
+       		}
+			if(!aux->getRespuestas().empty()){
+				Comentario *p = getComentario2(aux,id);
+				if(p!=NULL){
+					return p;
+					break;
+				}
+			}
+		}
+	}
+	return NULL;
+}
+int Pelicula::getIdGen(){
+	return this->idgen;
+}
+
 
 /* Setters */
 
@@ -95,6 +126,9 @@ void Pelicula::setDuracion(float duracion) {
 
 void Pelicula::masUnoComentario() {
 	this->cantidadComentarios++;
+}
+void Pelicula::generarId(){
+	this->idgen++;
 }
 
 /* Metodos */

@@ -21,6 +21,7 @@ class Pelicula {
 		string poster;
 		string sinopsis;
 		float promPuntaje;
+		int idgen = 0;
 		float duracion;
 		int cantidadComentarios;
 		map<int, Funcion *> funciones;
@@ -36,10 +37,12 @@ class Pelicula {
 		float getPromPuntaje();
 		float getDuracion();
 		int getCantidadComentarios();
+		int getIdGen();
 		map<int, Funcion *> getFunciones();
 		map<string, Puntaje *> getPuntajes();
 		map<int, Comentario *> getComentarios();
 		Comentario * getComentario(int num);
+		Comentario * getComentario2(Comentario *c,int id);
 		
 		/* Setters */
 		void setTitulo(string titulo);
@@ -48,6 +51,7 @@ class Pelicula {
 		void setPromPuntaje(float promPuntaje);
 		void setDuracion(float duracion);
 		void masUnoComentario();
+		void generarId();
 
 		/* Metodos */
 		Funcion * seleccionarFuncion(int numero);

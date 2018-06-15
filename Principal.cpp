@@ -686,10 +686,10 @@ void cargarDatos(){
 	iUser->crearUsuario("ale_ulises", "p4eslomejor21", "/users/registered/ale_ulises.png",9);
 //cout<<"10"<<'\n';
 	//Financieras se cargan en el objeto mismo
-/*	
+
 	bool auxiliarBool=false;
 	//Comentarios
-/*cout<<"11"<<'\n';	
+cout<<"11"<<'\n';	
 	iUser->ingresarNick("chachoElNumberOne");
 	auxiliarBool=iUser->ingresarContrasenia("jorgeP4");
 	iPeli->seleccionarPelicula2("The Vindicators 3");
@@ -716,7 +716,7 @@ cout<<"13d"<<'\n';
 	iUser->cerrarSesion();
 cout<<"14"<<'\n';
 	//Puntajes
-	iUser->ingresarNick("chachoElNumberOne");
+/*	iUser->ingresarNick("chachoElNumberOne");
 	auxiliarBool=iUser->ingresarContrasenia("jorgeP4");
 	iPeli->seleccionarPelicula2("The Vindicators 3");
 	iPeli->ingresarPuntaje(9);
