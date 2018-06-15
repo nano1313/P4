@@ -186,9 +186,9 @@ void CtrlPelicula::confirmarAltaCine(){
         nuevasSalas[cont] = sala;
         cont++;
     }
-
-    Cine *nuevoCine = new Cine(cantCines+1, this->direccionCine, this->precioCine, nuevasSalas);
-    this->cines[cantCines+1] = nuevoCine;   //AGREGO EL NUEVO CINE A LA COLECCIOON GRAL DE CINES
+    cantCines++;
+    Cine *nuevoCine = new Cine(cantCines, this->direccionCine, this->precioCine, nuevasSalas);
+    this->cines[cantCines] = nuevoCine;   //AGREGO EL NUEVO CINE A LA COLECCIOON GRAL DE CINES
 
     for(map<int, Sala *>::iterator it = nuevasSalas.begin(); it!=nuevasSalas.end(); ++it){
         it->second->setCine(nuevoCine);     //SETEO EL CINE PARA CADA SALA

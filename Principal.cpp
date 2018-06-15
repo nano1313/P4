@@ -320,7 +320,7 @@ void altaFuncion() {
 
 			cout << "Selecciona un Cine de la lista: " << '\n';
 			for(vector<DtCine>::iterator it=listaCines.begin(); it!=listaCines.end(); ++it){
-					cout << (*it).getNumero() << '\n';
+					cout << (*it).getNumero() + " - " + (*it).getDireccion().getCalle() + " " + to_string((*it).getDireccion().getNumero())  << '\n';
 			}
 			cin >> aux;
 			iPeli->seleccionarCine(stoi(aux));
@@ -557,7 +557,7 @@ void crearReserva(){
 				listaCines=iPeli->darListaCines();
 				cout << "Selecciona un Cine de la lista(Cancelar=-1): " << '\n';
 				for(vector<DtCine>::iterator it=listaCines.begin(); it!=listaCines.end();++it){
-					cout<< it->getNumero() + " " + it->getDireccion().getCalle() + " " + it->getDireccion().getCalle()<<'\n';
+					cout << (*it).getNumero() + " - " + (*it).getDireccion().getCalle() + " " + to_string((*it).getDireccion().getNumero())  << '\n';
 				}
 				cin >> aux;
 				cancelar= (aux=="-1");
