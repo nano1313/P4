@@ -11,7 +11,7 @@ HDIR    = Definiciones
 CPPDIR  = Clases
 ODIR    = obj
 
-MODULOS = Cine Comentario CtrlPelicula CtrlReserva CtrlUsuario Credito Debito DtCine DtComentario DtDireccion DtFecha DtFuncion DtHora DtPago DtPelicula DtPuntaje DtReserva DtSala DtUsuario Fabrica Funcion MTarjeta Pelicula Puntaje Reserva Sala Tarjeta Usuario Utils 
+MODULOS = Cine Comentario CtrlPelicula CtrlReserva CtrlUsuario Credito Debito DtCine DtComentario DtDireccion DtFecha DtFuncion DtHora DtPago DtPelicula DtPuntaje DtReserva DtSala DtUsuario Fabrica Funcion MTarjeta Pelicula Puntaje Reloj Reserva Sala Tarjeta Usuario Utils 
 
 # cadena de archivos, con directorio y extensión
 HS   = $(MODULOS:%=$(HDIR)/%.hpp)
