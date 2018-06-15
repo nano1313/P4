@@ -483,7 +483,7 @@ void verComentariosPelicula(){
 	for(vector<DtPuntaje>::iterator it=listaPuntaje.begin(); it!=listaPuntaje.end(); ++it){
 			cout << (*it).getUsuario() + ": " + to_string((*it).getPuntaje())<< '\n';
 	}
-
+	iPeli->finalizar();
 	listaPeliculas.clear();
 	listaComentarios.clear();
 	listaPuntaje.clear();
@@ -519,12 +519,12 @@ void puntuarPelicula(){
 		cout << "Ya puntuaste esta pelicula, con " + puntaje + " puntos. Deseas cambiarlo?(S/N)"<< '\n';
 		cin >> aux;
 		if (aux=="S" || aux=="s"){
-			cout << "Cual es el nuevo puntaje? (1 al 10)"<< '\n';
+			cout << "Cual es el nuevo puntaje? (1 al 10): "<< '\n';
 			cin >> aux;
 			iPeli->ingresarPuntaje(stoi(aux));
 		}
 	}else{
-		cout << "Ccon cuanto deseas puntuar la pelicula? (1 al 10)"<< '\n';
+		cout << "Con cuanto deseas puntuar la pelicula? (1 al 10): "<< '\n';
 		cin >> aux;
 		iPeli->ingresarPuntaje(stoi(aux));
 	}
