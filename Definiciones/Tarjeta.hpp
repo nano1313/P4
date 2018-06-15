@@ -12,6 +12,7 @@ class Tarjeta {
 
 	public:
 		//Tarjeta();
+		string algo();
 		virtual ~Tarjeta(){}
 };
 #endif

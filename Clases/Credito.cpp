@@ -25,3 +25,5 @@ void Credito::setFinanciera(string financiera) {
 void Credito::setDescuento(int descuento) {
 	this->descuento = descuento;
 }
+
+Credito::~Credito(){}

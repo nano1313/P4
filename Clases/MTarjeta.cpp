@@ -2,6 +2,12 @@
 
 Mtarjeta* Mtarjeta::instancia=NULL;
 
+Mtarjeta::Mtarjeta(){
+	Creditos["OCA"]= new Credito("OCA", 15);
+	Creditos["CREDITEL"]= new Credito("CREDITEL", 20);
+	Debitos["BROU"]= new Debito("BROU");
+}
+
 Mtarjeta* Mtarjeta::getInstancia(){
     
     if (instancia == 0)
@@ -12,27 +18,27 @@ Mtarjeta* Mtarjeta::getInstancia(){
 }
 Credito* Mtarjeta::encontrarInstanciaCredito(string nombre){
     map<string, Credito *>::iterator it = Creditos.begin();
-    Credito *c;
-    for (it = this->Creditos.begin(); it!=this->Creditos.end(); ++it) {
+    Credito *c = Creditos[nombre];
+    /*for (it = this->Creditos.begin(); it!=this->Creditos.end(); ++it) {
         
         if (nombre == it->first)
         {
             c = it->second;
             break;
         }
-    }
+    }*/
     return c;
 }
 Debito* Mtarjeta::encontrarInstanciaDebito(string nombre){
     map<string, Debito *>::iterator it = Debitos.begin();
-    Debito *d;
-    for (it = this->Debitos.begin(); it!=this->Debitos.end(); ++it) {
+    Debito *d = Debitos[nombre];
+    /*for (it = this->Debitos.begin(); it!=this->Debitos.end(); ++it) {
         
         if (nombre == it->first)
         {
             d = it->second;
             break;
         }
-    }
+    }*/
     return d;
 }
