@@ -130,7 +130,7 @@ void CtrlPelicula::seleccionarCine(int numCine){
     }
 }
 
-vector<DtCine> CtrlPelicula::darListaCinesDeUnaFuncion() {
+vector<DtCine> CtrlPelicula::darListaCinesDeUnaPelicula() {
     vector<DtCine> vector_cines;
 
     map<int, Funcion *> funciones = this->pelicula->getFunciones();

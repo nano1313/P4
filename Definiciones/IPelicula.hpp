@@ -44,7 +44,7 @@ class IPelicula {
 
         // CU Ver info Pelicula
         virtual DtPelicula seleccionarPelicula1(string titulo)=0;
-        virtual vector<DtCine> darListaCinesDeUnaFuncion()=0;
+        virtual vector<DtCine> darListaCinesDeUnaPelicula()=0;
         virtual vector<DtFuncion> seleccionarCineConSusFunciones(int id)=0;
 
         // CU Eliminar Pelicula
