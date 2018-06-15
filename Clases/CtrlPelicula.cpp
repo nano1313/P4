@@ -86,6 +86,7 @@ DtPelicula CtrlPelicula::seleccionarPelicula1(string titulo) {
             pelicula = DtPelicula(it->second->getTitulo(), it->second->getPoster(),
                                   it->second->getSinopsis(), it->second->getPromPuntaje(),
                                   it->second->getDuracion());
+            this->setPelicula(it->second);
             break;
         }
     }
@@ -146,7 +147,9 @@ vector<DtCine> CtrlPelicula::darListaCinesDeUnaFuncion() {
 vector<DtFuncion> CtrlPelicula::seleccionarCineConSusFunciones(int id) {
 
     vector<DtFuncion> cines_funciones;
-    map<int, Funcion *> funciones = this->getPelicula()->getFunciones();
+
+    this->setCine(cines[id]);
+    map<int, Funcion *> funciones = this->pelicula->getFunciones();
 
     for (map<int,Funcion *>::iterator it = funciones.begin(); it!=funciones.end(); ++it)
     {
@@ -179,13 +182,17 @@ void CtrlPelicula::confirmarAltaCine(){
 
     for (vector<int>::iterator it = this->capacidades.begin() ; it!=this->capacidades.end() ; ++it) {
         cap = *it;                  //CARGO LA COLECCION CON LAS CAPACIDADES INGRESADAS
-        Sala *sala = new Sala(cont, cap, this->cine);
+        Sala *sala = new Sala(cont, cap);
         nuevasSalas[cont] = sala;
         cont++;
     }
 
     Cine *nuevoCine = new Cine(cantCines+1, this->direccionCine, this->precioCine, nuevasSalas);
     this->cines[cantCines+1] = nuevoCine;   //AGREGO EL NUEVO CINE A LA COLECCIOON GRAL DE CINES
+
+    for(map<int, Sala *>::iterator it = nuevasSalas.begin(); it!=nuevasSalas.end(); ++it){
+        it->second->setCine(nuevoCine);     //SETEO EL CINE PARA CADA SALA
+    }
 
     this->cine = NULL;      //INICIALIZACION
     this->sala = NULL;
@@ -221,6 +228,10 @@ void CtrlPelicula::seleccionarSala(int num){
 
 bool CtrlPelicula::yaPuntuo() {
 
+    
+    CtrlUsuario *ctrl = ctrl->getInstancia();
+    this->usuario = ctrl->getUserlog();
+
     map<string, Puntaje *> puntajes = this->pelicula->getPuntajes();
     string nickname = this->usuario->getNickname();
 
@@ -237,6 +248,10 @@ bool CtrlPelicula::yaPuntuo() {
 
 int CtrlPelicula::mostrarPuntaje() {
 
+    
+    CtrlUsuario *ctrl = ctrl->getInstancia();
+    this->usuario = ctrl->getUserlog();
+
     map<string, Puntaje *> puntajes = this->pelicula->getPuntajes();
     string nickname = this->usuario->getNickname();
 
@@ -252,6 +267,11 @@ int CtrlPelicula::mostrarPuntaje() {
 }
 
 void CtrlPelicula::ingresarPuntaje(int numero) {
+
+    
+    CtrlUsuario *ctrl = ctrl->getInstancia();
+    this->usuario = ctrl->getUserlog();
+
     map<string, Puntaje *> puntajes = this->pelicula->getPuntajes();
     string nickname = this->usuario->getNickname();
     bool agregar = false;
@@ -275,6 +295,10 @@ void CtrlPelicula::ingresarPuntaje(int numero) {
 void CtrlPelicula::crearComentario(string text) {
     int cantidad = this->pelicula->getComentarios().size();
     Comentario * nuevo = new Comentario(cantidad + 1, text);
+
+    CtrlUsuario *ctrl = ctrl->getInstancia();
+    this->usuario = ctrl->getUserlog();
+
     nuevo->setUsuario(this->usuario);
     this->pelicula->agregarNuevoComentario(nuevo);
     this->pelicula->masUnoComentario();
@@ -283,6 +307,9 @@ void CtrlPelicula::crearComentario(string text) {
 void CtrlPelicula::responderComentario(string texto) {
     int cantidad = this->comentario->getRespuestas().size();
     Comentario * nuevo = new Comentario(cantidad + 1, texto);
+
+    CtrlUsuario *ctrl = ctrl->getInstancia();
+    this->usuario = ctrl->getUserlog();
 
     nuevo->setUsuario(this->usuario);
     this->comentario->agregarRespuesta(nuevo);
@@ -325,7 +352,7 @@ vector<DtPuntaje> CtrlPelicula::darListaPuntajes() {
 }
 
 void CtrlPelicula::seleccionarComentario(int id) {
-    this->comentario = this->pelicula->getComentarios()[id];
+    this->comentario = this->pelicula->getComentario(id);
 }
 
 void CtrlPelicula::finalizarComentario() {

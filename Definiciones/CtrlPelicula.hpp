@@ -17,7 +17,7 @@
 #include "./DtComentario.hpp"
 #include "./DtHora.hpp"
 #include "./DtFecha.hpp"
-
+#include "./CtrlUsuario.hpp"
 
 using namespace std;
 
