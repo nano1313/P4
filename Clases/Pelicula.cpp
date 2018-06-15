@@ -8,16 +8,20 @@ Pelicula::Pelicula(string titulo, string poster, string sinopsis, float duracion
     this->duracion = duracion;
     this->cantidadComentarios = 0;
 }
+
 /* Getters */
 string Pelicula::getTitulo() {
     return this->titulo;
 }
+
 string Pelicula::getPoster() {
     return this->poster;
 }
+
 string Pelicula::getSinopsis() {
     return this->sinopsis;
 }
+
 float Pelicula::getPromPuntaje() {
     map<string, Puntaje *> puntajes = this->puntajes;
     float contador = 0;
@@ -29,12 +33,15 @@ float Pelicula::getPromPuntaje() {
     else
         return 0;   
 }
+
 float Pelicula::getDuracion() {
     return this->duracion;
 }
+
 map<string, Puntaje *> Pelicula::getPuntajes() {
     return this->puntajes;
 }
+
 void Pelicula::addPuntaje(string usr, int puntos){
     map<string, Puntaje * >::iterator it; 
     it = this->puntajes.find(usr);
@@ -44,12 +51,15 @@ void Pelicula::addPuntaje(string usr, int puntos){
         puntajes[usr]=new Puntaje(puntos);
     }
 }
+
 map<int, Funcion *> Pelicula::getFunciones() {
     return this->funciones;
 }
+
 map<int, Comentario *> Pelicula::getComentarios() {
     return this->comentarios;
 }
+
 Comentario * Pelicula::getComentario(int num){
     map<int, Comentario *>::iterator it = this->comentarios.begin();
     for (it = this->comentarios.begin(); it!=this->comentarios.end(); ++it) {
