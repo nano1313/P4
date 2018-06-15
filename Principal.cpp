@@ -275,6 +275,7 @@ void altaCine() {
 				iPeli->ingresarCapacidad(stoi(aux));
 				cout << "Desea seguir ingresando salas? (S/N): " << '\n';
 				cin >> aux;
+				i++;
 				seguirAgregandoSalas=(aux!="n" && aux!="N");
 			} while(seguirAgregandoSalas);
 
