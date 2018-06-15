@@ -399,7 +399,8 @@ void CtrlPelicula::altaPelicula(string titulo, string sinopsis, string portada, 
 }
 void CtrlPelicula::altaFuncion(DtFecha fecha,DtHora hora){
     this->numfuncion++;
-    Funcion *f = new Funcion(this->numfuncion,fecha,hora,this->sala);
+    Funcion *f = new Funcion(this->numfuncion,fecha,hora,this->sala, this->pelicula);
     this->pelicula->agregarFuncion(f);
+ 
 }
 

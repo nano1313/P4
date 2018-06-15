@@ -540,7 +540,7 @@ void crearReserva(){
 	vector<DtPelicula> listaPeliculas = iPeli->darListaPeliculas();
 	vector<DtCine> listaCines;
 	vector<DtFuncion> listaFunciones;
-	do{
+	
 		cout << "Selecciona una Pelicula de la lista(Cancelar=-1): " << '\n';
 		for(vector<DtPelicula>::iterator it=listaPeliculas.begin(); it!=listaPeliculas.end(); ++it){
 				cout << it->getTitulo() << '\n';
@@ -565,7 +565,7 @@ void crearReserva(){
 				if (!cancelar){
 					listaFunciones=iPeli->seleccionarCineConSusFunciones(stoi(aux));
 					for(vector<DtFuncion>::iterator it=listaFunciones.begin(); it!=listaFunciones.end(); ++it){
-							cout << it->getNumero() + " " + it->getFecha().toString() + " " + it->getHora().toString()<< '\n';
+							cout << to_string(it->getNumero()) + " " + it->getFecha().toString() + " " + it->getHora().toString()<< '\n';
 					}
 					IReserva* iRes=fab->getIReserva();
 					string numFuncion="";
@@ -577,8 +577,8 @@ void crearReserva(){
 					cin >> numFuncion;
 					cout << "Selecciona la cantidad de asientos: " << '\n';
 					cin >> cantAsientos;
-					cout << "Que tipo de pago desea? (1-Debito, 2-Credito): " << '\n';
-					cin >> aux;
+					//cout << "Que tipo de pago desea? (1-Debito, 2-Credito): " << '\n';
+					//cin >> aux;
 					iRes->seleccionarFuncion(stoi(numFuncion), stoi(cantAsientos));
 					cout << "Que tipo de pago desea? (1-Debito, 2-Credito): " << '\n';
 					cin >> aux;
@@ -586,13 +586,13 @@ void crearReserva(){
 						cout << "Ingrese el nombre del Banco: " << '\n';
 						cin >> aux;
 						descuento=iRes->pagoDebito(aux);
-						cout << "Descuento: " + descuento << '\n';
+						cout << "Total: " + to_string(descuento) << '\n';
 
 					}else{//pago credito
 						cout << "Ingrese el nombre de la Financiera: " << '\n';
 						cin >> aux;
 						desc=iRes->pagoCredito(aux);
-						cout << "Descuento: " + desc.getDescuento() << '\n';
+						cout << "Descuento: " + to_string(desc.getDescuento()) + "\nTotal: " + to_string(desc.getPrecio())<< '\n';
 					}
 					cout << "Confirma la reserva? (S/N): " << '\n';
 					cin >> aux;
@@ -604,7 +604,7 @@ void crearReserva(){
 			}
 
 		}
-	}while(!cancelar);
+	
 	iPeli->finalizar();
 	listaPeliculas.clear();
 	listaCines.clear();
@@ -685,6 +685,8 @@ void cargarDatos(){
 	iUser->crearUsuario("chachoElNumberOne", "jorgeP4", "/users/registered/cachoElNumberOne.png",1);
 	iUser->crearUsuario("carmeBeiro2010", "carmela5688", "/users/registered/carmeBeiro2010.png",1);
 	iUser->crearUsuario("ale_ulises", "p4eslomejor21", "/users/registered/ale_ulises.png",9);
+	iUser->crearUsuario("1", "1", "/users/registered/cachoElNumberOne.png",9);
+	
 //cout<<"10"<<'\n';
 	//Financieras se cargan en el objeto mismo
 

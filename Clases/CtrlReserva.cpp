@@ -46,14 +46,14 @@ int CtrlReserva::pagoDebito(string nomBanco){
 }
 
 void CtrlReserva::crearReserva(){
-    Reserva r = Reserva(this->cant,this->total,this->tar,this->f);
-    Reserva *ptr = &r;
-    this->f->aniadirReserva(ptr);
+    Reserva* r = new Reserva(this->cant,this->total,this->tar,this->f);
+    //Reserva *ptr = &r;
+    this->f->aniadirReserva(r);
     CtrlUsuario *ctrl = ctrl->getInstancia();  //este es el usuario que estaria logeado 
     Usuario *u = ctrl->getUserlog(); 
-    u->aniadirReserva(ptr);
+    u->aniadirReserva(r);
     Usuario *pointer = u;
-    r.setUsuario(pointer);
+    r->setUsuario(pointer);
     this->tar=NULL;
     this->f=NULL;
     this->total=-1;
@@ -77,21 +77,19 @@ vector<DtReserva> CtrlReserva::mostrarReserva() {
     set<Reserva *> reservas = usuario->getReservas();
     
     vector<DtReserva> devolver;
-    set<Reserva *>::iterator it = reservas.begin();
-	cout<<"1"<<'\n';
+    set<Reserva *>::iterator it;
+	//cout<<"1"<<'\n';
     for (it = reservas.begin(); it != reservas.end(); ++it) {
 	Reserva* r=(*it);
 	
-	string titulo = ((*it)->getFuncion()->getPelicula()->getTitulo());
-	//string titulo=r->getFuncion()->getPelicula()->getTitulo();
         Tarjeta * tarjeta = r->getTarjeta();
-	cout<<"2"<<'\n';
+	//cout<<"2"<<'\n';
         char tipoPago;
-	cout<<titulo<<'\n';
+	
 	
 	Credito * d = dynamic_cast<Credito*>(&(*tarjeta));
 
-	cout<<"3"<<'\n';
+	//cout<<"3"<<'\n';
         if (d==nullptr)
         {
             tipoPago = 'C';
@@ -100,7 +98,7 @@ vector<DtReserva> CtrlReserva::mostrarReserva() {
             tipoPago = 'D';
         }
         
-        cout<<"4"<<'\n';
+        //cout<<"4"<<'\n';
         //Debito * d = dynamic_cast<Debito*>(tarjeta);
 	
 	DtFecha f=r->getFuncion()->getFecha();
@@ -110,7 +108,7 @@ vector<DtReserva> CtrlReserva::mostrarReserva() {
         char c2=tipoPago;
 	int asd=r->getFuncion()->getSala()->getCine()->getNumero();
 	
-cout<<"5"<<'\n';
+//cout<<"5"<<'\n';
         
         DtReserva agregar = DtReserva(r->getFuncion()->getPelicula()->getTitulo(),
                                         r->getFuncion()->getFecha(),

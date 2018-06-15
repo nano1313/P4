@@ -50,7 +50,7 @@ class Funcion {
 		void aniadirReserva(Reserva *r);
         
         Funcion();
-		Funcion (int numero, DtFecha fecha, DtHora hora, Sala * sala);
+		Funcion (int numero, DtFecha fecha, DtHora hora, Sala * sala, Pelicula* pel);
 		//~Funcion();
 };
 

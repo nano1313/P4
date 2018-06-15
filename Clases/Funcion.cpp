@@ -1,10 +1,11 @@
 #include "../Definiciones/Funcion.hpp"
 
-Funcion::Funcion(int numero, DtFecha fecha, DtHora hora, Sala *sala  /*float precio*/) {
+Funcion::Funcion(int numero, DtFecha fecha, DtHora hora, Sala *sala, Pelicula * pel  /*float precio*/) {
 	this->numero = numero;
 	this->fecha = fecha;
 	this->hora = hora;
 	this->sala = sala;
+	this->pelicula=pel;
 }
 
 /* Getters */
