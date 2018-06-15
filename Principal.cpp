@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <iostream>
-#include <string.h>
+#include <string>
 #include <vector>
 
 /*Hpp originales*/
