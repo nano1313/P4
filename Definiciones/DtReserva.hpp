@@ -19,6 +19,7 @@ class DtReserva {
         float precio;
         int asientos;
         int numeroCine;
+        char tipoPago;
 
 	public:
 		/* Getters */
@@ -37,7 +38,7 @@ class DtReserva {
         void setAsiento(int asiento);
         void setNumeroCine(int cine);
 
-		DtReserva(string titulo, DtFecha fecha, DtHora hora, float precio, int asientos, int cine);
+		DtReserva(string titulo, DtFecha fecha, DtHora hora, float precio, int asientos, char tipoPago, int cine);
 		//~DtReserva();
 };
 

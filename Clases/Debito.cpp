@@ -11,6 +11,10 @@ string Debito::getBanco() {
 	return this->banco;
 }
 
+int Debito::tipoPago() {
+	return 2;
+}
+
 /* Setters */
 
 void Debito::setBanco(string banco) {

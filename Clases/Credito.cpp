@@ -16,6 +16,11 @@ int Credito::getDescuento() {
 	return this->descuento;
 }
 
+int Credito::tipoPago() {
+	return 1;
+}
+
+
 /* Setters */
 
 void Credito::setFinanciera(string financiera) {

@@ -11,6 +11,7 @@ using namespace std;
 class Tarjeta {
 
 	public:
+		virtual int tipoPago();
 		//Tarjeta();
 		//~Tarjeta();
 };

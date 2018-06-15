@@ -1,11 +1,12 @@
 #include "../Definiciones/DtReserva.hpp"
 
-DtReserva::DtReserva (string titulo, DtFecha fecha, DtHora hora, float precio, int asientos, int cine) {
+DtReserva::DtReserva (string titulo, DtFecha fecha, DtHora hora, float precio, int asientos, char tipoPago, int cine) {
     this->tituloPelicula = titulo;
     this->fecha = fecha;
     this->hora = hora;
     this->precio = precio;
     this->asientos = asientos;
+    this->tipoPago = tipoPago;
     this->numeroCine = cine;
 }
 /* Getters */
