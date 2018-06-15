@@ -20,7 +20,22 @@ unsigned int DtHora::getMinutos() {
 }
 
 string DtHora::toString(){
-	return this->hora + ":" + this->minutos;
+	string horaStr, minutosStr;
+	if (this->hora<10){
+		horaStr="0" + to_string(this->hora);
+	}
+	else{
+		horaStr=to_string(this->hora);
+	}
+
+	if (this->minutos<10){
+		minutosStr="0" + to_string(this->minutos);
+	}
+	else{
+		minutosStr=to_string(this->minutos);
+	}
+
+	return horaStr + ":" + minutosStr;
 }
 
 /* Setters */

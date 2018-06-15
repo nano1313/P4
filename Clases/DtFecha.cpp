@@ -53,7 +53,7 @@ ostream& DtFecha::operator<<(ostream& cout, DtFecha& f){
 void DtFecha::operator=(const string& s){
 	dia=stoi(s.substr(0,2));
 	mes=stoi(s.substr(3,2));
-	anio=stoi(s.substr(6,2));
+	anio=stoi(s.substr(6,4));
 }
 bool DtFecha::operator<(const DtFecha& r){
 	return (anio<r.anio) || (anio==r.anio && mes<r.mes) || (anio==r.anio && mes==r.mes && dia<r.dia);

@@ -28,6 +28,7 @@ class Pelicula {
 		map<int, Comentario *> comentarios;
 
 	public:
+		void addPuntaje(string usr, int puntos);
 		/* Getters */
 		string getTitulo();
 		string getPoster();

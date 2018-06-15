@@ -42,7 +42,6 @@ class CtrlPelicula : public IPelicula {
         //CtrlPelicula();
 
     public:
-	
         static CtrlPelicula* getInstancia();//Hecha
         vector<DtPelicula> darListaPeliculas(); //Hecha
         DtPelicula seleccionarPelicula1(string titulo);//Hecha

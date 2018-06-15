@@ -37,6 +37,16 @@ map<string, Puntaje *> Pelicula::getPuntajes() {
 	return this->puntajes;
 }
 
+void Pelicula::addPuntaje(string usr, int puntos){
+	map<string, Puntaje * >::iterator it;	
+	it = this->puntajes.find(usr);
+	if (it!=this->puntajes.end()){	
+		it->second->setValor(puntos);
+	}else{
+		puntajes[usr]=new Puntaje(puntos);
+	}
+}
+
 map<int, Funcion *> Pelicula::getFunciones() {
 	return this->funciones;
 }

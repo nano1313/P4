@@ -235,6 +235,17 @@ bool CtrlPelicula::yaPuntuo() {
     map<string, Puntaje *> puntajes = this->pelicula->getPuntajes();
     string nickname = this->usuario->getNickname();
 
+
+	map<string, Puntaje * >::iterator it;	
+	it = puntajes.find(nickname);
+	return it!=puntajes.end();	
+/*
+	}else{
+		puntajes[usr]=new Puntaje(puntos);
+	}
+
+
+
     for (map<string,Puntaje *>::iterator it = puntajes.begin(); it!=puntajes.end(); ++it)
     {
         if (it->second->getUsuario()->getNickname() == nickname)
@@ -243,7 +254,7 @@ bool CtrlPelicula::yaPuntuo() {
         }
     }
 
-    return false;
+    return false;*/
 }
 
 int CtrlPelicula::mostrarPuntaje() {
@@ -254,6 +265,7 @@ int CtrlPelicula::mostrarPuntaje() {
 
     map<string, Puntaje *> puntajes = this->pelicula->getPuntajes();
     string nickname = this->usuario->getNickname();
+	
 
     for (map<string,Puntaje *>::iterator it = puntajes.begin(); it!=puntajes.end(); ++it)
     {
@@ -266,15 +278,15 @@ int CtrlPelicula::mostrarPuntaje() {
     return 0;
 }
 
-void CtrlPelicula::ingresarPuntaje(int numero) {
+void CtrlPelicula::ingresarPuntaje(int puntaje) {
 
     
     CtrlUsuario *ctrl = ctrl->getInstancia();
     this->usuario = ctrl->getUserlog();
 
-    map<string, Puntaje *> puntajes = this->pelicula->getPuntajes();
+    //map<string, Puntaje *> puntajes = this->pelicula->getPuntajes();
     string nickname = this->usuario->getNickname();
-    bool agregar = false;
+   /* bool agregar = false;
 
     for (map<string,Puntaje *>::iterator it = puntajes.begin(); it!=puntajes.end(); ++it)
     {
@@ -283,13 +295,14 @@ void CtrlPelicula::ingresarPuntaje(int numero) {
             it->second->setValor(numero);
             agregar = true;
         }
-    }
+    }*/
 
-    if (!agregar)
-    {
-        Puntaje * puntaje = new Puntaje(numero);
-        puntajes[nickname] = puntaje;
-    }
+    //if (!agregar)
+  // {	
+	this->pelicula->addPuntaje(nickname,puntaje);
+        //Puntaje * puntaje = new Puntaje(numero);
+        //puntajes[nickname] = puntaje;
+   // }
 }
 
 void CtrlPelicula::crearComentario(string text) {

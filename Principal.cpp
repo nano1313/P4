@@ -320,7 +320,7 @@ void altaFuncion() {
 
 			cout << "Selecciona un Cine de la lista: " << '\n';
 			for(vector<DtCine>::iterator it=listaCines.begin(); it!=listaCines.end(); ++it){
-					cout << (*it).getNumero() + " - " + (*it).getDireccion().getCalle() + " " + to_string((*it).getDireccion().getNumero())  << '\n';
+					cout << to_string((*it).getNumero()) + " - " + (*it).getDireccion().getCalle() + " " + to_string((*it).getDireccion().getNumero())  << '\n';
 			}
 			cin >> aux;
 			iPeli->seleccionarCine(stoi(aux));
@@ -379,14 +379,14 @@ void verInfoPelicula(){
 				listaCines=iPeli->darListaCines();
 				cout << "Selecciona un Cine de la lista(Cancelar=-1): " << '\n';
 				for(vector<DtCine>::iterator it=listaCines.begin(); it!=listaCines.end();++it){
-					cout<< to_string((*it).getNumero()) <<'\n';
+					cout << to_string((*it).getNumero()) + " - " + (*it).getDireccion().getCalle() + " " + to_string((*it).getDireccion().getNumero())  << '\n';
 				}
 				cin >> aux;
 				cancelar= (aux=="-1");
 				if (!cancelar){
 					listaFunciones=iPeli->seleccionarCineConSusFunciones(stoi(aux));
 					for(vector<DtFuncion>::iterator it=listaFunciones.begin(); it!=listaFunciones.end(); ++it){
-							cout << it->getNumero() + " " + it->getFecha().toString() + " " + it->getHora().toString()<< '\n';
+							cout << to_string(it->getNumero()) + " " + it->getFecha().toString() + " " + it->getHora().toString()<< '\n';
 					}
 				}
 			}
@@ -516,7 +516,7 @@ void puntuarPelicula(){
 	iPeli->seleccionarPelicula2(aux);
 	if (iPeli->yaPuntuo()){
 		string puntaje = to_string(iPeli->mostrarPuntaje());
-		cout << "Ya puntuaste esta pelicula, con " + puntaje + "puntos. Deseas cambiarlo?(S/N)"<< '\n';
+		cout << "Ya puntuaste esta pelicula, con " + puntaje + " puntos. Deseas cambiarlo?(S/N)"<< '\n';
 		cin >> aux;
 		if (aux=="S" || aux=="s"){
 			cout << "Cual es el nuevo puntaje? (1 al 10)"<< '\n';
@@ -557,7 +557,7 @@ void crearReserva(){
 				listaCines=iPeli->darListaCines();
 				cout << "Selecciona un Cine de la lista(Cancelar=-1): " << '\n';
 				for(vector<DtCine>::iterator it=listaCines.begin(); it!=listaCines.end();++it){
-					cout << (*it).getNumero() + " - " + (*it).getDireccion().getCalle() + " " + to_string((*it).getDireccion().getNumero())  << '\n';
+					cout << to_string((*it).getNumero()) + " - " + (*it).getDireccion().getCalle() + " " + to_string((*it).getDireccion().getNumero())  << '\n';
 				}
 				cin >> aux;
 				cancelar= (aux=="-1");
