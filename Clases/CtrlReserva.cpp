@@ -1,5 +1,7 @@
 #include "../Definiciones/IUsuario.hpp"
 #include "../Definiciones/CtrlReserva.hpp"
+#include "../Definiciones/Debito.hpp"
+#include "../Definiciones/Tarjeta.hpp"
 
 
 CtrlReserva* CtrlReserva::instancia=NULL;
@@ -77,10 +79,10 @@ vector<DtReserva> CtrlReserva::mostrarReserva() {
     vector<DtReserva> devolver;
 
     for (Reserva * r : reservas) {
-        //Tarjeta * tarjeta = r->getTarjeta();
+        Tarjeta * tarjeta = r->getTarjeta();
 
         
-        //const Debito * d = dynamic_cast<Debito*>(*tarjeta);
+        Debito * d = dynamic_cast<Debito*>(tarjeta);
         
         DtReserva agregar = DtReserva(r->getFuncion()->getPelicula()->getTitulo(),
                                         r->getFuncion()->getFecha(), r->getFuncion()->getHora(),
