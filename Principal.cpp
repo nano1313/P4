@@ -780,6 +780,8 @@ cout<<"14"<<'\n';
 	iUser->cerrarSesion();
 
 */
+
+cout << "Datos cargados correctamente! " << '\n';
 }
 
 void verReservas(){}
