@@ -81,12 +81,28 @@ vector<DtReserva> CtrlReserva::mostrarReserva() {
     for (Reserva * r : reservas) {
         Tarjeta * tarjeta = r->getTarjeta();
 
+        char tipoPago;
+	Debito * d = dynamic_cast<Debito*>(tarjeta);
+
+        if (d==NULL)
+        {
+            tipoPago = 'C';
+        }else
+        {
+            tipoPago = 'D';
+        }
         
-        Debito * d = dynamic_cast<Debito*>(tarjeta);
+        
+        //Debito * d = dynamic_cast<Debito*>(tarjeta);
+
         
         DtReserva agregar = DtReserva(r->getFuncion()->getPelicula()->getTitulo(),
-                                        r->getFuncion()->getFecha(), r->getFuncion()->getHora(),
-                                        r->getCosto(), r->getCantAsientos(), r->getFuncion()->getSala()->getCine()->getNumero()
+                                        r->getFuncion()->getFecha(),
+                                        r->getFuncion()->getHora(),
+                                        r->getCosto(),
+                                        r->getCantAsientos(),
+                                        tipoPago,
+                                        r->getFuncion()->getSala()->getCine()->getNumero()
                                      );
         
         devolver.push_back(agregar);
