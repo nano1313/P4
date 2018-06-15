@@ -686,6 +686,7 @@ void cargarDatos(){
 	iUser->crearUsuario("ale_ulises", "p4eslomejor21", "/users/registered/ale_ulises.png",9);
 //cout<<"10"<<'\n';
 	//Financieras se cargan en el objeto mismo
+/*	
 	bool auxiliarBool=false;
 	//Comentarios
 //cout<<"11"<<'\n';	
@@ -764,7 +765,7 @@ void cargarDatos(){
 	iPeli->finalizar();
 	iUser->cerrarSesion();
 
-
+*/
 }
 
 void verReservas(){}
