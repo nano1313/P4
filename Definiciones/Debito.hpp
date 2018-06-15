@@ -16,7 +16,6 @@ class Debito : public Tarjeta {
 	public:
 		/* Getters */
 		string getBanco();
-		int tipoPago();
 		
 		/* Setters */
 		void setBanco(string banco);

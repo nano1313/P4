@@ -18,7 +18,6 @@ class Credito : public Tarjeta {
 		/* Getters */
 		string getFinanciera();
         int getDescuento();
-		int tipoPago();
 
 		/* Setters */
 		void setFinanciera(string financiera);

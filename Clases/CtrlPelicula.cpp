@@ -1,5 +1,5 @@
 #include "../Definiciones/CtrlPelicula.hpp"
-
+#include "../Definiciones/Reloj.hpp"
 
 CtrlPelicula* CtrlPelicula::instancia=NULL;
 
@@ -145,6 +145,8 @@ vector<DtCine> CtrlPelicula::darListaCinesDeUnaFuncion() {
 }
 
 vector<DtFuncion> CtrlPelicula::seleccionarCineConSusFunciones(int id) {
+    Reloj * r;
+    DtFecha actual = r->getInstancia()->consultarFecha();
 
     vector<DtFuncion> cines_funciones;
 
@@ -155,7 +157,10 @@ vector<DtFuncion> CtrlPelicula::seleccionarCineConSusFunciones(int id) {
     {
         if (it->second->getSala()->getCine()->getNumero() == id)
         {
-            cines_funciones.push_back(DtFuncion(it->second->getNumero(), it->second->getFecha(), it->second->getHora()));
+            if (actual < it->second->getFecha())
+            {
+                cines_funciones.push_back(DtFuncion(it->second->getNumero(), it->second->getFecha(), it->second->getHora()));
+            }
         }
     }
 
