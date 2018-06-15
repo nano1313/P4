@@ -714,7 +714,7 @@ cout<<"13c"<<'\n';
 	iPeli->finalizarComentario();
 cout<<"13d"<<'\n';
 	iUser->cerrarSesion();
-cout<<"14"<<'\n';*/
+cout<<"14"<<'\n';
 	//Puntajes
 	iUser->ingresarNick("chachoElNumberOne");
 	auxiliarBool=iUser->ingresarContrasenia("jorgeP4");
