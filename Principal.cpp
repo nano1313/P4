@@ -129,7 +129,7 @@ int main(){
 				cout << menuCabezal +  menuUsuarioAdmin<<endl;
 				cin >> respStr;
 				//resp	=	StrToInt(stoi(respStr));
-				switchAdmin(resp);
+				switchAdmin(stoi(respStr));
 			}
     }while(respStr!="0");
 
