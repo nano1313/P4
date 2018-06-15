@@ -4,8 +4,10 @@
 #include <stdlib.h>
 #include <iostream>
 #include <string.h>
+#include <vector>
 
 #include "./DtPago.hpp"
+#include "./DtReserva.hpp"
 
 using namespace std;
 
@@ -18,6 +20,7 @@ class IReserva {
         virtual int pagoDebito(string nomBanco)=0;
         virtual void crearReserva()=0;
         virtual void finalizarReserva()=0; 
+        virtual vector<DtReserva> mostrarReserva()=0;
 };
 
 #endif

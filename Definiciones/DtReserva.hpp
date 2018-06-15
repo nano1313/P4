@@ -29,6 +29,7 @@ class DtReserva {
         float getPrecio();
         int getAsiento();
         int getNumeroCine();
+        char getTipoPago();
 
 		/* Setters */
         void setTituloPelicula(string titulo);

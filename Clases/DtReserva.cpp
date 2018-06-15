@@ -28,6 +28,9 @@ int DtReserva::getAsiento() {
 int DtReserva::getNumeroCine() {
     return this->numeroCine;
 }
+char DtReserva::getTipoPago() {
+    return this->tipoPago;
+}
 /* Setters */
 void DtReserva::setTituloPelicula(string titulo) {
      this->tituloPelicula = titulo;

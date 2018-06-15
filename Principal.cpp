@@ -687,7 +687,7 @@ void cargarDatos(){
 	iUser->crearUsuario("ale_ulises", "p4eslomejor21", "/users/registered/ale_ulises.png",9);
 //cout<<"10"<<'\n';
 	//Financieras se cargan en el objeto mismo
-/*	
+
 	bool auxiliarBool=false;
 	//Comentarios
 /*cout<<"11"<<'\n';	
@@ -715,7 +715,7 @@ cout<<"13c"<<'\n';
 	iPeli->finalizarComentario();
 cout<<"13d"<<'\n';
 	iUser->cerrarSesion();
-cout<<"14"<<'\n';
+cout<<"14"<<'\n';*/
 	//Puntajes
 	iUser->ingresarNick("chachoElNumberOne");
 	auxiliarBool=iUser->ingresarContrasenia("jorgeP4");
@@ -779,10 +779,38 @@ cout<<"14"<<'\n';
 	iPeli->finalizar();
 	iUser->cerrarSesion();
 
-*/
+
 
 cout << "Datos cargados correctamente! " << '\n';
 }
 
-void verReservas(){}
+void verReservas(){
+
+	IReserva* iRes = fab->getIReserva();
+	vector<DtReserva> listaReservas;
+	listaReservas = iRes->mostrarReserva();
+	vector<DtReserva>::iterator it = listaReservas.begin();
+	if (listaReservas.empty()){
+		cout << "Usted no posee reservas." << '\n';
+	}
+	else{
+		int i = 1;
+		for(it = listaReservas.begin(); it!=listaReservas.end(); ++it){
+			cout << "Pelicula: " + it->getTituloPelicula() << '\n';
+			cout << "Fecha: " + it->getFecha().toString() << '\n';
+			cout << "Hora: " + it->getHora().toString() << '\n';
+			cout << "Precio: " + to_string(it->getPrecio()) << '\n';
+			cout << "Cantidad de Asientos: " + to_string(it->getAsiento()) << '\n';
+			if (it->getTipoPago() == 'c'){
+				cout << "Tarjeta de Credito " << '\n';
+			}
+			else{
+				cout << "Tarjeta de Debito " << '\n';
+			}
+			cout << "Cine: " + to_string(it->getNumeroCine()) << '\n';
+		}
+
+	}
+
+}
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
