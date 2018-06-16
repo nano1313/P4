@@ -555,7 +555,7 @@ void crearReserva(){
 			cin >> aux;
 			cancelar=(aux=="N" || aux=="n");
 			if (!cancelar){
-				listaCines=iPeli->darListaCines();
+				listaCines=iPeli->darListaCinesDeUnaPelicula();
 				cout << "Selecciona un Cine de la lista(Cancelar=-1): " << '\n';
 				for(vector<DtCine>::iterator it=listaCines.begin(); it!=listaCines.end();++it){
 					cout << to_string((*it).getNumero()) + " - " + (*it).getDireccion().getCalle() + " " + to_string((*it).getDireccion().getNumero())  << '\n';
