@@ -17,8 +17,8 @@ CtrlReserva* CtrlReserva::getInstancia()
 }
 
 void CtrlReserva::seleccionarFuncion(int num, int cantAsientos) {
-    CtrlPelicula *ctrl = ctrl->getInstancia(); //global en un futuro 
-    Pelicula *peli = ctrl->getPelicula();
+    CtrlPelicula * ctrl = ctrl->getInstancia(); //global en un futuro 
+    Pelicula * peli = ctrl->getPelicula();
     this->cant = cantAsientos; //global en un futuro
     this->f = peli->seleccionarFuncion(num);
 }
