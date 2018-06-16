@@ -628,6 +628,7 @@ void crearReserva() {
 							cout << '\n';
 							cout << "Selecciona una Funcion: " << '\n';
 							listaFunciones = iPeli->seleccionarCineConSusFunciones(stoi(aux));
+
 							for(vector<DtFuncion>::iterator it=listaFunciones.begin(); it!=listaFunciones.end(); ++it)
 							{
 								cout << to_string(it->getNumero()) + " " + it->getFecha().toString() + " " + it->getHora().toString()<< '\n';
@@ -646,7 +647,7 @@ void crearReserva() {
 								cout << "\n Tu función ha sido seleccionada, ahora quedan disponibles " << disponibles << " asientos" << '\n';
 							}else
 							{
-									cout << "\n No hay esa cantidad de asientos disponibles" << '\n';
+								cout << "\n No hay esa cantidad de asientos disponibles" << '\n';
 							}
 
 						}while(!ocupado);
@@ -654,13 +655,15 @@ void crearReserva() {
 
 						cout << "Que tipo de pago desea? (1-Debito, 2-Credito): " << '\n';
 						cin >> aux;
-						if (aux=="1"){//pago debito
+						if (aux=="1")//pago debito
+						{
 							cout << "Ingrese el nombre del Banco (BROU): " << '\n';
 							cin >> aux;
 							descuento=iRes->pagoDebito(aux);
 							cout << "Total: " + to_string(descuento) << '\n';
 
-						}else{//pago credito
+						}else //pago credito
+						{
 							cout << "Ingrese el nombre de la Financiera(OCA, CREDITEL): " << '\n';
 							cin >> aux;
 							desc=iRes->pagoCredito(aux);
@@ -669,19 +672,17 @@ void crearReserva() {
 						cout << "Confirma la reserva? (S/N): " << '\n';
 						cin >> aux;
 
-						if (aux=="S" || aux=="s"){
+						if (aux == "S" || aux == "s") {
 							iRes->crearReserva();
 						}
 					
 						iRes->finalizarReserva();
 					}
 				}
-				catch(invalid_argument a){
+				catch(invalid_argument a) {
 					cout << a.what() << '\n';
 				}
-				
 			}
-
 		}
 	
 	iPeli->finalizar();
