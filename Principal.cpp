@@ -692,7 +692,7 @@ void cargarDatos(){
 
 	bool auxiliarBool=false;
 	//Comentarios
-/*cout<<"11"<<'\n';	
+cout<<"11"<<'\n';	
 	iUser->ingresarNick("chachoElNumberOne");
 	auxiliarBool=iUser->ingresarContrasenia("jorgeP4");
 	iPeli->seleccionarPelicula2("The Vindicators 3");
@@ -717,7 +717,7 @@ cout<<"13c"<<'\n';
 	iPeli->finalizarComentario();
 cout<<"13d"<<'\n';
 	iUser->cerrarSesion();
-cout<<"14"<<'\n';*/
+cout<<"14"<<'\n';
 	//Puntajes
 	iUser->ingresarNick("chachoElNumberOne");
 	auxiliarBool=iUser->ingresarContrasenia("jorgeP4");

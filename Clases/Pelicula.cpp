@@ -61,15 +61,51 @@ map<int, Comentario *> Pelicula::getComentarios() {
 }
 
 Comentario * Pelicula::getComentario(int num){
-    map<int, Comentario *>::iterator it = this->comentarios.begin();
+
+	map<int, Comentario *>::iterator it = this->comentarios.begin();
+
     for (it = this->comentarios.begin(); it!=this->comentarios.end(); ++it) {
-        if (num == it->first)
+        if (num == it->second->getIdGral())
         {
+            Comentario *aux;
+            aux=it->second;
             return it->second;
-            break;
+			break;
         }
-    }
-    return NULL;
+		else if(!it->second->getRespuestas().empty()){
+            Comentario *p = getComentario2(it->second,num);
+			if(p!=NULL){
+				return p;
+				break;
+			}
+		}
+	}
+	return NULL;
+}
+Comentario * Pelicula::getComentario2(Comentario *c,int id){
+	if(!c->getRespuestas().empty()){
+        vector<Comentario *>::iterator it;
+		vector<Comentario *> pibot = c->getRespuestas();
+        Comentario *aux;
+        for (it = pibot.begin(); it!= pibot.end(); ++it) {
+        aux=*it;
+        if (id == aux->getIdGral()){
+                return aux;
+				break;
+       		}
+        if(!aux->getRespuestas().empty()){
+				Comentario *p = getComentario2(aux,id);
+				if(p!=NULL){
+					return p;
+					break;
+				}
+			}
+        }
+	}
+	return NULL;
+}
+int Pelicula::getIdGen(){
+	return this->idgen;
 }
 /* Setters */
 void Pelicula::setTitulo(string nombre) {
@@ -90,6 +126,10 @@ void Pelicula::setDuracion(float duracion) {
 void Pelicula::masUnoComentario() {
     this->cantidadComentarios++;
 }
+void Pelicula::generarId(){
+	this->idgen++;
+}
+
 /* Metodos */
 /*
 int* Pelicula::seleccionarCine(int id) {    return NULL;

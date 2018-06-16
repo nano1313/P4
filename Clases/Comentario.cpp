@@ -1,10 +1,11 @@
 #include "../Definiciones/Comentario.hpp"
 
-Comentario::Comentario(int id, string desc) {
+Comentario::Comentario(int id, string desc, int idgral) {
 	this->id = id;
 	this->desc = desc;
-	//vector<Comentario *> respuestas;
+	this->respuestas.clear();
 	this->cantRespuestas = 0;
+    this->idgral=idgral;
 }
 
 /* Getters */
@@ -12,7 +13,9 @@ Comentario::Comentario(int id, string desc) {
 int Comentario::getId() {
 	return this->id;
 }
-
+int Comentario::getIdGral(){
+	return this->idgral;
+}
 string Comentario::getDesc() {
 	return this->desc;
 }
@@ -38,6 +41,9 @@ void Comentario::setDesc(string desc) {
 void Comentario::setRespuestas(vector<Comentario *> respuestas){
 
 	this->respuestas = respuestas;
+}
+void Comentario::setIdGral(int id){
+	this->idgral=id;
 }
 
 void Comentario::setUsuario(Usuario * usuario) {
