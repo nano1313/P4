@@ -13,7 +13,6 @@ Cine::Cine(int numero, DtDireccion direccion, int precio, map<int, Sala*> salas)
 	this->precio = precio;
 	this->salas = salas;
 }
-
 /* Getters */
 
 int Cine::getNumero() {
@@ -66,4 +65,3 @@ void Cine::setDireccion(DtDireccion direccion) {
 void Cine::setPrecio(int p) {
 	this->precio = p;
 }
-

@@ -3,15 +3,15 @@
 all: Principal
 
 # Objetivos que no son archivos.
-.PHONY: all clean  
+.PHONY: all clean
 
 
-# directorios 
+# directorios
 HDIR    = Definiciones
 CPPDIR  = Clases
 ODIR    = obj
 
-MODULOS = Cine Comentario CtrlPelicula CtrlReserva CtrlUsuario Credito Debito DtCine DtComentario DtDireccion DtFecha DtFuncion DtHora DtPago DtPelicula DtPuntaje DtReserva DtSala DtUsuario Fabrica Funcion MTarjeta Pelicula Puntaje Reloj Reserva Sala Tarjeta Usuario Utils 
+MODULOS = Cine Comentario CtrlPelicula CtrlReserva CtrlUsuario Credito Debito DtCine DtComentario DtDireccion DtFecha DtFuncion DtHora DtPago DtPelicula DtPuntaje DtReserva DtSala DtUsuario Fabrica Funcion MTarjeta Pelicula Puntaje Reloj Reserva Sala Tarjeta Usuario Utils
 
 # cadena de archivos, con directorio y extensión
 HS   = $(MODULOS:%=$(HDIR)/%.hpp)
@@ -24,7 +24,7 @@ EJECUTABLE=Principal
 # compilador
 CC = g++
 # opciones de compilación
-CCFLAGS = -Werror -I$(HDIR) -g
+CCFLAGS = -Werror -I$(HDIR) -g -std=c++11
 # -DNDEBUG
 # se agrega esta opción para que las llamadas a assert no hagan nada.
 
@@ -37,8 +37,8 @@ $(ODIR)/$(PRINCIPAL).o:$(PRINCIPAL).cpp
 $(ODIR)/%.o: $(CPPDIR)/%.cpp $(HDIR)/%.hpp
 	$(CC) $(CCFLAGS) -c $< -o $@
 
-# $^ se expande para tranformarse en todas las dependencias 
-$(EJECUTABLE): $(ODIR)/$(PRINCIPAL).o $(OS) 
+# $^ se expande para tranformarse en todas las dependencias
+$(EJECUTABLE): $(ODIR)/$(PRINCIPAL).o $(OS)
 	$(CC) $(CCFLAGS) $^ -o $@
 
 

@@ -312,7 +312,7 @@ void CtrlPelicula::ingresarPuntaje(int puntaje) {
 
 void CtrlPelicula::crearComentario(string text) {
     int cantidad = this->pelicula->getComentarios().size();
-    Comentario * nuevo = new Comentario(cantidad + 1, text);
+    Comentario * nuevo = new Comentario(cantidad + 1, -1, text);
 
     CtrlUsuario *ctrl = ctrl->getInstancia();
     this->usuario = ctrl->getUserlog();
@@ -324,7 +324,8 @@ void CtrlPelicula::crearComentario(string text) {
 
 void CtrlPelicula::responderComentario(string texto) {
     int cantidad = this->comentario->getRespuestas().size();
-    Comentario * nuevo = new Comentario(cantidad + 1, texto);
+    
+    Comentario * nuevo = new Comentario(cantidad + 1, this->comentario->getId() , texto);
 
     CtrlUsuario *ctrl = ctrl->getInstancia();
     this->usuario = ctrl->getUserlog();

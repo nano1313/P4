@@ -107,13 +107,16 @@ Funcion * Pelicula::seleccionarFuncion(int numero) {
     }
     return it->second;*/
 }
+
 void Pelicula::agregarNuevoComentario(Comentario * comentario) {
     this->comentarios[comentario->getId()] = comentario;
 }
+
 void Pelicula::agregarNuevaRespuesta(Comentario * comentario, int padre) {
     vector<Comentario*> respuestas = this->comentarios[padre]->getRespuestas();
     respuestas.push_back(comentario);
 }
+
 void Pelicula::destroy(){
     map<string, Puntaje *>::iterator it1 = this->puntajes.begin();
     //map<int, Cine *>::iterator it = cines.begin();

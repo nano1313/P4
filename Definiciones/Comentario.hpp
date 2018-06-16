@@ -17,6 +17,7 @@ class Comentario {
 	private:
 		Usuario *usuario;
 		int id;
+		int id_padre;
 		string desc;
 		vector<Comentario *> respuestas;
 		int cantRespuestas;
@@ -24,12 +25,14 @@ class Comentario {
 	public:
 		/* Getters */
 		int getId();
+		int getIdPadre();
 		string getDesc();
 		vector<Comentario *> getRespuestas();
 		Usuario * getUsuario();
 
 		/* Setters */
 		void setId(int id);
+		void setIdPadre(int id);
 		void setDesc(string desc);
 		void setRespuestas(vector<Comentario *> respuestas);
 		void setUsuario(Usuario * usuario);
@@ -38,7 +41,7 @@ class Comentario {
 		void masUnaRespuesta();
 		void destroy();
 
-		Comentario(int id, string desc);
+		Comentario(int id, int id_padre, string desc);
 		//~Comentario();
 };
 #endif

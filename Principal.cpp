@@ -338,7 +338,7 @@ void altaFuncion() {
 			cout << "Ingresa la hora (hh:mm): " << '\n';
 			cin >> auxHora;
 			hora=auxHora;
-			iPeli->altaFuncion(fecha, hora);		
+			iPeli->altaFuncion(fecha, hora);
 			cout << "Desea ingresar otra Funcion? (S/N): " << '\n';
 			cin >> aux;
 			sigueAgregando=(aux!="n" && aux!="N");
@@ -465,7 +465,7 @@ void comentarPelicula(){
 
 void verComentariosPelicula(){
 	IPelicula* iPeli = fab->getIPelicula();
-	
+
 	string aux;
 	vector<DtPelicula> listaPeliculas = iPeli->darListaPeliculas();
 	cout << "Selecciona una Pelicula de la lista: " << '\n';
@@ -505,7 +505,7 @@ void mostrarComentario(vector<DtComentario> l, int tab){
 
 void puntuarPelicula(){
 	IPelicula* iPeli = fab->getIPelicula();
-	
+
 	string aux;
 	vector<DtPelicula> listaPeliculas = iPeli->darListaPeliculas();
 	cout << "Selecciona una Pelicula de la lista: " << '\n';
@@ -540,7 +540,7 @@ void crearReserva(){
 	vector<DtPelicula> listaPeliculas = iPeli->darListaPeliculas();
 	vector<DtCine> listaCines;
 	vector<DtFuncion> listaFunciones;
-	
+
 		cout << "Selecciona una Pelicula de la lista(Cancelar=-1): " << '\n';
 		for(vector<DtPelicula>::iterator it=listaPeliculas.begin(); it!=listaPeliculas.end(); ++it){
 				cout << it->getTitulo() << '\n';
@@ -604,7 +604,7 @@ void crearReserva(){
 			}
 
 		}
-	
+
 	iPeli->finalizar();
 	listaPeliculas.clear();
 	listaCines.clear();
@@ -686,13 +686,13 @@ void cargarDatos(){
 	iUser->crearUsuario("carmeBeiro2010", "carmela5688", "/users/registered/carmeBeiro2010.png",1);
 	iUser->crearUsuario("ale_ulises", "p4eslomejor21", "/users/registered/ale_ulises.png",9);
 	iUser->crearUsuario("1", "1", "/users/registered/cachoElNumberOne.png",9);
-	
+
 //cout<<"10"<<'\n';
 	//Financieras se cargan en el objeto mismo
 
 	bool auxiliarBool=false;
 	//Comentarios
-/*cout<<"11"<<'\n';	
+/*cout<<"11"<<'\n';
 	iUser->ingresarNick("chachoElNumberOne");
 	auxiliarBool=iUser->ingresarContrasenia("jorgeP4");
 	iPeli->seleccionarPelicula2("The Vindicators 3");
@@ -737,36 +737,36 @@ cout<<"14"<<'\n';*/
 	DtPelicula datosPelicula;
 	vector<DtPelicula> listaPeliculas = iPeli->darListaPeliculas();
 	vector<DtFuncion> listaFunciones;
-	int descuento; 
+	int descuento;
 	DtPago desc;
 //cout<<"17"<<'\n';
 	//R1
 	iUser->ingresarNick("chachoElNumberOne");
 //cout<<"17a"<<'\n';
 	auxiliarBool=iUser->ingresarContrasenia("jorgeP4");
-//cout<<"17b"<<'\n';	
+//cout<<"17b"<<'\n';
 	datosPelicula=iPeli->seleccionarPelicula1("The Vindicators 3");
-//cout<<"17c"<<'\n';	
+//cout<<"17c"<<'\n';
 	listaFunciones=iPeli->seleccionarCineConSusFunciones(1);
-//cout<<"17d"<<'\n';	
+//cout<<"17d"<<'\n';
 	iRes->seleccionarFuncion(1, 7);
-//cout<<"17e"<<'\n';	
+//cout<<"17e"<<'\n';
 	descuento=iRes->pagoDebito("BROU");
-//cout<<"17f"<<'\n';	
-	iRes->crearReserva();	
-//cout<<"17g"<<'\n';	
+//cout<<"17f"<<'\n';
+	iRes->crearReserva();
+//cout<<"17g"<<'\n';
 	iRes->finalizarReserva();
-//cout<<"17h"<<'\n';	
+//cout<<"17h"<<'\n';
 	listaFunciones.clear();
-//cout<<"17i"<<'\n';	
+//cout<<"17i"<<'\n';
 	listaPeliculas.clear();
-//cout<<"17j"<<'\n';	
+//cout<<"17j"<<'\n';
 	iPeli->finalizar();
-//cout<<"17k"<<'\n';	
+//cout<<"17k"<<'\n';
 	iUser->cerrarSesion();
 
 //cout<<"18"<<'\n';
-	
+
 	//R2
 	iUser->ingresarNick("carmeBeiro2010");
 	auxiliarBool=iUser->ingresarContrasenia("carmela5688");
@@ -774,7 +774,7 @@ cout<<"14"<<'\n';*/
 	listaFunciones=iPeli->seleccionarCineConSusFunciones(1);
 	iRes->seleccionarFuncion(1, 8);
 	desc=iRes->pagoCredito("OCA");
-	iRes->crearReserva();	
+	iRes->crearReserva();
 	iRes->finalizarReserva();
 	listaFunciones.clear();
 	listaPeliculas.clear();
@@ -793,7 +793,7 @@ void verReservas(){
 	listaReservas = iRes->mostrarReserva();
 	vector<DtReserva>::iterator it = listaReservas.begin();
 	if (listaReservas.empty()){
-		cout << "Usted no posee reservas." << '\n';
+		cout << "Usted no poasee reservas." << '\n';
 	}
 	else{
 		int i = 1;
