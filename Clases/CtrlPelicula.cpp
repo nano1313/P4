@@ -168,17 +168,17 @@ vector<DtFuncion> CtrlPelicula::seleccionarCineConSusFunciones(int id) {
 }
 
 void CtrlPelicula::ingresarDireccion(string calle, int num){
-
     this->direccionCine = DtDireccion(calle, num);
 }
 
 void CtrlPelicula::ingresarCapacidad(int cap){
-
     this->capacidades.push_back(cap);
 }
+
 void CtrlPelicula::ingresarPrecioCine(int precio){
     this->precioCine = precio;
 }
+
 void CtrlPelicula::confirmarAltaCine(){
 
     int cont = 1;           //PARA CONTROLAR EL NUMERO DE LAS SALAS

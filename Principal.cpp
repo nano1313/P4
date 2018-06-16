@@ -150,7 +150,8 @@ void switchNoLog (int resp) {
 		break;
 		case 4:
 			cargarDatos();
-		break;
+		default:
+			cout << "Por favor, seleccionar una opcion valida..." <<endl;
 	}
 }
 
@@ -562,10 +563,11 @@ void crearReserva() {
 	vector<DtFuncion> listaFunciones;
 	
 		cout << "Selecciona una Pelicula de la lista(Cancelar=-1): " << '\n';
-		for(vector<DtPelicula>::iterator it=listaPeliculas.begin(); it!=listaPeliculas.end(); ++it
-		){
+		for(vector<DtPelicula>::iterator it=listaPeliculas.begin(); it!=listaPeliculas.end(); ++it)
+		{
 				cout << it->getTitulo() << '\n';
 		}
+
 		cin.ignore();
 		getline(cin,aux, '\n');
 		cancelar=(aux=="-1");//si elije cancelar
@@ -573,10 +575,12 @@ void crearReserva() {
 		if (!cancelar)
 		{
 			datosPelicula=iPeli->seleccionarPelicula1(aux);
+
 			cout<< "Pelicula seleccionada:\nPoster:" + datosPelicula.getPoster() + "\nSinopsis:" + datosPelicula.getSinopsis()<<'\n';
 			cout<< "Desea ver mas informacion?(S/N):"<<'\n';
 			cin >> aux;
-			cancelar=(aux=="N" || aux=="n");
+
+			cancelar = (aux=="N" || aux=="n");
 
 			if (!cancelar)
 			{
@@ -590,45 +594,73 @@ void crearReserva() {
 
 				cin >> aux;
 				cancelar= (aux=="-1");
+
 				if (!cancelar)
 				{
-					listaFunciones=iPeli->seleccionarCineConSusFunciones(stoi(aux));
-
-					for(vector<DtFuncion>::iterator it=listaFunciones.begin(); it!=listaFunciones.end(); ++it){
-							cout << to_string(it->getNumero()) + " " + it->getFecha().toString() + " " + it->getHora().toString()<< '\n';
-					}
-
-					IReserva* iRes=fab->getIReserva();
+					
+					IReserva* iRes = fab->getIReserva();
 					string numFuncion = "";
 					string cantAsientos = "";
 					int descuento = 0;
 					DtPago desc;
 
-					cout << "Selecciona una Funcion: " << '\n';
-					cin >> numFuncion;
-					cout << "Selecciona la cantidad de asientos: " << '\n';
-					cin >> cantAsientos;
-					//cout << "Que tipo de pago desea? (1-Debito, 2-Credito): " << '\n';
-					//cin >> aux;
-					iRes->seleccionarFuncion(stoi(numFuncion), stoi(cantAsientos));
+					bool ocupado = false;
+
+					do
+					{
+							cout << '\n';
+							cout << "Selecciona una Funcion: " << '\n';
+							listaFunciones = iPeli->seleccionarCineConSusFunciones(stoi(aux));
+							for(vector<DtFuncion>::iterator it=listaFunciones.begin(); it!=listaFunciones.end(); ++it)
+							{
+								cout << to_string(it->getNumero()) + " " + it->getFecha().toString() + " " + it->getHora().toString()<< '\n';
+							}
+
+				
+
+							
+							cin >> numFuncion;
+
+							cout << "Selecciona la cantidad de asientos: " << '\n';
+							cin >> cantAsientos;
+
+							int disponibles = iRes->seleccionarFuncion(stoi(numFuncion), stoi(cantAsientos));
+							
+							if (disponibles >= 0)
+							{
+								ocupado = true;
+								cout << "\n Tu función ha sido seleccionada, ahora quedan disponibles " << disponibles << " asientos" << '\n';
+							}else
+							{
+									cout << "\n No hay esa cantidad de asientos disponibles" << '\n';
+							}
+
+					}while(!ocupado);
+
+					
 					cout << "Que tipo de pago desea? (1-Debito, 2-Credito): " << '\n';
 					cin >> aux;
-					if (aux=="1"){//pago debito
+
+					if (aux == "1") //pago debito
+					{ 
 						cout << "Ingrese el nombre del Banco: " << '\n';
 						cin >> aux;
 						descuento=iRes->pagoDebito(aux);
 						cout << "Total: " + to_string(descuento) << '\n';
 
-					}else{//pago credito
+					}else //pago credito
+					{
 						cout << "Ingrese el nombre de la Financiera: " << '\n';
 						cin >> aux;
-						desc=iRes->pagoCredito(aux);
+						desc = iRes->pagoCredito(aux);
 						cout << "Descuento: " + to_string(desc.getDescuento()) + "\nTotal: " + to_string(desc.getPrecio())<< '\n';
 					}
+
 					cout << "Confirma la reserva? (S/N): " << '\n';
 					cin >> aux;
 
-					if (aux=="S" || aux=="s"){
+					if (aux == "S" || aux == "s")
+					{
 						iRes->crearReserva();
 					}
 					
@@ -715,6 +747,7 @@ void cargarDatos(){
 	iPeli->finalizar();
 //cout<<"9"<<'\n';
 	//Usuarios
+	iUser->crearUsuario("usuario", "123456", "/users/registered/cachoElNumberOne.png",1);
 	iUser->crearUsuario("chachoElNumberOne", "jorgeP4", "/users/registered/cachoElNumberOne.png",1);
 	iUser->crearUsuario("carmeBeiro2010", "carmela5688", "/users/registered/carmeBeiro2010.png",1);
 	iUser->crearUsuario("ale_ulises", "p4eslomejor21", "/users/registered/ale_ulises.png",9);

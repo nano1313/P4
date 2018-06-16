@@ -15,7 +15,7 @@ using namespace std;
 class IReserva {
 
 	public:
-				virtual void seleccionarFuncion(int num, int cantAsientos)=0;
+				virtual int seleccionarFuncion(int num, int cantAsientos)=0;
         virtual DtPago pagoCredito(string nomFin)=0;
         virtual int pagoDebito(string nomBanco)=0;
         virtual void crearReserva()=0;

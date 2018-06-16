@@ -140,21 +140,19 @@ int* Pelicula::darListaCine() {         return NULL;
 }
 */
 Funcion * Pelicula::seleccionarFuncion(int numero) {
-    //map<int, Funcion *>::iterator it = this->funciones.begin();
-	return funciones[numero];
-   /* while(it->first!=numero){
-        it++;
-    }
-    return it->second;*/
+    return funciones[numero];
 }
+
 void Pelicula::agregarNuevoComentario(Comentario * comentario) {
     this->comentarios[comentario->getId()] = comentario;
 }
+
 void Pelicula::agregarNuevaRespuesta(Comentario * comentario, int padre) {
     vector<Comentario*> respuestas = this->comentarios[padre]->getRespuestas();
     respuestas.push_back(comentario);
 }
-void Pelicula::destroy(){
+
+void Pelicula::destroy() {
     map<string, Puntaje *>::iterator it1 = this->puntajes.begin();
     //map<int, Cine *>::iterator it = cines.begin();
     for (it1 = this->puntajes.begin(); it1 !=this->puntajes.end(); ++it1)
