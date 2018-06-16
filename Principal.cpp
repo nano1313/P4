@@ -725,13 +725,13 @@ void cargarDatos(){
 
 	bool auxiliarBool=false;
 	//Comentarios
-	cout<<"11"<<'\n';	
+//cout<<"11"<<'\n';	
 	iUser->ingresarNick("chachoElNumberOne");
 	auxiliarBool=iUser->ingresarContrasenia("jorgeP4");
 	iPeli->seleccionarPelicula2("The Vindicators 3");
 	iPeli->crearComentario("Es tremenda pelicula. La mejor parte es cuando aparecen Rick y Morty.");//Nuevo Comentario
 	iUser->cerrarSesion();
-	cout<<"12"<<'\n';
+//cout<<"12"<<'\n';
 	iUser->ingresarNick("carmeBeiro2010");
 	auxiliarBool=iUser->ingresarContrasenia("carmela5688");
 	iPeli->seleccionarComentario(1);
@@ -739,18 +739,18 @@ void cargarDatos(){
 	iPeli->finalizarComentario();
 	iUser->cerrarSesion();
 
-	cout<<"13"<<'\n';
+//cout<<"13"<<'\n';
 	iUser->ingresarNick("chachoElNumberOne");
-	cout<<"13a"<<'\n';
+//cout<<"13a"<<'\n';
 	auxiliarBool=iUser->ingresarContrasenia("jorgeP4");
-	cout<<"13b"<<'\n';
+//cout<<"13b"<<'\n';
 	iPeli->seleccionarComentario(2);
-	cout<<"13c"<<'\n';
+//cout<<"13c"<<'\n';
 	iPeli->responderComentario("Callateee no cuentes el final!!");
 	iPeli->finalizarComentario();
-	cout<<"13d"<<'\n';
+//cout<<"13d"<<'\n';
 	iUser->cerrarSesion();
-	cout<<"14"<<'\n';
+//cout<<"14"<<'\n';
 	//Puntajes
 	iUser->ingresarNick("chachoElNumberOne");
 	auxiliarBool=iUser->ingresarContrasenia("jorgeP4");
@@ -849,6 +849,6 @@ void verReservas(){
 		}
 
 	}
-
+	listaReservas.clear();
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
