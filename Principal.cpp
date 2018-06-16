@@ -385,20 +385,30 @@ void verInfoPelicula(){
 			cin >> aux;
 			cancelar=(aux=="N" || aux=="n");
 			if (!cancelar){
-				listaCines=iPeli->darListaCinesDeUnaPelicula();
-				cout << "Selecciona un Cine de la lista(Cancelar=-1): " << '\n';
-				for(vector<DtCine>::iterator it=listaCines.begin(); it!=listaCines.end();++it){
-					cout << to_string((*it).getNumero()) + " - " + (*it).getDireccion().getCalle() + " " + to_string((*it).getDireccion().getNumero())  << '\n';
-				}
-				cin >> aux;
-				cancelar= (aux=="-1");
-				if (!cancelar){
-					listaFunciones=iPeli->seleccionarCineConSusFunciones(stoi(aux));
-					for(vector<DtFuncion>::iterator it=listaFunciones.begin(); it!=listaFunciones.end(); ++it){
-							cout << to_string(it->getNumero()) + " " + it->getFecha().toString() + " " + it->getHora().toString()<< '\n';
+				try{
+					listaCines=iPeli->darListaCinesDeUnaPelicula();
+					if (listaCines.empty()){
+						throw std::invalid_argument("No existen cines para la Pelicula seleccionada...");
+					}
+					cout << "Selecciona un Cine de la lista(Cancelar=-1): " << '\n';
+					for(vector<DtCine>::iterator it=listaCines.begin(); it!=listaCines.end();++it){
+						cout << to_string((*it).getNumero()) + " - " + (*it).getDireccion().getCalle() + " " + to_string((*it).getDireccion().getNumero())  << '\n';
+					}
+					cin >> aux;
+					cancelar= (aux=="-1");
+					if (!cancelar){
+						listaFunciones=iPeli->seleccionarCineConSusFunciones(stoi(aux));
+						cout << "Las funciones existentes son las siguientes: " << '\n';
+						for(vector<DtFuncion>::iterator it=listaFunciones.begin(); it!=listaFunciones.end(); ++it){
+								cout << to_string(it->getNumero()) + " " + it->getFecha().toString() + " " + it->getHora().toString()<< '\n';
+						}
 					}
 				}
+				catch(invalid_argument a){
+					cout << a.what() << '\n';
+				}
 			}
+
 
 		}
 
@@ -582,32 +592,39 @@ void crearReserva() {
 
 			cancelar = (aux=="N" || aux=="n");
 
-			if (!cancelar)
-			{
-				listaCines=iPeli->darListaCinesDeUnaPelicula();
-				cout << "Selecciona un Cine de la lista(Cancelar=-1): " << '\n';
+			if (!cancelar){
+				try{
+					listaCines=iPeli->darListaCinesDeUnaPelicula();
+					if (listaCines.empty()){
+						throw std::invalid_argument("No existen cines para la Pelicula seleccionada...");
+					}		
+					cout << "Selecciona un Cine de la lista(Cancelar=-1): " << '\n';
 
-				for(vector<DtCine>::iterator it=listaCines.begin(); it!=listaCines.end();++it)
-				{
-					cout << to_string((*it).getNumero()) + " - " + (*it).getDireccion().getCalle() + " " + to_string((*it).getDireccion().getNumero())  << '\n';
-				}
-
-				cin >> aux;
-				cancelar= (aux=="-1");
-
-				if (!cancelar)
-				{
-					
-					IReserva* iRes = fab->getIReserva();
-					string numFuncion = "";
-					string cantAsientos = "";
-					int descuento = 0;
-					DtPago desc;
-
-					bool ocupado = false;
-
-					do
+					for(vector<DtCine>::iterator it=listaCines.begin(); it!=listaCines.end();++it)
 					{
+						cout << to_string((*it).getNumero()) + " - " + (*it).getDireccion().getCalle() + " " + to_string((*it).getDireccion().getNumero())  << '\n';
+					}
+
+					cin >> aux;
+					cancelar= (aux=="-1");
+					if (!cancelar)
+					{
+						listaFunciones=iPeli->seleccionarCineConSusFunciones(stoi(aux));
+						cout << "Las funciones existentes son las siguientes: " << '\n';
+						for(vector<DtFuncion>::iterator it=listaFunciones.begin(); it!=listaFunciones.end(); ++it){
+								cout << to_string(it->getNumero()) + " " + it->getFecha().toString() + " " + it->getHora().toString()<< '\n';
+						}
+
+						IReserva* iRes=fab->getIReserva();
+						string numFuncion = "";
+						string cantAsientos = "";
+						int descuento = 0;
+						DtPago desc;
+
+						bool ocupado = false;
+
+						do
+						{
 							cout << '\n';
 							cout << "Selecciona una Funcion: " << '\n';
 							listaFunciones = iPeli->seleccionarCineConSusFunciones(stoi(aux));
@@ -615,9 +632,6 @@ void crearReserva() {
 							{
 								cout << to_string(it->getNumero()) + " " + it->getFecha().toString() + " " + it->getHora().toString()<< '\n';
 							}
-
-				
-
 							
 							cin >> numFuncion;
 
@@ -635,37 +649,37 @@ void crearReserva() {
 									cout << "\n No hay esa cantidad de asientos disponibles" << '\n';
 							}
 
-					}while(!ocupado);
+						}while(!ocupado);
 
-					
-					cout << "Que tipo de pago desea? (1-Debito, 2-Credito): " << '\n';
-					cin >> aux;
 
-					if (aux == "1") //pago debito
-					{ 
-						cout << "Ingrese el nombre del Banco: " << '\n';
+						cout << "Que tipo de pago desea? (1-Debito, 2-Credito): " << '\n';
 						cin >> aux;
-						descuento=iRes->pagoDebito(aux);
-						cout << "Total: " + to_string(descuento) << '\n';
+						if (aux=="1"){//pago debito
+							cout << "Ingrese el nombre del Banco (BROU): " << '\n';
+							cin >> aux;
+							descuento=iRes->pagoDebito(aux);
+							cout << "Total: " + to_string(descuento) << '\n';
 
-					}else //pago credito
-					{
-						cout << "Ingrese el nombre de la Financiera: " << '\n';
+						}else{//pago credito
+							cout << "Ingrese el nombre de la Financiera(OCA, CREDITEL): " << '\n';
+							cin >> aux;
+							desc=iRes->pagoCredito(aux);
+							cout << "Descuento: " + to_string(desc.getDescuento()) + "\nTotal: " + to_string(desc.getPrecio())<< '\n';
+						}
+						cout << "Confirma la reserva? (S/N): " << '\n';
 						cin >> aux;
-						desc = iRes->pagoCredito(aux);
-						cout << "Descuento: " + to_string(desc.getDescuento()) + "\nTotal: " + to_string(desc.getPrecio())<< '\n';
-					}
 
-					cout << "Confirma la reserva? (S/N): " << '\n';
-					cin >> aux;
-
-					if (aux == "S" || aux == "s")
-					{
-						iRes->crearReserva();
-					}
+						if (aux=="S" || aux=="s"){
+							iRes->crearReserva();
+						}
 					
-					iRes->finalizarReserva();
+						iRes->finalizarReserva();
+					}
 				}
+				catch(invalid_argument a){
+					cout << a.what() << '\n';
+				}
+				
 			}
 
 		}
