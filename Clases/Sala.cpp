@@ -3,13 +3,11 @@
 Sala::Sala (int numero, int capacidad) {
 	this->numero = numero;
 	this->capacidad	= capacidad;
-	this->ocupado = 0;
 }
 
 Sala::Sala(int numero, int capacidad, Cine* cine){
 	this->numero = numero;
 	this->capacidad	= capacidad;
-	this->ocupado = 0;
 	this->cine=cine;
 }
 
@@ -21,10 +19,6 @@ int Sala::getNumero() {
 
 int Sala::getCapacidad() {
 	return this->capacidad;
-}
-
-int Sala::getOcupado() {
-	return this->ocupado;
 }
 
 Cine* Sala::getCine() {
@@ -39,11 +33,6 @@ void Sala::setNumero(int numero) {
 
 void Sala::setCapacidad(int capacidad) {
 	this->capacidad = capacidad;
-}
-
-void Sala::setOcupado(int asientos) {
-	if (! (this->ocupado + asientos > this->capacidad))
-		this->ocupado = this->ocupado + asientos;
 }
 
 void Sala::setCine(Cine *cine) {

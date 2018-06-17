@@ -14,20 +14,17 @@ class Sala {
 	private:
 		int numero;
 		int capacidad;
-		int ocupado;
 		Cine * cine;
 
 	public:
 		/* Getters */
 		int getNumero();
 		int getCapacidad();
-		int getOcupado();
 		Cine * getCine();
 
 		/* Setters */
 		void setNumero(int numero);
 		void setCapacidad(int capacidad);
-		void setOcupado(int ocupado);
 		void setCine(Cine *cine);
 
         Sala();

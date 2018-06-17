@@ -16,26 +16,21 @@ CtrlReserva* CtrlReserva::getInstancia()
     return instancia;
 }
 
-int CtrlReserva::seleccionarFuncion(int num, int cantAsientos) {
-
-    CtrlPelicula * ctrl = ctrl->getInstancia(); 
-    Pelicula * peli = ctrl->getPelicula();
+void CtrlReserva::seleccionarFuncion(int num, int cantAsientos) {
+    CtrlPelicula *ctrl = ctrl->getInstancia(); //global en un futuro 
+    Pelicula *peli = ctrl->getPelicula();
+    this->cant = cantAsientos; //global en un futuro
     this->f = peli->seleccionarFuncion(num);
-    this->cant = cantAsientos;
-
-    f->getSala()->setOcupado(cantAsientos); // Setea solo si hay espacio
-    return f->getSala()->getCapacidad() - f->getSala()->getOcupado();
 }
 
 DtPago CtrlReserva::pagoCredito(string nomFin) {
-    Sala * s = this->f->getSala();
-    Cine * c = s->getCine();
-    int p = c->getPrecio();
-
-    Mtarjeta * t = t->getInstancia();
-    Credito * crd = t->encontrarInstanciaCredito(nomFin);  
+    Sala *s = this->f->getSala();
+    Cine *c = s->getCine();
+    int p = c->getPrecio(); 
+    Mtarjeta *t = t->getInstancia();
+    Credito *crd = t->encontrarInstanciaCredito(nomFin);  
     int des = crd->getDescuento();
-    this->tar = crd;
+    this->tar= crd;
     this->total = ((p*this->cant)-(((p*this->cant)*des)/100));  
     DtPago res = DtPago(this->total,des);
     return res;    
