@@ -100,7 +100,7 @@ int main(){
 
 		/*Inicializo variables */
 		DtUsuario* usrLogueado=NULL;
-    string menuDesplegado;//<//="Bienvenido. Elija la opción.\n1) Registrar socio\n2) Agregar mascota\n3) Ingresar consulta\n4) Ver consulta antes de una fecha\n5) Eliminar socio\n6) Obtener mascotas de un socio\n0) Salir\n";
+    	string menuDesplegado;//<//="Bienvenido. Elija la opción.\n1) Registrar socio\n2) Agregar mascota\n3) Ingresar consulta\n4) Ver consulta antes de una fecha\n5) Eliminar socio\n6) Obtener mascotas de un socio\n0) Salir\n";
 		string menuCabezal="******************************************************************************\n*                                                                            *\n*                               MOVIEFING                                    *\n*                                                                            *\n******************************************************************************\nBienvenido. Elija la opción.\n";
 
 		string menuUsuarioNoLog="1) Iniciar Sesion\n2) Ver Informacion de Pelicula\n3) Ver Comentarios y Puntaje de Pelicula\n4) Cargar Datos\n0) Salir\n";
@@ -112,20 +112,22 @@ int main(){
 		fab=Fabrica::getInstancia();
 		IUsuario* iUsr=fab->getIUsuario();
 
-    do
-		{
+    do{
 			usrLogueado=iUsr->getUsuarioLog();
-			if (usrLogueado==NULL){
+			if (usrLogueado == NULL) 
+			{
 				cout << menuCabezal +  menuUsuarioNoLog<<endl;
 				cin >> respStr;
 				//resp	=	StrToInt(respStr);
 				switchNoLog(stoi(respStr));
-			}else if(usrLogueado->getNivel()==1){
+			}else if(usrLogueado->getNivel()==1)
+			{
 				cout << menuCabezal +  menuUsuarioLog<<endl;
 				cin >> respStr;
 				//resp	=	StrToInt(respStr);
 				switchLog(stoi(respStr));
-			}else{
+			}else
+			{
 				cout << menuCabezal +  menuUsuarioAdmin<<endl;
 				cin >> respStr;
 				//resp	=	StrToInt(stoi(respStr));
@@ -148,7 +150,8 @@ void switchNoLog (int resp) {
 		break;
 		case 4:
 			cargarDatos();
-		break;
+		default:
+			cout << "Por favor, seleccionar una opcion valida..." <<endl;
 	}
 }
 
@@ -226,10 +229,11 @@ void switchAdmin (int resp) {
 	}
 }
 
-void iniciarSesion(){
-			IUsuario* iUser =fab->getIUsuario();
-			string aux="";//Guardara las respuestas del usuario
-			bool flagWhile;//Sera la bandera para seguir iterando
+void iniciarSesion() {
+			IUsuario * iUser = fab->getIUsuario();
+			string aux = ""; //Guardara las respuestas del usuario
+
+			bool flagWhile; //Sera la bandera para seguir iterando
 
 			do {
 				cout << "Ingresa tu nick: " << '\n';
@@ -237,28 +241,29 @@ void iniciarSesion(){
 				iUser->ingresarNick(aux);
 				cout << "Ingresa tu password: " << '\n';
 				cin >> aux;
-				flagWhile=iUser->ingresarContrasenia(aux);
+				flagWhile = iUser->ingresarContrasenia(aux);
 
-				if(!flagWhile) {
+				if (!flagWhile) {
 					cout << "Datos incorrectos... \nDesea volver a intentar(S/N):" << '\n';
 					cin >> aux;
-					flagWhile=(aux=="n" || aux=="N");//Si no desea intentar mas
+					flagWhile = (aux == "n" || aux == "N");//Si no desea intentar mas
 				}
-			} while(!flagWhile);
+
+			}while(!flagWhile);
 }
 
 void cerrarSesion() {
-	IUsuario* iUser=fab->getIUsuario();
+	IUsuario* iUser = fab->getIUsuario();
 	iUser->cerrarSesion();
 }
 
 void altaCine() {
-
 		DtDireccion direccion;
 		IPelicula* iPeli = fab->getIPelicula();
-		string aux=""; //Guardara las respuestas del usuario
-		bool flagWhile=true;
-		bool seguirAgregandoSalas=true;
+
+		string aux = ""; //Guardara las respuestas del usuario
+		bool flagWhile = true;
+		bool seguirAgregandoSalas = true;
 
 		do {
 			cout << "Ingresa la calle del Cine: " << '\n';
@@ -268,8 +273,8 @@ void altaCine() {
 			cin >> aux;
 			direccion.setNumero(stoi(aux)); //Convierte a numero el string, Capturar excepcion?
 			iPeli->ingresarDireccion(direccion.getCalle(), direccion.getNumero());
-			int i=1;
-			do{
+			int i = 1;
+			do {
 				cout << "Ingresa la capacidad de la Sala Nro." + to_string(i) + ": " << '\n';
 				cin >> aux;
 				iPeli->ingresarCapacidad(stoi(aux));
@@ -301,13 +306,15 @@ void altaCine() {
 }
 
 void altaFuncion() {
-		string aux="";
+		string aux = "";
 		DtFecha fecha;
 		DtHora hora;
-		string auxFecha="", auxHora="";
-		IPelicula* iPeli=fab->getIPelicula();
-		vector<DtPelicula> listaPeliculas=iPeli->darListaPeliculas();
-		bool sigueAgregando=true;
+		string auxFecha = "", auxHora = "";
+
+		IPelicula* iPeli = fab->getIPelicula();
+		vector<DtPelicula> listaPeliculas = iPeli->darListaPeliculas();
+		bool sigueAgregando = true;
+
 		cout << "Selecciona una Pelicula de la lista: " << '\n';
 		for(vector<DtPelicula>::iterator it=listaPeliculas.begin(); it!=listaPeliculas.end(); ++it){
 				cout << (*it).getTitulo() << '\n';
@@ -317,8 +324,8 @@ void altaFuncion() {
 		getline(cin,aux, '\n');
 		iPeli->seleccionarPelicula2(aux);
 		vector<DtCine> listaCines=iPeli->darListaCines();
-		do{
 
+		do{
 			cout << "Selecciona un Cine de la lista: " << '\n';
 			for(vector<DtCine>::iterator it=listaCines.begin(); it!=listaCines.end(); ++it){
 					cout << to_string((*it).getNumero()) + " - " + (*it).getDireccion().getCalle() + " " + to_string((*it).getDireccion().getNumero())  << '\n';
@@ -344,12 +351,10 @@ void altaFuncion() {
 			sigueAgregando=(aux!="n" && aux!="N");
 			listaSalas.clear();
 
-
 		}while(sigueAgregando);
+
 		iPeli->finalizar();
-
 		listaCines.clear();
-
 		listaPeliculas.clear();
 
 }
@@ -362,7 +367,8 @@ void verInfoPelicula(){
 	vector<DtPelicula> listaPeliculas = iPeli->darListaPeliculas();
 	vector<DtCine> listaCines;
 	vector<DtFuncion> listaFunciones;
-	do{
+	do
+	{
 		cout << "Selecciona una Pelicula de la lista(Cancelar=-1): " << '\n';
 		for(vector<DtPelicula>::iterator it=listaPeliculas.begin(); it!=listaPeliculas.end(); ++it){
 				cout << (*it).getTitulo() << '\n';
@@ -370,55 +376,72 @@ void verInfoPelicula(){
 		cin.ignore();
 		getline(cin,aux, '\n');
 		cancelar=(aux=="-1");//si elije cancelar
-		if (!cancelar){
+
+		if (!cancelar)
+		{
 			datosPelicula=iPeli->seleccionarPelicula1(aux);
 			cout<< "Pelicula seleccionada:\nPoster:" + datosPelicula.getPoster() + "\nSinopsis:" + datosPelicula.getSinopsis()<<'\n';
 			cout<< "Desea ver mas informacion?(S/N):"<<'\n';
 			cin >> aux;
 			cancelar=(aux=="N" || aux=="n");
 			if (!cancelar){
-				listaCines=iPeli->darListaCinesDeUnaPelicula();
-				cout << "Selecciona un Cine de la lista(Cancelar=-1): " << '\n';
-				for(vector<DtCine>::iterator it=listaCines.begin(); it!=listaCines.end();++it){
-					cout << to_string((*it).getNumero()) + " - " + (*it).getDireccion().getCalle() + " " + to_string((*it).getDireccion().getNumero())  << '\n';
-				}
-				cin >> aux;
-				cancelar= (aux=="-1");
-				if (!cancelar){
-					listaFunciones=iPeli->seleccionarCineConSusFunciones(stoi(aux));
-					for(vector<DtFuncion>::iterator it=listaFunciones.begin(); it!=listaFunciones.end(); ++it){
-							cout << to_string(it->getNumero()) + " " + it->getFecha().toString() + " " + it->getHora().toString()<< '\n';
+				try{
+					listaCines=iPeli->darListaCinesDeUnaPelicula();
+					if (listaCines.empty()){
+						throw std::invalid_argument("No existen cines para la Pelicula seleccionada...");
 					}
+					cout << "Selecciona un Cine de la lista(Cancelar=-1): " << '\n';
+					for(vector<DtCine>::iterator it=listaCines.begin(); it!=listaCines.end();++it){
+						cout << to_string((*it).getNumero()) + " - " + (*it).getDireccion().getCalle() + " " + to_string((*it).getDireccion().getNumero())  << '\n';
+					}
+					cin >> aux;
+					cancelar= (aux=="-1");
+					if (!cancelar){
+						listaFunciones=iPeli->seleccionarCineConSusFunciones(stoi(aux));
+						cout << "Las funciones existentes son las siguientes: " << '\n';
+						for(vector<DtFuncion>::iterator it=listaFunciones.begin(); it!=listaFunciones.end(); ++it){
+								cout << to_string(it->getNumero()) + " " + it->getFecha().toString() + " " + it->getHora().toString()<< '\n';
+						}
+					}
+				}
+				catch(invalid_argument a){
+					cout << a.what() << '\n';
 				}
 			}
 
+
 		}
+
 		cout<< "Desea consultar informacion de otra Pelicula?(S/N):"<<'\n';
 		cin >> aux;
 		cancelar=(aux=="N" || aux=="n");
 	}while(!cancelar);
+
 	iPeli->finalizar();
 }
 
 void eliminarPelicula(){
-	string aux="";
+	string aux = "";
 	IPelicula* iPeli = fab->getIPelicula();
 	vector<DtPelicula> listaPeliculas=iPeli->darListaPeliculas();
 	cout << "Selecciona una Pelicula de la lista: " << '\n';
+
 	for(vector<DtPelicula>::iterator it=listaPeliculas.begin(); it!=listaPeliculas.end(); ++it){
 			cout << (*it).getTitulo() << '\n';
 	}
+
 	cin.ignore();
 	getline(cin,aux, '\n');
 	iPeli->seleccionarPelicula2(aux);
 	cout << "Confirma que desea eliminar la pelicula " + aux +"?(S/N)" << '\n';
 	cin >> aux;
+
 	if (aux=="S" || aux=="s"){
 		iPeli->confirmarEliminar();
 	}
+
 	iPeli->finalizar();
 	listaPeliculas.clear();
-
 }
 
 void comentarPelicula(){
@@ -428,13 +451,17 @@ void comentarPelicula(){
 	vector<DtComentario> listaComentarios;
 	vector<DtPelicula> listaPeliculas = iPeli->darListaPeliculas();
 	cout << "Selecciona una Pelicula de la lista: " << '\n';
+
 	for(vector<DtPelicula>::iterator it=listaPeliculas.begin(); it!=listaPeliculas.end(); ++it){
 			cout << (*it).getTitulo() << '\n';
 	}
+
 	cin.ignore();
 	getline(cin,aux, '\n');
 	iPeli->seleccionarPelicula2(aux);
-	do{
+
+	do
+	{
 		listaComentarios=iPeli->darListaComentarios();
 		mostrarComentario(listaComentarios, 0);
 		cout << "Que desea hacer: \n1-Nuevo comentario a Pelicula.\n2-Responder Comentario.  " << '\n';
@@ -458,9 +485,8 @@ void comentarPelicula(){
 		quiereAgregarCom=(aux=="S" || aux=="s");
 		listaComentarios.clear();
 	}while(quiereAgregarCom);
+
 	listaPeliculas.clear();
-
-
 }
 
 void verComentariosPelicula(){
@@ -503,7 +529,7 @@ void mostrarComentario(vector<DtComentario> l, int tab){
 	}
 }
 
-void puntuarPelicula(){
+void puntuarPelicula() {
 	IPelicula* iPeli = fab->getIPelicula();
 	
 	string aux;
@@ -515,16 +541,20 @@ void puntuarPelicula(){
 	cin.ignore();
 	getline(cin,aux, '\n');
 	iPeli->seleccionarPelicula2(aux);
-	if (iPeli->yaPuntuo()){
+
+	if (iPeli->yaPuntuo())
+	{
 		string puntaje = to_string(iPeli->mostrarPuntaje());
 		cout << "Ya puntuaste esta pelicula, con " + puntaje + " puntos. Deseas cambiarlo?(S/N)"<< '\n';
 		cin >> aux;
-		if (aux=="S" || aux=="s"){
+		if (aux=="S" || aux=="s") 
+		{
 			cout << "Cual es el nuevo puntaje? (1 al 10): "<< '\n';
 			cin >> aux;
 			iPeli->ingresarPuntaje(stoi(aux));
 		}
-	}else{
+	}else
+	{
 		cout << "Con cuanto deseas puntuar la pelicula? (1 al 10): "<< '\n';
 		cin >> aux;
 		iPeli->ingresarPuntaje(stoi(aux));
@@ -532,7 +562,8 @@ void puntuarPelicula(){
 
 }
 
-void crearReserva(){
+void crearReserva() {
+
 	IPelicula* iPeli = fab->getIPelicula();
 	bool cancelar=true;
 	string aux;
@@ -542,67 +573,116 @@ void crearReserva(){
 	vector<DtFuncion> listaFunciones;
 	
 		cout << "Selecciona una Pelicula de la lista(Cancelar=-1): " << '\n';
-		for(vector<DtPelicula>::iterator it=listaPeliculas.begin(); it!=listaPeliculas.end(); ++it){
+		for(vector<DtPelicula>::iterator it=listaPeliculas.begin(); it!=listaPeliculas.end(); ++it)
+		{
 				cout << it->getTitulo() << '\n';
 		}
+
 		cin.ignore();
 		getline(cin,aux, '\n');
 		cancelar=(aux=="-1");//si elije cancelar
-		if (!cancelar){
+
+		if (!cancelar)
+		{
 			datosPelicula=iPeli->seleccionarPelicula1(aux);
+
 			cout<< "Pelicula seleccionada:\nPoster:" + datosPelicula.getPoster() + "\nSinopsis:" + datosPelicula.getSinopsis()<<'\n';
 			cout<< "Desea ver mas informacion?(S/N):"<<'\n';
 			cin >> aux;
-			cancelar=(aux=="N" || aux=="n");
+
+			cancelar = (aux=="N" || aux=="n");
+
 			if (!cancelar){
-				listaCines=iPeli->darListaCinesDeUnaPelicula();
-				cout << "Selecciona un Cine de la lista(Cancelar=-1): " << '\n';
-				for(vector<DtCine>::iterator it=listaCines.begin(); it!=listaCines.end();++it){
-					cout << to_string((*it).getNumero()) + " - " + (*it).getDireccion().getCalle() + " " + to_string((*it).getDireccion().getNumero())  << '\n';
+				try{
+					listaCines=iPeli->darListaCinesDeUnaPelicula();
+					if (listaCines.empty()){
+						throw std::invalid_argument("No existen cines para la Pelicula seleccionada...");
+					}		
+					cout << "Selecciona un Cine de la lista(Cancelar=-1): " << '\n';
+
+					for(vector<DtCine>::iterator it=listaCines.begin(); it!=listaCines.end();++it)
+					{
+						cout << to_string((*it).getNumero()) + " - " + (*it).getDireccion().getCalle() + " " + to_string((*it).getDireccion().getNumero())  << '\n';
+					}
+
+					cin >> aux;
+					cancelar= (aux=="-1");
+					if (!cancelar)
+					{
+						listaFunciones=iPeli->seleccionarCineConSusFunciones(stoi(aux));
+						cout << "Las funciones existentes son las siguientes: " << '\n';
+						for(vector<DtFuncion>::iterator it=listaFunciones.begin(); it!=listaFunciones.end(); ++it){
+								cout << to_string(it->getNumero()) + " " + it->getFecha().toString() + " " + it->getHora().toString()<< '\n';
+						}
+
+						IReserva* iRes=fab->getIReserva();
+						string numFuncion = "";
+						string cantAsientos = "";
+						int descuento = 0;
+						DtPago desc;
+
+						bool ocupado = false;
+
+						do
+						{
+							cout << '\n';
+							cout << "Selecciona una Funcion: " << '\n';
+							listaFunciones = iPeli->seleccionarCineConSusFunciones(stoi(aux));
+
+							for(vector<DtFuncion>::iterator it=listaFunciones.begin(); it!=listaFunciones.end(); ++it)
+							{
+								cout << to_string(it->getNumero()) + " " + it->getFecha().toString() + " " + it->getHora().toString()<< '\n';
+							}
+							
+							cin >> numFuncion;
+
+							cout << "Selecciona la cantidad de asientos: " << '\n';
+							cin >> cantAsientos;
+
+							int disponibles = iRes->seleccionarFuncion(stoi(numFuncion), stoi(cantAsientos));
+							
+							if (disponibles >= 0)
+							{
+								ocupado = true;
+								cout << "\n Tu función ha sido seleccionada, ahora quedan disponibles " << disponibles << " asientos" << '\n';
+							}else
+							{
+								cout << "\n No hay esa cantidad de asientos disponibles" << '\n';
+							}
+
+						}while(!ocupado);
+
+
+						cout << "Que tipo de pago desea? (1-Debito, 2-Credito): " << '\n';
+						cin >> aux;
+						if (aux=="1")//pago debito
+						{
+							cout << "Ingrese el nombre del Banco (BROU): " << '\n';
+							cin >> aux;
+							descuento=iRes->pagoDebito(aux);
+							cout << "Total: " + to_string(descuento) << '\n';
+
+						}else //pago credito
+						{
+							cout << "Ingrese el nombre de la Financiera(OCA, CREDITEL): " << '\n';
+							cin >> aux;
+							desc=iRes->pagoCredito(aux);
+							cout << "Descuento: " + to_string(desc.getDescuento()) + "\nTotal: " + to_string(desc.getPrecio())<< '\n';
+						}
+						cout << "Confirma la reserva? (S/N): " << '\n';
+						cin >> aux;
+
+						if (aux == "S" || aux == "s") {
+							iRes->crearReserva();
+						}
+					
+						iRes->finalizarReserva();
+					}
 				}
-				cin >> aux;
-				cancelar= (aux=="-1");
-				if (!cancelar){
-					listaFunciones=iPeli->seleccionarCineConSusFunciones(stoi(aux));
-					for(vector<DtFuncion>::iterator it=listaFunciones.begin(); it!=listaFunciones.end(); ++it){
-							cout << to_string(it->getNumero()) + " " + it->getFecha().toString() + " " + it->getHora().toString()<< '\n';
-					}
-					IReserva* iRes=fab->getIReserva();
-					string numFuncion="";
-					string cantAsientos="";
-					int descuento=0;
-					DtPago desc;
-
-					cout << "Selecciona una Funcion: " << '\n';
-					cin >> numFuncion;
-					cout << "Selecciona la cantidad de asientos: " << '\n';
-					cin >> cantAsientos;
-					//cout << "Que tipo de pago desea? (1-Debito, 2-Credito): " << '\n';
-					//cin >> aux;
-					iRes->seleccionarFuncion(stoi(numFuncion), stoi(cantAsientos));
-					cout << "Que tipo de pago desea? (1-Debito, 2-Credito): " << '\n';
-					cin >> aux;
-					if (aux=="1"){//pago debito
-						cout << "Ingrese el nombre del Banco: " << '\n';
-						cin >> aux;
-						descuento=iRes->pagoDebito(aux);
-						cout << "Total: " + to_string(descuento) << '\n';
-
-					}else{//pago credito
-						cout << "Ingrese el nombre de la Financiera: " << '\n';
-						cin >> aux;
-						desc=iRes->pagoCredito(aux);
-						cout << "Descuento: " + to_string(desc.getDescuento()) + "\nTotal: " + to_string(desc.getPrecio())<< '\n';
-					}
-					cout << "Confirma la reserva? (S/N): " << '\n';
-					cin >> aux;
-					if (aux=="S" || aux=="s"){
-						iRes->crearReserva();
-					}
-					iRes->finalizarReserva();
+				catch(invalid_argument a) {
+					cout << a.what() << '\n';
 				}
 			}
-
 		}
 	
 	iPeli->finalizar();
@@ -682,6 +762,7 @@ void cargarDatos(){
 	iPeli->finalizar();
 //cout<<"9"<<'\n';
 	//Usuarios
+	iUser->crearUsuario("usuario", "123456", "/users/registered/cachoElNumberOne.png",1);
 	iUser->crearUsuario("chachoElNumberOne", "jorgeP4", "/users/registered/cachoElNumberOne.png",1);
 	iUser->crearUsuario("carmeBeiro2010", "carmela5688", "/users/registered/carmeBeiro2010.png",1);
 	iUser->crearUsuario("ale_ulises", "p4eslomejor21", "/users/registered/ale_ulises.png",9);
@@ -692,13 +773,13 @@ void cargarDatos(){
 
 	bool auxiliarBool=false;
 	//Comentarios
-cout<<"11"<<'\n';	
+//cout<<"11"<<'\n';	
 	iUser->ingresarNick("chachoElNumberOne");
 	auxiliarBool=iUser->ingresarContrasenia("jorgeP4");
 	iPeli->seleccionarPelicula2("The Vindicators 3");
 	iPeli->crearComentario("Es tremenda pelicula. La mejor parte es cuando aparecen Rick y Morty.");//Nuevo Comentario
 	iUser->cerrarSesion();
-cout<<"12"<<'\n';
+//cout<<"12"<<'\n';
 	iUser->ingresarNick("carmeBeiro2010");
 	auxiliarBool=iUser->ingresarContrasenia("carmela5688");
 	iPeli->seleccionarComentario(1);
@@ -706,18 +787,18 @@ cout<<"12"<<'\n';
 	iPeli->finalizarComentario();
 	iUser->cerrarSesion();
 
-cout<<"13"<<'\n';
+//cout<<"13"<<'\n';
 	iUser->ingresarNick("chachoElNumberOne");
-cout<<"13a"<<'\n';
+//cout<<"13a"<<'\n';
 	auxiliarBool=iUser->ingresarContrasenia("jorgeP4");
-cout<<"13b"<<'\n';
+//cout<<"13b"<<'\n';
 	iPeli->seleccionarComentario(2);
-cout<<"13c"<<'\n';
+//cout<<"13c"<<'\n';
 	iPeli->responderComentario("Callateee no cuentes el final!!");
 	iPeli->finalizarComentario();
-cout<<"13d"<<'\n';
+//cout<<"13d"<<'\n';
 	iUser->cerrarSesion();
-cout<<"14"<<'\n';
+//cout<<"14"<<'\n';
 	//Puntajes
 	iUser->ingresarNick("chachoElNumberOne");
 	auxiliarBool=iUser->ingresarContrasenia("jorgeP4");
@@ -781,9 +862,7 @@ cout<<"14"<<'\n';
 	iPeli->finalizar();
 	iUser->cerrarSesion();
 
-
-
-cout << "Datos cargados correctamente! " << '\n';
+	cout << "Datos cargados correctamente! " << '\n';
 }
 
 void verReservas(){
@@ -792,27 +871,32 @@ void verReservas(){
 	vector<DtReserva> listaReservas;
 	listaReservas = iRes->mostrarReserva();
 	vector<DtReserva>::iterator it = listaReservas.begin();
+
 	if (listaReservas.empty()){
 		cout << "Usted no posee reservas." << '\n';
 	}
-	else{
+	else
+	{
 		int i = 1;
-		for(it = listaReservas.begin(); it!=listaReservas.end(); ++it){
+		for(it = listaReservas.begin(); it!=listaReservas.end(); ++it)
+		{
 			cout << "Pelicula: " + it->getTituloPelicula() << '\n';
 			cout << "Fecha: " + it->getFecha().toString() << '\n';
 			cout << "Hora: " + it->getHora().toString() << '\n';
 			cout << "Precio: " + to_string(it->getPrecio()) << '\n';
 			cout << "Cantidad de Asientos: " + to_string(it->getAsiento()) << '\n';
-			if (it->getTipoPago() == 'c'){
+
+			if (it->getTipoPago() == 'c') {
 				cout << "Tarjeta de Credito " << '\n';
 			}
-			else{
+			else {
 				cout << "Tarjeta de Debito " << '\n';
 			}
+
 			cout << "Cine: " + to_string(it->getNumeroCine()) << '\n';
 		}
 
 	}
-
+	listaReservas.clear();
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
