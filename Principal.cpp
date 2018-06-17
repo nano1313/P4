@@ -82,6 +82,7 @@ void altaCine(); //listo sin probar
 void altaFuncion(); //listo sin probar
 void eliminarPelicula(); //lista sin probar
 void cargarDatos();//Listo sin probar
+void cambiarHoraReloj();
 
 
 void switchNoLog(int resp);
@@ -95,163 +96,181 @@ Fabrica* fab;
 
 int main(){
 
-		/*Inicializo variables */
-		DtUsuario* usrLogueado=NULL;
-    	string menuDesplegado;//<//="Bienvenido. Elija la opción.\n1) Registrar socio\n2) Agregar mascota\n3) Ingresar consulta\n4) Ver consulta antes de una fecha\n5) Eliminar socio\n6) Obtener mascotas de un socio\n0) Salir\n";
-		string menuCabezal="******************************************************************************\n*                                                                            *\n*                               MOVIEFING                                    *\n*                                                                            *\n******************************************************************************\nBienvenido. Elija la opción.\n";
+        /*Inicializo variables */
+        DtUsuario* usrLogueado=NULL;
+    string menuDesplegado;//<//="Bienvenido. Elija la opción.\n1) Registrar socio\n2) Agregar mascota\n3) Ingresar consulta\n4) Ver consulta antes de una fecha\n5) Eliminar socio\n6) Obtener mascotas de un socio\n0) Salir\n";
+        string menuCabezal="******************************************************************************\n*                                                                            *\n*                               MOVIEFING                                    *\n*                                                                            *\n******************************************************************************\nBienvenido. Elija la opción.\n";
 
-		string menuUsuarioNoLog="1) Iniciar Sesion\n2) Ver Informacion de Pelicula\n3) Ver Comentarios y Puntaje de Pelicula\n4) Cargar Datos\n0) Salir\n";
-		string menuUsuarioLog="1) Crear Reserva\n2) Puntuar Pelicula\n3) Comentar Pelicula\n4) Ver Informacion de Pelicula\n5) Ver Comentarios y Puntaje de Pelicula\n6) Ver Reservas\n7) Cargar Datos\n8) Cerrar Sesion\n0) Cerrar Sesion y Salir\n";
-		string menuUsuarioAdmin="1) Crear Reserva\n2) Puntuar Pelicula\n3) Comentar Pelicula\n4) Ver Informacion de Pelicula\n5) Ver Comentarios y Puntaje de Pelicula\n6) Ver Reservas\n7) Alta Cine\n8) Alta Funcion\n9) Eliminar Pelicula\n10) Cargar Datos\n11) Cerrar Sesion\n0) Cerrar Sesion y Salir\n";
-		menuDesplegado=menuCabezal + menuUsuarioNoLog;
-		string respStr;
-		int resp;
-		fab=Fabrica::getInstancia();
-		IUsuario* iUsr=fab->getIUsuario();
+        string menuUsuarioNoLog="1) Iniciar Sesion\n2) Ver Informacion de Pelicula\n3) Ver Comentarios y Puntaje de Pelicula\n4) Cargar Datos\n5) Cambiar Hora Reloj\n0) Salir\n";
+        string menuUsuarioLog="1) Crear Reserva\n2) Puntuar Pelicula\n3) Comentar Pelicula\n4) Ver Informacion de Pelicula\n5) Ver Comentarios y Puntaje de Pelicula\n6) Ver Reservas\n7) Cargar Datos\n8) Cerrar Sesion\n9) Cambiar Hora Reloj\n0) Cerrar Sesion y Salir\n";
+        string menuUsuarioAdmin="1) Crear Reserva\n2) Puntuar Pelicula\n3) Comentar Pelicula\n4) Ver Informacion de Pelicula\n5) Ver Comentarios y Puntaje de Pelicula\n6) Ver Reservas\n7) Alta Cine\n8) Alta Funcion\n9) Eliminar Pelicula\n10) Cargar Datos\n11) Cerrar Sesion\n12) Cambiar Hora Reloj\n0) Cerrar Sesion y Salir\n";
+        menuDesplegado=menuCabezal + menuUsuarioNoLog;
+        string respStr;
+        int resp;
+        fab=Fabrica::getInstancia();
+        IUsuario* iUsr=fab->getIUsuario();
 
-    do{
-			try{
-				usrLogueado=iUsr->getUsuarioLog();
-				if (usrLogueado == NULL)
-				{
-					cout << menuCabezal +  menuUsuarioNoLog<<endl;
-					cin >> respStr;
-					//resp	=	StrToInt(respStr);
-					switchNoLog(stoi(respStr));
-				}else if(usrLogueado->getNivel()==1)
-				{
-					cout << menuCabezal +  menuUsuarioLog<<endl;
-					cin >> respStr;
-					//resp	=	StrToInt(respStr);
-					switchLog(stoi(respStr));
-				}else
-				{
-					cout << menuCabezal +  menuUsuarioAdmin<<endl;
-					cin >> respStr;
-					//resp	=	StrToInt(stoi(respStr));
-					switchAdmin(stoi(respStr));
-				}
-			}catch(invalid_argument a){
-				cout<< a.what() << '\n';
-			}
+    do
+        {
+        try{
+            usrLogueado=iUsr->getUsuarioLog();
+            if (usrLogueado==NULL){
+                cout << menuCabezal +  menuUsuarioNoLog<<endl;
+                cin >> respStr;
+                //resp    =    StrToInt(respStr);
+                switchNoLog(stoi(respStr));
+            }else if(usrLogueado->getNivel()==1){
+                cout << menuCabezal +  menuUsuarioLog<<endl;
+                cin >> respStr;
+                //resp    =    StrToInt(respStr);
+                switchLog(stoi(respStr));
+            }else{
+                cout << menuCabezal +  menuUsuarioAdmin<<endl;
+                cin >> respStr;
+                //resp    =    StrToInt(stoi(respStr));
+                switchAdmin(stoi(respStr));
+            }
+        }catch(invalid_argument a){
+            cout << a.what() << '\n';
+        }
     }while(respStr!="0");
 
 }
 
 void switchNoLog (int resp) {
-	switch (resp){
-		case 1:
-			iniciarSesion();
-		break;
-		case 2:
-		  	verInfoPelicula();
-		break;
-		case 3:
-			verComentariosPelicula();
-		break;
-		case 4:
-			cargarDatos();
-		/*default:
-			cout << "Por favor, seleccionar una opcion valida..." <<endl;
-		break;*/
-	}
+    switch (resp){
+        case 1:
+            iniciarSesion();
+        break;
+        case 2:
+              verInfoPelicula();
+        break;
+        case 3:
+            verComentariosPelicula();
+        break;
+        case 4:
+            cargarDatos();
+        break;
+        case 5:
+            cambiarHoraReloj();
+        break;
+    }
 }
 
 void switchLog (int resp) {
-	switch (resp){
-		case 1:
-			crearReserva();
-		break;
-		case 2:
-		  	puntuarPelicula();
-		break;
-		case 3:
-		  	comentarPelicula();
-		break;
-		case 4:
-		  	verInfoPelicula();
-		break;
-		case 5:
-			verComentariosPelicula();
-		break;
-		case 6:
-			verReservas();
-		break;
-		case 7:
-			cargarDatos();
-		break;
-		case 8:
-			cerrarSesion();
-		break;
-
-		case 0:
-			cerrarSesion();
-		break;
-	}
+    switch (resp){
+        case 1:
+            crearReserva();
+        break;
+        case 2:
+              puntuarPelicula();
+        break;
+        case 3:
+              comentarPelicula();
+        break;
+        case 4:
+              verInfoPelicula();
+        break;
+        case 5:
+            verComentariosPelicula();
+        break;
+        case 6:
+            verReservas();
+        break;
+        case 7:
+            cargarDatos();
+        break;
+        case 8:
+            cerrarSesion();
+        break;
+        case 9:
+            cambiarHoraReloj();
+        break;
+        case 0:
+            cerrarSesion();
+        break;
+    }
 }
 
 void switchAdmin (int resp) {
-	switch (resp){
-		case 1:
-			crearReserva();
-		break;
-		case 2:
-		  	puntuarPelicula();
-		break;
-		case 3:
-		  	comentarPelicula();
-		break;
-		case 4:
-		  	verInfoPelicula();
-		break;
-		case 5:
-			verComentariosPelicula();
-		break;
-		case 6:
-			verReservas();
-		break;
-		case 7:
-			altaCine();
-		break;
-		case 8:
-			altaFuncion();
-		break;
-		case 9:
-			eliminarPelicula();
-		break;
-		case 10:
-			cargarDatos();
-		break;
-		case 11:
-			cerrarSesion();
-		break;
-		case 0:
-			cerrarSesion();
-		break;
-	}
+    switch (resp){
+        case 1:
+            crearReserva();
+        break;
+        case 2:
+              puntuarPelicula();
+        break;
+        case 3:
+              comentarPelicula();
+        break;
+        case 4:
+              verInfoPelicula();
+        break;
+        case 5:
+            verComentariosPelicula();
+        break;
+        case 6:
+            verReservas();
+        break;
+        case 7:
+            altaCine();
+        break;
+        case 8:
+            altaFuncion();
+        break;
+        case 9:
+            eliminarPelicula();
+        break;
+        case 10:
+            cargarDatos();
+        break;
+        case 11:
+            cerrarSesion();
+        break;
+        case 12:
+            cambiarHoraReloj();
+        break;
+        case 0:
+            cerrarSesion();
+        break;
+    }
 }
 
-void iniciarSesion() {
-			IUsuario * iUser = fab->getIUsuario();
-			string aux = ""; //Guardara las respuestas del usuario
+void iniciarSesion(){
+            IUsuario* iUser =fab->getIUsuario();
+            string aux="";//Guardara las respuestas del usuario
+            bool flagWhile;//Sera la bandera para seguir iterando
 
-			bool flagWhile; //Sera la bandera para seguir iterando
+            do {
+                cout << "Ingresa tu nick: " << '\n';
+                cin >> aux;
+                iUser->ingresarNick(aux);
+                cout << "Ingresa tu password: " << '\n';
+                cin >> aux;
+                flagWhile=iUser->ingresarContrasenia(aux);
 
-			do {
-				cout << "Ingresa tu nick: " << '\n';
-				cin >> aux;
-				iUser->ingresarNick(aux);
-				cout << "Ingresa tu password: " << '\n';
-				cin >> aux;
-				flagWhile = iUser->ingresarContrasenia(aux);
+                if(!flagWhile) {
+                    cout << "Datos incorrectos... \nDesea volver a intentar(S/N):" << '\n';
+                    cin >> aux;
+                    flagWhile=(aux=="n" || aux=="N");//Si no desea intentar mas
+                }
+            } while(!flagWhile);
+}
 
-				if (!flagWhile) {
-					cout << "Datos incorrectos... \nDesea volver a intentar(S/N):" << '\n';
-					cin >> aux;
-					flagWhile = (aux == "n" || aux == "N");//Si no desea intentar mas
-				}
 
-			}while(!flagWhile);
+void cambiarHoraReloj() {
+    Reloj* reloj =Reloj::getInstancia();
+    DtFecha fecha;
+    DtHora hora;
+    string auxFecha="", auxHora="";
+    cout << "Ingresa la fecha (dd/mm/yyyy): " << '\n';
+    cin >> auxFecha;
+    fecha=auxFecha; //sobre carga operador=
+    cout << "Ingresa la hora (hh:mm): " << '\n';
+    cin >> auxHora;
+    hora=auxHora;
+    reloj->modificarFecha(fecha, hora);
+
 }
 
 void cerrarSesion() {
