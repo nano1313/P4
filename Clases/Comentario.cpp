@@ -58,11 +58,17 @@ void Comentario::agregarRespuesta(Comentario * comentario) {
 	this->respuestas.push_back(comentario);
 }
 void Comentario::destroy(){
-	vector <Comentario *> :: iterator it;
 	this->usuario=NULL;
-	for (it = this->respuestas.begin(); it !=this->respuestas.end(); ++it)
-    {
-		this->respuestas.erase(it);
-		delete(*it);
+	vector <Comentario *> aux = this->respuestas;
+	if (!aux.empty()){
+		vector <Comentario *> :: iterator it;
+		Comentario *p;
+		for (it = aux.begin(); it != aux.end(); ++it)
+    	{	
+			p=*it;
+			p->destroy();
+			delete(p);
+		}
 	}
+	aux.clear();
 }
