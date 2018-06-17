@@ -104,7 +104,7 @@ int main(){
 
         string menuUsuarioNoLog="1) Iniciar Sesion\n2) Ver Informacion de Pelicula\n3) Ver Comentarios y Puntaje de Pelicula\n4) Cargar Datos\n5) Cambiar Hora Reloj\n0) Salir\n";
         string menuUsuarioLog="1) Crear Reserva\n2) Puntuar Pelicula\n3) Comentar Pelicula\n4) Ver Informacion de Pelicula\n5) Ver Comentarios y Puntaje de Pelicula\n6) Ver Reservas\n7) Cargar Datos\n8) Cerrar Sesion\n9) Cambiar Hora Reloj\n0) Cerrar Sesion y Salir\n";
-        string menuUsuarioAdmin="1) Crear Reserva\n2) Puntuar Pelicula\n3) Comentar Pelicula\n4) Ver Informacion de Pelicula\n5) Ver Comentarios y Puntaje de Pelicula\n6) Ver Reservas\n7) Alta Cine\n8) Alta Funcion\n9) Eliminar Pelicula\n10) Cargar Datos\n11) Cerrar Sesion\n12) Cambiar Hora Reloj\n0) Cerrar Sesion y Salir\n";
+        string menuUsuarioAdmin="1) Crear Reserva\n2) Puntuar Pelicula\n3) Comentar Pelicula\n4) Ver Informacion de Pelicula\n5) Ver Comentarios y Puntaje de Pelicula\n6) Ver Reservas\n7) Alta Cine\n8) Alta Funcion\n9) Eliminar Pelicula\n10) Cargar Datos\n11) Cerrar Sesion\n12) Ver/Modificar Reloj\n0) Cerrar Sesion y Salir\n";
         menuDesplegado=menuCabezal + menuUsuarioNoLog;
         string respStr;
         int resp;
@@ -263,14 +263,19 @@ void cambiarHoraReloj() {
     Reloj* reloj =Reloj::getInstancia();
     DtFecha fecha;
     DtHora hora;
-    string auxFecha="", auxHora="";
-    cout << "Ingresa la fecha (dd/mm/yyyy): " << '\n';
-    cin >> auxFecha;
-    fecha=auxFecha; //sobre carga operador=
-    cout << "Ingresa la hora (hh:mm): " << '\n';
-    cin >> auxHora;
-    hora=auxHora;
-    reloj->modificarFecha(fecha, hora);
+		string auxFecha="", auxHora="", aux="";
+		cout << "Fecha/Hora actual: " + reloj->consultarFecha().toString()<<'\n';
+		cout << "Desea cambiar la Fecha y Hora? (S/N) " << '\n';
+    cin >> aux;
+		if (aux=="S" || aux=="s"){
+	    cout << "Ingresa la fecha (dd/mm/yyyy): " << '\n';
+	    cin >> auxFecha;
+	    fecha=auxFecha; //sobre carga operador=
+	    cout << "Ingresa la hora (hh:mm): " << '\n';
+	    cin >> auxHora;
+	    hora=auxHora;
+	    reloj->modificarFecha(fecha, hora);
+		}
 
 }
 
