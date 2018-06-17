@@ -1,6 +1,7 @@
 #include "../Definiciones/Pelicula.hpp"
 #include "../Definiciones/Puntaje.hpp"
 #include "../Definiciones/Funcion.hpp"
+
 Pelicula::Pelicula(string titulo, string poster, string sinopsis, float duracion) {
     this->titulo = titulo;
     this->poster = poster;
@@ -45,9 +46,12 @@ map<string, Puntaje *> Pelicula::getPuntajes() {
 void Pelicula::addPuntaje(string usr, int puntos){
     map<string, Puntaje * >::iterator it; 
     it = this->puntajes.find(usr);
-    if (it!=this->puntajes.end()){   
+    
+    if (it!=this->puntajes.end())
+    {   
         it->second->setValor(puntos);
-    }else{
+    }else
+    {
         puntajes[usr]=new Puntaje(puntos);
     }
 }
@@ -61,7 +65,6 @@ map<int, Comentario *> Pelicula::getComentarios() {
 }
 
 Comentario * Pelicula::getComentario(int num){
-
 	map<int, Comentario *>::iterator it = this->comentarios.begin();
 
     for (it = this->comentarios.begin(); it!=this->comentarios.end(); ++it) {
@@ -74,7 +77,7 @@ Comentario * Pelicula::getComentario(int num){
         }
 		else if(!it->second->getRespuestas().empty()){
             Comentario *p = getComentario2(it->second,num);
-			if(p!=NULL){
+			if(p!=NULL) {
 				return p;
 				break;
 			}
@@ -82,6 +85,7 @@ Comentario * Pelicula::getComentario(int num){
 	}
 	return NULL;
 }
+
 Comentario * Pelicula::getComentario2(Comentario *c,int id){
 	if(!c->getRespuestas().empty()){
         vector<Comentario *>::iterator it;
@@ -140,20 +144,18 @@ int* Pelicula::darListaCine() {         return NULL;
 }
 */
 Funcion * Pelicula::seleccionarFuncion(int numero) {
-    //map<int, Funcion *>::iterator it = this->funciones.begin();
-	return funciones[numero];
-   /* while(it->first!=numero){
-        it++;
-    }
-    return it->second;*/
+    return funciones[numero];
 }
+
 void Pelicula::agregarNuevoComentario(Comentario * comentario) {
     this->comentarios[comentario->getId()] = comentario;
 }
+
 void Pelicula::agregarNuevaRespuesta(Comentario * comentario, int padre) {
     vector<Comentario*> respuestas = this->comentarios[padre]->getRespuestas();
     respuestas.push_back(comentario);
 }
+
 void Pelicula::destroy(){
     map<string, Puntaje *>::iterator it1 = this->puntajes.begin();
     //map<int, Cine *>::iterator it = cines.begin();

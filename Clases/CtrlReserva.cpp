@@ -16,11 +16,16 @@ CtrlReserva* CtrlReserva::getInstancia()
     return instancia;
 }
 
-void CtrlReserva::seleccionarFuncion(int num, int cantAsientos) {
+int CtrlReserva::seleccionarFuncion(int num, int cantAsientos) {
     CtrlPelicula *ctrl = ctrl->getInstancia(); //global en un futuro 
     Pelicula *peli = ctrl->getPelicula();
+
     this->cant = cantAsientos; //global en un futuro
     this->f = peli->seleccionarFuncion(num);
+    Sala * sala = this->f->getSala();
+    sala->setOcupados(cantAsientos);
+    
+    return (sala->getCapacidad() - cantAsientos);
 }
 
 DtPago CtrlReserva::pagoCredito(string nomFin) {
@@ -36,7 +41,7 @@ DtPago CtrlReserva::pagoCredito(string nomFin) {
     return res;    
 }
 
-int CtrlReserva::pagoDebito(string nomBanco){
+int CtrlReserva::pagoDebito(string nomBanco) {
     Sala *s = this->f->getSala();
     Cine *c = s->getCine();
     this->total = (c->getPrecio()*this->cant);     //GLOBAL A FUTURO
@@ -45,7 +50,7 @@ int CtrlReserva::pagoDebito(string nomBanco){
     return total;
 }
 
-void CtrlReserva::crearReserva(){
+void CtrlReserva::crearReserva() {
     Reserva* r = new Reserva(this->cant,this->total,this->tar,this->f);
     //Reserva *ptr = &r;
     this->f->aniadirReserva(r);

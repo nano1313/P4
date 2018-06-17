@@ -36,7 +36,7 @@ class CtrlReserva : public IReserva {
         int total;
 	public:
          static CtrlReserva* getInstancia();
-	     void seleccionarFuncion(int num, int cantAsientos);
+	     int seleccionarFuncion(int num, int cantAsientos);
          DtPago pagoCredito(string nomFin);
          int pagoDebito(string nomBanco);
          void crearReserva();
