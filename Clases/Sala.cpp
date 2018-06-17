@@ -61,4 +61,5 @@ void Sala::setFunciones(map<int, Funcion*> funciones){
 
 void Sala::eliminarFuncion(Funcion *funcion){
 
+	this->funciones.erase(funcion->getNumero());
 }
