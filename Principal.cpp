@@ -131,7 +131,7 @@ int main(){
 					//resp	=	StrToInt(stoi(respStr));
 					switchAdmin(stoi(respStr));
 				}
-			}catch(invlid_argument a){
+			}catch(invalid_argument a){
 				cout<< a.what() << '\n';
 			}
     }while(respStr!="0");
@@ -151,9 +151,9 @@ void switchNoLog (int resp) {
 		break;
 		case 4:
 			cargarDatos();
-		default:
+		/*default:
 			cout << "Por favor, seleccionar una opcion valida..." <<endl;
-		break;
+		break;*/
 	}
 }
 
@@ -505,10 +505,12 @@ void verComentariosPelicula(){
 	iPeli->seleccionarPelicula2(aux);
 	vector<DtComentario> listaComentarios=iPeli->darListaComentarios();
 	cout << aux << '\n';
-
+	cout << "	Comentarios: " << '\n';
 	mostrarComentario(listaComentarios, 0);
 	vector<DtPuntaje> listaPuntaje=iPeli->darListaPuntajes();
-	cout << "Puntajes" << '\n';
+	DtPelicula peli = iPeli->seleccionarPelicula1(aux);
+	cout << "Puntaje promedio: " + to_string(peli.getPromPuntaje()) + " <" + to_string(listaPuntaje.size()) + " usuario/os>" << '\n';
+	cout << "	Puntajes: " << '\n';
 	for(vector<DtPuntaje>::iterator it=listaPuntaje.begin(); it!=listaPuntaje.end(); ++it){
 			cout << (*it).getUsuario() + ": " + to_string((*it).getPuntaje())<< '\n';
 	}
@@ -526,7 +528,7 @@ void mostrarComentario(vector<DtComentario> l, int tab){
 			altura=altura + "		";
 	}
 	for(vector<DtComentario>::iterator it=l.begin(); it!=l.end(); ++it){
-			cout << altura + to_string((*it).getId()) + "<" + (*it).getUsuario() + ">:<" + (*it).getDescripcion() + ">" << '\n';
+			cout << altura + to_string((*it).getId()) + " <" + (*it).getUsuario() + "> : <" + (*it).getDescripcion() + ">" << '\n';
 			mostrarComentario((*it).getRespuestas(), tab+1);
 	}
 }
