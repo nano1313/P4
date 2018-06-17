@@ -31,6 +31,11 @@ Cine* Sala::getCine() {
 	return this->cine;
 }
 
+map<int, Funcion *> Sala::getFunciones(){
+
+	return this->funciones;
+}
+
 /* Setters */
 
 void Sala::setNumero(int numero) {
@@ -48,4 +53,12 @@ void Sala::setOcupados(int ocupados) {
 
 void Sala::setCine(Cine *cine) {
 	this->cine = cine;
+}
+
+void Sala::setFunciones(map<int, Funcion*> funciones){
+	this->funciones = funciones;
+}
+
+void Sala::eliminarFuncion(Funcion *funcion){
+
 }

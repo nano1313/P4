@@ -5,10 +5,13 @@
 #include <string.h>
 #include <stdlib.h>
 #include "./Cine.hpp"
+#include "./Funcion.hpp"
+#include <map>
 
 using namespace std;
 
 class Cine;
+class Funcion;
 
 class Sala {
 	private:
@@ -16,6 +19,7 @@ class Sala {
 		int capacidad;
 		int ocupados;
 		Cine * cine;
+		map<int, Funcion *> funciones;
 
 	public:
 		/* Getters */
@@ -23,12 +27,15 @@ class Sala {
 		int getCapacidad();
 		int getOcupados();
 		Cine * getCine();
+		map<int, Funcion *> getFunciones();
 
 		/* Setters */
 		void setNumero(int numero);
 		void setCapacidad(int capacidad);
 		void setOcupados(int ocupado);
 		void setCine(Cine *cine);
+		void setFunciones(map<int, Funcion*> funciones);
+		void eliminarFuncion(Funcion *funcion);
 
         Sala();
 		Sala(int numero, int capacidad);

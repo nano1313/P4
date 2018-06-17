@@ -20,6 +20,7 @@ using namespace std;
 
 class Reserva;
 class Pelicula;
+class Sala;
 
 class Funcion {
 	private:
