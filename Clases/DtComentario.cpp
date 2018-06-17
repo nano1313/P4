@@ -21,6 +21,12 @@ vector<DtComentario> DtComentario::getRespuestas() {
 	return this->respuestas;
 }
 
+int DtComentario::getId(){
+	
+	return this->id;
+	
+}
+
 /* Setters */
 
 void DtComentario::setUsuario(string usuario) {

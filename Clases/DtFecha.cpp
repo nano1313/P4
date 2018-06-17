@@ -7,6 +7,14 @@ DtFecha::DtFecha(){
 }
 
 DtFecha::DtFecha(int _dia, int _mes, int _anio){
+	if (_dia>31 || _dia <1){
+		throw invalid_argument("DIA NO VALIDO");
+	}else if(_mes>31 || _mes <1){
+		throw invalid_argument("MES NO VALIDO");
+		
+	}else if(_anio <0){
+		throw invalid_argument("ANIO NO VALIDO");
+	}
 	dia=_dia;
 	mes=_mes;
 	anio=_anio;
@@ -34,14 +42,24 @@ unsigned int DtFecha::getAnio(){
 }
 
 void DtFecha::setDia(int d){
+	if (d>31 ||  d<1){
+		throw invalid_argument("DIA NO VALIDO");
+	}
 	 dia=d;
 }
 
 void DtFecha::setMes(int m){
+	if(m>12 || m <1){
+		throw invalid_argument("MES NO VALIDO");
+		
+	}
 	 mes=m;
 }
 
 void DtFecha::setAnio(int a){
+	if (a <1){
+		throw invalid_argument("ANIO NO VALIDO");
+	}
 	 anio=a;
 }
 /*
@@ -49,11 +67,21 @@ ostream& DtFecha::operator<<(ostream& cout, DtFecha& f){
 	cout<<f.getDia()<<"/"<<f.getMes()<<"/"<<f.getAnio();
 }
 */
-
 void DtFecha::operator=(const string& s){
-	dia=stoi(s.substr(0,2));
-	mes=stoi(s.substr(3,2));
-	anio=stoi(s.substr(6,4));
+	int _dia=stoi(s.substr(0,2));
+	int _mes=stoi(s.substr(3,2));
+	int _anio=stoi(s.substr(6,4));
+	if (_dia>31 || _dia <1){
+		throw invalid_argument("DIA NO VALIDO");
+	}else if(_mes>31 || _mes <1){
+		throw invalid_argument("MES NO VALIDO");
+		
+	}else if(_anio <0){
+		throw invalid_argument("ANIO NO VALIDO");
+	}
+	dia=_dia;
+	mes=_mes;
+	anio=_anio;
 }
 bool DtFecha::operator<(const DtFecha& r){
 	return (anio<r.anio) || (anio==r.anio && mes<r.mes) || (anio==r.anio && mes==r.mes && dia<r.dia);
