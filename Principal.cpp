@@ -36,6 +36,7 @@
 #include "./Definiciones/Sala.hpp"
 #include "./Definiciones/Tarjeta.hpp"
 #include "./Definiciones/Usuario.hpp"
+#include "./Definiciones/Reloj.hpp"
 
 /*
 #include "./Clases/Cine.cpp"
