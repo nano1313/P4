@@ -339,25 +339,32 @@ vector<DtComentario> CtrlPelicula::darListaComentarios() {
 
     map<int, Comentario *> comentarios = this->pelicula->getComentarios(); /* Todos los comentarios de la Pelicula */
     vector<DtComentario> comentario_devolver;
-    vector<DtComentario> respuestasDeComentario;
+    comentario_devolver.clear();
 
     for (map<int, Comentario *>::iterator it = comentarios.begin(); it!=comentarios.end(); ++it) /* Para cada comentario de la pelicula */
     {
-        vector<Comentario *> pibot = it->second->getRespuestas(); /* Agarro las respuestas */
-
-        for (Comentario * c : pibot) /* Para cada respuesta creo un DtComentario */
-        {
-            vector<DtComentario> respuesta; /* <-- Vacio */
-            respuestasDeComentario.push_back( DtComentario(c->getId(), c->getUsuario()->getNickname(), c->getDesc(), respuesta));
-        }
-
-        DtComentario nuevo = DtComentario(it->second->getId(), it->second->getUsuario()->getNickname(), it->second->getDesc(), respuestasDeComentario); /* Creo el comentario con sus respuestas */
-        comentario_devolver.push_back(nuevo);
+        DtComentario nuevo = DtComentario(it->second->getIdGral(),it->second->getUsuario()->getNickname(),it->second->getDesc(),darListaComentarios2(it->second));
+        comentario_devolver.push_back(nuevo); 
+        
     }
 
     return comentario_devolver;
 }
-
+vector<DtComentario> CtrlPelicula::darListaComentarios2(Comentario *c){
+    vector<Comentario *> pibot = c->getRespuestas();
+    vector<DtComentario> res;
+    res.clear();
+    if(!pibot.empty()){
+        vector<Comentario *>::iterator it;
+        Comentario *aux;
+        for(it = pibot.begin(); it!= pibot.end(); ++it){
+            aux=*it;
+            DtComentario nuevo = DtComentario(aux->getIdGral(),aux->getUsuario()->getNickname(),aux->getDesc(),darListaComentarios2(aux));
+            res.push_back(nuevo);
+        }
+    }
+return res;
+}
 vector<DtPuntaje> CtrlPelicula::darListaPuntajes() {
     vector<DtPuntaje> vpuntajes;
 

@@ -69,6 +69,7 @@ class CtrlPelicula : public IPelicula {
 
         //CU Comentar pelicula
         vector<DtComentario> darListaComentarios(); //Hecha
+        vector<DtComentario> darListaComentarios2(Comentario *c);
         void crearComentario(string texto); //Hecha
         void responderComentario(string texto); //Hecha
         void seleccionarComentario(int id); //Hecha
