@@ -62,11 +62,7 @@ void DtFecha::setAnio(int a){
 	}
 	 anio=a;
 }
-/*
-ostream& DtFecha::operator<<(ostream& cout, DtFecha& f){
-	cout<<f.getDia()<<"/"<<f.getMes()<<"/"<<f.getAnio();
-}
-*/
+
 void DtFecha::operator=(const string& s){
 	int _dia=stoi(s.substr(0,2));
 	int _mes=stoi(s.substr(3,2));

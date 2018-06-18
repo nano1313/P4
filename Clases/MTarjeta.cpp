@@ -6,6 +6,9 @@ Mtarjeta::Mtarjeta(){
 	Creditos["OCA"]= new Credito("OCA", 15);
 	Creditos["CREDITEL"]= new Credito("CREDITEL", 20);
 	Debitos["BROU"]= new Debito("BROU");
+    Debitos["ITAU"]= new Debito("ITAU");
+    Debitos["SANTANDER"]= new Debito("SANTANDER");
+    Debitos["SCOTIABANK"]= new Debito("SCOTIABANK");
 }
 
 Mtarjeta* Mtarjeta::getInstancia(){

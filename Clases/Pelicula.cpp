@@ -135,14 +135,7 @@ void Pelicula::generarId(){
 }
 
 /* Metodos */
-/*
-int* Pelicula::seleccionarCine(int id) {    return NULL;
-    //
-}
-int* Pelicula::darListaCine() {         return NULL;
-    //
-}
-*/
+
 Funcion * Pelicula::seleccionarFuncion(int numero) {
     return funciones[numero];
 }
@@ -158,7 +151,7 @@ void Pelicula::agregarNuevaRespuesta(Comentario * comentario, int padre) {
 
 void Pelicula::destroy(){
     map<string, Puntaje *>::iterator it1 = this->puntajes.begin();
-    //map<int, Cine *>::iterator it = cines.begin();
+    
     for (it1 = this->puntajes.begin(); it1 !=this->puntajes.end(); ++it1)
     {
         this->puntajes.erase(it1->first);

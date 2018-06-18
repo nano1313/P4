@@ -25,12 +25,6 @@ Sala* Funcion::getSala() {
 	return this->sala;
 }
 
-/*
-float Funcion::getPrecio() {
-	return this->precio;
-}
-*/
-
 set<Reserva *> Funcion::getReservas(){
 	return this->reservas;
 }
@@ -75,9 +69,3 @@ void Funcion::aniadirReserva(Reserva *r){
 	this->reservas.insert(r);
 }
 
-
-/*
-void Funcion::setPrecio(float precio) {
-	this->precio = precio;
-}
-*/

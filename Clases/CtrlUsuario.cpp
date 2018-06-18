@@ -61,6 +61,5 @@ void CtrlUsuario::crearUsuario(string nick, string pass, string imagen, int nive
 
   Usuario* usr= new Usuario(nick, pass, imagen, nivel);
   usuarios[nick]=usr;
-  //usuarios.insert(std::pair<string, Usuario*>(nick,usr));
 
 }

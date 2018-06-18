@@ -244,22 +244,7 @@ bool CtrlPelicula::yaPuntuo() {
 	map<string, Puntaje * >::iterator it;	
 	it = puntajes.find(nickname);
 	return it!=puntajes.end();	
-/*
-	}else{
-		puntajes[usr]=new Puntaje(puntos);
-	}
 
-
-
-    for (map<string,Puntaje *>::iterator it = puntajes.begin(); it!=puntajes.end(); ++it)
-    {
-        if (it->second->getUsuario()->getNickname() == nickname)
-        {
-            return true;
-        }
-    }
-
-    return false;*/
 }
 
 int CtrlPelicula::mostrarPuntaje() {
@@ -285,29 +270,10 @@ int CtrlPelicula::mostrarPuntaje() {
 
 void CtrlPelicula::ingresarPuntaje(int puntaje) {
 
-    
     CtrlUsuario *ctrl = ctrl->getInstancia();
     this->usuario = ctrl->getUserlog();
-
-    //map<string, Puntaje *> puntajes = this->pelicula->getPuntajes();
     string nickname = this->usuario->getNickname();
-   /* bool agregar = false;
-
-    for (map<string,Puntaje *>::iterator it = puntajes.begin(); it!=puntajes.end(); ++it)
-    {
-        if (it->first == nickname)
-        {
-            it->second->setValor(numero);
-            agregar = true;
-        }
-    }*/
-
-    //if (!agregar)
-  // {	
 	this->pelicula->addPuntaje(nickname,puntaje);
-        //Puntaje * puntaje = new Puntaje(numero);
-        //puntajes[nickname] = puntaje;
-   // }
 }
 
 void CtrlPelicula::crearComentario(string text) {

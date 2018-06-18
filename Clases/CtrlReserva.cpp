@@ -17,10 +17,10 @@ CtrlReserva* CtrlReserva::getInstancia()
 }
 
 int CtrlReserva::seleccionarFuncion(int num, int cantAsientos) {
-    CtrlPelicula *ctrl = ctrl->getInstancia(); //global en un futuro 
+    CtrlPelicula *ctrl = ctrl->getInstancia(); 
     Pelicula *peli = ctrl->getPelicula();
 
-    this->cant = cantAsientos; //global en un futuro
+    this->cant = cantAsientos; 
     this->f = peli->seleccionarFuncion(num);
     Sala * sala = this->f->getSala();
     sala->setOcupados(cantAsientos);
@@ -44,7 +44,7 @@ DtPago CtrlReserva::pagoCredito(string nomFin) {
 int CtrlReserva::pagoDebito(string nomBanco) {
     Sala *s = this->f->getSala();
     Cine *c = s->getCine();
-    this->total = (c->getPrecio()*this->cant);     //GLOBAL A FUTURO
+    this->total = (c->getPrecio()*this->cant);
     Mtarjeta *t = t->getInstancia();
     this->tar = t->encontrarInstanciaDebito(nomBanco);
     return total;
@@ -52,7 +52,6 @@ int CtrlReserva::pagoDebito(string nomBanco) {
 
 void CtrlReserva::crearReserva() {
     Reserva* r = new Reserva(this->cant,this->total,this->tar,this->f);
-    //Reserva *ptr = &r;
     this->f->aniadirReserva(r);
     CtrlUsuario *ctrl = ctrl->getInstancia();  //este es el usuario que estaria logeado 
     Usuario *u = ctrl->getUserlog(); 
@@ -83,19 +82,13 @@ vector<DtReserva> CtrlReserva::mostrarReserva() {
     
     vector<DtReserva> devolver;
     set<Reserva *>::iterator it;
-	//cout<<"1"<<'\n';
     for (it = reservas.begin(); it != reservas.end(); ++it) {
-	Reserva* r=(*it);
-	
-        Tarjeta * tarjeta = r->getTarjeta();
-	//cout<<"2"<<'\n';
-        char tipoPago;
-	
-	
+	Reserva* r=(*it);	
+    Tarjeta * tarjeta = r->getTarjeta();
+    char tipoPago;
 	Credito * d = dynamic_cast<Credito*>(&(*tarjeta));
-
-	//cout<<"3"<<'\n';
-        if (d==nullptr)
+    
+    if (d==nullptr)
         {
             tipoPago = 'C';
         }else
@@ -103,9 +96,6 @@ vector<DtReserva> CtrlReserva::mostrarReserva() {
             tipoPago = 'D';
         }
         
-        //cout<<"4"<<'\n';
-        //Debito * d = dynamic_cast<Debito*>(tarjeta);
-	
 	DtFecha f=r->getFuncion()->getFecha();
         DtHora h=r->getFuncion()->getHora();
         float c=r->getCosto();
@@ -113,9 +103,7 @@ vector<DtReserva> CtrlReserva::mostrarReserva() {
         char c2=tipoPago;
 	int asd=r->getFuncion()->getSala()->getCine()->getNumero();
 	
-//cout<<"5"<<'\n';
-        
-        DtReserva agregar = DtReserva(r->getFuncion()->getPelicula()->getTitulo(),
+    DtReserva agregar = DtReserva(r->getFuncion()->getPelicula()->getTitulo(),
                                         r->getFuncion()->getFecha(),
                                         r->getFuncion()->getHora(),
                                         r->getCosto(),
