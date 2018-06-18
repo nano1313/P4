@@ -59,9 +59,9 @@ void Sala::setFunciones(map<int, Funcion*> funciones){
 	this->funciones = funciones;
 }
 
-void Sala::eliminarFuncion(Funcion *funcion){
+void Sala::eliminarFuncion(int id){
 
-	this->funciones.erase(funcion->getNumero());
+	this->funciones.erase(id);
 }
 
 void Sala::agregarFuncion(Funcion *funcion){
