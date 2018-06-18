@@ -22,7 +22,7 @@ class Pelicula {
 		string sinopsis;
 		float promPuntaje;
 		int idgen = 0;
-		float duracion;
+		DtHora duracion;
 		int cantidadComentarios;
 		map<int, Funcion *> funciones;
 		map<string, Puntaje *> puntajes;
@@ -35,7 +35,7 @@ class Pelicula {
 		string getPoster();
 		string getSinopsis();
 		float getPromPuntaje();
-		float getDuracion();
+		DtHora getDuracion();
 		int getCantidadComentarios();
 		int getIdGen();
 		map<int, Funcion *> getFunciones();
@@ -49,7 +49,7 @@ class Pelicula {
 		void setPoster(string poster);
 		void setSinopsis(string sinopsis);
 		void setPromPuntaje(float promPuntaje);
-		void setDuracion(float duracion);
+		void setDuracion(DtHora duracion);
 		void masUnoComentario();
 		void generarId();
 
@@ -63,7 +63,7 @@ class Pelicula {
 		void destroy();        	
 
         Pelicula();
-		Pelicula(string titulo, string poster,string sinopsis, float duracion);
+		Pelicula(string titulo, string poster,string sinopsis, DtHora duracion);
 		~Pelicula();
 };
 

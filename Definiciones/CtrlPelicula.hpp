@@ -62,7 +62,7 @@ class CtrlPelicula : public IPelicula {
         bool yaPuntuo(); //Hecha
         int mostrarPuntaje(); //Hecha
         void ingresarPuntaje(int puntaje); //Hecha
-        void altaPelicula(string titulo, string sinopsis, string portada, float duracion); //Hecha
+        void altaPelicula(string titulo, string sinopsis, string portada, DtHora duracion); //Hecha
 
 	void altaFuncion(DtFecha fecha, DtHora hora);
 

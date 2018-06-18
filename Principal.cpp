@@ -745,10 +745,12 @@ void cargarDatos(){
 	iPeli->confirmarAltaCine();
 //cout<<"3"<<'\n';
 	//PELICULAS
-	iPeli->altaPelicula("The Vindicators 3", "Tercera entrega de la saga de superheroes.", "/home/accion/posters/vindicators.png", 180);
-	iPeli->altaPelicula("Sangre de campeones", "Documental", "/home/accion/posters/scampeones.png", 180);
-	iPeli->altaPelicula("El insulto", "Drama libanes.", "/home/accion/posters/elinsulto.png", 180);
-	iPeli->altaPelicula("La noche que no se repite", "Drama libanes.", "/home/accion/posters/elinsulto.png", 180);
+	DtHora h;
+	h = "01:00";
+	iPeli->altaPelicula("The Vindicators 3", "Tercera entrega de la saga de superheroes.", "/home/accion/posters/vindicators.png", h);
+	iPeli->altaPelicula("Sangre de campeones", "Documental", "/home/accion/posters/scampeones.png", h);
+	iPeli->altaPelicula("El insulto", "Drama libanes.", "/home/accion/posters/elinsulto.png", h);
+	iPeli->altaPelicula("La noche que no se repite", "Drama libanes.", "/home/accion/posters/elinsulto.png", h);
 //cout<<"4"<<'\n';
 	//Funciones
 	DtFecha fecha;

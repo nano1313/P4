@@ -77,3 +77,15 @@ void DtHora::operator=(const string& s){
 	this->minutos=_minutos;
 }
 
+bool DtHora::operator<(const DtHora& r){
+	return (hora<r.hora) || (hora==r.hora && minutos<r.minutos);
+}
+
+DtHora DtHora::operator+(const DtHora& r){
+	DtHora h = DtHora();
+	h.setHora(hora + r.hora);
+	h.setMinutos(minutos + r.minutos);
+
+	return h;
+}
+

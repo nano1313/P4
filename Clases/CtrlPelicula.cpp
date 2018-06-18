@@ -350,6 +350,7 @@ vector<DtComentario> CtrlPelicula::darListaComentarios() {
 
     return comentario_devolver;
 }
+
 vector<DtComentario> CtrlPelicula::darListaComentarios2(Comentario *c){
     vector<Comentario *> pibot = c->getRespuestas();
     vector<DtComentario> res;
@@ -365,6 +366,7 @@ vector<DtComentario> CtrlPelicula::darListaComentarios2(Comentario *c){
     }
 return res;
 }
+
 vector<DtPuntaje> CtrlPelicula::darListaPuntajes() {
     vector<DtPuntaje> vpuntajes;
 
@@ -399,15 +401,15 @@ void CtrlPelicula::confirmarEliminar() {
 }
 
 
-void CtrlPelicula::altaPelicula(string titulo, string sinopsis, string portada, float duracion) {
+void CtrlPelicula::altaPelicula(string titulo, string sinopsis, string portada, DtHora duracion) {
     
-    Pelicula *nuevaPeli = new Pelicula(titulo, portada, sinopsis, duracion);
+    Pelicula * nuevaPeli = new Pelicula(titulo, portada, sinopsis, duracion);
     this->peliculas[titulo] = nuevaPeli;
 
 }
 void CtrlPelicula::altaFuncion(DtFecha fecha,DtHora hora){
     this->numfuncion++;
-    Funcion *f = new Funcion(this->numfuncion,fecha,hora,this->sala, this->pelicula);
+    Funcion * f = new Funcion(this->numfuncion, fecha, hora, this->sala, this->pelicula);
     this->pelicula->agregarFuncion(f);
  
 }

@@ -2,6 +2,7 @@
 #define DTPELICULA_HH
 
 #include <iostream>
+#include "./DtHora.hpp"
 
 using namespace std;
 
@@ -11,7 +12,7 @@ class DtPelicula {
 		string poster;
 		string sinopsis;
 		float promPuntaje;
-		float duracion;
+		DtHora duracion;
 
   public:
 		/* Getters */
@@ -19,17 +20,17 @@ class DtPelicula {
 		string getPoster();
 		string getSinopsis();
 		float getPromPuntaje();
-		float getDuracion();
+		DtHora getDuracion();
 
 		/* Setters */
 		void setTitulo(string titulo);
 		void setPoster(string poster);
 		void setSinopsis(string sinopsis);
 		void setPromPuntaje(float promPuntaje);
-		void setDuracion(float duracion);
+		void setDuracion(DtHora duracion);
 
     DtPelicula();
-    DtPelicula(string titulo, string poster,string sinopsis, float promPuntaje, float duracion);
+    DtPelicula(string titulo, string poster,string sinopsis, float promPuntaje, DtHora duracion);
     //~DtPelicula();
 };
 

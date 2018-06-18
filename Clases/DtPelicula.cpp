@@ -1,6 +1,6 @@
 #include "../Definiciones/DtPelicula.hpp"
 
-DtPelicula::DtPelicula(string titulo, string poster, string sinopsis, float promPuntaje, float duracion) {
+DtPelicula::DtPelicula(string titulo, string poster, string sinopsis, float promPuntaje, DtHora duracion) {
 	this->titulo = titulo;
 	this->poster = poster;
 	this->sinopsis = sinopsis;
@@ -34,7 +34,7 @@ float DtPelicula::getPromPuntaje() {
 	return this->promPuntaje;
 }
 
-float DtPelicula::getDuracion() {
+DtHora DtPelicula::getDuracion() {
 	return this->duracion;
 }
 
@@ -56,6 +56,6 @@ void DtPelicula::setPromPuntaje(float promPuntaje) {
 	this->promPuntaje = promPuntaje;
 }
 
-void DtPelicula::setDuracion(float duracion) {
+void DtPelicula::setDuracion(DtHora duracion) {
 	this->duracion = duracion;
 }

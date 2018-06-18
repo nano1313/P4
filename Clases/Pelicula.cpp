@@ -2,7 +2,7 @@
 #include "../Definiciones/Puntaje.hpp"
 #include "../Definiciones/Funcion.hpp"
 
-Pelicula::Pelicula(string titulo, string poster, string sinopsis, float duracion) {
+Pelicula::Pelicula(string titulo, string poster, string sinopsis, DtHora duracion) {
     this->titulo = titulo;
     this->poster = poster;
     this->sinopsis = sinopsis;
@@ -35,7 +35,7 @@ float Pelicula::getPromPuntaje() {
         return 0;   
 }
 
-float Pelicula::getDuracion() {
+DtHora Pelicula::getDuracion() {
     return this->duracion;
 }
 
@@ -86,7 +86,7 @@ Comentario * Pelicula::getComentario(int num){
 	return NULL;
 }
 
-Comentario * Pelicula::getComentario2(Comentario *c,int id){
+Comentario * Pelicula::getComentario2(Comentario *c,int id) {
 	if(!c->getRespuestas().empty()){
         vector<Comentario *>::iterator it;
 		vector<Comentario *> pibot = c->getRespuestas();
@@ -108,6 +108,7 @@ Comentario * Pelicula::getComentario2(Comentario *c,int id){
 	}
 	return NULL;
 }
+
 int Pelicula::getIdGen(){
 	return this->idgen;
 }
@@ -115,21 +116,27 @@ int Pelicula::getIdGen(){
 void Pelicula::setTitulo(string nombre) {
     this->titulo = nombre;
 }
+
 void Pelicula::setPoster(string poster) {
     this->poster = poster;
 }
+
 void Pelicula::setSinopsis(string sinopsis) {
     this->sinopsis = sinopsis;
 }
+
 void Pelicula::setPromPuntaje(float promPuntaje) {
     this->promPuntaje = promPuntaje;
 }
-void Pelicula::setDuracion(float duracion) {
+
+void Pelicula::setDuracion(DtHora duracion) {
     this->duracion = duracion;
 }
+
 void Pelicula::masUnoComentario() {
     this->cantidadComentarios++;
 }
+
 void Pelicula::generarId(){
 	this->idgen++;
 }
@@ -182,6 +189,28 @@ void Pelicula::destroy(){
     }
     
 }
-void Pelicula::agregarFuncion(Funcion *f){
+void Pelicula::agregarFuncion(Funcion * f) {
+
+    map<int, Funcion *>::iterator it = this->funciones.begin();
+
+    for (it = this->funciones.begin(); it!=this->funciones.end(); ++it) 
+    {
+        
+        if ((it->second->getFecha().toString() == f->getFecha().toString()) && (it->second->getSala()->getNumero() == f->getSala()->getNumero()))
+        {
+            if (it->second->getHora().toString() == f->getHora().toString())
+            {
+                // INVALID MISMA HORA
+            }else
+            {
+                DtHora horaFuncion = it->second->getHora();
+                DtHora duracion = it->second->getPelicula()->getDuracion();
+
+                //Falta
+            }
+        }
+	}
+
+
     this->funciones[f->getNumero()] = f;
 }
