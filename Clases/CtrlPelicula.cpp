@@ -399,7 +399,7 @@ void CtrlPelicula::confirmarEliminar() {
 }
 
 
-void CtrlPelicula::altaPelicula(string titulo, string sinopsis, string portada, float duracion) {
+void CtrlPelicula::altaPelicula(string titulo, string sinopsis, string portada, int duracion) {
     
     Pelicula *nuevaPeli = new Pelicula(titulo, portada, sinopsis, duracion);
     this->peliculas[titulo] = nuevaPeli;
@@ -407,8 +407,13 @@ void CtrlPelicula::altaPelicula(string titulo, string sinopsis, string portada, 
 }
 void CtrlPelicula::altaFuncion(DtFecha fecha,DtHora hora){
     this->numfuncion++;
-    Funcion *f = new Funcion(this->numfuncion,fecha,hora,this->sala, this->pelicula);
-    this->pelicula->agregarFuncion(f);
+    if (!this->sala->fechaOcupada(fecha, hora)){
+    	Funcion *f = new Funcion(this->numfuncion,fecha,hora,this->sala, this->pelicula);
+    	this->pelicula->agregarFuncion(f);
+        this->sala->agregarFuncion(f);
+    }else{
+	throw invalid_argument("Fecha y hora en sala no disponible");
+	}
  
 }
 

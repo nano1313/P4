@@ -2,7 +2,7 @@
 #include "../Definiciones/Puntaje.hpp"
 #include "../Definiciones/Funcion.hpp"
 
-Pelicula::Pelicula(string titulo, string poster, string sinopsis, float duracion) {
+Pelicula::Pelicula(string titulo, string poster, string sinopsis, int duracion) {
     this->titulo = titulo;
     this->poster = poster;
     this->sinopsis = sinopsis;
@@ -35,7 +35,7 @@ float Pelicula::getPromPuntaje() {
         return 0;   
 }
 
-float Pelicula::getDuracion() {
+int Pelicula::getDuracion() {
     return this->duracion;
 }
 
@@ -124,7 +124,7 @@ void Pelicula::setSinopsis(string sinopsis) {
 void Pelicula::setPromPuntaje(float promPuntaje) {
     this->promPuntaje = promPuntaje;
 }
-void Pelicula::setDuracion(float duracion) {
+void Pelicula::setDuracion(int duracion) {
     this->duracion = duracion;
 }
 void Pelicula::masUnoComentario() {

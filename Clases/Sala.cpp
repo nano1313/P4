@@ -63,3 +63,23 @@ void Sala::eliminarFuncion(Funcion *funcion){
 
 	this->funciones.erase(funcion->getNumero());
 }
+
+void Sala::agregarFuncion(Funcion *funcion){
+
+	this->funciones[funcion->getNumero()]=funcion;
+}
+
+bool Sala::fechaOcupada(DtFecha fecha, DtHora hora){
+
+	bool aux=false;
+	for(map<int, Funcion*>::iterator it=funciones.begin(); it!=funciones.end(); ++it){
+		bool condicion1=(it)->second->getFecha()==fecha;
+		bool condicion2=(it)->second->getHora().getHora()+((it)->second->getPelicula()->getDuracion()/60)>hora.getHora();
+		bool condicion3=(it)->second->getHora().getHora()+((it)->second->getPelicula()->getDuracion()/60)==hora.getHora() && ((it)->second->getPelicula()->getDuracion()%60) > hora.getMinutos();
+		
+		aux=aux || (condicion1 && (condicion2 || condicion3));  
+
+	}
+	return aux;
+	
+}

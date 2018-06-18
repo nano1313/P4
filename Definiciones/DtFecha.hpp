@@ -31,6 +31,7 @@ class DtFecha {
     //~DtFecha();
 
     bool operator<(const DtFecha&);
+	bool operator==(const DtFecha&);
 
     void operator=(const string&);
 };

@@ -71,7 +71,7 @@ class IPelicula {
 				//CU Ver Comentarios y puntajes de pelicula
 				virtual vector<DtPuntaje> darListaPuntajes()=0;
 
-        virtual void altaPelicula(string titulo, string sinopsis, string portada, float duracion)=0;
+        virtual void altaPelicula(string titulo, string sinopsis, string portada, int duracion)=0;
 
 };
 

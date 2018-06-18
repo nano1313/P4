@@ -86,3 +86,7 @@ void DtFecha::operator=(const string& s){
 bool DtFecha::operator<(const DtFecha& r){
 	return (anio<r.anio) || (anio==r.anio && mes<r.mes) || (anio==r.anio && mes==r.mes && dia<r.dia);
 }
+
+bool DtFecha::operator==(const DtFecha& r){
+	return (anio==r.anio && mes==r.mes && dia==r.dia);
+}
