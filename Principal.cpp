@@ -103,8 +103,8 @@ int main(){
         string menuCabezal="******************************************************************************\n*                                                                            *\n*                               MOVIEFING                                    *\n*                                                                            *\n******************************************************************************\nBienvenido. Elija la opción.\n";
 
         string menuUsuarioNoLog="1) Iniciar Sesion\n2) Ver Informacion de Pelicula\n3) Ver Comentarios y Puntaje de Pelicula\n4) Cargar Datos\n5) Ver/Modificar Reloj\n0) Salir\n";
-        string menuUsuarioLog="1) Crear Reserva\n2) Puntuar Pelicula\n3) Comentar Pelicula\n4) Ver Informacion de Pelicula\n5) Ver Comentarios y Puntaje de Pelicula\n6) Ver Reservas\n7) Cargar Datos\n8) Cerrar Sesion\n9) Ver/Modificar Reloj\n0) Cerrar Sesion y Salir\n";
-        string menuUsuarioAdmin="1) Crear Reserva\n2) Puntuar Pelicula\n3) Comentar Pelicula\n4) Ver Informacion de Pelicula\n5) Ver Comentarios y Puntaje de Pelicula\n6) Ver Reservas\n7) Alta Cine\n8) Alta Funcion\n9) Eliminar Pelicula\n10) Cargar Datos\n11) Cerrar Sesion\n12) Ver/Modificar Reloj\n0) Cerrar Sesion y Salir\n";
+        string menuUsuarioLog="1) Crear Reserva\n2) Puntuar Pelicula\n3) Comentar Pelicula\n4) Ver Informacion de Pelicula\n5) Ver Comentarios y Puntaje de Pelicula\n6) Ver Reservas\n7) Ver/Modificar Reloj\n8) Cerrar Sesion\n0) Cerrar Sesion y Salir\n";
+        string menuUsuarioAdmin="1) Crear Reserva\n2) Puntuar Pelicula\n3) Comentar Pelicula\n4) Ver Informacion de Pelicula\n5) Ver Comentarios y Puntaje de Pelicula\n6) Ver Reservas\n7) Alta Cine\n8) Alta Funcion\n9) Eliminar Pelicula\n10) Ver/Modificar Reloj\n11) Cerrar Sesion\n0) Cerrar Sesion y Salir\n";
         menuDesplegado=menuCabezal + menuUsuarioNoLog;
         string respStr;
         int resp;
@@ -181,13 +181,10 @@ void switchLog (int resp) {
             verReservas();
         break;
         case 7:
-            cargarDatos();
+            cambiarHoraReloj();
         break;
         case 8:
             cerrarSesion();
-        break;
-        case 9:
-            cambiarHoraReloj();
         break;
         case 0:
             cerrarSesion();
@@ -225,13 +222,10 @@ void switchAdmin (int resp) {
             eliminarPelicula();
         break;
         case 10:
-            cargarDatos();
+            cambiarHoraReloj();
         break;
         case 11:
             cerrarSesion();
-        break;
-        case 12:
-            cambiarHoraReloj();
         break;
         case 0:
             cerrarSesion();
