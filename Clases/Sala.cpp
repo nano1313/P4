@@ -69,15 +69,32 @@ void Sala::agregarFuncion(Funcion *funcion){
 	this->funciones[funcion->getNumero()]=funcion;
 }
 
-bool Sala::fechaOcupada(DtFecha fecha, DtHora hora){
+bool Sala::fechaOcupada(DtFecha fecha, DtHora hora, int duracion){
 
 	bool aux=false;
 	for(map<int, Funcion*>::iterator it=funciones.begin(); it!=funciones.end(); ++it){
 		bool condicion1=(it)->second->getFecha()==fecha;
-		bool condicion2=(it)->second->getHora().getHora()+((it)->second->getPelicula()->getDuracion()/60)>hora.getHora();
-		bool condicion3=(it)->second->getHora().getHora()+((it)->second->getPelicula()->getDuracion()/60)==hora.getHora() && ((it)->second->getPelicula()->getDuracion()%60) > hora.getMinutos();
+
+		bool condicion2=((it)->second->getHora().getHora()*60+(it)->second->getHora().getMinutos()+((it)->second->getPelicula()->getDuracion()))<(hora.getHora()*60+hora.getMinutos());
+/*
+		cout<< "C1"<<'\n';
+		cout<< (it)->second->getHora().getHora()*60+(it)->second->getHora().getMinutos()+((it)->second->getPelicula()->getDuracion())<<'\n';
+		cout<< (hora.getHora()*60+hora.getMinutos())<<'\n';
+*/
+		bool condicion3=(hora.getHora()*60+hora.getMinutos()+duracion)<((it)->second->getHora().getHora()*60+(it)->second->getHora().getMinutos());
+		/*
+		cout<< "C2"<<'\n';
+		cout<< (hora.getHora()*60+hora.getMinutos()+duracion)<<'\n';
+		cout<< ((it)->second->getHora().getHora()*60+(it)->second->getHora().getMinutos())<<'\n';
+*/
+		//(it)->second->getHora().getHora()+((it)->second->getPelicula()->getDuracion()/60)==hora.getHora() && (((it)->second->getPelicula()->getDuracion()%60)+(it)->second->getHora().getMinutos()) > hora.getMinutos();
 		
-		aux=aux || (condicion1 && (condicion2 || condicion3));  
+		//bool condicion4=(hora.getHora()+duracion/60)>(it)->second->getHora().getHora();
+		//bool condicion5=(hora.getHora()+duracion/60)==(it)->second->getHora().getHora() && (duracion%60)+hora.getMinutos() > (it)->second->getHora().getMinutos();
+
+		//= (it)->second->getHora().getHora()+((it)->second->getPelicula()->getDuracion()/60)>hora.getHora();
+		
+		aux=aux || ((condicion1 && !(condicion2 || condicion3)));  
 
 	}
 	return aux;

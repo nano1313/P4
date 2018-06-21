@@ -63,7 +63,7 @@ void Funcion::destroy(){
 		delete(r);	
 		
 	}
-	this->sala->eliminarFuncion(this->getNumero);
+	this->sala->eliminarFuncion(this->getNumero());
 }
 
 void Funcion::aniadirReserva(Reserva *r){

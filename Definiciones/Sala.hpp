@@ -36,7 +36,7 @@ class Sala {
 		void setCine(Cine *cine);
 		void setFunciones(map<int, Funcion*> funciones);
 		void eliminarFuncion(int id);
-		bool fechaOcupada(DtFecha fecha, DtHora hora);
+		bool fechaOcupada(DtFecha fecha, DtHora hora, int duracion);
 		void agregarFuncion(Funcion *funcion);
 
         Sala();
